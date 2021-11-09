@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install"
     },
     "engines": {
@@ -11,6 +12,7 @@
         "@commitlint/cli": "^14.1.0",
         "@commitlint/config-conventional": "^14.1.0",
         "@types/node": "^16.11.6",
-        "husky": "^7.0.4"
+        "husky": "^7.0.4",
+        "lerna": "^4.0.0"
     }
 }

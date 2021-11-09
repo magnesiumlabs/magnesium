@@ -1,0 +1,21 @@
+{
+    "version": "0.0.0",
+    "packages": [
+        "packages/*"
+    ],
+    "command": {
+        "publish": {
+            "message": "chore(release): publish",
+            "ignoreChanges": [
+                "**/*.md",
+                "**/.github/*"
+            ]
+        },
+        "version": {
+            "conventionalCommits": true,
+            "changelogPreset": {
+                "name": "conventionalcommits"
+            }
+        }
+    }
+}
