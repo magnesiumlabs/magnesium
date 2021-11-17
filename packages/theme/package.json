@@ -1,7 +1,7 @@
 {
     "name": "@magnesium/theme",
     "version": "0.0.0",
-    "description": "The Magnesium components for the web theming system.",
+    "description": "The Magnesium Design components for the web theming system.",
     "main": "index.scss",
     "dependencies": {
         "@sass-collective/property": "^4.5.1",
