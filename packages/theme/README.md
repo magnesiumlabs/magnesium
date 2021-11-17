@@ -1,6 +1,6 @@
-# `@magnesium/theme`
+# Theme
 
-How to use the theme color system.
+The Magnesium Design color system help you to create a color scheme who reflects your brand or style.
 
 ## Installing locally (Package Manager)
 
@@ -32,10 +32,10 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name      | Default            | Description                                               |
-|-----------|--------------------|-----------------------------------------------------------|
-| `$colors` | See `Default keys` | Sass map.                                                 |
-| `$prefix` | `mg`               | Custom properties prefix, will be insert juste after `--` |
+| Name      | Default            | Description                                                   |
+|-----------|--------------------|---------------------------------------------------------------|
+| `$colors` | See `Default keys` | Sass map.                                                     |
+| `$prefix` | `mg`               | Set custom properties and classes prefix, instead of default. |
 
 ### Default keys
 
@@ -75,14 +75,15 @@ The new key name `invalid` is now available like any other default theme keys.
 |---------------------|-------------------------|
 | `mg-theme--{style}` | Set the selected style. |
 
-> The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for 
+> The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for
 > more examples!
 
 ### Sass mixins
 
-| Mixin                                     | Description                                         |
-|-------------------------------------------|-----------------------------------------------------|
-| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`. |
+| Mixin                                     | Description                                           |
+|-------------------------------------------|-------------------------------------------------------|
+| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.   |
+| `core-styles`                            | Set default theme classes indexed on ``$colors` keys. |
 
 #### Custom properties with `theme.property()`
 
@@ -102,6 +103,26 @@ The following Sass...
 .foo {
     color: var(--mg-theme-primary, #6e5898);
 }
+```
+
+#### Default classes with `theme.core-styles`
+
+The following Sass...
+
+```scss
+@use "@magnesium/theme";
+
+@include theme.core-styles;
+```
+
+...will produce the following CSS.
+
+```css
+.mg-theme--primary {
+    color: var(--mg-theme-primary, #6e5898);
+}
+
+/* ...and all others theme keys. */
 ```
 
 ### Sass functions

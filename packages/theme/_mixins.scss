@@ -7,6 +7,24 @@
 @use "./variables";
 @use "./functions";
 
+@mixin core-styles {
+    @each $style in functions.get-keys() {
+        .#{variables.$prefix}-theme--#{$style} {
+            @include property(color, $style);
+        }
+    }
+}
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
 @mixin property($property, $value: null, $important: false) {
     @if map.has-key(variables.$property-values, $value) {
         $value: functions.set-var(theme-#{$value}, functions.color($value));
