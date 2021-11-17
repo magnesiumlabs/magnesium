@@ -2,9 +2,7 @@
 
 The Magnesium Design color system help you to create a color scheme who reflects your brand or style.
 
-## Installing locally (Package Manager)
-
-### NPM
+## Installing
 
 ```shell
 npm install @magnesium/theme
