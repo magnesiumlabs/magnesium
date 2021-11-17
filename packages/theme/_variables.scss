@@ -1,0 +1,20 @@
+// ============================================================================================= //
+//                                           VARIABLES                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+
+$prefix: "mg" !default;
+$colors: () !default;
+
+$property-values: map.merge((
+    primary: "",
+    secondary: "",
+    surface: #111,
+    "black": #000,
+    "white": #fff,
+    dark: "",
+    light: ""
+), $colors);
+
+$colors: $property-values;

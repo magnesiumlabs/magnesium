@@ -1,0 +1,16 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@sass-collective/property";
+@use "./variables";
+@use "./functions";
+
+@mixin property($property, $value: null, $important: false) {
+    @if map.has-key(variables.$property-values, $value) {
+        $value: functions.set-var(theme-#{$value}, functions.color($value));
+    }
+
+    @include property.declaration($property, $value, $important);
+}

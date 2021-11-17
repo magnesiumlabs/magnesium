@@ -1,0 +1,29 @@
+{
+    "name": "@magnesium/theme",
+    "version": "0.0.0",
+    "description": "The Magnesium components for the web theming system.",
+    "main": "index.scss",
+    "dependencies": {
+        "@sass-collective/property": "^4.5.1",
+        "sass": "^1.38.0"
+    },
+    "files": [
+        "*.scss"
+    ],
+    "keywords": [
+        "magnesium components",
+        "magnesium design",
+        "magnesium",
+        "theme",
+        "sass",
+        "css"
+    ],
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/theme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/magnesiumlabs/magnesium.git"
+    },
+    "bugs": {
+        "url": "https://github.com/magnesiumlabs/magnesium/issues"
+    }
+}

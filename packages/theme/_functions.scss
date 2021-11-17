@@ -1,0 +1,23 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@sass-collective/property/custom-properties";
+@use "./variables";
+
+///
+/// Set CSS Custom Property
+///
+@function set-var($name, $fallback) {
+    $style: custom-properties.create(--#{variables.$prefix}-#{$name}, $fallback);
+
+    @return custom-properties.create-var($style);
+}
+
+///
+/// Get theme color
+///
+@function color($color) {
+    @return map.get(variables.$colors, $color);
+}
