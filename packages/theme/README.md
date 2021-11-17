@@ -25,29 +25,29 @@ You can define the theme color variables before importing any Magnesium componen
 ```scss
 @use "@magnesium/theme" with (
     $colors: (
-        primary: #0971b3
+        primary: #6e5898
     )
 );
 ```
 
 ### Options
 
-| Name      | Default            | Description                                        |
-|-----------|--------------------|----------------------------------------------------|
-| `$colors` | See `Default keys` | Sass map.                                          |
-| `$prefix` | `mg`              | Custom properties prefix, will be juste after `--` |
+| Name      | Default            | Description                                               |
+|-----------|--------------------|-----------------------------------------------------------|
+| `$colors` | See `Default keys` | Sass map.                                                 |
+| `$prefix` | `mg`               | Custom properties prefix, will be insert juste after `--` |
 
 ### Default keys
 
-| Name        | Default |
-|-------------|---------|
-| `primary`   | `""`    |
-| `secondary` | `""`    |
-| `surface`   | `#111`  |
-| `black`     | `#000`  |
-| `white`     | `#fff`  |
-| `dark`      | `""`    |
-| `light`     | `""`    |
+| Name        | Default   |
+|-------------|-----------|
+| `primary`   | `#2674a2` |
+| `secondary` | `#3092cb` |
+| `surface`   | `#111`    |
+| `black`     | `#000`    |
+| `white`     | `#fff`    |
+| `dark`      | `""`      |
+| `light`     | `""`      |
 
 You can also define new variables for theme:
 
@@ -65,14 +65,14 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### CSS custom properties
 
-| CSS Custom property   | Description                  |
-|-----------------------|------------------------------|
+| CSS Custom property  | Description                  |
+|----------------------|------------------------------|
 | `--mg-theme-{style}` | Override the selected style. |
 
 ### CSS classes
 
-| CSS Class            | Description             |
-|----------------------|-------------------------|
+| CSS Class           | Description             |
+|---------------------|-------------------------|
 | `mg-theme--{style}` | Set the selected style. |
 
 > The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for 
@@ -100,7 +100,7 @@ The following Sass...
 
 ```css
 .foo {
-    color: var(--mg-theme-primary, #0971b3);
+    color: var(--mg-theme-primary, #6e5898);
 }
 ```
 
@@ -126,6 +126,6 @@ The following Sass...
 
 ```css
 .foo {
-    color: #0971b3;
+    color: #6e5898;
 }
 ```
