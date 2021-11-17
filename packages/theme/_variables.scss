@@ -18,3 +18,7 @@ $property-values: map.merge((
 ), $colors);
 
 $colors: $property-values;
+$colors-bg: (
+    primary,
+    secondary
+) !default;

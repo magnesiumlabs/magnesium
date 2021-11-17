@@ -13,6 +13,12 @@
             @include property(color, $style);
         }
     }
+
+    @each $style in variables.$colors-bg {
+        .#{variables.$prefix}-theme--#{$style}-bg {
+            @include property(background-color, $style);
+        }
+    }
 }
 
 // ------------------------------------------------------------------------- //

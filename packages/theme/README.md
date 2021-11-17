@@ -32,10 +32,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name      | Default            | Description                                                   |
-|-----------|--------------------|---------------------------------------------------------------|
-| `$colors` | See `Default keys` | Sass map.                                                     |
-| `$prefix` | `mg`               | Set custom properties and classes prefix, instead of default. |
+| Name         | Default                | Description                                                        |
+|--------------|------------------------|--------------------------------------------------------------------|
+| `$colors`    | See `Default keys`     | Sass map.                                                          |
+| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes. |
+| `$prefix`    | `mg`                   | Sets custom properties and classes prefix, instead of default.     |
 
 ### Default keys
 
@@ -65,25 +66,26 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### CSS custom properties
 
+> The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for
+> more examples!
+
 | CSS Custom property  | Description                  |
 |----------------------|------------------------------|
 | `--mg-theme-{style}` | Override the selected style. |
 
 ### CSS classes
 
-| CSS Class           | Description             |
-|---------------------|-------------------------|
-| `mg-theme--{style}` | Set the selected style. |
-
-> The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for
-> more examples!
+| CSS Class              | Description                                      |
+|------------------------|--------------------------------------------------|
+| `mg-theme--{style}`    | Sets the color to the selected style.            |
+| `mg-theme--{style}-bg` | Sets the background color to the selected style. |
 
 ### Sass mixins
 
 | Mixin                                     | Description                                           |
 |-------------------------------------------|-------------------------------------------------------|
 | `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.   |
-| `core-styles`                            | Set default theme classes indexed on ``$colors` keys. |
+| `core-styles`                             | Set default theme classes indexed on ``$colors` keys. |
 
 #### Custom properties with `theme.property()`
 
@@ -120,6 +122,10 @@ The following Sass...
 ```css
 .mg-theme--primary {
     color: var(--mg-theme-primary, #6e5898);
+}
+
+.mg-theme--primary-bg {
+    background-color: var(--mg-theme-primary, #6e5898);
 }
 
 /* ...and all others theme keys. */
