@@ -6,6 +6,10 @@
 
 $prefix: "mg" !default;
 $colors: () !default;
+$colors-bg: (
+    primary,
+    secondary
+) !default;
 
 $property-values: map.merge((
     primary: #2674a2,
@@ -18,7 +22,3 @@ $property-values: map.merge((
 ), $colors);
 
 $colors: $property-values;
-$colors-bg: (
-    primary,
-    secondary
-) !default;
