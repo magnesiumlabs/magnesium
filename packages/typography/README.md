@@ -1,6 +1,6 @@
 # Typography
 
-The Magnesium Design typography system.
+The Magnesium Design typography system help you to define your typographic styles.
 
 ## Installing
 
@@ -82,9 +82,10 @@ The new key name `body-2` is now available like any other default typography key
 
 ### Sass mixins
 
-| Mixin                | Description                         |
-|----------------------|-------------------------------------|
-| `typography($style)` | Set the selected style on selector. |
+| Mixin                | Description                                          |
+|----------------------|------------------------------------------------------|
+| `typography($style)` | Set the selected style on selector.                  |
+| `core-styles`        | Set default theme classes indexed on `$styles` keys. |
 
 #### Custom properties with `typography.typography()`
 
@@ -104,8 +105,8 @@ The following Sass...
 .foo {
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     line-height: 1.25rem;
-    font-size: 100px;
-    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 700));
+    font-size: 1rem;
+    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 400));
     letter-spacing: normal;
     text-decoration: inherit;
     text-transform: inherit;
@@ -130,8 +131,8 @@ The following Sass...
 .mg-typography--body {
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     line-height: 1.25rem;
-    font-size: 100px;
-    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 700));
+    font-size: 1rem;
+    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 400));
     letter-spacing: normal;
     text-decoration: inherit;
     text-transform: inherit;

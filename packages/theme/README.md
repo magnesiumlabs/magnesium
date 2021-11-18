@@ -32,11 +32,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 | Name         | Default                | Description                                                        |
 |--------------|------------------------|--------------------------------------------------------------------|
-| `$colors`    | See `Default keys`     | Sass map.                                                          |
+| `$colors`    | See `Colors` section.  | Sass map.                                                          |
 | `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes. |
 | `$prefix`    | `mg`                   | Sets custom properties and classes prefix, instead of default.     |
 
-### Default keys
+### Colors
 
 | Name        | Default   |
 |-------------|-----------|
@@ -48,7 +48,7 @@ You can define the theme color variables before importing any Magnesium componen
 | `dark`      | `""`      |
 | `light`     | `""`      |
 
-You can also define new variables for theme:
+You can also define new colors for theme:
 
 ```scss
 @use "@magnesium/theme" with (
@@ -64,8 +64,7 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### CSS custom properties
 
-> The variable `{style}` correspond with the list of `$colors` [keys](#default-keys), do not hesitate to check it for
-> more examples!
+> The variable `{style}` correspond with the list of [colors](#colors), do not hesitate to check it for more examples!
 
 | CSS Custom property  | Description                  |
 |----------------------|------------------------------|
@@ -80,10 +79,10 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### Sass mixins
 
-| Mixin                                     | Description                                           |
-|-------------------------------------------|-------------------------------------------------------|
-| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.   |
-| `core-styles`                             | Set default theme classes indexed on ``$colors` keys. |
+| Mixin                                     | Description                                          |
+|-------------------------------------------|------------------------------------------------------|
+| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.  |
+| `core-styles`                             | Set default theme classes indexed on `$colors` keys. |
 
 #### Custom properties with `theme.property()`
 
