@@ -45,20 +45,72 @@
     }
 
     @each $key, $value in map.get(variables.$styles, $style) {
+        @if ($key == "line-height") {
+            $style-line-height: theme.set-var(typography-#{$style}-line-height, $value);
+
+            @include property.declaration($key, $style-line-height);
+        }
+
         @if ($key == "font-family") {
             $style-family: theme.set-var(typography-#{$style}-font-family, theme.set-var(typography-font-family, $value));
 
             @include property.declaration($key, $style-family);
         }
 
+        @if ($key == "font-size") {
+            $style-size: theme.set-var(typography-#{$style}-font-size, $value);
+
+            @include property.declaration($key, $style-size);
+        }
+
         @if ($key == "font-weight") {
-            $style-weight: theme.set-var(typography-#{$style}-font-weight, theme.set-var(typography-font-weight, $value));
+            $style-weight: theme.set-var(typography-#{$style}-font-weight, $value);
 
             @include property.declaration($key, $style-weight);
         }
 
-        @if ($key != "font-family" and $key != "font-weight") {
+        @if ($key == "letter-spacing") {
+            $style-letter-spacing: theme.set-var(typography-#{$style}-letter-spacing, $value);
+
+            @include property.declaration($key, $style-letter-spacing);
+        }
+
+        @if ($key == "text-decoration") {
+            $style-text-decoration: theme.set-var(typography-#{$style}-text-decoration, $value);
+
+            @include property.declaration($key, $style-text-decoration);
+        }
+
+        @if ($key == "text-transform") {
+            $style-text-transform: theme.set-var(typography-#{$style}-text-transform, $value);
+
+            @include property.declaration($key, $style-text-transform);
+        }
+
+        @if ($key != "line-height" and $key != "font-family" and $key != "font-size" and $key != "font-weight" and $key != "letter-spacing" and $key != "text-decoration" and $key != "text-transform") {
             @include property.declaration($key, $value);
         }
     }
+}
+
+@function get-line-height($style) {
+    @return map.get(variables.$styles, $style, line-height);
+}
+
+@function get-font-family($style) {
+    @debug variables.$styles;
+
+    @return map.get(variables.$styles, $style, font-family);
+}
+
+@function get-font-size($style) {
+    @return map.get(variables.$styles, $style, font-size);
+}
+
+@function get-font-weight($style) {
+    @return map.get(variables.$styles, $style, font-weight);
+}
+
+@function get-letter-spacing($style) {
+    @return map.get(variables.$styles, $style, letter-spacing);
 }
