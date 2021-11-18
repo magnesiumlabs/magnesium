@@ -2,6 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "sass:list";
 @use "sass:map";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
@@ -40,54 +41,32 @@
 }
 
 @mixin typography($style) {
+    $with-custom-properties: (
+        "line-height",
+        "font-family",
+        "font-size",
+        "font-weight",
+        "letter-spacing",
+        "text-decoration",
+        "text-transform"
+    );
+
     @if not map.has-key(variables.$styles, $style) {
         @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
     @each $key, $value in map.get(variables.$styles, $style) {
-        @if ($key == "line-height") {
-            $style-line-height: theme.set-var(typography-#{$style}-line-height, $value);
+        @if list.index($with-custom-properties, $key) != null {
+            $style-prop: "";
 
-            @include property.declaration($key, $style-line-height);
-        }
+            @if ($key == "font-family") {
+                $style-prop: theme.set-var(typography-#{$style}-#{$key}, theme.set-var(typography-#{$key}, $value));
+            } @else {
+                $style-prop: theme.set-var(typography-#{$style}-#{$key}, $value);
+            }
 
-        @if ($key == "font-family") {
-            $style-family: theme.set-var(typography-#{$style}-font-family, theme.set-var(typography-font-family, $value));
-
-            @include property.declaration($key, $style-family);
-        }
-
-        @if ($key == "font-size") {
-            $style-size: theme.set-var(typography-#{$style}-font-size, $value);
-
-            @include property.declaration($key, $style-size);
-        }
-
-        @if ($key == "font-weight") {
-            $style-weight: theme.set-var(typography-#{$style}-font-weight, $value);
-
-            @include property.declaration($key, $style-weight);
-        }
-
-        @if ($key == "letter-spacing") {
-            $style-letter-spacing: theme.set-var(typography-#{$style}-letter-spacing, $value);
-
-            @include property.declaration($key, $style-letter-spacing);
-        }
-
-        @if ($key == "text-decoration") {
-            $style-text-decoration: theme.set-var(typography-#{$style}-text-decoration, $value);
-
-            @include property.declaration($key, $style-text-decoration);
-        }
-
-        @if ($key == "text-transform") {
-            $style-text-transform: theme.set-var(typography-#{$style}-text-transform, $value);
-
-            @include property.declaration($key, $style-text-transform);
-        }
-
-        @if ($key != "line-height" and $key != "font-family" and $key != "font-size" and $key != "font-weight" and $key != "letter-spacing" and $key != "text-decoration" and $key != "text-transform") {
+            @include property.declaration($key, $style-prop);
+        } @else {
             @include property.declaration($key, $value);
         }
     }
