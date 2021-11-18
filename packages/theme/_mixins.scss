@@ -3,19 +3,20 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "@sass-collective/css";
 @use "@sass-collective/property";
 @use "./variables";
 @use "./functions";
 
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        .#{variables.$prefix}-theme--#{$style} {
+        @include set-class-name(theme--#{$style}) {
             @include property(color, $style);
         }
     }
 
     @each $style in variables.$colors-bg {
-        .#{variables.$prefix}-theme--#{$style}-bg {
+        @include set-class-name(theme--#{$style}-bg) {
             @include property(background-color, $style);
         }
     }
@@ -30,6 +31,14 @@
 // ------------------------------------------------------------------------- //
 // Public mixins
 // ------------------------------------------------------------------------- //
+
+@mixin set-class-name($name) {
+    .#{$name} {
+        @include css.selector(variables.$prefix, "-") {
+            @content;
+        }
+    }
+}
 
 @mixin property($property, $value: null, $important: false) {
     @if map.has-key(variables.$property-values, $value) {

@@ -83,6 +83,7 @@ The new key name `invalid` is now available like any other default theme keys.
 |-------------------------------------------|------------------------------------------------------|
 | `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.  |
 | `core-styles`                             | Set default theme classes indexed on `$colors` keys. |
+| `set-class-name($name)`                   | Set class name with prefix.                          |
 
 #### Custom properties with `theme.property()`
 

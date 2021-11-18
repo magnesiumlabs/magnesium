@@ -8,12 +8,12 @@
 @use "./variables";
 
 @mixin core-styles {
-    .#{theme.$prefix}-typography {
+    @include theme.set-class-name(typography) {
         @include base;
     }
 
     @each $style in map.keys(variables.$styles) {
-        .#{theme.$prefix}-typography--#{$style} {
+        @include theme.set-class-name(typography--#{$style}) {
             @include typography($style);
         }
     }
