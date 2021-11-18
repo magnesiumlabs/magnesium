@@ -1,0 +1,64 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@magnesium/theme";
+@use "@sass-collective/property";
+@use "./variables";
+
+@mixin core-styles {
+    .#{theme.$prefix}-typography {
+        @include base;
+    }
+
+    @each $style in map.keys(variables.$styles) {
+        .#{theme.$prefix}-typography--#{$style} {
+            @include typography($style);
+        }
+    }
+}
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
+@mixin base {
+    @each $key, $value in variables.$base {
+        @if ($key == "font-family") {
+            @include property.declaration($key, theme.set-var(typography-font-family, $value));
+        } @else {
+            @include property.declaration($key, $value);
+        }
+    }
+}
+
+@mixin typography($style) {
+    @if not map.has-key(variables.$styles, $style) {
+        @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
+    }
+
+    @each $key, $value in map.get(variables.$styles, $style) {
+        @if ($key == "font-family") {
+            $style-family: theme.set-var(typography-#{$style}-font-family, theme.set-var(typography-font-family, $value));
+
+            @include property.declaration($key, $style-family);
+        }
+
+        @if ($key == "font-weight") {
+            $style-weight: theme.set-var(typography-#{$style}-font-weight, theme.set-var(typography-font-weight, $value));
+
+            @include property.declaration($key, $style-weight);
+        }
+
+        @if ($key != "font-family" and $key != "font-weight") {
+            @include property.declaration($key, $value);
+        }
+    }
+}

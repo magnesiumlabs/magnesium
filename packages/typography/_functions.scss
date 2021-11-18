@@ -1,0 +1,36 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+
+///
+/// Set styles
+///
+@function set-styles($base-styles, $scale-styles, $override-styles) {
+
+    // Add new keys
+    @each $style, $style-props in $override-styles {
+        @if not map.has-key($scale-styles, $style) {
+            $scale-styles: map.merge($scale-styles, (#{$style}: $style-props));
+        }
+    }
+
+    // Scale styles
+    @each $style, $style-props in $scale-styles {
+        $style-props: map.merge($base-styles, $style-props);
+
+        // Get if override exist
+        $style-override: map.get($override-styles, $style);
+
+        // Merge override styles
+        @if $style-override {
+            $style-props: map.merge($style-props, $style-override);
+        }
+
+        // Merge original styles with override
+        $scale-styles: map.merge($scale-styles, (#{$style}: $style-props));
+    }
+
+    @return $scale-styles;
+}

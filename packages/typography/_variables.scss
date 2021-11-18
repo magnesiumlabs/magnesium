@@ -1,0 +1,78 @@
+// ============================================================================================= //
+//                                           VARIABLES                                           //
+// ============================================================================================= //
+
+@use "sass:string";
+@use "@sass-collective/em";
+@use "@sass-collective/rem";
+@use "./functions";
+
+$font-family: string.unquote("'Open Sans', sans-serif") !default;
+$styles: () !default;
+
+$base: (
+    font-family: $font-family,
+    -moz-osx-font-smoothing: grayscale,
+    -webkit-font-smoothing: antialiased
+);
+
+$styles-values: functions.set-styles($base, (
+    body: (
+        line-height: rem.convert(20),
+        font-size: rem.convert(16),
+        font-weight: 400,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-1: (
+        line-height: rem.convert(48),
+        font-size: rem.convert(40),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-2: (
+        line-height: rem.convert(38),
+        font-size: rem.convert(32),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-3: (
+        line-height: rem.convert(34),
+        font-size: rem.convert(28),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-4: (
+        line-height: rem.convert(28),
+        font-size: rem.convert(24),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-5: (
+        line-height: rem.convert(24),
+        font-size: rem.convert(20),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    ),
+    headline-6: (
+        line-height: rem.convert(20),
+        font-size: rem.convert(16),
+        font-weight: 700,
+        letter-spacing: normal,
+        text-decoration: inherit,
+        text-transform: inherit
+    )
+), $styles);
+
+$styles: $styles-values;

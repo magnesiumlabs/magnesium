@@ -1,0 +1,32 @@
+{
+    "name": "@magnesium/typography",
+    "version": "0.0.0",
+    "description": "The Magnesium Design components for the web typography system.",
+    "main": "index.scss",
+    "dependencies": {
+        "@magnesium/theme": "^0.0.0",
+        "@sass-collective/em": "^2.5.1",
+        "@sass-collective/rem": "^2.5.1",
+        "@sass-collective/property": "^4.5.1",
+        "sass": "^1.38.0"
+    },
+    "files": [
+        "*.scss"
+    ],
+    "keywords": [
+        "magnesium components",
+        "magnesium design",
+        "magnesium",
+        "typography",
+        "sass",
+        "css"
+    ],
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/typography",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/magnesiumlabs/magnesium.git"
+    },
+    "bugs": {
+        "url": "https://github.com/magnesiumlabs/magnesium/issues"
+    }
+}
