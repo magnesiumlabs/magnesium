@@ -2,6 +2,6 @@
 //                                          TYPOGRAPHY                                           //
 // ============================================================================================= //
 
-@forward "./variables";
+@forward "./variables" hide $base, $styles-values;
 @forward "./mixins";
-@forward "./functions";
+@forward "./functions" hide set-styles;

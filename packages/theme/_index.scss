@@ -2,6 +2,6 @@
 //                                             THEME                                             //
 // ============================================================================================= //
 
-@forward "./variables";
+@forward "./variables" hide $property-values;
 @forward "./mixins";
 @forward "./functions";
