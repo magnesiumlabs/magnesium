@@ -7,14 +7,14 @@
 @use "./variables";
 
 ///
-/// Get theme keys
+/// Get theme keys.
 ///
 @function get-keys() {
     @return map.keys(variables.$property-values);
 }
 
 ///
-/// Set CSS Custom Property
+/// Set CSS Custom Property.
 ///
 @function set-var($name, $fallback) {
     $style: custom-properties.create(--#{variables.$prefix}-#{$name}, $fallback);
@@ -30,7 +30,7 @@
 }
 
 ///
-/// Get theme color
+/// Get theme color.
 ///
 @function color($color) {
     @return map.get(variables.$property-values, $color);

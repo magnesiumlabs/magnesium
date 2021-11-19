@@ -8,6 +8,9 @@
 @use "@sass-collective/property";
 @use "./variables";
 
+///
+/// Core styles.
+///
 @mixin core-styles {
     @include theme.set-class-name(typography) {
         @include base;
@@ -30,6 +33,9 @@
 // Public mixins
 // ------------------------------------------------------------------------- //
 
+///
+/// Base.
+///
 @mixin base {
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
@@ -40,6 +46,9 @@
     }
 }
 
+///
+/// Typography.
+///
 @mixin typography($style) {
     $with-custom-properties: (
         "line-height",
