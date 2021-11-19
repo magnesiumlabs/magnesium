@@ -131,9 +131,10 @@ The following Sass...
 
 ### Sass functions
 
-| Function        | Description          |
-|-----------------|----------------------|
-| `color($color)` | Set CSS theme color. |
+| Function           | Description                                   |
+|--------------------|-----------------------------------------------|
+| `is-color($color)` | Check if color exist.                         |
+| `color($color)`    | Get CSS theme color, without custom property. |
 
 #### Color with `theme.color()`
 

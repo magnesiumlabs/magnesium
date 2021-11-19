@@ -41,7 +41,7 @@
 }
 
 @mixin property($property, $value: null, $important: false) {
-    @if map.has-key(variables.$property-values, $value) {
+    @if functions.is-color($value) {
         $value: functions.set-var(theme-#{$value}, functions.color($value));
     }
 

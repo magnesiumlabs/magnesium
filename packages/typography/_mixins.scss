@@ -56,6 +56,10 @@
     }
 
     @each $key, $value in map.get(variables.$styles, $style) {
+        @if theme.is-color($value) {
+            $value: theme.set-var(theme-#{$value}, theme.color($value));
+        }
+
         @if list.index($with-custom-properties, $key) != null {
             $style-prop: "";
 

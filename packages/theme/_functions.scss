@@ -23,8 +23,15 @@
 }
 
 ///
+/// Check is color key exist.
+///
+@function is-color($color) {
+    @return map.has-key(variables.$property-values, $color);
+}
+
+///
 /// Get theme color
 ///
 @function color($color) {
-    @return map.get(variables.$colors, $color);
+    @return map.get(variables.$property-values, $color);
 }
