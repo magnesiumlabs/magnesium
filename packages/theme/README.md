@@ -30,11 +30,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name         | Default                | Description                                                        |
-|--------------|------------------------|--------------------------------------------------------------------|
-| `$colors`    | See `Colors` section.  | Sass map.                                                          |
-| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes. |
-| `$prefix`    | `mg`                   | Sets custom properties and classes prefix, instead of default.     |
+| Name         | Default                | Description                                                                                        |
+|--------------|------------------------|----------------------------------------------------------------------------------------------------|
+| `$colors`    | See `Colors` section.  | Sass map.                                                                                          |
+| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes.                                 |
+| `$prefix`    | `mg`                   | Sets prefix to custom properties and classes. You can disable it with `$prefix: ""` configuration. |
 
 ### Colors
 

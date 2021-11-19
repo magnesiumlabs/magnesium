@@ -17,7 +17,13 @@
 /// Set CSS Custom Property.
 ///
 @function set-var($name, $fallback) {
-    $style: custom-properties.create(--#{variables.$prefix}-#{$name}, $fallback);
+    $style: "";
+
+    @if variables.$prefix != "" {
+        $style: custom-properties.create(--#{variables.$prefix}-#{$name}, $fallback);
+    } @else {
+        $style: custom-properties.create(--#{$name}, $fallback);
+    }
 
     @return custom-properties.create-var($style);
 }

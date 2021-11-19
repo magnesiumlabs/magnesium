@@ -40,7 +40,11 @@
 ///
 @mixin set-class-name($name) {
     .#{$name} {
-        @include css.selector(variables.$prefix, "-") {
+        @if variables.$prefix != "" {
+            @include css.selector(variables.$prefix, "-") {
+                @content;
+            }
+        } @else {
             @content;
         }
     }
