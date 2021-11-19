@@ -5,8 +5,8 @@
     "main": "index.scss",
     "dependencies": {
         "@sass-collective/css": "^2.0.0",
-        "@sass-collective/property": "^4.5.1",
-        "sass": "^1.38.0"
+        "@sass-collective/property": "^4.6.0",
+        "sass": "^1.43.4"
     },
     "files": [
         "*.scss"

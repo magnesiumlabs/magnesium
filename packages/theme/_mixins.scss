@@ -3,9 +3,12 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@sass-collective/css";
-@use "@sass-collective/property";
 @use "./variables";
+@use "@sass-collective/css";
+@use "@sass-collective/property/custom-properties" with (
+    $prefix: variables.$prefix
+);
+@use "@sass-collective/property";
 @use "./functions";
 
 ///
