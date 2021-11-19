@@ -6,4 +6,11 @@
 
 ## Introduction
 
-The Magnesium Design Sass framework.
+The Magnesium Design Sass framework for web artisans.
+
+## Packages
+
+| Package                                                                                               | Version                                                                                                                | Dependencies                                                                                                                                                                              |
+|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`@magnesium/theme`](https://github.com/magnesiumlabs/magnesium/blob/master/packages/theme)           | [![Version](https://flat.badgen.net/npm/v/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)           | [![Dependencies Status](https://david-dm.org/magnesiumlabs/magnesium/status.svg?style=flat-square&path=packages/theme)](https://david-dm.org/magnesiumlabs/magnesium?path=packages/theme) |
+| [`@magnesium/typography`](https://github.com/magnesiumlabs/magnesium/blob/master/packages/typography) | [![Version](https://flat.badgen.net/npm/v/@magnesium/typography)](https://www.npmjs.com/package/@magnesium/typography) | [![Dependencies Status](https://david-dm.org/magnesiumlabs/magnesium/status.svg?style=flat-square&path=packages/css)](https://david-dm.org/magnesiumlabs/magnesium?path=packages/css)     |
