@@ -10,6 +10,14 @@ npm install @magnesium/typography
 
 ## Usage
 
+### Styles
+
+```scss
+@use "@magnesium/typography/styles";
+```
+
+> This will generate the default typography classes, see [CSS Classes](#css-classes) section for more.
+
 ### Typography styles
 
 You can define the typography style variables before importing any Magnesium components:
@@ -79,7 +87,6 @@ The new key name `body-2` is now available like any other default typography key
 | Mixin                | Description                                          |
 |----------------------|------------------------------------------------------|
 | `typography($style)` | Set the selected style on selector.                  |
-| `core-styles`        | Set default theme classes indexed on `$styles` keys. |
 
 #### Using rule with `typography.typography()`
 
@@ -107,32 +114,4 @@ The following Sass...
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
-```
-
-#### Default classes with `typography.core-styles`
-
-The following Sass...
-
-```scss
-@use "@magnesium/typography";
-
-@include typography.core-styles;
-```
-
-...will produce the following CSS.
-
-```css
-.mg-typography--body {
-    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
-    line-height: var(--mg-typography-body-line-height, 1.25rem);
-    font-size: var(--mg-typography-body-font-size, 1rem);
-    font-weight: var(--mg-typography-body-font-weight, 400);
-    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
-    text-decoration: var(--mg-typography-body-text-decoration, inherit);
-    text-transform: var(--mg-typography-body-text-transform, inherit);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ...and all others typography keys. */
 ```
