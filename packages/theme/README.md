@@ -10,6 +10,14 @@ npm install @magnesium/theme
 
 ## Usage
 
+### Styles
+
+```scss
+@use "@magnesium/theme/styles";
+```
+
+> This will generate the default theme classes, see [CSS Classes](#css-classes) section for more.
+
 ### Color scheme
 
 You can define the theme color variables before importing any Magnesium components:
@@ -76,7 +84,6 @@ The new key name `invalid` is now available like any other default theme keys.
 | Mixin                                     | Description                                          |
 |-------------------------------------------|------------------------------------------------------|
 | `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.  |
-| `core-styles`                             | Set default theme classes indexed on `$colors` keys. |
 | `set-class-name($name)`                   | Set class name with prefix.                          |
 
 #### Custom properties with `theme.property()`
@@ -97,30 +104,6 @@ The following Sass...
 .foo {
     color: var(--mg-theme-primary, #6e5898);
 }
-```
-
-#### Default classes with `theme.core-styles`
-
-The following Sass...
-
-```scss
-@use "@magnesium/theme";
-
-@include theme.core-styles;
-```
-
-...will produce the following CSS.
-
-```css
-.mg-theme--primary {
-    color: var(--mg-theme-primary, #6e5898);
-}
-
-.mg-theme--primary-bg {
-    background-color: var(--mg-theme-primary, #6e5898);
-}
-
-/* ...and all others theme keys. */
 ```
 
 ### Sass functions
