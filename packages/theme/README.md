@@ -10,12 +10,6 @@ npm install @magnesium/theme
 
 ## Usage
 
-### Styles
-
-```scss
-@use "@magnesium/theme";
-```
-
 ### Color scheme
 
 You can define the theme color variables before importing any Magnesium components:
@@ -30,11 +24,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name         | Default                | Description                                                                                        |
-|--------------|------------------------|----------------------------------------------------------------------------------------------------|
-| `$colors`    | See `Colors` section.  | Sass map.                                                                                          |
-| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes.                                 |
-| `$prefix`    | `mg`                   | Sets prefix to custom properties and classes. You can disable it with `$prefix: ""` configuration. |
+| Name         | Default                | Description                                                                                             |
+|--------------|------------------------|---------------------------------------------------------------------------------------------------------|
+| `$colors`    | See `Colors` section.  | Sass map.                                                                                               |
+| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes.                                      |
+| `$prefix`    | `mg`                   | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration. |
 
 ### Colors
 
@@ -60,7 +54,7 @@ You can also define new colors for theme:
 
 The new key name `invalid` is now available like any other default theme keys.
 
-## Style customization
+## Customization
 
 ### CSS custom properties
 

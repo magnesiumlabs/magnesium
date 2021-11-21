@@ -10,13 +10,7 @@ npm install @magnesium/typography
 
 ## Usage
 
-### Styles
-
-```scss
-@use "@magnesium/typography";
-```
-
-### Styles
+### Typography styles
 
 You can define the typography style variables before importing any Magnesium components:
 
@@ -63,7 +57,7 @@ You can also define new styles for typography:
 
 The new key name `body-2` is now available like any other default typography keys.
 
-## Style customization
+## Customization
 
 ### CSS custom properties
 
@@ -87,7 +81,7 @@ The new key name `body-2` is now available like any other default typography key
 | `typography($style)` | Set the selected style on selector.                  |
 | `core-styles`        | Set default theme classes indexed on `$styles` keys. |
 
-#### Custom properties with `typography.typography()`
+#### Using rule with `typography.typography()`
 
 The following Sass...
 
@@ -104,12 +98,12 @@ The following Sass...
 ```css
 .foo {
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
-    line-height: 1.25rem;
-    font-size: 1rem;
-    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 400));
-    letter-spacing: normal;
-    text-decoration: inherit;
-    text-transform: inherit;
+    line-height: var(--mg-typography-body-line-height, 1.25rem);
+    font-size: var(--mg-typography-body-font-size, 1rem);
+    font-weight: var(--mg-typography-body-font-weight, 400);
+    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+    text-decoration: var(--mg-typography-body-text-decoration, inherit);
+    text-transform: var(--mg-typography-body-text-transform, inherit);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
@@ -130,12 +124,12 @@ The following Sass...
 ```css
 .mg-typography--body {
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
-    line-height: 1.25rem;
-    font-size: 1rem;
-    font-weight: var(--mg-typography-body-font-weight, var(--mg-typography-font-weight, 400));
-    letter-spacing: normal;
-    text-decoration: inherit;
-    text-transform: inherit;
+    line-height: var(--mg-typography-body-line-height, 1.25rem);
+    font-size: var(--mg-typography-body-font-size, 1rem);
+    font-weight: var(--mg-typography-body-font-weight, 400);
+    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+    text-decoration: var(--mg-typography-body-text-decoration, inherit);
+    text-transform: var(--mg-typography-body-text-transform, inherit);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
