@@ -81,10 +81,10 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### Sass mixins
 
-| Mixin                                     | Description                                          |
-|-------------------------------------------|------------------------------------------------------|
-| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`.  |
-| `set-class-name($name)`                   | Set class name with prefix.                          |
+| Mixin                                     | Description                                         |
+|-------------------------------------------|-----------------------------------------------------|
+| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`. |
+| `selector($name)`                         | Set class name with configured prefix.              |
 
 #### Custom properties with `theme.property()`
 
@@ -110,8 +110,8 @@ The following Sass...
 
 | Function           | Description                                   |
 |--------------------|-----------------------------------------------|
-| `is-color($color)` | Check if color exist.                         |
 | `color($color)`    | Get CSS theme color, without custom property. |
+| `is-color($color)` | Check if color exist.                         |
 
 #### Color with `theme.color()`
 

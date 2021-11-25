@@ -12,12 +12,12 @@
 /// Core styles.
 ///
 @mixin core-styles {
-    @include theme.set-class-name(typography) {
+    @include theme.selector(typography) {
         @include base;
     }
 
     @each $style in map.keys(variables.$styles) {
-        @include theme.set-class-name(typography--#{$style}) {
+        @include theme.selector(typography--#{$style}) {
             @include typography($style);
         }
     }
