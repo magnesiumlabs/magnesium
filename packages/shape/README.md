@@ -35,17 +35,18 @@ You can define the shape variables before importing any Magnesium components:
 
 > The variable `{style}` correspond with the list of your own [configuration](#Configuration).
 
-| CSS Custom property  | Description                  |
-|----------------------|------------------------------|
-| `--mg-shape-{style}` | Override the selected style. |
+| CSS Custom property  | Description                                          |
+|----------------------|------------------------------------------------------|
+| `--mg-shape-{style}` | Override the selected style.                         |
+| `--mg-shape-radius`  | Global custom property. Override the selected style. |
 
 ### Sass mixins
 
 | Mixin             | Description                                       |
 |-------------------|---------------------------------------------------|
-| `radius($radius)` | Set shape radius from `$shapes``or custom values. |
+| `radius($radius)` | Set shape radius from `$shapes` or custom values. |
 
-#### Custom properties with `theme.radius()`
+#### Custom properties with `shape.radius()`
 
 The following Sass...
 

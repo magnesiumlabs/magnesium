@@ -21,7 +21,7 @@
     $value: "";
 
     @if map.has-key(variables.$shape-values, $radius) {
-        $value: theme.set-var(shape-#{$radius}, map.get(variables.$shape-values, $radius));
+        $value: theme.set-var(shape-#{$radius}, theme.set-var(shape-radius, map.get(variables.$shape-values, $radius)));
     } @else {
         $value: theme.set-var(shape-radius, $radius);
     }
