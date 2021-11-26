@@ -1,0 +1,30 @@
+{
+    "name": "@magnesium/shape",
+    "version": "0.0.0",
+    "description": "The Magnesium Design components for the web shape system.",
+    "main": "index.scss",
+    "dependencies": {
+        "@magnesium/theme": "^0.0.0",
+        "@sass-collective/property": "^4.6.0",
+        "sass": "^1.43.5"
+    },
+    "files": [
+        "*.scss"
+    ],
+    "keywords": [
+        "magnesium components",
+        "magnesium design",
+        "magnesium",
+        "shape",
+        "sass",
+        "css"
+    ],
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/shape",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/magnesiumlabs/magnesium.git"
+    },
+    "bugs": {
+        "url": "https://github.com/magnesiumlabs/magnesium/issues"
+    }
+}

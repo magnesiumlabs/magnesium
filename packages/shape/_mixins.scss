@@ -1,0 +1,30 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@magnesium/theme";
+@use "@sass-collective/property";
+@use "./variables";
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
+@mixin radius($radius) {
+    $value: "";
+
+    @if map.has-key(variables.$shape-values, $radius) {
+        $value: theme.set-var(shape-#{$radius}, map.get(variables.$shape-values, $radius));
+    } @else {
+        $value: theme.set-var(shape-radius, $radius);
+    }
+
+    @include property.declaration(border-radius, $value);
+}
