@@ -21,7 +21,7 @@
 }
 
 ///
-/// Check is color key exist.
+/// Check if color key exist.
 ///
 @function is-color($color) {
     @return map.has-key(variables.$property-values, $color);
