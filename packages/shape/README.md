@@ -66,7 +66,7 @@ The following Sass...
 
 ```css
 .foo {
-    border-radius: var(--mg-shape-medium, 25px);
+    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 25px));
 }
 
 .bar {
