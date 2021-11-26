@@ -94,6 +94,7 @@ The following Sass...
 @use "@magnesium/theme";
 
 .foo {
+    @include theme.property(primary);
     @include theme.property(color, primary);
 }
 ```
@@ -102,6 +103,7 @@ The following Sass...
 
 ```css
 .foo {
+    --mg-theme-primary: #6e5898;
     color: var(--mg-theme-primary, #6e5898);
 }
 ```

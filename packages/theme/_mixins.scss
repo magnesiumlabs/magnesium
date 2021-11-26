@@ -57,7 +57,9 @@
 /// Set theme property.
 ///
 @mixin property($property, $value: null, $important: false) {
-    @if functions.is-color($value) {
+    @if functions.is-color($property) {
+        $property: custom-properties.create(theme-#{$property}, functions.color($property));
+    } @else if functions.is-color($value) {
         $value: functions.set-var(theme-#{$value}, functions.color($value));
     }
 
