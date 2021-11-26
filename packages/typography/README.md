@@ -18,7 +18,7 @@ npm install @magnesium/typography
 
 > This will generate the default typography classes, see [CSS Classes](#css-classes) section for more.
 
-### Typography styles
+### Configuration
 
 You can define the typography style variables before importing any Magnesium components:
 

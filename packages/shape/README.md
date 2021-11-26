@@ -41,9 +41,9 @@ You can define the shape variables before importing any Magnesium components:
 
 ### Sass mixins
 
-| Mixin             | Description       |
-|-------------------|-------------------|
-| `radius($radius)` | Set shape radius. |
+| Mixin             | Description                                       |
+|-------------------|---------------------------------------------------|
+| `radius($radius)` | Set shape radius from `$shapes``or custom values. |
 
 #### Custom properties with `theme.radius()`
 
@@ -55,6 +55,10 @@ The following Sass...
 .foo {
     @include shape.radius(medium);
 }
+
+.bar {
+    @include shape.radius(5px);
+}
 ```
 
 ...will produce the following CSS.
@@ -62,5 +66,9 @@ The following Sass...
 ```css
 .foo {
     border-radius: var(--mg-shape-medium, 25px);
+}
+
+.bar {
+    border-radius: var(--mg-shape-radius, 5px);
 }
 ```

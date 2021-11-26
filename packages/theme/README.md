@@ -18,7 +18,7 @@ npm install @magnesium/theme
 
 > This will generate the default theme classes, see [CSS Classes](#css-classes) section for more.
 
-### Color scheme
+### Configuration
 
 You can define the theme color variables before importing any Magnesium components:
 
