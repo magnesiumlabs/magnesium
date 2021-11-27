@@ -84,9 +84,10 @@ The new key name `body-2` is now available like any other default typography key
 
 ### Sass mixins
 
-| Mixin                | Description                                          |
-|----------------------|------------------------------------------------------|
-| `typography($style)` | Set the selected style on selector.                  |
+| Mixin                | Description                         |
+|----------------------|-------------------------------------|
+| `typography($style)` | Set the selected style on selector. |
+| `ellipsis`           | Set the ellipsis rules.             |
 
 #### Using rule with `typography.typography()`
 
@@ -113,5 +114,27 @@ The following Sass...
     text-transform: var(--mg-typography-body-text-transform, inherit);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+}
+```
+
+#### Ellipsis text with `typography.ellipsis()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/typography";
+
+.foo {
+    @include typography.ellipsis;
+}
+```
+
+...will produce the following CSS.
+
+```css
+.foo {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 ```

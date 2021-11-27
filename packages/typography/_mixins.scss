@@ -85,6 +85,12 @@
     }
 }
 
+@mixin ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 @function get-line-height($style) {
     @return map.get(variables.$styles, $style, line-height);
 }
