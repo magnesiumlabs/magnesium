@@ -36,20 +36,20 @@ You can define the typography style variables before importing any Magnesium com
 
 | Name           | Default                   | Description                  |
 |----------------|---------------------------|------------------------------|
-| `$styles`      | See `Scales` section.     | Sass map.                    |
 | `$font-family` | `'Open Sans', sans-serif` | Sets the font family styles. |
+| `$styles`      | See `Scales` section.     | Sass map.                    |
 
 ### Scales
 
 | Name         | Description                       |
 |--------------|-----------------------------------|
-| `body`       | Set the "body" properties.        |
-| `headline-1` | Set the "headline 1" properties.  |
-| `headline-2` | Set the "headline 2" properties.  |
-| `headline-3` | Set the "headline 3" properties.  |
-| `headline-4` | Set the "headline 4" properties.  |
-| `headline-5` | Set the "headline 5" properties.  |
-| `headline-6` | Set the "headline 6" properties.  |
+| `body`       | Sets the "body" properties.       |
+| `headline-1` | Sets the "headline 1" properties. |
+| `headline-2` | Sets the "headline 2" properties. |
+| `headline-3` | Sets the "headline 3" properties. |
+| `headline-4` | Sets the "headline 4" properties. |
+| `headline-5` | Sets the "headline 5" properties. |
+| `headline-6` | Sets the "headline 6" properties. |
 
 You can also define new styles for typography:
 
@@ -63,7 +63,7 @@ You can also define new styles for typography:
 );
 ```
 
-The new key name `body-2` is now available like any other default typography keys.
+The new key named `body-2` is now available with any other default typography keys.
 
 ## Customization
 
@@ -86,8 +86,8 @@ The new key name `body-2` is now available like any other default typography key
 
 | Mixin                                   | Description                                                           |
 |-----------------------------------------|-----------------------------------------------------------------------|
-| `typography($style, $exclude-props...)` | Set the selected style on selector, with excluded properties options. |
-| `ellipsis`                              | Set the ellipsis rules.                                               |
+| `typography($style, $exclude-props...)` | Sets the selected style on selector, with excluded properties option. |
+| `ellipsis`                              | Sets the ellipsis rules.                                              |
 
 #### Typography rule with `typography.typography()`
 

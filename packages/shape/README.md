@@ -42,9 +42,9 @@ You can define the shape variables before importing any Magnesium components:
 
 ### Sass mixins
 
-| Mixin             | Description                                       |
-|-------------------|---------------------------------------------------|
-| `radius($radius)` | Set shape radius from `$shapes` or custom values. |
+| Mixin             | Description                                        |
+|-------------------|----------------------------------------------------|
+| `radius($radius)` | Sets shape radius from `$shapes` or custom values. |
 
 #### Custom properties with `shape.radius()`
 

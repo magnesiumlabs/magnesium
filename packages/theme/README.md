@@ -60,7 +60,7 @@ You can also define new colors for theme:
 );
 ```
 
-The new key name `invalid` is now available like any other default theme keys.
+The new key named `invalid` is now available with any other default theme keys.
 
 ## Customization
 
@@ -81,10 +81,10 @@ The new key name `invalid` is now available like any other default theme keys.
 
 ### Sass mixins
 
-| Mixin                                     | Description                                         |
-|-------------------------------------------|-----------------------------------------------------|
-| `property($property, $style, $important)` | Set CSS theme property, with optional `!important`. |
-| `selector($name)`                         | Set class name with configured prefix.              |
+| Mixin                                     | Description                                          |
+|-------------------------------------------|------------------------------------------------------|
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. |
+| `selector($name)`                         | Sets class name with configured prefix.              |
 
 #### Custom properties with `theme.property()`
 
