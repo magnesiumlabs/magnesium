@@ -47,7 +47,7 @@ The following Sass...
 }
 ```
 
-#### Disabled touch screen with `core.disabled-pointer-events()`
+#### Disabled pointer events with `core.disabled-pointer-events()`
 
 The following Sass...
 

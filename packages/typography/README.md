@@ -89,7 +89,7 @@ The new key name `body-2` is now available like any other default typography key
 | `typography($style, $exclude-props...)` | Set the selected style on selector, with excluded properties options. |
 | `ellipsis`                              | Set the ellipsis rules.                                               |
 
-#### Using rule with `typography.typography()`
+#### Typography rule with `typography.typography()`
 
 The following Sass...
 
@@ -131,7 +131,7 @@ The following Sass...
 }
 ```
 
-#### Ellipsis text with `typography.ellipsis()`
+#### Ellipsis with `typography.ellipsis()`
 
 The following Sass...
 
