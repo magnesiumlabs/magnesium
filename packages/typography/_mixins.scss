@@ -49,7 +49,7 @@
 ///
 /// Typography.
 ///
-@mixin typography($style) {
+@mixin typography($style, $exclude-props...) {
     $with-custom-properties: (
         "line-height",
         "font-family",
@@ -64,7 +64,7 @@
         @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
-    @each $key, $value in map.get(variables.$styles, $style) {
+    @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {
             $value: theme.set-var(theme-#{$value}, theme.color($value));
         }

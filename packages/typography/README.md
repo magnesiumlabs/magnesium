@@ -84,10 +84,10 @@ The new key name `body-2` is now available like any other default typography key
 
 ### Sass mixins
 
-| Mixin                | Description                         |
-|----------------------|-------------------------------------|
-| `typography($style)` | Set the selected style on selector. |
-| `ellipsis`           | Set the ellipsis rules.             |
+| Mixin                                   | Description                                                           |
+|-----------------------------------------|-----------------------------------------------------------------------|
+| `typography($style, $exclude-props...)` | Set the selected style on selector, with excluded properties options. |
+| `ellipsis`                              | Set the ellipsis rules.                                               |
 
 #### Using rule with `typography.typography()`
 
@@ -99,15 +99,29 @@ The following Sass...
 .foo {
     @include typography.typography(body);
 }
+
+.bar {
+    @include typography.typography(body, font-size, line-height);
+}
 ```
 
 ...will produce the following CSS.
 
 ```css
 .foo {
-    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     line-height: var(--mg-typography-body-line-height, 1.25rem);
+    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     font-size: var(--mg-typography-body-font-size, 1rem);
+    font-weight: var(--mg-typography-body-font-weight, 400);
+    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+    text-decoration: var(--mg-typography-body-text-decoration, inherit);
+    text-transform: var(--mg-typography-body-text-transform, inherit);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bar {
+    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     font-weight: var(--mg-typography-body-font-weight, 400);
     letter-spacing: var(--mg-typography-body-letter-spacing, normal);
     text-decoration: var(--mg-typography-body-text-decoration, inherit);
