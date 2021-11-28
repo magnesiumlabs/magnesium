@@ -14,6 +14,8 @@ npm install @magnesium/core
 @use "@magnesium/core";
 ```
 
+## API
+
 ### Sass mixins
 
 | Mixin                     | Description                  |
