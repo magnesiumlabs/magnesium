@@ -82,6 +82,8 @@ The new key named `body-2` is now available with any other default typography ke
 |--------------------------|--------------------------------------------|
 | `mg-typography--{style}` | Sets the typography to the selected style. |
 
+## API
+
 ### Sass mixins
 
 | Mixin                                   | Description                                                           |

@@ -79,6 +79,8 @@ The new key named `invalid` is now available with any other default theme keys.
 | `mg-theme--{style}`    | Sets the color to the selected style.            |
 | `mg-theme--{style}-bg` | Sets the background color to the selected style. |
 
+## API
+
 ### Sass mixins
 
 | Mixin                                     | Description                                          |
