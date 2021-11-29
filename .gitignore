@@ -10,4 +10,3 @@
 /.idea
 /node_modules
 /packages/*/node_modules
-/packages/*/CHANGELOG.md
