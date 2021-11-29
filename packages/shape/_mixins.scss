@@ -5,6 +5,7 @@
 @use "sass:map";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
+@use "@sass-collective/property/custom-properties";
 @use "./variables";
 
 // ------------------------------------------------------------------------- //
@@ -27,4 +28,8 @@
     }
 
     @include property.declaration(border-radius, $value);
+}
+
+@mixin property($value) {
+    @include property.declaration(custom-properties.create(shape-radius, $value));
 }
