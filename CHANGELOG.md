@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.3](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-11-30)
+
+
+### Bug Fixes
+
+* **theme:** allow access to custom value on `property` mixin ([9fb4456](https://github.com/magnesiumlabs/magnesium/commit/9fb44562fdc03f47f239f5e6b6035f80b6a49d91))
+
+
+
+
 ## [1.0.0-alpha.2](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-11-30)
 
 
