@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.2](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-11-30)
+
+
+### Features
+
+* **core:** add `create-var` function ([e2d48f4](https://github.com/magnesiumlabs/magnesium/commit/e2d48f4054520e906b5b707f00fd034dafb322c6))
+
+
+
 ## [1.0.0-alpha.1](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-11-29)
 
 
