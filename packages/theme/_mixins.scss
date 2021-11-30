@@ -15,6 +15,10 @@
 ///
 /// Core styles.
 ///
+/// @see {mixin} selector
+/// @see {mixin} property
+/// @see {function} functions.get-keys
+///
 @mixin core-styles {
     @each $style in functions.get-keys() {
         @include selector(theme--#{$style}) {
@@ -41,6 +45,8 @@
 
 ///
 /// Set theme selector name.
+///
+/// @see {mixin} css.selector
 ///
 @mixin selector($name) {
     .#{$name} {
@@ -85,7 +91,11 @@
 ///     color: var(--mg-theme-primary, #2674a2);
 ///   }
 ///
-/// @see {mixin} theme.property
+/// @see {mixin} property.declaration
+/// @see {function} core.create-var
+/// @see {function} functions.create-custom-map
+/// @see {function} functions.color
+/// @see {function} functions.is-color
 ///
 @mixin property($property, $value: null, $important: false) {
     @if functions.is-color($property) {

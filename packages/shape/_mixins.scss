@@ -18,6 +18,10 @@
 // Public mixins
 // ------------------------------------------------------------------------- //
 
+///
+/// @see {mixin} property.declaration
+/// @see {function} core.create-var
+///
 @mixin radius($radius) {
     $value: "";
 
@@ -30,6 +34,10 @@
     @include property.declaration(border-radius, $value);
 }
 
+///
+/// @see {mixin} property.declaration
+/// @see {function} custom-properties.create
+///
 @mixin property($value) {
     @include property.declaration(custom-properties.create(shape-radius, $value));
 }

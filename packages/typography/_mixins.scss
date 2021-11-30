@@ -12,6 +12,9 @@
 ///
 /// Core styles.
 ///
+/// @see {mixin} selector
+/// @see {mixin} typography
+///
 @mixin core-styles {
     @include theme.selector(typography) {
         @include base;
@@ -37,6 +40,9 @@
 ///
 /// Base.
 ///
+/// @see {mixin} property.declaration
+/// @see {function} core.create-var
+///
 @mixin base {
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
@@ -49,6 +55,11 @@
 
 ///
 /// Typography.
+///
+/// @see {mixin} property.declaration
+/// @see {function} core.create-var
+/// @see {function} theme.color
+/// @see {function} theme.is-color
 ///
 @mixin typography($style, $exclude-props...) {
     $with-custom-properties: (
@@ -86,6 +97,9 @@
     }
 }
 
+///
+/// Ellipsis.
+///
 @mixin ellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;

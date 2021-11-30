@@ -16,6 +16,8 @@
 ///
 /// Create CSS Custom Property map.
 ///
+/// @see {function} custom-properties.create
+///
 @function create-custom-map($name, $fallback) {
     @return custom-properties.create(theme-#{$name}, $fallback);
 }
