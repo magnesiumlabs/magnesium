@@ -83,10 +83,10 @@ The new key named `invalid` is now available with any other default theme keys.
 
 ### Sass mixins
 
-| Mixin                                     | Description                                                                                   |
-|-------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value must be a Magnesium theme key. |
-| `selector($name)`                         | Sets class name with configured prefix.                                                       |
+| Mixin                                     | Description                                                                                                          |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or a Magnesium theme key. |
+| `selector($name)`                         | Sets class name with configured prefix.                                                                              |
 
 #### Custom properties with `theme.property()`
 
