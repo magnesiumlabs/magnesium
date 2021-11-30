@@ -83,10 +83,10 @@ The new key named `invalid` is now available with any other default theme keys.
 
 ### Sass mixins
 
-| Mixin                                     | Description                                          |
-|-------------------------------------------|------------------------------------------------------|
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. |
-| `selector($name)`                         | Sets class name with configured prefix.              |
+| Mixin                                     | Description                                                                                   |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value must be a Magnesium theme key. |
+| `selector($name)`                         | Sets class name with configured prefix.                                                       |
 
 #### Custom properties with `theme.property()`
 
@@ -96,16 +96,18 @@ The following Sass...
 @use "@magnesium/theme";
 
 .foo {
-    @include theme.property(primary);
-    @include theme.property(color, primary);
+    @include theme.property(primary); // Will generate a CSS Custom Property with default color.
+    @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
+    @include theme.property(color, primary); // Will generate a ``var()` CSS Function with default color.
 }
 ```
 
-...will produce the following CSS.
+...will produce the following CSS...
 
 ```css
 .foo {
     --mg-theme-primary: #6e5898;
+    --mg-theme-primary: darkcyan;
     color: var(--mg-theme-primary, #6e5898);
 }
 ```
@@ -115,7 +117,7 @@ The following Sass...
 | Function           | Description                                   |
 |--------------------|-----------------------------------------------|
 | `color($color)`    | Get CSS theme color, without custom property. |
-| `is-color($color)` | Check if color exist.                         |
+| `is-color($color)` | Check if color key exist.                     |
 
 #### Color with `theme.color()`
 

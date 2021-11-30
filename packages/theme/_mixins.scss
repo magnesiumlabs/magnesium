@@ -55,13 +55,49 @@
 }
 
 ///
-/// Set theme property.
+/// @example - scss
+///   .foo {
+///     @include theme.property(primary);
+///   }
+///
+/// @example - css
+///   foo {
+///     --mg-theme-primary: #2674a2;
+///   }
+///
+/// @example - scss
+///   .foo {
+///     @include theme.property(primary, darkcyan);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-theme-primary: darkcyan;
+///   }
+///
+/// @example - scss
+///   .foo {
+///     @include theme.property(color, primary);
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--mg-theme-primary, #2674a2);
+///   }
+///
+/// @see {mixin} theme.property
 ///
 @mixin property($property, $value: null, $important: false) {
     @if functions.is-color($property) {
-        $property: custom-properties.create(theme-#{$property}, functions.color($property));
+        @if $value {
+            $property: functions.create-custom-map($property, $value);
+        } @else {
+            $property: functions.create-custom-map($property, functions.color($property));
+        }
     } @else if functions.is-color($value) {
         $value: core.create-var(theme-#{$value}, functions.color($value));
+    } @else {
+        @error "Invalid color key. Choose one of #{map.keys(variables.$property-values)}.";
     }
 
     @include property.declaration($property, $value, $important);

@@ -14,6 +14,13 @@
 }
 
 ///
+/// Create CSS Custom Property map.
+///
+@function create-custom-map($name, $fallback) {
+    @return custom-properties.create(theme-#{$name}, $fallback);
+}
+
+///
 /// Check if color key exist.
 ///
 @function is-color($color) {
