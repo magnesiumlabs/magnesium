@@ -7,6 +7,7 @@
 @use "@sass-collective/property/custom-properties" with (
     $prefix: variables.$prefix
 );
+@use "@magnesium/core";
 @use "@sass-collective/css";
 @use "@sass-collective/property";
 @use "./functions";
@@ -60,7 +61,7 @@
     @if functions.is-color($property) {
         $property: custom-properties.create(theme-#{$property}, functions.color($property));
     } @else if functions.is-color($value) {
-        $value: functions.set-var(theme-#{$value}, functions.color($value));
+        $value: core.create-var(theme-#{$value}, functions.color($value));
     }
 
     @include property.declaration($property, $value, $important);

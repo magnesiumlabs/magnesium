@@ -4,6 +4,7 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
 @use "./variables";
@@ -39,7 +40,7 @@
 @mixin base {
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
-            @include property.declaration($key, theme.set-var(typography-font-family, $value));
+            @include property.declaration($key, core.create-var(typography-font-family, $value));
         } @else {
             @include property.declaration($key, $value);
         }
@@ -66,16 +67,16 @@
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {
-            $value: theme.set-var(theme-#{$value}, theme.color($value));
+            $value: core.create-var(theme-#{$value}, theme.color($value));
         }
 
         @if list.index($with-custom-properties, $key) != null {
             $style-prop: "";
 
             @if ($key == "font-family") {
-                $style-prop: theme.set-var(typography-#{$style}-#{$key}, theme.set-var(typography-#{$key}, $value));
+                $style-prop: core.create-var(typography-#{$style}-#{$key}, core.create-var(typography-#{$key}, $value));
             } @else {
-                $style-prop: theme.set-var(typography-#{$style}-#{$key}, $value);
+                $style-prop: core.create-var(typography-#{$style}-#{$key}, $value);
             }
 
             @include property.declaration($key, $style-prop);

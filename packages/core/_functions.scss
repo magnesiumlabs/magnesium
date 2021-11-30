@@ -1,0 +1,14 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+ @use "@sass-collective/property/custom-properties";
+
+///
+/// Create `var()` CSS function.
+///
+/// @see {function} core.create-var
+///
+@function create-var($name, $fallback) {
+    @return custom-properties.create-var(custom-properties.create(#{$name}, $fallback));
+}

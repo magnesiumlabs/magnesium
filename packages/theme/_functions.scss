@@ -14,13 +14,6 @@
 }
 
 ///
-/// Set CSS Custom Property.
-///
-@function set-var($name, $fallback) {
-    @return custom-properties.create-var(custom-properties.create(#{$name}, $fallback));
-}
-
-///
 /// Check if color key exist.
 ///
 @function is-color($color) {

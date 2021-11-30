@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@magnesium/theme";
+@use "@magnesium/core";
 @use "@sass-collective/property";
 @use "@sass-collective/property/custom-properties";
 @use "./variables";
@@ -22,9 +22,9 @@
     $value: "";
 
     @if map.has-key(variables.$shape-values, $radius) {
-        $value: theme.set-var(shape-#{$radius}, theme.set-var(shape-radius, map.get(variables.$shape-values, $radius)));
+        $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, map.get(variables.$shape-values, $radius)));
     } @else {
-        $value: theme.set-var(shape-radius, $radius);
+        $value: core.create-var(shape-radius, $radius);
     }
 
     @include property.declaration(border-radius, $value);

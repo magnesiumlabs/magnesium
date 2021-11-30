@@ -67,3 +67,30 @@ The following Sass...
     pointer-events: none;
 }
 ```
+
+### Sass functions
+
+| Function                       | Description                   |
+|--------------------------------|-------------------------------|
+| `create-var($name, $fallback)` | Sets new CSS Custom Property. |
+
+#### Color with `core.create-var()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/core";
+
+.foo {
+    color: core.create-var(foo, darkcyan);
+}
+```
+
+...will produce the following CSS.
+
+```css
+.foo {
+    color: var(--mg-foo, darkcyan);
+}
+```
+

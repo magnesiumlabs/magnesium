@@ -5,7 +5,6 @@
     "main": "index.scss",
     "dependencies": {
         "@magnesium/core": "^1.0.0-alpha.0",
-        "@magnesium/theme": "^1.0.0-alpha.1",
         "@sass-collective/property": "^4.6.0",
         "sass": "^1.43.5"
     },
