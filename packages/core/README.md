@@ -37,7 +37,7 @@ The following Sass...
 }
 ```
 
-...will produce the following CSS.
+...will produce the following CSS...
 
 ```css
 @media (pointer: fine) {
@@ -59,7 +59,7 @@ The following Sass...
 }
 ```
 
-...will produce the following CSS.
+...will produce the following CSS...
 
 ```css
 .foo {
@@ -86,7 +86,7 @@ The following Sass...
 }
 ```
 
-...will produce the following CSS.
+...will produce the following CSS...
 
 ```css
 .foo {
