@@ -77,7 +77,7 @@ The following Sass...
 }
 ```
 
-#### Custom properties with `shape.radius()`
+#### Custom properties with `shape.property()`
 
 The following Sass...
 
@@ -93,6 +93,6 @@ The following Sass...
 
 ```css
 .foo {
-    --mg-shape-medium: 12px;
+    --mg-shape-radius: 12px;
 }
 ```
