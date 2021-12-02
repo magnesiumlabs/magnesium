@@ -47,8 +47,6 @@ You can define the theme color variables before importing any Magnesium componen
 | `surface`   | `#111`    |
 | `black`     | `#000`    |
 | `white`     | `#fff`    |
-| `dark`      | `""`      |
-| `light`     | `""`      |
 
 You can also define new colors for theme:
 

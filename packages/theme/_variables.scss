@@ -16,9 +16,7 @@ $property-values: map.merge((
     secondary: #3092cb,
     surface: #111,
     "black": #000,
-    "white": #fff,
-    dark: "",
-    light: ""
+    "white": #fff
 ), $colors);
 
 $colors: $property-values;
