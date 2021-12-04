@@ -134,7 +134,7 @@
 ///   }
 ///
 /// @example - css
-///   @media (prefers-color-scheme: light) {
+///   @media (prefers-color-scheme: dark) {
 ///     :root {
 ///       color: #2674a2;
 ///     }
@@ -142,7 +142,7 @@
 ///
 @mixin prefers-color-scheme($scheme: light) {
     @if not map.has-key(variables.$prefers-color-scheme, $scheme) {
-        @error "Invalid scheme, #{$scheme} doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
+        @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
     }
 
     @if $scheme == "dark" {
