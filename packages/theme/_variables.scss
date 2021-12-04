@@ -19,4 +19,9 @@ $property-values: map.merge((
     "white": #fff
 ), $colors);
 
+$prefers-color-scheme: (
+    light: 'light',
+    dark: 'dark'
+);
+
 $colors: $property-values;

@@ -83,8 +83,9 @@ The new key named `invalid` is now available with any other default theme keys.
 
 | Mixin                                     | Description                                                                                                          |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or a Magnesium theme key. |
 | `selector($name)`                         | Sets class name with configured prefix.                                                                              |
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or a Magnesium theme key. |
+| `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                       |
 
 #### Custom properties with `theme.property()`
 
@@ -107,6 +108,42 @@ The following Sass...
     --mg-theme-primary: #6e5898;
     --mg-theme-primary: darkcyan;
     color: var(--mg-theme-primary, #6e5898);
+}
+```
+
+#### Custom properties with `theme.prefers-color-scheme()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/theme";
+
+@include theme.prefers-color-scheme {
+    :root {
+        color: #2674a2;
+    }
+}
+
+@include theme.prefers-color-scheme(dark) {
+    :root {
+        color: #2674a2;
+    }
+}
+```
+
+...will produce the following CSS...
+
+```css
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #2674a2;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: #2674a2;
+    }
 }
 ```
 
