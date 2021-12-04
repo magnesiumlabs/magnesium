@@ -32,11 +32,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name         | Default                | Description                                                                                             |
-|--------------|------------------------|---------------------------------------------------------------------------------------------------------|
-| `$colors`    | See `Colors` section.  | Sass map.                                                                                               |
-| `$colors-bg` | `(primary, secondary)` | Sets a list of keys that will generate `background-color` classes.                                      |
-| `$prefix`    | `mg`                   | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration. |
+| Name         | Default                        | Description                                                                                                      |
+|--------------|--------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `$colors`    | See [Colors](#colors) section. | Sass map.                                                                                                        |
+| `$colors-bg` | `(primary, secondary)`         | Sets a list of keys that will generate `background-color` classes. <br/>See [CSS Classes](#css-classes) section. |
+| `$prefix`    | `mg`                           | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration.          |
 
 ### Colors
 
@@ -64,7 +64,7 @@ The new key named `invalid` is now available with any other default theme keys.
 
 ### CSS custom properties
 
-> The variable `{style}` correspond with the list of [colors](#colors), do not hesitate to check it for more examples!
+> The variable `{style}` correspond with the list of [Colors](#colors), do not hesitate to check it for more examples!
 
 | CSS Custom property  | Description                  |
 |----------------------|------------------------------|
@@ -111,7 +111,7 @@ The following Sass...
 }
 ```
 
-#### Custom properties with `theme.prefers-color-scheme()`
+#### System color mode with `theme.prefers-color-scheme()`
 
 The following Sass...
 
