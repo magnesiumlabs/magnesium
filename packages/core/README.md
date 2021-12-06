@@ -32,7 +32,7 @@ The following Sass...
 
 .foo {
     @include core.disabled-touch-screen {
-        color: darkcyan;
+        color: #2674a2;
     }
 }
 ```
@@ -42,7 +42,7 @@ The following Sass...
 ```css
 @media (pointer: fine) {
     .foo {
-        color: darkcyan;
+        color: #2674a2;
     }
 }
 ```
@@ -82,7 +82,7 @@ The following Sass...
 @use "@magnesium/core";
 
 .foo {
-    color: core.create-var(foo, darkcyan);
+    color: core.create-var(foo, #2674a2);
 }
 ```
 
@@ -90,7 +90,7 @@ The following Sass...
 
 ```css
 .foo {
-    color: var(--mg-foo, darkcyan);
+    color: var(--mg-foo, #2674a2);
 }
 ```
 

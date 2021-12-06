@@ -34,9 +34,9 @@ You can define the shape variables before importing any Magnesium components:
 
 ### Options
 
-| Name      | Default | Description |
-|-----------|---------|-------------|
-| `$shapes` | `()`    | Sass map.   |
+| Name      | Default | Description                  |
+|-----------|---------|------------------------------|
+| `$shapes` | `()`    | Sets a list of theme shapes. |
 
 ## Customization
 
