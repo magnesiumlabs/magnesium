@@ -6,8 +6,8 @@
 @use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
-@use "@sass-collective/property/custom-properties";
 @use "./variables";
+@use "./functions";
 
 ///
 /// Core styles.
@@ -17,7 +17,7 @@
 @mixin core-styles {
     @each $key, $value in variables.$shapes {
         @include theme.selector(shape--#{$key}) {
-            border-radius: #{$value};
+            @include property(border-radius, $value);
         }
     }
 }
@@ -50,8 +50,21 @@
 
 ///
 /// @see {mixin} property.declaration
-/// @see {function} custom-properties.create
+/// @see {function} core.create-var
+/// @see {function} functions.create-custom-map
+/// @see {function} functions.shape
+/// @see {function} functions.is-shape
 ///
-@mixin property($value) {
-    @include property.declaration(custom-properties.create(shape-radius, $value));
+@mixin property($property, $value: null, $important: false) {
+    @if functions.is-shape($property) {
+        @if $value {
+            $property: functions.create-custom-map($property, $value);
+        } @else {
+            $property: functions.create-custom-map($property, functions.shape($property));
+        }
+    } @else if functions.is-shape($value) {
+        $value: core.create-var(shape-#{$value}, functions.shape($value));
+    }
+
+    @include property.declaration($property, $value, $important);
 }

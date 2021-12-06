@@ -63,11 +63,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Sass mixins
 
-| Mixin                                     | Description                                                                                                          |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| `selector($name)`                         | Sets class name with configured prefix.                                                                              |
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or a Magnesium theme key. |
-| `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                       |
+| Mixin                                     | Description                                                                                                                |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `selector($name)`                         | Sets class name with configured prefix.                                                                                    |
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
+| `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                             |
 
 #### Custom properties with `theme.property()`
 

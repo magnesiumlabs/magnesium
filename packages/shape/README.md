@@ -59,10 +59,10 @@ You can define the shape variables before importing any Magnesium components:
 
 ### Sass mixins
 
-| Mixin              | Description                                        |
-|--------------------|----------------------------------------------------|
-| `radius($radius)`  | Sets shape radius from `$shapes` or custom values. |
-| `property($value)` | Sets custom property shape radius custom value.    |
+| Mixin                                     | Description                                                                                                                |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `radius($radius)`                         | Sets shape radius from `$shapes` or custom values.                                                                         |
+| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
 
 #### Radius with `shape.radius()`
 
@@ -100,7 +100,9 @@ The following Sass...
 @use "@magnesium/shape";
 
 .foo {
-    @include shape.property(12px);
+    @include shape.property(medium); // Will generate a CSS Custom Property with default shape.
+    @include shape.property(medium, 16px); // Will generate a CSS Custom Property with new shape.
+    @include shape.property(border-radius, medium); // Will generate a `var()` CSS Function with default shape.
 }
 ```
 
@@ -108,6 +110,35 @@ The following Sass...
 
 ```css
 .foo {
-    --mg-shape-radius: 12px;
+    --mg-shape-medium: 12px;
+    --mg-shape-medium: 16px;
+    border-radius: var(--mg-shape-medium, 12px);
+}
+```
+
+### Sass functions
+
+| Function           | Description                                   |
+|--------------------|-----------------------------------------------|
+| `shape($shape)`    | Get CSS theme shape, without custom property. |
+| `is-shape($shape)` | Check if shape key exist.                     |
+
+#### Shape with `shape.shape()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/shape";
+
+.foo {
+    border-radius: shape.shape(medium);
+}
+```
+
+...will produce the following CSS...
+
+```css
+.foo {
+    border-radius: 12px;
 }
 ```

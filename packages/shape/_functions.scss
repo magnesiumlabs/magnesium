@@ -1,0 +1,30 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@sass-collective/property/custom-properties";
+@use "./variables";
+
+///
+/// Create CSS Custom Property map.
+///
+/// @see {function} custom-properties.create
+///
+@function create-custom-map($name, $fallback) {
+    @return custom-properties.create(shape-#{$name}, $fallback);
+}
+
+///
+/// Check if shape key exist.
+///
+@function is-shape($shape) {
+    @return map.has-key(variables.$shapes, $shape);
+}
+
+///
+/// Get theme shape.
+///
+@function shape($shape) {
+    @return map.get(variables.$shapes, $shape);
+}
