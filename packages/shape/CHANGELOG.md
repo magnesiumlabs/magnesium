@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.5](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-12-06)
+
+
+### Features
+
+* **shape:** add core styles ([a6d2dbe](https://github.com/magnesiumlabs/magnesium/commit/a6d2dbe8f99f6fb09b585771a48b2f171ca17fe9))
+* **shape:** remove unneeded variables ([d05abe7](https://github.com/magnesiumlabs/magnesium/commit/d05abe77bb79f9d2a6d32e52a8074119053f2db4))
+* **shape:** update `property` mixin ([486b562](https://github.com/magnesiumlabs/magnesium/commit/486b56215aa6b402b3c0d0af7aa5bc4691dc660d))
+
+
+
+
 ## [1.0.0-alpha.4](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-12-04)
 
 **Note:** Version bump only for package @magnesium/shape
