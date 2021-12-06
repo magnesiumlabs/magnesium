@@ -27,7 +27,6 @@ You can define the theme color variables before importing any Magnesium componen
     $colors: (
         primary: #2674a2,
         secondary: #3092cb
-        // etc...
     ),
     $bg-colors: (
         primary

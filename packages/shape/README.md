@@ -17,8 +17,9 @@ You can define the shape variables before importing any Magnesium components:
 ```scss
 @use "@magnesium/shape" with (
     $shapes: (
-        medium: 25px,
-        small: 10px
+        large: 24px,
+        medium: 12px,
+        small: 6px
     )
 );
 ```
