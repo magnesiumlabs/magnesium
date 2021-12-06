@@ -36,17 +36,17 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name         | Default | Description                                                                                                                                                             |
-|--------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                            |
-| `$bg-colors` | `()`    | Sets a list of theme background colors, who generate `background-color` classes. Work only with key declare on `$colors`. <br/>See [CSS Classes](#css-classes) section. |
-| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration.                                                                 |
+| Name         | Default | Description                                                                                                                                                        |
+|--------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                       |
+| `$bg-colors` | `()`    | Sets a list of theme background colors, who generate `background-color` classes. Work only with key declare on `$colors`. See [CSS Classes](#css-classes) section. |
+| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. You can disable it with `$prefix: ""` configuration.                                                                 |
 
 ## Customization
 
 ### CSS custom properties
 
-> The variable `{style}` correspond with each key on the `$colors` config.
+> The variable `{style}` correspond with each key on the `$colors` config, see [configuration](#Configuration).
 
 | CSS Custom property  | Description                  |
 |----------------------|------------------------------|
