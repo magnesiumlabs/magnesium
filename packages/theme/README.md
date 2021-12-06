@@ -25,46 +25,29 @@ You can define the theme color variables before importing any Magnesium componen
 ```scss
 @use "@magnesium/theme" with (
     $colors: (
-        primary: #6e5898
+        primary: #2674a2,
+        secondary: #3092cb
+        // etc...
+    ),
+    $bg-colors: (
+        primary
     )
 );
 ```
 
 ### Options
 
-| Name         | Default                        | Description                                                                                                      |
-|--------------|--------------------------------|------------------------------------------------------------------------------------------------------------------|
-| `$colors`    | See [Colors](#colors) section. | Sass map.                                                                                                        |
-| `$colors-bg` | `(primary, secondary)`         | Sets a list of keys that will generate `background-color` classes. <br/>See [CSS Classes](#css-classes) section. |
-| `$prefix`    | `mg`                           | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration.          |
-
-### Colors
-
-| Name        | Default   |
-|-------------|-----------|
-| `primary`   | `#2674a2` |
-| `secondary` | `#3092cb` |
-| `surface`   | `#111`    |
-| `black`     | `#000`    |
-| `white`     | `#fff`    |
-
-You can also define new colors for theme:
-
-```scss
-@use "@magnesium/theme" with (
-    $colors: (
-        invalid: #c9210e
-    )
-);
-```
-
-The new key named `invalid` is now available with any other default theme keys.
+| Name         | Default | Description                                                                                                                                                             |
+|--------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                            |
+| `$bg-colors` | `()`    | Sets a list of theme background colors, who generate `background-color` classes. Work only with key declare on `$colors`. <br/>See [CSS Classes](#css-classes) section. |
+| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. <br/>You can disable it with `$prefix: ""` configuration.                                                                 |
 
 ## Customization
 
 ### CSS custom properties
 
-> The variable `{style}` correspond with the list of [Colors](#colors), do not hesitate to check it for more examples!
+> The variable `{style}` correspond with each key on the `$colors` config.
 
 | CSS Custom property  | Description                  |
 |----------------------|------------------------------|
@@ -105,9 +88,9 @@ The following Sass...
 
 ```css
 .foo {
-    --mg-theme-primary: #6e5898;
+    --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
-    color: var(--mg-theme-primary, #6e5898);
+    color: var(--mg-theme-primary, #2674a2);
 }
 ```
 
@@ -170,6 +153,6 @@ The following Sass...
 
 ```css
 .foo {
-    color: #6e5898;
+    color: #2674a2;
 }
 ```

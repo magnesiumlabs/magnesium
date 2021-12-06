@@ -26,7 +26,7 @@
         }
     }
 
-    @each $style in variables.$colors-bg {
+    @each $style in variables.$bg-colors {
         @include selector(theme--#{$style}-bg) {
             @include property(background-color, $style);
         }

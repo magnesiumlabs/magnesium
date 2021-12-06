@@ -10,7 +10,7 @@
 /// Get theme keys.
 ///
 @function get-keys() {
-    @return map.keys(variables.$property-values);
+    @return map.keys(variables.$colors);
 }
 
 ///
@@ -26,12 +26,12 @@
 /// Check if color key exist.
 ///
 @function is-color($color) {
-    @return map.has-key(variables.$property-values, $color);
+    @return map.has-key(variables.$colors, $color);
 }
 
 ///
 /// Get theme color.
 ///
 @function color($color) {
-    @return map.get(variables.$property-values, $color);
+    @return map.get(variables.$colors, $color);
 }

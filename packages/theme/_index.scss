@@ -2,6 +2,6 @@
 //                                             INDEX                                             //
 // ============================================================================================= //
 
-@forward "./variables" hide $property-values;
+@forward "./variables" hide $prefers-color-scheme;
 @forward "./mixins";
 @forward "./functions";

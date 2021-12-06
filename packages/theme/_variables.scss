@@ -2,26 +2,11 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
-@use "sass:map";
+$prefers-color-scheme: (
+    light: "light",
+    dark: "dark"
+);
 
 $prefix: "mg" !default;
 $colors: () !default;
-$colors-bg: (
-    primary,
-    secondary
-) !default;
-
-$property-values: map.merge((
-    primary: #2674a2,
-    secondary: #3092cb,
-    surface: #111,
-    "black": #000,
-    "white": #fff
-), $colors);
-
-$prefers-color-scheme: (
-    light: 'light',
-    dark: 'dark'
-);
-
-$colors: $property-values;
+$bg-colors: () !default;
