@@ -10,6 +10,14 @@ npm install @magnesium/shape
 
 ## Usage
 
+### Styles
+
+```scss
+@use "@magnesium/shape/styles";
+```
+
+> This will generate the default theme classes, see [CSS Classes](#css-classes) section for more.
+
 ### Configuration
 
 You can define the shape variables before importing any Magnesium components:
@@ -34,12 +42,18 @@ You can define the shape variables before importing any Magnesium components:
 
 ### CSS custom properties
 
-> The variable `{style}` correspond with the list of your own [configuration](#Configuration).
+> The variable `{style}` correspond with each key on the `$shapes` config, see [configuration](#Configuration).
 
 | CSS Custom property  | Description                                          |
 |----------------------|------------------------------------------------------|
 | `--mg-shape-{style}` | Override the selected style.                         |
 | `--mg-shape-radius`  | Global custom property. Override the selected style. |
+
+### CSS classes
+
+| CSS Class           | Description                                      |
+|---------------------|--------------------------------------------------|
+| `mg-shape--{style}` | Sets the color to the selected style.            |
 
 ## API
 

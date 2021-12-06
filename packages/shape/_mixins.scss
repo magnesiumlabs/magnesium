@@ -3,10 +3,24 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "@magnesium/theme";
 @use "@magnesium/core";
 @use "@sass-collective/property";
 @use "@sass-collective/property/custom-properties";
 @use "./variables";
+
+///
+/// Core styles.
+///
+/// @see {mixin} theme.selector
+///
+@mixin core-styles {
+    @each $key, $value in variables.$shapes {
+        @include theme.selector(shape--#{$key}) {
+            border-radius: #{$value};
+        }
+    }
+}
 
 // ------------------------------------------------------------------------- //
 // Private mixins
