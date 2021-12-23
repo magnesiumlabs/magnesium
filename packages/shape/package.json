@@ -19,7 +19,7 @@
         "sass",
         "css"
     ],
-    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/shape",
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/shape",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"

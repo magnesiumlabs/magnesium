@@ -18,9 +18,10 @@
         "magnesium",
         "theme",
         "sass",
-        "css"
+        "css",
+        "front-end"
     ],
-    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/theme",
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/theme",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"

@@ -17,7 +17,7 @@
         "sass",
         "css"
     ],
-    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/master/packages/core",
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/core",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
