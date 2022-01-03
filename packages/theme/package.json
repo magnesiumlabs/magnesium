@@ -1,10 +1,10 @@
 {
     "name": "@magnesium/theme",
-    "version": "1.0.0-alpha.5",
+    "version": "1.0.0-alpha.6",
     "description": "The Magnesium Design components for the web theming system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.0.0-alpha.5",
+        "@magnesium/core": "^1.0.0-alpha.6",
         "@sass-collective/css": "^2.0.2",
         "@sass-collective/property": "^4.6.3",
         "sass": "^1.45.2"
