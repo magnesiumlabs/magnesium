@@ -6,10 +6,10 @@
     "dependencies": {
         "@magnesium/core": "^1.0.0-alpha.5",
         "@magnesium/theme": "^1.0.0-alpha.5",
-        "@sass-collective/em": "^2.5.2",
-        "@sass-collective/property": "^4.6.0",
-        "@sass-collective/rem": "^2.5.2",
-        "sass": "^1.43.5"
+        "@sass-collective/em": "^2.5.5",
+        "@sass-collective/property": "^4.6.3",
+        "@sass-collective/rem": "^2.5.5",
+        "sass": "^1.45.2"
     },
     "files": [
         "*.scss"

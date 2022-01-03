@@ -5,8 +5,8 @@
     "main": "index.scss",
     "dependencies": {
         "@magnesium/core": "^1.0.0-alpha.5",
-        "@sass-collective/property": "^4.6.0",
-        "sass": "^1.43.5"
+        "@sass-collective/property": "^4.6.3",
+        "sass": "^1.45.2"
     },
     "files": [
         "*.scss"
