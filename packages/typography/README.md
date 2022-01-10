@@ -37,7 +37,7 @@ You can define the typography style variables before importing any Magnesium com
 | Name           | Default                   | Description                  |
 |----------------|---------------------------|------------------------------|
 | `$styles`      | See `Scales` section.     | Sets a list of theme scales. |
-| `$font-family` | `'Open Sans', sans-serif` | Sets the font family styles. |
+| `$font-family` | `"Open Sans", sans-serif` | Sets the font family styles. |
 
 ### Scales
 

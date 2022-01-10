@@ -63,13 +63,13 @@
 ///
 @mixin typography($style, $exclude-props...) {
     $with-custom-properties: (
-        "line-height",
-        "font-family",
-        "font-size",
-        "font-weight",
-        "letter-spacing",
-        "text-decoration",
-        "text-transform"
+        font-family,
+        font-size,
+        font-weight,
+        letter-spacing,
+        line-height,
+        text-decoration,
+        text-transform
     );
 
     @if not map.has-key(variables.$styles, $style) {
