@@ -8,6 +8,7 @@
 @use "./functions";
 
 $font-family: string.unquote("'Open Sans', sans-serif") !default;
+$font-smoothing: true !default;
 $styles: () !default;
 
 $base: (

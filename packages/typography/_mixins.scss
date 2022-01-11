@@ -44,7 +44,9 @@
 /// @see {function} core.create-var
 ///
 @mixin base {
-    @include font-smoothing;
+    @if variables.$font-smoothing {
+        @include font-smoothing;
+    }
 
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
@@ -78,7 +80,9 @@
         @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
-    @include font-smoothing;
+    @if variables.$font-smoothing {
+        @include font-smoothing;
+    }
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {

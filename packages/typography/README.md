@@ -34,10 +34,11 @@ You can define the typography style variables before importing any Magnesium com
 
 ### Options
 
-| Name           | Default                   | Description                  |
-|----------------|---------------------------|------------------------------|
-| `$styles`      | See `Scales` section.     | Sets a list of theme scales. |
-| `$font-family` | `"Open Sans", sans-serif` | Sets the font family styles. |
+| Name              | Default                   | Description                             |
+|-------------------|---------------------------|-----------------------------------------|
+| `$styles`         | See `Scales` section.     | Sets a list of theme scales.            |
+| `$font-family`    | `"Open Sans", sans-serif` | Sets the font family styles.            |
+| `$font-smoothing` | `true`                    | Sets the font smoothing default styles. |
 
 ### Scales
 
