@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.7](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-01-11)
+
+
+### Features
+
+* **typography:** add `font-smoothing` mixin ([306769c](https://github.com/magnesiumlabs/magnesium/commit/306769cd8b6299403c30a5e34311be68fb907c8c))
+* **typography:** add styles properties restrictions ([2c1e0e2](https://github.com/magnesiumlabs/magnesium/commit/2c1e0e275f7af4a3ad6653e0e02fd27b462b0f2e))
+
+
+
+
 ## [1.0.0-alpha.6](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-01-03)
 
 **Note:** Version bump only for package @magnesium/typography
