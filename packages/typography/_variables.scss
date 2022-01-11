@@ -11,9 +11,7 @@ $font-family: string.unquote("'Open Sans', sans-serif") !default;
 $styles: () !default;
 
 $base: (
-    font-family: $font-family,
-    -moz-osx-font-smoothing: grayscale,
-    -webkit-font-smoothing: antialiased
+    font-family: $font-family
 );
 
 $styles-values: functions.set-styles($base, (

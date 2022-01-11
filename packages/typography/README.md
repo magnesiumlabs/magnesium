@@ -89,6 +89,7 @@ The new key named `body-2` is now available with any other default typography ke
 | Mixin                                   | Description                                                           |
 |-----------------------------------------|-----------------------------------------------------------------------|
 | `typography($style, $exclude-props...)` | Sets the selected style on selector, with excluded properties option. |
+| `font-smoothing`                        | Sets the font smoothing rules.                                        |
 | `ellipsis`                              | Sets the ellipsis rules.                                              |
 
 #### Typography rule with `typography.typography()`

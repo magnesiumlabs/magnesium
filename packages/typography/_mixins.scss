@@ -44,6 +44,8 @@
 /// @see {function} core.create-var
 ///
 @mixin base {
+    @include font-smoothing;
+
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
             @include property.declaration($key, core.create-var(typography-font-family, $value));
@@ -76,6 +78,8 @@
         @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
+    @include font-smoothing;
+
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {
             $value: core.create-var(theme-#{$value}, theme.color($value));
@@ -95,6 +99,14 @@
             @include property.declaration($key, $value);
         }
     }
+}
+
+///
+/// Font smoothing.
+///
+@mixin font-smoothing {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 ///
