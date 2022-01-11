@@ -2,7 +2,18 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:list";
 @use "sass:map";
+
+$_default-props: (
+    color,
+    font-size,
+    font-weight,
+    letter-spacing,
+    line-height,
+    text-decoration,
+    text-transform
+);
 
 ///
 /// Set styles
@@ -11,6 +22,12 @@
 
     // Add new keys
     @each $style, $style-props in $override-styles {
+        @each $key, $value in $style-props {
+            @if list.index($_default-props, $key) == null {
+                @error "Invalid typography property, '#{$key}' is not alowed here. Choose one of '#{$_default-props}' properties.";
+            }
+        }
+
         @if not map.has-key($scale-styles, $style) {
             $scale-styles: map.merge($scale-styles, (#{$style}: $style-props));
         }
