@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-alpha.8](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-01-12)
+
+
+### Features
+
+* **typography:** add `$font-smoothing` option ([eec6f06](https://github.com/magnesiumlabs/magnesium/commit/eec6f06d4566e9bea131da6c9dba17ea8d416a36))
+* **typography:** remove hide `set-styles` ([747a60e](https://github.com/magnesiumlabs/magnesium/commit/747a60efb8ddb5cbeca656f22478bc20aeba5510))
+
+
+### Bug Fixes
+
+* **theme:** avoid error with `@sass-collective/property/custom-properties` call ([6fed589](https://github.com/magnesiumlabs/magnesium/commit/6fed58986ec18590a034cedb49652ffdf8c4a028))
+
+
+
+
 ## [1.0.0-alpha.7](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-01-11)
 
 
