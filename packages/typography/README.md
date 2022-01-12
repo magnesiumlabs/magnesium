@@ -89,9 +89,32 @@ The new key named `body-2` is now available with any other default typography ke
 
 | Mixin                                   | Description                                                           |
 |-----------------------------------------|-----------------------------------------------------------------------|
+| `base`                                  | Sets base styles.                                                     |
 | `typography($style, $exclude-props...)` | Sets the selected style on selector, with excluded properties option. |
 | `font-smoothing`                        | Sets the font smoothing rules.                                        |
 | `ellipsis`                              | Sets the ellipsis rules.                                              |
+
+#### Typography rule with `typography.base()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/typography";
+
+.foo {
+    @include typography.base;
+}
+```
+
+...will produce the following CSS...
+
+```css
+.foo {
+    font-family: var(--mg-typography-font-family, 'Open Sans', sans-serif);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+```
 
 #### Typography rule with `typography.typography()`
 
@@ -105,7 +128,8 @@ The following Sass...
 }
 
 .bar {
-    @include typography.typography(body, font-size, line-height);
+    // With excluded properties options.
+    @include typography.typography(body, font-size, line-height, text-decoration, text-transform);
 }
 ```
 
@@ -128,8 +152,27 @@ The following Sass...
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     font-weight: var(--mg-typography-body-font-weight, 400);
     letter-spacing: var(--mg-typography-body-letter-spacing, normal);
-    text-decoration: var(--mg-typography-body-text-decoration, inherit);
-    text-transform: var(--mg-typography-body-text-transform, inherit);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+```
+
+#### Font smoothing with `typography.font-smoothing()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/typography";
+
+.foo {
+    @include typography.font-smoothing;
+}
+```
+
+...will produce the following CSS...
+
+```css
+.foo {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
