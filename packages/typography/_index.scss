@@ -4,4 +4,4 @@
 
 @forward "./variables" hide $base, $styles-values;
 @forward "./mixins";
-@forward "./functions" hide set-styles;
+@forward "./functions";
