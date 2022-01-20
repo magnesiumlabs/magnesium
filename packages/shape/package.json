@@ -6,7 +6,7 @@
     "dependencies": {
         "@magnesium/core": "^1.0.0-alpha.8",
         "@sass-collective/property": "^4.6.3",
-        "sass": "^1.47.0"
+        "sass": "^1.49.0"
     },
     "files": [
         "*.scss"
