@@ -3,6 +3,7 @@
 *.orig
 *.lerna_backup
 *.log
+*.tgz
 /packages/*/package-lock.json
 
 ## Folders
