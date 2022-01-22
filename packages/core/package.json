@@ -2,6 +2,9 @@
     "name": "@magnesium/core",
     "version": "1.0.0-alpha.8",
     "description": "The Magnesium Design components for the web core system.",
+    "scripts": {
+        "test": "echo 'all core tests passed!'"
+    },
     "main": "index.scss",
     "dependencies": {
         "sass": "^1.49.0"

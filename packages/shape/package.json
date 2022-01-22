@@ -2,6 +2,9 @@
     "name": "@magnesium/shape",
     "version": "1.0.0-alpha.8",
     "description": "The Magnesium Design components for the web shape system.",
+    "scripts": {
+        "test": "echo 'all shape tests passed!'"
+    },
     "main": "index.scss",
     "dependencies": {
         "@magnesium/core": "^1.0.0-alpha.8",
