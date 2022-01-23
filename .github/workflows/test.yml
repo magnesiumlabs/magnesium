@@ -7,8 +7,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [ 12.x, 14.x ]
-      steps:
-        - run: npm run test
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    steps:
+      - run: npm run test
