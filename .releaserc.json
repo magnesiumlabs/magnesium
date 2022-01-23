@@ -1,7 +1,15 @@
 {
     "ci": false,
     "branches": [
-        "feature/lerna-out"
+        "feature/lerna-out",
+        {
+            "name": "beta",
+            "prerelease": true
+        },
+        {
+            "name": "alpha",
+            "prerelease": true
+        }
     ],
     "plugins": [
         "@semantic-release/commit-analyzer",
