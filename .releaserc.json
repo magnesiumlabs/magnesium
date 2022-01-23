@@ -1,7 +1,10 @@
 {
     "ci": false,
     "branches": [
-        "feature/lerna-out",
+        {
+            "name": "feature/lerna-out",
+            "prerelease": true
+        },
         {
             "name": "beta",
             "prerelease": true
