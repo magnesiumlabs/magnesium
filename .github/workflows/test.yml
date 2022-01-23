@@ -1,0 +1,14 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ 'feature/lerna-out' ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [ 12.x, 14.x ]
+      steps:
+        - run: npm run test
