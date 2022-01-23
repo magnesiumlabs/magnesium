@@ -1,10 +1,11 @@
 {
     "private": true,
+    "name": "magnesium",
     "scripts": {
         "prepare": "husky install",
         "test": "npm run test --workspaces",
-        "release:dry": "npm publish --dry-run --workspaces",
-        "release": "npm publish --workspaces"
+        "release:dry": "semantic-release --dry-run",
+        "release": "semantic-release"
     },
     "engines": {
         "node": ">=12.0.0",
@@ -13,9 +14,15 @@
     "devDependencies": {
         "@commitlint/cli": "^16.1.0",
         "@commitlint/config-conventional": "^16.0.0",
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^8.0.2",
+        "@semantic-release/npm": "^9.0.0",
+        "@semantic-release/release-notes-generator": "^10.0.3",
         "@types/node": "^17.0.10",
         "husky": "^7.0.4",
-        "sass": "^1.49.0"
+        "sass": "^1.49.0",
+        "semantic-release": "^19.0.2"
     },
     "workspaces": [
         "./packages/*"
