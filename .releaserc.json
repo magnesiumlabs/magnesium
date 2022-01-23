@@ -1,6 +1,7 @@
 {
     "ci": false,
     "branches": [
+        "main",
         {
             "name": "feature/lerna-out",
             "prerelease": true
