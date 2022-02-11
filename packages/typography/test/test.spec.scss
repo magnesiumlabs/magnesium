@@ -7,17 +7,37 @@
 @use "@sass-collective/rem";
 @use "../index" as typography;
 
+@include describe("typography.base()") {
+    @include it("Should return `base` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.base;
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
+                }
+            }
+        }
+    }
+}
+
 @include describe("typography.typography()") {
     @include it("Should return `body` typography declaration.") {
         @include assert {
             @include output {
-                .mg-typography--body {
+                .foo {
                     @include typography.typography(body);
                 }
             }
 
             @include expect {
-                .mg-typography--body {
+                .foo {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -27,6 +47,164 @@
                     letter-spacing: var(--mg-typography-body-letter-spacing, normal);
                     text-decoration: var(--mg-typography-body-text-decoration, inherit);
                     text-transform: var(--mg-typography-body-text-transform, inherit);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `headline-1` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(headline-1);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-headline-1-line-height, rem.convert(48));
+                    font-size: var(--mg-typography-headline-1-font-size, rem.convert(40));
+                    font-weight: var(--mg-typography-headline-1-font-weight, 700);
+                    letter-spacing: var(--mg-typography-headline-1-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-headline-1-text-decoration, inherit);
+                    text-transform: var(--mg-typography-headline-1-text-transform, inherit);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `headline-2` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(headline-2);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-headline-2-line-height, rem.convert(38));
+                    font-size: var(--mg-typography-headline-2-font-size, rem.convert(32));
+                    font-weight: var(--mg-typography-headline-2-font-weight, 700);
+                    letter-spacing: var(--mg-typography-headline-2-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-headline-2-text-decoration, inherit);
+                    text-transform: var(--mg-typography-headline-2-text-transform, inherit);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `headline-4` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(headline-4);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-headline-4-line-height, rem.convert(28));
+                    font-size: var(--mg-typography-headline-4-font-size, rem.convert(24));
+                    font-weight: var(--mg-typography-headline-4-font-weight, 700);
+                    letter-spacing: var(--mg-typography-headline-4-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-headline-4-text-decoration, inherit);
+                    text-transform: var(--mg-typography-headline-4-text-transform, inherit);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `headline-5` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(headline-5);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-headline-5-line-height, rem.convert(24));
+                    font-size: var(--mg-typography-headline-5-font-size, rem.convert(20));
+                    font-weight: var(--mg-typography-headline-5-font-weight, 700);
+                    letter-spacing: var(--mg-typography-headline-5-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-headline-5-text-decoration, inherit);
+                    text-transform: var(--mg-typography-headline-5-text-transform, inherit);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `headline-6` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(headline-6);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-headline-6-line-height, rem.convert(20));
+                    font-size: var(--mg-typography-headline-6-font-size, rem.convert(16));
+                    font-weight: var(--mg-typography-headline-6-font-weight, 700);
+                    letter-spacing: var(--mg-typography-headline-6-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-headline-6-text-decoration, inherit);
+                    text-transform: var(--mg-typography-headline-6-text-transform, inherit);
+                }
+            }
+        }
+    }
+}
+
+@include describe("typography.font-smoothing()") {
+    @include it("Should return `font-smoothing` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.font-smoothing;
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+        }
+    }
+}
+@include describe("typography.ellipsis()") {
+    @include it("Should return `ellipsis` typography declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.ellipsis;
+                }
+            }
+
+            @include expect {
+                .foo {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                 }
             }
         }
