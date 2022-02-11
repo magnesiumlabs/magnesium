@@ -1,0 +1,28 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "@sass-collective/rem";
+@use "../index" as typography;
+
+@include describe("image.core-styles()") {
+    @include it("Should return `background-image` declaration.") {
+        @include assert {
+            @include output {
+                @include typography.typography(body);
+            }
+
+            @include expect {
+                .mg-typography--body {
+                    line-height: rem.convert(20);
+                    font-size: rem.convert(16);
+                    font-weight: 400;
+                    letter-spacing: normal;
+                    text-decoration: inherit;
+                    text-transform: inherit
+                }
+            }
+        }
+    }
+}
