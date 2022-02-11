@@ -8,8 +8,6 @@
 
 The Magnesium Design Sass framework for web artisans.
 
-> **IMPORTANT:** Magnesium is a work in progress and subject to major changes until 1.0 release.
-
 ## Packages
 
 | Package                                                                                             | Version                                                                                                                |
