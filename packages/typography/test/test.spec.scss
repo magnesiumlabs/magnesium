@@ -3,24 +3,30 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "sass:string";
 @use "@sass-collective/rem";
 @use "../index" as typography;
 
-@include describe("image.core-styles()") {
-    @include it("Should return `background-image` declaration.") {
+@include describe("typography.typography()") {
+    @include it("Should return `body` typography declaration.") {
         @include assert {
             @include output {
-                @include typography.typography(body);
+                .mg-typography--body {
+                    @include typography.typography(body);
+                }
             }
 
             @include expect {
                 .mg-typography--body {
-                    line-height: rem.convert(20);
-                    font-size: rem.convert(16);
-                    font-weight: 400;
-                    letter-spacing: normal;
-                    text-decoration: inherit;
-                    text-transform: inherit
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    line-height: var(--mg-typography-body-line-height, rem.convert(20));
+                    font-size: var(--mg-typography-body-font-size, rem.convert(16));
+                    font-weight: var(--mg-typography-body-font-weight, 400);
+                    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+                    text-decoration: var(--mg-typography-body-text-decoration, inherit);
+                    text-transform: var(--mg-typography-body-text-transform, inherit);
                 }
             }
         }

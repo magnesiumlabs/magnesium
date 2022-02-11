@@ -34,7 +34,11 @@ describe('Sass', () => {
             importer,
             file,
             includePaths: [
-                './node_modules'
+                './node_modules',
+                './packages/core/node_modules',
+                './packages/shape/node_modules',
+                './packages/theme/node_modules',
+                './packages/typography/node_modules'
             ]
         }, {
             describe,
