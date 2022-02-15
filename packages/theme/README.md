@@ -68,6 +68,8 @@ You can define the theme color variables before importing any Magnesium componen
 | `selector($name)`                         | Sets class name with configured prefix.                                                                                    |
 | `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
 | `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                             |
+| `disabled-touch-screen`                   | Disabled touch screen event.                                                                                               |
+| `disabled-pointer-events`                 | Disabled pointer event.                                                                                                    |
 
 #### Custom properties with `theme.property()`
 
@@ -126,6 +128,51 @@ The following Sass...
     :root {
         color: #2674a2;
     }
+}
+```
+
+#### Disabled touch screen with `core.disabled-touch-screen()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/theme";
+
+.foo {
+    @include theme.disabled-touch-screen {
+        color: #2674a2;
+    }
+}
+```
+
+...will produce the following CSS...
+
+```css
+@media (pointer: fine) {
+    .foo {
+        color: #2674a2;
+    }
+}
+```
+
+#### Disabled pointer events with `core.disabled-pointer-events()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/theme";
+
+.foo {
+    @include theme.disabled-pointer-events;
+}
+```
+
+...will produce the following CSS...
+
+```css
+.foo {
+    cursor: default;
+    pointer-events: none;
 }
 ```
 

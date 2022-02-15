@@ -15,7 +15,11 @@
 ///
 /// Disabled touch screen.
 ///
+/// @deprecated Use 'theme.disabled-touch-screen' mixin instead.
+///
 @mixin disabled-touch-screen {
+    @warn "@deprecated Use 'theme.disabled-touch-screen' mixin instead.";
+
     @media (pointer: fine) {
         @content;
     }
@@ -24,7 +28,11 @@
 ///
 /// Disabled pointer events.
 ///
+/// @deprecated Use 'theme.disabled-pointer-events' mixin instead.
+///
 @mixin disabled-pointer-events {
+    @warn "@deprecated Use 'theme.disabled-pointer-events' mixin instead.";
+
     cursor: default;
     pointer-events: none;
 }

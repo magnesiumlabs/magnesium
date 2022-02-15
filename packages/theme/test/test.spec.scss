@@ -46,7 +46,7 @@
         }
     }
 
-    @include it("Should return `color` declaration with `var()` and `primary` custom property.") {
+    @include it("Should return `color` declaration with `primary` custom property.") {
         @include assert {
             @include output {
                 .foo {
@@ -57,6 +57,47 @@
             @include expect {
                 .foo {
                     color: var(--mg-theme-primary, #2674a2);
+                }
+            }
+        }
+    }
+}
+
+@include describe("theme.disabled-touch-screen()") {
+    @include it("Should return disabled touch screen `@media` declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.disabled-touch-screen {
+                        background: darkcyan;
+                    };
+                }
+            }
+
+            @include expect {
+                .foo {
+                    @media (pointer: fine) {
+                        background: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include describe("theme.disabled-pointer-events()") {
+    @include it("Should return disabled pointer events declarations.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.disabled-pointer-events;
+                }
+            }
+
+            @include expect {
+                .foo {
+                    cursor: default;
+                    pointer-events: none;
                 }
             }
         }
