@@ -4,7 +4,6 @@
         "postinstall": "lerna bootstrap --hoist",
         "test": "jest",
         "prepare": "husky install",
-        "release:dry": "lerna version --no-push",
         "release": "lerna publish --force-publish *"
     },
     "engines": {
