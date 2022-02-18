@@ -13,7 +13,7 @@
 );
 
 @include describe("shape.radius()") {
-    @include it("Should return shape declaration from `$shapes` list.") {
+    @include it("Should return shape declaration with one option from `$shapes` list.") {
         @include assert {
             @include output {
                 .foo {
