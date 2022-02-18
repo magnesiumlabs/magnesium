@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/magnesiumlabs/magnesium/compare/v1.1.0...v1.2.0) (2022-02-18)
+
+
+### Features
+
+* **shape:** add `$no-var` option on `radius` mixin ([cb66b9e](https://github.com/magnesiumlabs/magnesium/commit/cb66b9eff33b05e1a30b5ddd363e8b55858a10b3))
+* **shape:** add `declaration` mixin ([4034a94](https://github.com/magnesiumlabs/magnesium/commit/4034a949f5147424ce3874426fb5fef2e1040e49))
+
+
+
 ## [1.1.0](https://github.com/magnesiumlabs/magnesium/compare/v1.0.0...v1.1.0) (2022-02-15)
 
 **Note:** Version bump only for package @magnesium/shape
