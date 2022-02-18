@@ -61,7 +61,7 @@ You can define the shape variables before importing any Magnesium components:
 
 | Mixin                                        | Description                                                                                                                   |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| `radius($radius)`                            | Sets shape radius from `$shapes` or custom values.                                                                            |
+| `radius($radius, $no-var)`                   | Sets shape radius from `$shapes` or custom values. Set `$no-var` to `true` for generate only value without `var()`.           |
 | `declaration($property, $style, $important)` | Sets CSS shape declaration, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
 
 #### Radius with `shape.radius()`

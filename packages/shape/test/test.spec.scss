@@ -13,7 +13,7 @@
 );
 
 @include describe("shape.radius()") {
-    @include it("Should return `border-radius` configurated shape declaration.") {
+    @include it("Should return shape declaration from `$shapes` list.") {
         @include assert {
             @include output {
                 .foo {
@@ -29,7 +29,7 @@
         }
     }
 
-    @include it("Should return `border-radius` declaration with cusom value.") {
+    @include it("Should return shape declaration with custom value.") {
         @include assert {
             @include output {
                 .foo {
@@ -45,7 +45,7 @@
         }
     }
 
-    @include it("Should return `border-radius` declaration with mulitple custom values.") {
+    @include it("Should return shape declaration with multiple custom values.") {
         @include assert {
             @include output {
                 .foo {
@@ -56,6 +56,22 @@
             @include expect {
                 .foo {
                     border-radius: var(--mg-shape-radius, 10px 10px 10px 10px);
+                }
+            }
+        }
+    }
+
+    @include it("Should return shape declaration without `var()`.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.radius(5px, true);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    border-radius: 5px;
                 }
             }
         }
@@ -95,7 +111,7 @@
         }
     }
 
-    @include it("Should return `border-radius` declaration.") {
+    @include it("Should return shape declaration.") {
         @include assert {
             @include output {
                 .foo {
