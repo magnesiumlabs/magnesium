@@ -29,7 +29,7 @@
         }
     }
 
-    @include it("Should return `barder-radius` shape custom declaration.") {
+    @include it("Should return `border-radius` declaration with cusom value.") {
         @include assert {
             @include output {
                 .foo {
@@ -40,6 +40,22 @@
             @include expect {
                 .foo {
                     border-radius: var(--mg-shape-radius, 5px);
+                }
+            }
+        }
+    }
+
+    @include it("Should return `border-radius` declaration with mulitple custom values.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.radius(10px 10px 10px 10px);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    border-radius: var(--mg-shape-radius, 10px 10px 10px 10px);
                 }
             }
         }
