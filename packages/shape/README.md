@@ -59,12 +59,12 @@ You can define the shape variables before importing any Magnesium components:
 
 ### Sass mixins
 
-| Mixin                                     | Description                                                                                                                |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
-| `radius($radius)`                         | Sets shape radius from `$shapes` or custom values.                                                                         |
+| Mixin                                        | Description                                                                                                                   |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `declaration($property, $style, $important)` | Sets CSS shape declaration, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
+| `radius($radius)`                            | Sets shape radius from `$shapes` or custom values.                                                                            |
 
-#### Custom properties with `shape.property()`
+#### Custom properties with `shape.declaration()`
 
 The following Sass...
 
@@ -72,9 +72,9 @@ The following Sass...
 @use "@magnesium/shape";
 
 .foo {
-    @include shape.property(medium); // Will generate a CSS Custom Property with default shape.
-    @include shape.property(medium, 16px); // Will generate a CSS Custom Property with new shape.
-    @include shape.property(border-radius, medium); // Will generate a `var()` CSS Function with default shape.
+    @include shape.declaration(medium); // Will generate a CSS Custom Property with default shape.
+    @include shape.declaration(medium, 16px); // Will generate a CSS Custom Property with new shape.
+    @include shape.declaration(border-radius, medium); // Will generate a `var()` CSS Function with default shape.
 }
 ```
 
@@ -108,7 +108,7 @@ The following Sass...
 
 ```css
 .foo {
-    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 25px));
+    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
 }
 
 .bar {

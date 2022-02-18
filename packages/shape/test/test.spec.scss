@@ -1,0 +1,97 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "sass:string";
+@use "../index" as shape with (
+    $shapes: (
+        large: 24px,
+        medium: 12px,
+        small: 6px
+    )
+);
+
+@include describe("shape.radius()") {
+    @include it("Should return `border-radius` configurated shape declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.radius(medium);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                }
+            }
+        }
+    }
+
+    @include it("Should return `barder-radius` shape custom declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.radius(5px);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    border-radius: var(--mg-shape-radius, 5px);
+                }
+            }
+        }
+    }
+}
+
+@include describe("shape.declaration()") {
+    @include it("Should return default configurated custom property declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.declaration(medium);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    --mg-shape-medium: 12px;
+                }
+            }
+        }
+    }
+
+    @include it("Should return default configurated custom property declaration with new value.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.property(medium, 16px);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    --mg-shape-medium: 16px;
+                }
+            }
+        }
+    }
+
+    @include it("Should return `border-radius` declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include shape.declaration(border-radius, medium);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    border-radius: var(--mg-shape-medium, 12px);
+                }
+            }
+        }
+    }
+}

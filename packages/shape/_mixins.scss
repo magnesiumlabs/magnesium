@@ -55,7 +55,7 @@
 /// @see {function} functions.shape
 /// @see {function} functions.is-shape
 ///
-@mixin property($property, $value: null, $important: false) {
+@mixin declaration($property, $value: null, $important: false) {
     @if functions.is-shape($property) {
         @if $value {
             $property: functions.create-custom-map($property, $value);
@@ -67,4 +67,13 @@
     }
 
     @include property.declaration($property, $value, $important);
+}
+
+///
+/// @see {mixin} shape.declaration
+///
+/// @deprecated Use `declaration` mixin instead.
+///
+@mixin property($property, $value: null, $important: false) {
+    @include declaration($property, $value, $important);
 }
