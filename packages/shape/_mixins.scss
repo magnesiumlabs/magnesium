@@ -33,7 +33,7 @@
 // ------------------------------------------------------------------------- //
 
 ///
-/// @see {mixin} property.declaration
+/// @see {mixin} shape.declaration
 /// @see {function} core.create-var
 ///
 @mixin radius($radius) {
@@ -45,7 +45,7 @@
         $value: core.create-var(shape-radius, $radius);
     }
 
-    @include property.declaration(border-radius, $value);
+    @include declaration(border-radius, $value);
 }
 
 ///
