@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/magnesiumlabs/magnesium/compare/v1.2.0...v1.3.0) (2022-02-20)
+
+
+### Features
+
+* **theme, typography:** use `@unsass/utilities` ([1d9727d](https://github.com/magnesiumlabs/magnesium/commit/1d9727db452b07620eff7c4a109ba1f2f3f59d72))
+
+
+
+
 ## [1.2.0](https://github.com/magnesiumlabs/magnesium/compare/v1.1.0...v1.2.0) (2022-02-18)
 
 **Note:** Version bump only for package @magnesium/theme
