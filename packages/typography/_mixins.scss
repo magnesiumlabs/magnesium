@@ -7,6 +7,7 @@
 @use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
+@use "@unsass/utilities";
 @use "./variables";
 
 ///
@@ -109,17 +110,14 @@
 /// Font smoothing.
 ///
 @mixin font-smoothing {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+    @include utilities.font-smoothing;
 }
 
 ///
 /// Ellipsis.
 ///
 @mixin ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    @include utilities.ellipsis;
 }
 
 @function get-line-height($style) {
