@@ -39,7 +39,7 @@
 @mixin radius($radius, $no-var: false) {
     $value: "";
 
-    @if map.has-key(variables.$shapes, $radius) {
+    @if functions.is-shape($radius) {
         $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, map.get(variables.$shapes, $radius)));
     } @else {
         @if $no-var {
