@@ -46,8 +46,8 @@ You can define the shape variables before importing any Magnesium components:
 
 | CSS Custom property  | Description                                          |
 |----------------------|------------------------------------------------------|
-| `--mg-shape-{style}` | Override the selected style.                         |
 | `--mg-shape-radius`  | Global custom property. Override the selected style. |
+| `--mg-shape-{style}` | Override the selected style.                         |
 
 ### CSS classes
 
@@ -102,7 +102,6 @@ The following Sass...
 .foo {
     @include shape.declaration(medium); // Will generate a CSS Custom Property with default shape.
     @include shape.declaration(medium, 16px); // Will generate a CSS Custom Property with new shape.
-    @include shape.declaration(border-radius, medium); // Will generate a `var()` CSS Function with default shape.
 }
 ```
 
@@ -112,7 +111,6 @@ The following Sass...
 .foo {
     --mg-shape-medium: 12px;
     --mg-shape-medium: 16px;
-    border-radius: var(--mg-shape-medium, 12px);
 }
 ```
 
