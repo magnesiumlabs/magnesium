@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [1.3.1](https://github.com/magnesiumlabs/magnesium/compare/v1.3.0...v1.3.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* **shape:** add missing `@magnesium/theme` ([4751c36](https://github.com/magnesiumlabs/magnesium/commit/4751c36cab369b2788a8223383cfae5c899ba49e))
+
+
+
+
 ## [1.3.0](https://github.com/magnesiumlabs/magnesium/compare/v1.2.0...v1.3.0) (2022-02-20)
 
 
