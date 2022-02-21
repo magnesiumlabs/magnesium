@@ -17,7 +17,7 @@
 @mixin core-styles {
     @each $key, $value in variables.$shapes {
         @include theme.selector(shape--#{$key}) {
-            @include property(border-radius, $value);
+            @include declaration(border-radius, $value);
         }
     }
 }
