@@ -65,8 +65,7 @@ You can define the theme color variables before importing any Magnesium componen
 
 | Mixin                                     | Description                                                                                                                |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| `selector($name)`                         | Sets class name with configured prefix.                                                                                    |
-| `property($property, $style, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
+| `property($property, $value, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
 | `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                             |
 | `disabled-touch-screen`                   | Disabled touch screen event.                                                                                               |
 | `disabled-pointer-events`                 | Disabled pointer event.                                                                                                    |
@@ -77,15 +76,13 @@ The following Sass...
 
 ```scss
 @use "@magnesium/theme";
-@use "@magnesium/theme/custom-properties";
 
 .foo {
-    @include theme.property(color, darkcyan);
-    @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
     @include theme.property(primary); // Will generate a CSS Custom Property with default color.
     @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
-    @include theme.property(custom-properties.create(foo, darkcyan));
-    @include theme.property(custom-properties.create(--foo, darkcyan));
+    
+    @include theme.property(color, darkcyan); // Will generate color declaration.
+    @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
 }
 ```
 
@@ -93,12 +90,11 @@ The following Sass...
 
 ```css
 .foo {
-    color: darkcyan;
-    color: var(--mg-theme-primary, #2674a2);
     --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
-    --mg-foo: darkcyan;
-    --foo: darkcyan;
+    
+    color: darkcyan;
+    color: var(--mg-theme-primary, #2674a2);
 }
 ```
 
