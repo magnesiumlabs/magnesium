@@ -25,8 +25,17 @@
 ///
 /// Check if color key exist.
 ///
-@function is-color($color) {
+@function exist($color) {
     @return map.has-key(variables.$colors, $color);
+}
+
+///
+/// @deprecated Use 'theme.exist' function instead.
+///
+@function is-color($color) {
+    @warn "@deprecated Use 'theme.exist' function instead.";
+
+    @return exist($color);
 }
 
 ///

@@ -62,7 +62,7 @@
 /// @see {mixin} property.declaration
 /// @see {function} core.create-var
 /// @see {function} theme.color
-/// @see {function} theme.is-color
+/// @see {function} theme.exist
 ///
 @mixin typography($style, $exclude-props...) {
     $with-custom-properties: (
@@ -82,7 +82,7 @@
     @include font-smoothing;
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
-        @if theme.is-color($value) {
+        @if theme.exist($value) {
             $value: core.create-var(theme-#{$value}, theme.get-color($value));
         }
 

@@ -123,16 +123,16 @@
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map
 /// @see {function} functions.color
-/// @see {function} functions.is-color
+/// @see {function} functions.exist
 ///
 @mixin property($property, $value: null, $important: false) {
-    @if functions.is-color($property) {
+    @if functions.exist($property) {
         @if $value {
             $property: functions.create-custom-map($property, $value);
         } @else {
             $property: functions.create-custom-map($property, functions.color($property));
         }
-    } @else if functions.is-color($value) {
+    } @else if functions.exist($value) {
         $value: core.create-var(theme-#{$value}, functions.color($value));
     }
 

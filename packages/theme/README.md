@@ -183,8 +183,8 @@ The following Sass...
 
 | Function            | Description                                   |
 |---------------------|-----------------------------------------------|
+| `exist($color)`     | Return `true` if theme color key exist.       |
 | `get-color($color)` | Get CSS theme color, without custom property. |
-| `is-color($color)`  | Return `true` if color key exist.             |
 
 #### Color with `theme.get-color()`
 
