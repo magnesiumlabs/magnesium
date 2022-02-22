@@ -84,6 +84,7 @@ The following Sass...
     @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
     @include theme.property(primary); // Will generate a CSS Custom Property with default color.
     @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
+    @include theme.property(custom-properties.create(foo, darkcyan));
 }
 ```
 
@@ -95,6 +96,7 @@ The following Sass...
     color: var(--mg-theme-primary, #2674a2);
     --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
+    --mg-foo: darkcyan;
 }
 ```
 

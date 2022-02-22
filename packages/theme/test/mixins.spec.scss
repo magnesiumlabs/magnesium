@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "@sass-collective/property/custom-properties";
 @use "../index" as theme with (
     $colors: (
         primary: #2674a2
@@ -92,6 +93,22 @@
                     @media (pointer: fine) {
                         background: darkcyan;
                     }
+                }
+            }
+        }
+    }
+
+    @include it("Should return custom custom property declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.property(custom-properties.create(foo, darkcyan));
+                }
+            }
+
+            @include expect {
+                .foo {
+                    --mg-foo: darkcyan;
                 }
             }
         }
