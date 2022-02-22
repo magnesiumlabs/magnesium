@@ -10,6 +10,38 @@
 );
 
 @include describe("theme.property()") {
+    @include it("Should return `color` declaration with custom value.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.property(color, darkcyan);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    color: darkcyan;
+                }
+            }
+        }
+    }
+
+    @include it("Should return `color` declaration with configured `primary` color.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.property(color, primary);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    color: var(--mg-theme-primary, #2674a2);
+                }
+            }
+        }
+    }
+
     @include it("Should return configured `primary` color declaration.") {
         @include assert {
             @include output {
@@ -37,22 +69,6 @@
             @include expect {
                 .foo {
                     --mg-theme-primary: darkcyan;
-                }
-            }
-        }
-    }
-
-    @include it("Should return `color` declaration with `primary` custom property.") {
-        @include assert {
-            @include output {
-                .foo {
-                    @include theme.property(color, primary);
-                }
-            }
-
-            @include expect {
-                .foo {
-                    color: var(--mg-theme-primary, #2674a2);
                 }
             }
         }
