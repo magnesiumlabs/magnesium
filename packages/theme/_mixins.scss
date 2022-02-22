@@ -122,7 +122,7 @@
 /// @see {mixin} property.declaration
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map
-/// @see {function} functions.color
+/// @see {function} functions.get-color
 /// @see {function} functions.exist
 ///
 @mixin property($property, $value: null, $important: false) {
@@ -130,10 +130,10 @@
         @if $value {
             $property: functions.create-custom-map($property, $value);
         } @else {
-            $property: functions.create-custom-map($property, functions.color($property));
+            $property: functions.create-custom-map($property, functions.get-color($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(theme-#{$value}, functions.color($value));
+        $value: core.create-var(theme-#{$value}, functions.get-color($value));
     }
 
     @include property.declaration($property, $value, $important);

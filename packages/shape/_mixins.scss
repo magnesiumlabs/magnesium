@@ -56,18 +56,18 @@
 /// @see {mixin} property.declaration
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map
-/// @see {function} functions.shape
-/// @see {function} functions.is-shape
+/// @see {function} functions.get-radius
+/// @see {function} functions.exist
 ///
 @mixin declaration($property, $value: null, $important: false) {
     @if functions.exist($property) {
         @if $value {
             $property: functions.create-custom-map($property, $value);
         } @else {
-            $property: functions.create-custom-map($property, functions.shape($property));
+            $property: functions.create-custom-map($property, functions.get-radius($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(shape-#{$value}, functions.shape($value));
+        $value: core.create-var(shape-#{$value}, functions.get-radius($value));
     }
 
     @include property.declaration($property, $value, $important);
