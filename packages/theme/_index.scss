@@ -5,3 +5,8 @@
 @forward "./variables" hide $prefers-color-scheme;
 @forward "./mixins";
 @forward "./functions";
+
+@use "@sass-collective/property/custom-properties";
+@use './variables';
+
+@include custom-properties.config(variables.$prefix);
