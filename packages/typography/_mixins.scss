@@ -45,9 +45,7 @@
 /// @see {function} core.create-var
 ///
 @mixin base {
-    @if variables.$font-smoothing {
-        @include font-smoothing;
-    }
+    @include font-smoothing;
 
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
@@ -81,9 +79,7 @@
         @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
-    @if variables.$font-smoothing {
-        @include font-smoothing;
-    }
+    @include font-smoothing;
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {
@@ -109,12 +105,18 @@
 ///
 /// Font smoothing.
 ///
+/// @see {mixin} utilities.font-smoothing
+///
 @mixin font-smoothing {
-    @include utilities.font-smoothing;
+    @if variables.$font-smoothing {
+        @include utilities.font-smoothing;
+    }
 }
 
 ///
 /// Ellipsis.
+///
+/// @see {mixin} utilities.ellipsis
 ///
 @mixin ellipsis {
     @include utilities.ellipsis;
