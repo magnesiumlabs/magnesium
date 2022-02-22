@@ -39,7 +39,7 @@
 @mixin radius($radius, $no-var: false) {
     $value: "";
 
-    @if functions.is-shape($radius) {
+    @if functions.exist($radius) {
         $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, map.get(variables.$shapes, $radius)));
     } @else {
         @if $no-var {
@@ -60,13 +60,13 @@
 /// @see {function} functions.is-shape
 ///
 @mixin declaration($property, $value: null, $important: false) {
-    @if functions.is-shape($property) {
+    @if functions.exist($property) {
         @if $value {
             $property: functions.create-custom-map($property, $value);
         } @else {
             $property: functions.create-custom-map($property, functions.shape($property));
         }
-    } @else if functions.is-shape($value) {
+    } @else if functions.exist($value) {
         $value: core.create-var(shape-#{$value}, functions.shape($value));
     }
 

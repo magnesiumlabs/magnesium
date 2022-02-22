@@ -25,8 +25,17 @@
 ///
 /// Check if shape key exist.
 ///
+@function exist($radius) {
+    @return map.has-key(variables.$shapes, $radius);
+}
+
+///
+/// @deprecated Use 'shape.exist' function instead.
+///
 @function is-shape($shape) {
-    @return map.has-key(variables.$shapes, $shape);
+    @warn "@deprecated Use 'shape.exist' function instead.";
+
+    @return exist($shape);
 }
 
 ///
@@ -37,10 +46,10 @@
 }
 
 ///
-/// @deprecated Use 'theme.get-radius' function instead.
+/// @deprecated Use 'shape.get-radius' function instead.
 ///
 @function shape($shape) {
-    @warn "@deprecated Use 'theme.get-radius' function instead.";
+    @warn "@deprecated Use 'shape.get-radius' function instead.";
 
     @return get-radius($shape);
 }

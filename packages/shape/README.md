@@ -116,10 +116,10 @@ The following Sass...
 
 ### Sass functions
 
-| Function             | Description                                    |
-|----------------------|------------------------------------------------|
-| `get-radius($color)` | Get CSS shape radius, without custom property. |
-| `is-shape($shape)`   | Check if shape key exist.                      |
+| Function              | Description                                          |
+|-----------------------|------------------------------------------------------|
+| `exist($radius)`      | Return `true` if shape radius key exist.             |
+| `get-radius($radius)` | Get CSS shape radius value, without custom property. |
 
 #### Shape with `shape.get-radius()`
 
