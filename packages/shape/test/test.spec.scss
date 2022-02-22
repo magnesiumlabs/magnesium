@@ -6,14 +6,12 @@
 @use "sass:string";
 @use "../index" as shape with (
     $shapes: (
-        large: 24px,
-        medium: 12px,
-        small: 6px
+        medium: 12px
     )
 );
 
 @include describe("shape.radius()") {
-    @include it("Should return shape declaration with one option from `$shapes` list.") {
+    @include it("Should return `medium` configured declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -29,23 +27,23 @@
         }
     }
 
-    @include it("Should return shape declaration with custom value.") {
+    @include it("Should return custom value declaration.") {
         @include assert {
             @include output {
                 .foo {
-                    @include shape.radius(5px);
+                    @include shape.radius(6px);
                 }
             }
 
             @include expect {
                 .foo {
-                    border-radius: var(--mg-shape-radius, 5px);
+                    border-radius: var(--mg-shape-radius, 6px);
                 }
             }
         }
     }
 
-    @include it("Should return shape declaration with multiple custom values.") {
+    @include it("Should return multiple custom values declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -61,17 +59,17 @@
         }
     }
 
-    @include it("Should return shape declaration without `var()`.") {
+    @include it("Should return custom value declaration without `var()`.") {
         @include assert {
             @include output {
                 .foo {
-                    @include shape.radius(5px, true);
+                    @include shape.radius(6px, true);
                 }
             }
 
             @include expect {
                 .foo {
-                    border-radius: 5px;
+                    border-radius: 6px;
                 }
             }
         }

@@ -8,7 +8,7 @@
 @use "../index" as typography;
 
 @include describe("typography.base()") {
-    @include it("Should return `base` typography declaration.") {
+    @include it("Should return `base` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -28,7 +28,7 @@
 }
 
 @include describe("typography.typography()") {
-    @include it("Should return `body` typography declaration.") {
+    @include it("Should return `body` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -52,7 +52,7 @@
         }
     }
 
-    @include it("Should return `headline-1` typography declaration.") {
+    @include it("Should return `headline-1` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -76,7 +76,7 @@
         }
     }
 
-    @include it("Should return `headline-2` typography declaration.") {
+    @include it("Should return `headline-2` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -100,7 +100,7 @@
         }
     }
 
-    @include it("Should return `headline-4` typography declaration.") {
+    @include it("Should return `headline-4` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -124,7 +124,7 @@
         }
     }
 
-    @include it("Should return `headline-5` typography declaration.") {
+    @include it("Should return `headline-5` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -148,7 +148,7 @@
         }
     }
 
-    @include it("Should return `headline-6` typography declaration.") {
+    @include it("Should return `headline-6` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -171,10 +171,30 @@
             }
         }
     }
+
+    @include it("Should return `body` declaration with excluded properties.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include typography.typography(body, font-size, line-height, text-decoration, text-transform);
+                }
+            }
+
+            @include expect {
+                .foo {
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                    font-weight: var(--mg-typography-body-font-weight, 400);
+                    letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+                }
+            }
+        }
+    }
 }
 
 @include describe("typography.font-smoothing()") {
-    @include it("Should return `font-smoothing` typography declaration.") {
+    @include it("Should return `font-smoothing` declaration.") {
         @include assert {
             @include output {
                 .foo {
@@ -191,8 +211,9 @@
         }
     }
 }
+
 @include describe("typography.ellipsis()") {
-    @include it("Should return `ellipsis` typography declaration.") {
+    @include it("Should return `ellipsis` declaration.") {
         @include assert {
             @include output {
                 .foo {
