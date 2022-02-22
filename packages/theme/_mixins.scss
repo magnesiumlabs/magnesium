@@ -109,6 +109,16 @@
 ///     --mg-foo: darkcyan;
 ///   }
 ///
+/// @example - scss
+///   .foo {
+///     @include theme.property(custom-properties.create(--foo, darkcyan));
+///   }
+///
+/// @example - css
+///   .foo {
+///     --foo: darkcyan;
+///   }
+///
 /// @see {mixin} property.declaration
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map

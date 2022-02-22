@@ -77,7 +77,7 @@ The following Sass...
 
 ```scss
 @use "@magnesium/theme";
-@use "@sass-collective/property/custom-properties";
+@use "@magnesium/theme/custom-properties";
 
 .foo {
     @include theme.property(color, darkcyan);
@@ -85,6 +85,7 @@ The following Sass...
     @include theme.property(primary); // Will generate a CSS Custom Property with default color.
     @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
     @include theme.property(custom-properties.create(foo, darkcyan));
+    @include theme.property(custom-properties.create(--foo, darkcyan));
 }
 ```
 
@@ -97,6 +98,7 @@ The following Sass...
     --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
     --mg-foo: darkcyan;
+    --foo: darkcyan;
 }
 ```
 

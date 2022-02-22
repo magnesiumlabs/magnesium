@@ -74,6 +74,39 @@
             }
         }
     }
+
+
+    @include it("Should return custom custom property declaration.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.property(custom-properties.create(foo, darkcyan));
+                }
+            }
+
+            @include expect {
+                .foo {
+                    --mg-foo: darkcyan;
+                }
+            }
+        }
+    }
+
+    @include it("Should return custom custom property declaration without prefix.") {
+        @include assert {
+            @include output {
+                .foo {
+                    @include theme.property(custom-properties.create(--foo, darkcyan));
+                }
+            }
+
+            @include expect {
+                .foo {
+                    --foo: darkcyan;
+                }
+            }
+        }
+    }
 }
 
 @include describe("theme.disabled-touch-screen()") {
@@ -93,22 +126,6 @@
                     @media (pointer: fine) {
                         background: darkcyan;
                     }
-                }
-            }
-        }
-    }
-
-    @include it("Should return custom custom property declaration.") {
-        @include assert {
-            @include output {
-                .foo {
-                    @include theme.property(custom-properties.create(foo, darkcyan));
-                }
-            }
-
-            @include expect {
-                .foo {
-                    --mg-foo: darkcyan;
                 }
             }
         }
