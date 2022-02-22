@@ -9,12 +9,12 @@
     )
 );
 
-@include describe("theme.color()") {
-    @include it("Should return `color` declaration with `primary` color and without `var()`.") {
+@include describe("theme.get-color()") {
+    @include it("Should return `primary` declaration without custom property.") {
         @include assert {
             @include output {
                 .foo {
-                    color: theme.color(primary);
+                    color: theme.get-color(primary);
                 }
             }
 

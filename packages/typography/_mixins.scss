@@ -83,7 +83,7 @@
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.is-color($value) {
-            $value: core.create-var(theme-#{$value}, theme.color($value));
+            $value: core.create-var(theme-#{$value}, theme.get-color($value));
         }
 
         @if list.index($with-custom-properties, $key) != null {

@@ -181,12 +181,12 @@ The following Sass...
 
 ### Sass functions
 
-| Function           | Description                                   |
-|--------------------|-----------------------------------------------|
-| `color($color)`    | Get CSS theme color, without custom property. |
-| `is-color($color)` | Check if color key exist.                     |
+| Function            | Description                                   |
+|---------------------|-----------------------------------------------|
+| `get-color($color)` | Get CSS theme color, without custom property. |
+| `is-color($color)`  | Return `true` if color key exist.             |
 
-#### Color with `theme.color()`
+#### Color with `theme.get-color()`
 
 The following Sass...
 
@@ -194,7 +194,7 @@ The following Sass...
 @use "@magnesium/theme";
 
 .foo {
-    color: theme.color(primary);
+    color: theme.get-color(primary);
 }
 ```
 
