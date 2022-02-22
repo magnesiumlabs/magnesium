@@ -6,12 +6,9 @@
 @use "@magnesium/core";
 @use "@sass-collective/css";
 @use "@sass-collective/property";
-@use "@sass-collective/property/custom-properties";
 @use "@unsass/utilities";
 @use "./functions";
 @use "./variables";
-
-@include custom-properties.config(variables.$prefix);
 
 ///
 /// Core styles.

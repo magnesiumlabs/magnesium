@@ -1,0 +1,9 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "@sass-collective/property/custom-properties";
+
+@function create($name, $fallback: null) {
+    @return custom-properties.create($name, $fallback);
+}

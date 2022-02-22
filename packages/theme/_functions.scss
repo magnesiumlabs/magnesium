@@ -6,6 +6,8 @@
 @use "@sass-collective/property/custom-properties";
 @use "./variables";
 
+@include custom-properties.config(variables.$prefix);
+
 ///
 /// Get theme keys.
 ///

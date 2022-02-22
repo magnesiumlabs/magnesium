@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "@sass-collective/property/custom-properties";
+@use "../custom-properties";
 @use "../index" as theme with (
     $colors: (
         primary: #2674a2
