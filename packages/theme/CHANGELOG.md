@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [1.4.1](https://github.com/magnesiumlabs/magnesium/compare/v1.4.0...v1.4.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* **shape, theme, typography:** use new mixins instead of deprecated ([836577c](https://github.com/magnesiumlabs/magnesium/commit/836577c6ab4b026a25234b0b6ca46626812cbcb5))
+
+
+
 ## [1.4.0](https://github.com/magnesiumlabs/magnesium/compare/v1.3.2...v1.4.0) (2022-02-22)
 
 

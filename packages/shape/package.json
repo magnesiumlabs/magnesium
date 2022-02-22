@@ -1,11 +1,11 @@
 {
     "name": "@magnesium/shape",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "The Magnesium Design components for the web shape system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.4.0",
-        "@magnesium/theme": "^1.4.0",
+        "@magnesium/core": "^1.4.1",
+        "@magnesium/theme": "^1.4.1",
         "@sass-collective/property": "^4.6.3",
         "sass": "^1.49.7"
     },
