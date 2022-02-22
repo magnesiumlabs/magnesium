@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/magnesiumlabs/magnesium/compare/v1.3.2...v1.4.0) (2022-02-22)
+
+
+### Features
+
+* **shape:** add `exist` function ([9c8cbbb](https://github.com/magnesiumlabs/magnesium/commit/9c8cbbbe01628db13506da049b701ab525e48da4))
+* **shape:** add custom property on class generator ([cfc86f1](https://github.com/magnesiumlabs/magnesium/commit/cfc86f10ddc7745ad9f810a2aaf98bd96ef6e611))
+* **theme:** add `get-radius` function ([68756d5](https://github.com/magnesiumlabs/magnesium/commit/68756d5aa09c268b0db254d56737508533408b66))
+
+
+
+
 ### [1.3.2](https://github.com/magnesiumlabs/magnesium/compare/v1.3.1...v1.3.2) (2022-02-21)
 
 **Note:** Version bump only for package @magnesium/shape

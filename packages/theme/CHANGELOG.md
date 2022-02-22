@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/magnesiumlabs/magnesium/compare/v1.3.2...v1.4.0) (2022-02-22)
+
+
+### Features
+
+* **theme:** add `exist` function ([c2b6273](https://github.com/magnesiumlabs/magnesium/commit/c2b6273a4e24c566dab1866aa0b9fd7ce9f2d484))
+* **theme:** add `get-color` function ([24de5ce](https://github.com/magnesiumlabs/magnesium/commit/24de5ce88f2234cf525817236d807c9d57b6a5f3))
+* **theme:** add `get-radius` function ([68756d5](https://github.com/magnesiumlabs/magnesium/commit/68756d5aa09c268b0db254d56737508533408b66))
+* **theme:** add custom properties `create` function ([bd297b8](https://github.com/magnesiumlabs/magnesium/commit/bd297b8015cd7b3a76f0e02dfc5a98e71551f77b))
+
+
+
+
 ### [1.3.2](https://github.com/magnesiumlabs/magnesium/compare/v1.3.1...v1.3.2) (2022-02-21)
 
 **Note:** Version bump only for package @magnesium/theme
