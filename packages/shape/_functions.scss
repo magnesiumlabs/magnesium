@@ -30,8 +30,17 @@
 }
 
 ///
-/// Get theme shape.
+/// Get shape radius.
+///
+@function get-radius($radius) {
+    @return map.get(variables.$shapes, $radius);
+}
+
+///
+/// @deprecated Use 'theme.get-radius' function instead.
 ///
 @function shape($shape) {
-    @return map.get(variables.$shapes, $shape);
+    @warn "@deprecated Use 'theme.get-radius' function instead.";
+
+    @return get-radius($shape);
 }

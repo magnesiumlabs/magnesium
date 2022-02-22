@@ -3,24 +3,24 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as theme with (
-    $colors: (
-        primary: #2674a2
+@use "../index" as shape with (
+    $shapes: (
+        medium: 12px
     )
 );
 
-@include describe("theme.get-color()") {
-    @include it("Should return `primary` value without custom property.") {
+@include describe("shape.get-radius()") {
+    @include it("Should return `medium` value without custom property.") {
         @include assert {
             @include output {
                 .foo {
-                    color: theme.get-color(primary);
+                    border-radius: shape.get-radius(medium);
                 }
             }
 
             @include expect {
                 .foo {
-                    color: #2674a2;
+                    border-radius: 12px;
                 }
             }
         }
