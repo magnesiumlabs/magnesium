@@ -2,17 +2,23 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
+@use "sass:math";
 @use "sass:string";
 @use "@sass-collective/em";
 @use "@sass-collective/rem";
+@use "@sass-collective/strip-unit";
 @use "./functions";
 
 $font-family: string.unquote("'Open Sans', sans-serif") !default;
+$font-baseline: 16px !default;
 $font-smoothing: true !default;
 $styles: () !default;
 
+@include rem.config($font-baseline);
+
 $base: (
-    font-family: $font-family
+    font-family: $font-family,
+    font-size: math.div(100%, 16) * strip-unit.strip($font-baseline)
 );
 
 $styles-values: functions.set-styles($base, (
