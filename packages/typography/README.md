@@ -112,6 +112,7 @@ The following Sass...
 ```css
 .foo {
     font-family: var(--mg-typography-font-family, 'Open Sans', sans-serif);
+    font-size: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
