@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.0](https://github.com/magnesiumlabs/magnesium/compare/v1.4.1...v1.5.0) (2022-02-24)
+
+
+### Features
+
+* **typography:** add `$font-baseline` option ([ba87ae7](https://github.com/magnesiumlabs/magnesium/commit/ba87ae79b7b500f24e91a67555f6988e2dbdfc91))
+
+
+
+
 ### [1.4.1](https://github.com/magnesiumlabs/magnesium/compare/v1.4.0...v1.4.1) (2022-02-22)
 
 
