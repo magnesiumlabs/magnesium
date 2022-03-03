@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "sass:string";
-@use "@sass-collective/rem";
+@use "@unsass/rem";
 @use "../index" as typography;
 
 @include describe("typography.base()") {
