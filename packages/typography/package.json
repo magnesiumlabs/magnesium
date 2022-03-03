@@ -6,8 +6,8 @@
     "dependencies": {
         "@magnesium/core": "^1.5.0",
         "@magnesium/theme": "^1.5.0",
-        "@sass-collective/em": "^2.5.5",
         "@sass-collective/property": "^4.6.3",
+        "@unsass/em": "^1.0.0",
         "@unsass/rem": "^1.1.0",
         "@unsass/utilities": "^1.2.0",
         "sass": "^1.49.7"
