@@ -75,7 +75,6 @@
         }
     }
 
-
     @include it("Should return custom custom property declaration.") {
         @include assert {
             @include output {
@@ -117,7 +116,6 @@
                     @include theme.disabled-touch-screen {
                         background: darkcyan;
                     }
-                ;
                 }
             }
 
