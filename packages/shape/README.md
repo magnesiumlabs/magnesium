@@ -116,12 +116,12 @@ The following Sass...
 
 ### Sass functions
 
-| Function              | Description                                          |
-|-----------------------|------------------------------------------------------|
-| `exist($radius)`      | Return `true` if shape radius key exist.             |
-| `get-radius($radius)` | Get CSS shape radius value, without custom property. |
+| Function          | Description                                          |
+|-------------------|------------------------------------------------------|
+| `exist($radius)`  | Return `true` if shape radius key exist.             |
+| `radius($radius)` | Get CSS shape radius value, without custom property. |
 
-#### Shape with `shape.get-radius()`
+#### Shape with `shape.radius()`
 
 The following Sass...
 
@@ -129,7 +129,7 @@ The following Sass...
 @use "@magnesium/shape";
 
 .foo {
-    border-radius: shape.get-radius(medium);
+    border-radius: shape.radius(medium);
 }
 ```
 

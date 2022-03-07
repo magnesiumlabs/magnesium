@@ -14,7 +14,7 @@
         @include assert {
             @include output {
                 .foo {
-                    border-radius: shape.get-radius(medium);
+                    border-radius: shape.radius(medium);
                 }
             }
 

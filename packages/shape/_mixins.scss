@@ -40,7 +40,7 @@
     $value: "";
 
     @if functions.exist($radius) {
-        $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, map.get(variables.$shapes, $radius)));
+        $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, functions.radius($radius)));
     } @else {
         @if $no-var {
             $value: $radius;
@@ -64,10 +64,10 @@
         @if $value {
             $property: functions.create-custom-map($property, $value);
         } @else {
-            $property: functions.create-custom-map($property, functions.get-radius($property));
+            $property: functions.create-custom-map($property, functions.radius($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(shape-#{$value}, functions.get-radius($value));
+        $value: core.create-var(shape-#{$value}, functions.radius($value));
     }
 
     @include property.declaration($property, $value, $important);
