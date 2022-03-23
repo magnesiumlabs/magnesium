@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.0](https://github.com/magnesiumlabs/magnesium/compare/v1.5.1...v1.6.0) (2022-03-23)
+
+
+### Features
+
+* **typography:** add `ellipsis-multiline` mixin ([e12254d](https://github.com/magnesiumlabs/magnesium/commit/e12254d7328fb1a9862b70495f1a8d3d1e463bc4))
+
+
+
+
 ### [1.5.1](https://github.com/magnesiumlabs/magnesium/compare/v1.5.0...v1.5.1) (2022-03-07)
 
 **Note:** Version bump only for package @magnesium/core
