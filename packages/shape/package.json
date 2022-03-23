@@ -6,8 +6,8 @@
     "dependencies": {
         "@magnesium/core": "^1.5.1",
         "@magnesium/theme": "^1.5.1",
-        "@sass-collective/property": "^4.6.3",
-        "sass": "^1.49.7"
+        "@sass-collective/property": "^4.7.0",
+        "sass": "^1.49.9"
     },
     "files": [
         "*.scss"

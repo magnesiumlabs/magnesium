@@ -94,6 +94,7 @@ The new key named `body-2` is now available with any other default typography ke
 | `typography($style, $exclude-props...)` | Sets the selected style on selector, with excluded properties option. |
 | `font-smoothing`                        | Sets the font smoothing rules.                                        |
 | `ellipsis`                              | Sets the ellipsis rules.                                              |
+| `ellipsis-multiline($line, $orient)`    | Sets the ellipsis-multiline rules.                                    |
 
 #### Typography rule with `typography.base()`
 
@@ -198,6 +199,29 @@ The following Sass...
 .foo {
     text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
+}
+```
+
+#### Ellipsis multiline with `typography.ellipsis-multiline()`
+
+The following Sass...
+
+```scss
+@use "@magnesium/typography";
+
+.foo {
+    @include typography.ellipsis-multiline(2, vertical);
+}
+```
+
+...will produce the following CSS...
+
+```css
+.foo {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 ```

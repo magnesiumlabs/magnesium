@@ -122,6 +122,15 @@
     @include utilities.ellipsis;
 }
 
+///
+/// Ellipsis multiline.
+///
+/// @see {mixin} utilities.ellipsis-multiline
+///
+@mixin ellipsis-multiline($line: 2, $orient: vertical) {
+    @include utilities.ellipsis-multiline($line, $orient);
+}
+
 @function get-line-height($style) {
     @return map.get(variables.$styles, $style, line-height);
 }
