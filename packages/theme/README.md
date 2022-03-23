@@ -48,7 +48,7 @@ You can define the theme color variables before importing any Magnesium componen
 
 > The variable `{style}` correspond with each key on the `$colors` config, see [configuration](#Configuration).
 
-| CSS Custom property  | Description                  |
+| CSS Custom Property  | Description                  |
 |----------------------|------------------------------|
 | `--mg-theme-{style}` | Override the selected style. |
 

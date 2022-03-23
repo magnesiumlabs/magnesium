@@ -42,7 +42,7 @@ You can define the shape variables before importing any Magnesium components:
 
 ### CSS custom properties
 
-| CSS Custom property  | Description                                          |
+| CSS Custom Property  | Description                                          |
 |----------------------|------------------------------------------------------|
 | `--mg-shape-radius`  | Global custom property. Override the selected style. |
 | `--mg-shape-{style}` | Override the selected style.                         |
