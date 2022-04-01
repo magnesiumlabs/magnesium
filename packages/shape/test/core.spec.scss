@@ -1,0 +1,37 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" with (
+   $shapes: (
+        large: 24px,
+        medium: 12px,
+        small: 6px
+    )
+);
+@use "../core" as shape;
+
+@include describe("shape.core-styles()") {
+    @include it("Should return core styles.") {
+        @include assert {
+            @include output(false) {
+                @include shape.core-styles;
+            }
+
+            @include expect(false) {
+                .mg-shape--large {
+                    border-radius: var(--mg-shape-large, 24px);
+                }
+
+                .mg-shape--medium {
+                    border-radius: var(--mg-shape-medium, 12px);
+                }
+
+                .mg-shape--small {
+                    border-radius: var(--mg-shape-small, 6px);
+                }
+            }
+        }
+    }
+}

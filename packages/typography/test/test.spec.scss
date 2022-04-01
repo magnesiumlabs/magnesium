@@ -11,13 +11,13 @@
     @include it("Should return `base` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.base;
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
@@ -32,13 +32,13 @@
     @include it("Should return `body` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(body);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -56,13 +56,13 @@
     @include it("Should return `headline-1` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(headline-1);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -80,13 +80,13 @@
     @include it("Should return `headline-2` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(headline-2);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -104,13 +104,13 @@
     @include it("Should return `headline-4` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(headline-4);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -128,13 +128,13 @@
     @include it("Should return `headline-5` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(headline-5);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -152,13 +152,13 @@
     @include it("Should return `headline-6` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(headline-6);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -176,13 +176,13 @@
     @include it("Should return `body` declaration with excluded properties.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.typography(body, font-size, line-height, text-decoration, text-transform);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
@@ -198,13 +198,13 @@
     @include it("Should return `font-smoothing` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.font-smoothing;
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
                 }
@@ -217,13 +217,13 @@
     @include it("Should return `ellipsis` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include typography.ellipsis;
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;

@@ -8,5 +8,10 @@ $prefers-color-scheme: (
 );
 
 $prefix: "mg" !default;
-$colors: () !default;
+
+$colors: (
+    primary: null,
+    secondary: null
+) !default;
+
 $bg-colors: () !default;

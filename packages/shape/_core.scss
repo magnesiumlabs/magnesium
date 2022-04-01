@@ -1,0 +1,20 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "@magnesium/theme";
+@use "./mixins";
+@use "./functions";
+
+///
+/// Core styles.
+///
+/// @see {mixin} theme.selector
+///
+@mixin core-styles {
+    @each $style in functions.get-keys() {
+        @include theme.selector(shape--#{$style}) {
+            @include mixins.declaration(border-radius, $style);
+        }
+    }
+}

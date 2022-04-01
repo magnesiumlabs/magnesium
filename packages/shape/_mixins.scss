@@ -6,21 +6,7 @@
 @use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@sass-collective/property";
-@use "./variables";
 @use "./functions";
-
-///
-/// Core styles.
-///
-/// @see {mixin} theme.selector
-///
-@mixin core-styles {
-    @each $style in functions.get-keys() {
-        @include theme.selector(shape--#{$style}) {
-            @include declaration(border-radius, $style);
-        }
-    }
-}
 
 // ------------------------------------------------------------------------- //
 // Private mixins
