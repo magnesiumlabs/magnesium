@@ -1,0 +1,27 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" with (
+    $colors: (
+        primary: #2674a2
+    )
+);
+@use "../theme";
+
+@include describe("theme.core-styles()") {
+    @include it("Should return core styles.") {
+        @include assert {
+            @include output(false) {
+                @include theme.core-styles;
+            }
+
+            @include expect(false) {
+                .mg-theme--primary {
+                    color: var(--mg-theme-primary, #2674a2);
+                }
+            }
+        }
+    }
+}

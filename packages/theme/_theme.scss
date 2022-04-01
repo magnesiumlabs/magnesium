@@ -1,0 +1,29 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "@magnesium/core";
+@use "./variables";
+@use "./mixins";
+@use "./functions";
+
+///
+/// Core styles.
+///
+/// @see {mixin} mixins.selector
+/// @see {mixin} mixins.property
+/// @see {function} functions.get-keys
+///
+@mixin core-styles {
+    @each $style in functions.get-keys() {
+        @include mixins.selector(theme--#{$style}) {
+            @include mixins.property(color, $style);
+        }
+    }
+
+    @each $style in variables.$bg-colors {
+        @include mixins.selector(theme--#{$style}-bg) {
+            @include mixins.property(background-color, $style);
+        }
+    }
+}
