@@ -7,7 +7,7 @@
 @use "../index" with (
     $font-family: string.unquote("Roboto, sans-serif")
 );
-@use "../typography";
+@use "../core" as typography;
 
 @include describe("typography.core-styles()") {
     @include it("Should return core styles.") {

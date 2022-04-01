@@ -2,6 +2,6 @@
 //                                          TYPOGRAPHY                                           //
 // ============================================================================================= //
 
-@use "./typography";
+@use "./core" as typography;
 
 @include typography.core-styles;
