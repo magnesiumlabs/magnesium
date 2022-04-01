@@ -13,13 +13,13 @@
     @include it("Should return `primary` value without custom property.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     color: theme.get-color(primary);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     color: #2674a2;
                 }
             }

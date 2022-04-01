@@ -13,13 +13,13 @@
     @include it("Should return `medium` value without custom property.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     border-radius: shape.radius(medium);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: 12px;
                 }
             }

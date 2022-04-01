@@ -14,13 +14,13 @@
     @include it("Should return `color` declaration with custom value.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(color, darkcyan);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     color: darkcyan;
                 }
             }
@@ -30,13 +30,13 @@
     @include it("Should return `color` declaration with configured `primary` color.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(color, primary);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     color: var(--mg-theme-primary, #2674a2);
                 }
             }
@@ -46,13 +46,13 @@
     @include it("Should return configured `primary` color declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(primary);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --mg-theme-primary: #2674a2;
                 }
             }
@@ -62,13 +62,13 @@
     @include it("Should return configured `primary` color declaration with custom value.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(primary, darkcyan);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --mg-theme-primary: darkcyan;
                 }
             }
@@ -78,13 +78,13 @@
     @include it("Should return custom custom property declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(custom-properties.create(foo, darkcyan));
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --mg-foo: darkcyan;
                 }
             }
@@ -94,13 +94,13 @@
     @include it("Should return custom custom property declaration without prefix.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.property(custom-properties.create(--foo, darkcyan));
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --foo: darkcyan;
                 }
             }
@@ -112,7 +112,7 @@
     @include it("Should return disabled touch screen `@media` declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.disabled-touch-screen {
                         background: darkcyan;
                     }
@@ -120,7 +120,7 @@
             }
 
             @include expect {
-                .foo {
+                .test {
                     @media (pointer: fine) {
                         background: darkcyan;
                     }
@@ -134,13 +134,13 @@
     @include it("Should return disabled pointer events declarations.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include theme.disabled-pointer-events;
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     cursor: default;
                     pointer-events: none;
                 }

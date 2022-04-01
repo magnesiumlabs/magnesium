@@ -14,13 +14,13 @@
     @include it("Should return `medium` configured declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.radius(medium);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
                 }
             }
@@ -30,13 +30,13 @@
     @include it("Should return custom value declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.radius(6px);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: var(--mg-shape-radius, 6px);
                 }
             }
@@ -46,13 +46,13 @@
     @include it("Should return multiple custom values declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.radius(10px 10px 10px 10px);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: var(--mg-shape-radius, 10px 10px 10px 10px);
                 }
             }
@@ -62,13 +62,13 @@
     @include it("Should return custom value declaration without `var()`.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.radius(6px, true);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: 6px;
                 }
             }
@@ -80,13 +80,13 @@
     @include it("Should return default configurated custom property declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.declaration(medium);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --mg-shape-medium: 12px;
                 }
             }
@@ -96,13 +96,13 @@
     @include it("Should return default configurated custom property declaration with new value.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.property(medium, 16px);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     --mg-shape-medium: 16px;
                 }
             }
@@ -112,13 +112,13 @@
     @include it("Should return shape declaration.") {
         @include assert {
             @include output {
-                .foo {
+                .test {
                     @include shape.declaration(border-radius, medium);
                 }
             }
 
             @include expect {
-                .foo {
+                .test {
                     border-radius: var(--mg-shape-medium, 12px);
                 }
             }
