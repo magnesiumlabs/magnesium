@@ -11,7 +11,7 @@
         primary
     )
 );
-@use "../theme";
+@use "../core" as theme;
 
 @include describe("theme.core-styles()") {
     @include it("Should return core styles.") {
