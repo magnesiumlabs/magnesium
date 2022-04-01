@@ -82,8 +82,8 @@ The following Sass...
     @include theme.property(primary); // Will generate a CSS Custom Property with default color.
     @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
     
-    @include theme.property(color, darkcyan); // Will generate color declaration.
     @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
+    @include theme.property(color, darkcyan); // Will generate color declaration.
 }
 ```
 
@@ -94,8 +94,8 @@ The following Sass...
     --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
     
-    color: darkcyan;
     color: var(--mg-theme-primary, #2674a2);
+    color: darkcyan;
 }
 ```
 
@@ -108,13 +108,13 @@ The following Sass...
 
 @include theme.prefers-color-scheme {
     :root {
-        color: #2674a2;
+        --mg-theme-primary: #2674a2;
     }
 }
 
 @include theme.prefers-color-scheme(dark) {
     :root {
-        color: #2674a2;
+        --mg-theme-primary: #2674a2;
     }
 }
 ```
@@ -124,13 +124,13 @@ The following Sass...
 ```css
 @media (prefers-color-scheme: light) {
     :root {
-        color: #2674a2;
+        --mg-theme-primary: #2674a2;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        color: #2674a2;
+        --mg-theme-primary: #2674a2;
     }
 }
 ```
