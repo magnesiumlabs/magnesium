@@ -2,6 +2,6 @@
 //                                          TYPOGRAPHY                                           //
 // ============================================================================================= //
 
-@use "./mixins";
+@use "./typography";
 
-@include mixins.core-styles;
+@include typography.core-styles;
