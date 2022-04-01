@@ -2,6 +2,6 @@
 //                                             SHAPE                                             //
 // ============================================================================================= //
 
-@use "./mixins";
+@use "./core" as shape;
 
-@include mixins.core-styles;
+@include shape.core-styles;
