@@ -4,7 +4,7 @@
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install",
-        "release": "lerna publish --force-publish *"
+        "release": "lerna publish --force-publish --create-release github"
     },
     "engines": {
         "node": ">=14.0.0",
