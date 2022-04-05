@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @forward "./variables" hide $prefers-color-scheme;
-@forward "./mixins";
+@forward "./mixins" hide selector;
 @forward "./functions";
 
 @use "@sass-collective/property/custom-properties";

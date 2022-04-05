@@ -12,11 +12,9 @@
 ///
 /// Core styles.
 ///
-/// @see {mixin} theme.selector
-///
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        @include theme.selector(shape--#{$style}) {
+        .#{theme.$prefix}-shape--#{$style} {
             @include declaration(border-radius, $style);
         }
     }

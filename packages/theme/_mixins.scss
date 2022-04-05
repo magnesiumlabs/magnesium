@@ -13,19 +13,18 @@
 ///
 /// Core styles.
 ///
-/// @see {mixin} selector
 /// @see {mixin} property
 /// @see {function} functions.get-keys
 ///
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        @include selector(theme--#{$style}) {
+        .#{variables.$prefix}-theme--#{$style} {
             @include property(color, $style);
         }
     }
 
     @each $style in variables.$bg-colors {
-        @include selector(theme--#{$style}-bg) {
+        .#{variables.$prefix}-theme--#{$style}-bg {
             @include property(background-color, $style);
         }
     }
