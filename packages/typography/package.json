@@ -10,7 +10,7 @@
         "@unsass/em": "^1.0.0",
         "@unsass/rem": "^1.1.0",
         "@unsass/utilities": "^1.3.0",
-        "sass": "^1.49.9"
+        "sass": "^1.49.11"
     },
     "files": [
         "*.scss"
