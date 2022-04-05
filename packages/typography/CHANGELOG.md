@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.0](https://github.com/magnesiumlabs/magnesium/compare/v1.6.0...v1.7.0) (2022-04-05)
+
+
+### Features
+
+* **shape, theme, typography:** stop use `selector` mixin ([f643985](https://github.com/magnesiumlabs/magnesium/commit/f643985cbd144a752fd55fda508f2f8d0e943998))
+
+
+
+
 ## [1.6.0](https://github.com/magnesiumlabs/magnesium/compare/v1.5.1...v1.6.0) (2022-03-23)
 
 
