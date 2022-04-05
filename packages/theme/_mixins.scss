@@ -4,7 +4,6 @@
 
 @use "sass:map";
 @use "@magnesium/core";
-@use "@sass-collective/css";
 @use "@sass-collective/property";
 @use "@unsass/utilities";
 @use "./functions";
@@ -39,23 +38,6 @@
 // ------------------------------------------------------------------------- //
 // Public mixins
 // ------------------------------------------------------------------------- //
-
-///
-/// Set theme selector name.
-///
-/// @see {mixin} css.selector
-///
-@mixin selector($name) {
-    .#{$name} {
-        @if variables.$prefix != "" {
-            @include css.selector(variables.$prefix, "-") {
-                @content;
-            }
-        } @else {
-            @content;
-        }
-    }
-}
 
 ///
 /// @example - scss
