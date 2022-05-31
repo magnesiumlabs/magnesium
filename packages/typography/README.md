@@ -114,8 +114,6 @@ The following Sass...
 .foo {
     font-family: var(--mg-typography-font-family, 'Open Sans', sans-serif);
     font-size: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 ```
 
@@ -147,16 +145,12 @@ The following Sass...
     letter-spacing: var(--mg-typography-body-letter-spacing, normal);
     text-decoration: var(--mg-typography-body-text-decoration, inherit);
     text-transform: var(--mg-typography-body-text-transform, inherit);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 
 .bar {
     font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, 'Open Sans', sans-serif));
     font-weight: var(--mg-typography-body-font-weight, 400);
     letter-spacing: var(--mg-typography-body-letter-spacing, normal);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 ```
 
