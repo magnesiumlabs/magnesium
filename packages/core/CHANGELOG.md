@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.0](https://github.com/magnesiumlabs/magnesium/compare/v1.7.0...v1.8.0) (2022-05-31)
+
+**Note:** Version bump only for package @magnesium/core
+
+
+
+
+
+
 ## [1.7.0](https://github.com/magnesiumlabs/magnesium/compare/v1.6.0...v1.7.0) (2022-04-05)
 
 **Note:** Version bump only for package @magnesium/core
