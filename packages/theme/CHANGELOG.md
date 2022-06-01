@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [1.8.1](https://github.com/magnesiumlabs/magnesium/compare/v1.8.0...v1.8.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **theme:** package files delivery ([540c50e](https://github.com/magnesiumlabs/magnesium/commit/540c50e2c0412806c9d07e10480fff3232267c35))
+
+
+
 ## [1.8.0](https://github.com/magnesiumlabs/magnesium/compare/v1.7.0...v1.8.0) (2022-05-31)
 
 
