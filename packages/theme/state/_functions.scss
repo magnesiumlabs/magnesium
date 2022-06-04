@@ -47,6 +47,10 @@
     @return _get-state($default-or-map, selected);
 }
 
+@function get-valid-state($default-or-map) {
+    @return _get-state($default-or-map, valid);
+}
+
 @function get-invalid-state($default-or-map) {
     @return _get-state($default-or-map, invalid);
 }
