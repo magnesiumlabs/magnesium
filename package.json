@@ -4,7 +4,7 @@
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install",
-        "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo"
+        "release": "multi-semantic-release"
     },
     "engines": {
         "node": ">=14.0.0",
@@ -26,6 +26,6 @@
         "sass": "^1.52.3",
         "sass-true": "^6.1.0",
         "semantic-release": "^19.0.3",
-        "semantic-release-monorepo": "^7.0.5"
+        "semantic-release-lerna": "^0.5.0"
     }
 }
