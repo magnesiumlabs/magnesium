@@ -1,5 +1,6 @@
 {
     "private": true,
+    "name": "@magnesium/framework",
     "scripts": {
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
