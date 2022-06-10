@@ -4,7 +4,7 @@
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install",
-        "release": "multi-semantic-release"
+        "release": "semantic-release"
     },
     "engines": {
         "node": ">=14.0.0",

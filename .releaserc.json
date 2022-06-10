@@ -1,5 +1,4 @@
 {
-    "extends": "semantic-release-monorepo",
     "branches": [
         "main",
         "feature/update",
@@ -13,7 +12,8 @@
         "@semantic-release/commit-analyzer",
         [
             "semantic-release-lerna",
-            { "generateNotes": true
+            {
+                "generateNotes": true
             }
         ],
         [
