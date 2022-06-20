@@ -1,6 +1,6 @@
 <div align="center">
 
-![Magnesium Design](.github/logo.png)
+![Magnesium Design](.github/banner.svg)
 
 </div>
 
