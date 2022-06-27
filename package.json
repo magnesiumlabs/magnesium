@@ -4,21 +4,25 @@
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install",
-        "release": "lerna publish --force-publish"
+        "release": "semantic-release"
     },
     "engines": {
         "node": ">=14.0.0",
         "npm": ">=8.0.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "^17.0.2",
-        "@commitlint/config-conventional": "^17.0.2",
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/git": "^10.0.1",
         "@types/node": "^17.0.42",
         "glob": "^7.2.3",
         "husky": "^8.0.1",
         "jest": "^28.1.1",
-        "lerna": "^5.1.4",
+        "lerna": "^5.1.6",
         "sass": "^1.52.3",
-        "sass-true": "^6.1.0"
+        "sass-true": "^6.1.0",
+        "semantic-release": "^19.0.3",
+        "semantic-release-lerna": "^0.6.1"
     }
 }
