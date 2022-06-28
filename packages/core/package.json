@@ -4,7 +4,7 @@
     "description": "The Magnesium Design components for the web core system.",
     "main": "index.scss",
     "dependencies": {
-        "sass": "^1.52.3"
+        "sass": "^1.53.0"
     },
     "files": [
         "*.scss"
