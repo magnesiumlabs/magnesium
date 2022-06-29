@@ -7,6 +7,6 @@
 @forward "./functions";
 
 @use "@sass-collective/property/custom-properties";
-@use './variables';
+@use "./variables";
 
 @include custom-properties.config(variables.$prefix);
