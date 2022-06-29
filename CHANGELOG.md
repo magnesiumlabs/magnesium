@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.9.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v1.8.1...v1.9.0-beta.1) (2022-06-29)
+
+
+### Features
+
+* **theme:** add `get-valid-state` function ([0146d13](https://github.com/magnesiumlabs/magnesium/commit/0146d1398a64fae5c2e8da92726ead6d2eed137a))
+
 ### [1.8.1](https://github.com/magnesiumlabs/magnesium/compare/v1.8.0...v1.8.1) (2022-06-01)
 
 
