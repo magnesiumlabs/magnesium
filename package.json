@@ -1,5 +1,6 @@
 {
     "private": true,
+    "name": "magnesium-monorepo",
     "scripts": {
         "test": "jest",
         "postinstall": "lerna bootstrap --hoist",
