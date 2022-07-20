@@ -1,0 +1,14 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as core with (
+    $prefix: "foo"
+);
+
+@include describe("core.$prefix") {
+    @include it("Should return `$prefix` extended value.") {
+        @include assert-equal(core.$prefix, "foo");
+    }
+}

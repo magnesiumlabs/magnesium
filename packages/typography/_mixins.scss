@@ -16,12 +16,12 @@
 /// @see {mixin} typography
 ///
 @mixin core-styles {
-    .#{theme.$prefix}-typography {
+    .#{core.$prefix}-typography {
         @include base;
     }
 
     @each $style in map.keys(variables.$styles) {
-        .#{theme.$prefix}-typography--#{$style} {
+        .#{core.$prefix}-typography--#{$style} {
             @include typography($style);
         }
     }
