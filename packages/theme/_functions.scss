@@ -48,12 +48,3 @@
 
     @return map.get(variables.$colors, $color);
 }
-
-///
-/// @deprecated Use 'theme.get-color' function instead.
-///
-@function color($color) {
-    @warn "@deprecated Use 'theme.get-color' function instead.";
-
-    @return get-color($color);
-}
