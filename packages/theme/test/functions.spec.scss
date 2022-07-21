@@ -12,13 +12,13 @@
 @include describe("theme.get-color()") {
     @include it("Should return `primary` value without custom property.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     color: theme.get-color(primary);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     color: #2674a2;
                 }

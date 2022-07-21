@@ -12,13 +12,13 @@
 @include describe("shape.get-radius()") {
     @include it("Should return `medium` value without custom property.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     border-radius: shape.radius(medium);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     border-radius: 12px;
                 }
