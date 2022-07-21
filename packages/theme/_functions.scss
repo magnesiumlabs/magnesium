@@ -30,15 +30,6 @@
 }
 
 ///
-/// @deprecated Use 'theme.exist' function instead.
-///
-@function is-color($color) {
-    @warn "@deprecated Use 'theme.exist' function instead.";
-
-    @return exist($color);
-}
-
-///
 /// Get theme color.
 ///
 @function get-color($color) {
