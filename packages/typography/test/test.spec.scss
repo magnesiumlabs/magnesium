@@ -10,13 +10,13 @@
 @include describe("typography.base()") {
     @include it("Should return `base` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.base;
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -31,13 +31,13 @@
 @include describe("typography.typography()") {
     @include it("Should return `body` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(body);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -55,13 +55,13 @@
 
     @include it("Should return `headline-1` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(headline-1);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -79,13 +79,13 @@
 
     @include it("Should return `headline-2` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(headline-2);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -103,13 +103,13 @@
 
     @include it("Should return `headline-4` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(headline-4);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -127,13 +127,13 @@
 
     @include it("Should return `headline-5` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(headline-5);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -151,13 +151,13 @@
 
     @include it("Should return `headline-6` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(headline-6);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -175,13 +175,13 @@
 
     @include it("Should return `body` declaration with excluded properties.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.typography(body, font-size, line-height, text-decoration, text-transform);
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -197,13 +197,13 @@
 @include describe("typography.font-smoothing()") {
     @include it("Should return `font-smoothing` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.font-smoothing;
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;
@@ -216,13 +216,13 @@
 @include describe("typography.ellipsis()") {
     @include it("Should return `ellipsis` declaration.") {
         @include assert {
-            @include output {
+            @include output(false) {
                 .test {
                     @include typography.ellipsis;
                 }
             }
 
-            @include expect {
+            @include expect(false) {
                 .test {
                     text-overflow: ellipsis;
                     white-space: nowrap;

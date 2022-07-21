@@ -2,5 +2,11 @@
 //                                             CORE                                              //
 // ============================================================================================= //
 
+@forward "./variables";
 @forward "./mixins";
 @forward "./functions";
+
+@use "@sass-collective/property/custom-properties";
+@use "./variables";
+
+@include custom-properties.config(variables.$prefix);

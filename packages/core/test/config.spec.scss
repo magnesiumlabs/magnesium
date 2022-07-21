@@ -1,0 +1,12 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as core;
+
+@include describe("core.$prefix") {
+    @include it("Should return `$prefix` default value.") {
+        @include assert-equal(core.$prefix, "mg");
+    }
+}

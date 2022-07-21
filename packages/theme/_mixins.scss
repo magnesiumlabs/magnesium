@@ -17,13 +17,13 @@
 ///
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        .#{variables.$prefix}-theme--#{$style} {
+        .#{core.$prefix}-theme--#{$style} {
             @include property(color, $style);
         }
     }
 
     @each $style in variables.$bg-colors {
-        .#{variables.$prefix}-theme--#{$style}-bg {
+        .#{core.$prefix}-theme--#{$style}-bg {
             @include property(background-color, $style);
         }
     }

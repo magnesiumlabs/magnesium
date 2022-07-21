@@ -2,10 +2,4 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
-$prefers-color-scheme: (
-    light: "light",
-    dark: "dark"
-);
-
-$colors: () !default;
-$bg-colors: () !default;
+$prefix: "mg" !default;
