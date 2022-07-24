@@ -3,11 +3,9 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "../../../tests/variables";
 @use "../index" as theme with (
-    $colors: (
-        primary: #2674a2,
-        secondary: #6e5898
-    )
+    $colors: variables.$colors
 );
 
 @include describe("theme.get-color()") {

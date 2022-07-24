@@ -4,10 +4,9 @@
 
 @use "true" as *;
 @use "../custom-properties";
+@use "../../../tests/variables";
 @use "../index" as theme with (
-    $colors: (
-        primary: #2674a2
-    )
+    $colors: variables.$colors
 );
 
 @include describe("theme.property()") {
