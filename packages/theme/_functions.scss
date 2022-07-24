@@ -41,12 +41,12 @@
 ///
 /// Get theme color.
 ///
-@function get-color($color) {
-    @if not map.has-key(variables.$colors, $color) {
-        @error "Invalid color scheme, #{$color} doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
+@function get-color($token) {
+    @if not map.has-key(variables.$colors, $token) {
+        @error "Invalid color scheme, #{$token} doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
     }
 
-    @return map.get(variables.$colors, $color);
+    @return map.get(variables.$colors, $token);
 }
 
 ///
