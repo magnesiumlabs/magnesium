@@ -26,7 +26,7 @@ You can define the theme color variables before importing any Magnesium componen
 @use "@magnesium/theme" with (
     $colors: (
         primary: #2674a2,
-        on-primary: #fff
+        secondary: #6e5898
     )
 );
 ```
