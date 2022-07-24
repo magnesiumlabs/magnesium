@@ -5,7 +5,8 @@
 @use "true" as *;
 @use "../index" as theme with (
     $colors: (
-        primary: #2674a2
+        primary: #2674a2,
+        secondary: #6e5898
     )
 );
 
@@ -24,5 +25,30 @@
                 }
             }
         }
+    }
+
+    @include it("Should return `secondary` value without custom property.") {
+        @include assert {
+            @include output(false) {
+                .test {
+                    color: theme.get-color(secondary);
+                }
+            }
+
+            @include expect(false) {
+                .test {
+                    color: #6e5898;
+                }
+            }
+        }
+    }
+}
+
+@include describe("theme.get-keys()") {
+    @include it("Should return list of theme token keys.") {
+        @include assert-equal(theme.get-keys(), (
+            primary,
+            secondary
+        ));
     }
 }
