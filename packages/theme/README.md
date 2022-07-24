@@ -111,7 +111,7 @@ The following Sass...
 
 @include theme.prefers-color-scheme(dark) {
     :root {
-        --mg-theme-primary: #2674a2;
+        --mg-theme-primary: #6e5898;
     }
 }
 ```
@@ -127,7 +127,7 @@ The following Sass...
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --mg-theme-primary: #2674a2;
+        --mg-theme-primary: #6e5898;
     }
 }
 ```
