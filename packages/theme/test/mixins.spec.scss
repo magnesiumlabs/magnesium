@@ -163,6 +163,26 @@
             }
         }
     }
+
+    @include it("Should return prefers color scheme declaration with custom selector.") {
+        @include assert {
+            @include output(false) {
+                @include theme.prefers-color-scheme($tokens: (
+                    primary: #080,
+                    secondary: #800
+                ));
+            }
+
+            @include expect(false) {
+                @media (prefers-color-scheme: light) {
+                    :root {
+                        --mg-theme-primary: #080;
+                        --mg-theme-secondary: #800;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @include describe("theme.disabled-touch-screen()") {

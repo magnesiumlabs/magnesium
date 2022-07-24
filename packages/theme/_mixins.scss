@@ -161,7 +161,7 @@
 ///     }
 ///   }
 ///
-@mixin prefers-color-scheme($scheme: light, $root: true) {
+@mixin prefers-color-scheme($scheme: light, $tokens: (), $root: true) {
     @if not map.has-key(variables.$prefers-color-scheme, $scheme) {
         @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
     }
@@ -173,9 +173,21 @@
     @media (prefers-color-scheme: $scheme) {
         @if $root {
             :root {
+                @if $tokens != () {
+                    @each $token, $value in $tokens {
+                        @include property($token, $value);
+                    }
+                }
+
                 @content;
             }
         } @else {
+            @if $tokens != () {
+                @each $token, $value in $tokens {
+                    @include property($token, $value);
+                }
+            }
+
             @content;
         }
     }
