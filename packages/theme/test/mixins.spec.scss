@@ -107,6 +107,64 @@
     }
 }
 
+@include describe("theme.prefers-color-scheme()") {
+    @include it("Should return prefers color scheme `light` declaration.") {
+        @include assert {
+            @include output(false) {
+                @include theme.prefers-color-scheme {
+                    background: darkcyan;
+                }
+            }
+
+            @include expect(false) {
+                @media (prefers-color-scheme: light) {
+                    :root {
+                        background: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include it("Should return prefers color scheme `dark` declaration.") {
+        @include assert {
+            @include output(false) {
+                @include theme.prefers-color-scheme(dark) {
+                    background: darkcyan;
+                }
+            }
+
+            @include expect(false) {
+                @media (prefers-color-scheme: dark) {
+                    :root {
+                        background: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include it("Should return prefers color scheme declaration with custom selector.") {
+        @include assert {
+            @include output(false) {
+                @include theme.prefers-color-scheme($root: false) {
+                    .test {
+                        background: darkcyan;
+                    }
+                }
+            }
+
+            @include expect(false) {
+                @media (prefers-color-scheme: light) {
+                    .test {
+                        background: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @include describe("theme.disabled-touch-screen()") {
     @include it("Should return disabled touch screen `@media` declaration.") {
         @include assert {

@@ -139,9 +139,7 @@
 ///
 /// @example - scss
 ///   @include theme.prefers-color-scheme {
-///     :root {
-///       color: #2674a2;
-///     }
+///     color: #2674a2;
 ///   }
 ///
 /// @example - css
@@ -153,9 +151,7 @@
 ///
 /// @example - scss
 ///   @include theme.prefers-color-scheme(dark) {
-///     :root {
-///       color: #2674a2;
-///     }
+///     color: #2674a2;
 ///   }
 ///
 /// @example - css
@@ -165,7 +161,7 @@
 ///     }
 ///   }
 ///
-@mixin prefers-color-scheme($scheme: light) {
+@mixin prefers-color-scheme($scheme: light, $root: true) {
     @if not map.has-key(variables.$prefers-color-scheme, $scheme) {
         @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
     }
@@ -175,6 +171,12 @@
     }
 
     @media (prefers-color-scheme: $scheme) {
-        @content;
+        @if $root {
+            :root {
+                @content;
+            }
+        } @else {
+            @content;
+        }
     }
 }
