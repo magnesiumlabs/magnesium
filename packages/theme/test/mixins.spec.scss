@@ -164,7 +164,7 @@
         }
     }
 
-    @include it("Should return prefers color scheme declaration with custom selector.") {
+    @include it("Should return prefers color scheme declaration with custom tokens.") {
         @include assert {
             @include output(false) {
                 @include theme.prefers-color-scheme($tokens: (

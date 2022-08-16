@@ -60,13 +60,13 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Sass mixins
 
-| Mixin                                     | Description                                                                                                                |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| `core-styles()`                           | Sets main classes selectors.                                                                                               |
-| `property($property, $value, $important)` | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
-| `prefers-color-scheme($scheme)`           | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                             |
-| `disabled-touch-screen`                   | Disabled touch screen event.                                                                                               |
-| `disabled-pointer-events`                 | Disabled pointer event.                                                                                                    |
+| Mixin                                           | Description                                                                                                                |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `core-styles()`                                 | Sets main classes selectors.                                                                                               |
+| `property($property, $value, $important)`       | Sets CSS theme property, with optional `!important`. The value may be a standard CSS value or one of configured theme key. |
+| `prefers-color-scheme($scheme, $tokens, $root)` | Sets `prefers-color-scheme()` media feature for `light` or `dark` system mode.                                             |
+| `disabled-touch-screen`                         | Disabled touch screen event.                                                                                               |
+| `disabled-pointer-events`                       | Disabled pointer event.                                                                                                    |
 
 #### Custom properties with `theme.property()`
 
