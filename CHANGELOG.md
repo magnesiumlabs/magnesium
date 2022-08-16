@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/magnesiumlabs/magnesium/compare/v1.9.0...v1.9.1) (2022-08-16)
+
+
+### Bug Fixes
+
+* **deps:** bump to `@unsass/rem` 2.0.1 ([91c1be4](https://github.com/magnesiumlabs/magnesium/commit/91c1be406d2da381142809f09f0c294398f9095e))
+
+
+### Code Refactoring
+
+* **theme:** `get-color` parameter name ([5471bae](https://github.com/magnesiumlabs/magnesium/commit/5471bae88c2835ca0cc171d84db25fedda4691d2))
+
 ## [1.9.0](https://github.com/magnesiumlabs/magnesium/compare/v1.8.1...v1.9.0) (2022-07-20)
 
 
