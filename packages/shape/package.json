@@ -13,12 +13,11 @@
         "*.scss"
     ],
     "keywords": [
-        "magnesium components",
-        "magnesium design",
+        "sass",
         "magnesium",
         "shape",
-        "sass",
-        "css"
+        "framework",
+        "front-end"
     ],
     "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/shape",
     "repository": {

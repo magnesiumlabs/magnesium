@@ -10,12 +10,11 @@
         "*.scss"
     ],
     "keywords": [
-        "magnesium components",
-        "magnesium design",
+        "sass",
         "magnesium",
         "core",
-        "sass",
-        "css"
+        "framework",
+        "front-end"
     ],
     "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/core",
     "repository": {

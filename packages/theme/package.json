@@ -14,12 +14,10 @@
         "state/**/*"
     ],
     "keywords": [
-        "magnesium components",
-        "magnesium design",
+        "sass",
         "magnesium",
         "theme",
-        "sass",
-        "css",
+        "framework",
         "front-end"
     ],
     "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/theme",
