@@ -3,10 +3,9 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "../../../tests/variables";
 @use "../index" as shape with (
-    $shapes: (
-        medium: 12px
-    )
+    $shapes: variables.$shapes
 );
 
 @include describe("shape.get-radius()") {

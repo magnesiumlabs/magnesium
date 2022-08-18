@@ -4,10 +4,9 @@
 
 @use "true" as *;
 @use "sass:string";
+@use "../../../tests/variables";
 @use "../index" as shape with (
-    $shapes: (
-        medium: 12px
-    )
+    $shapes: variables.$shapes
 );
 
 @include describe("shape.radius()") {
