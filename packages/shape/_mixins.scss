@@ -15,7 +15,7 @@
 @mixin core-styles {
     @each $style in functions.get-keys() {
         .#{theme.$prefix}-shape--#{$style} {
-            @include declaration(border-radius, $style);
+            @include radius($style);
         }
     }
 }

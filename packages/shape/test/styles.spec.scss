@@ -17,11 +17,11 @@
 
             @include expect(false) {
                 .mg-shape--small {
-                    border-radius: var(--mg-shape-small, 6px);
+                    border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
                 }
 
                 .mg-shape--medium {
-                    border-radius: var(--mg-shape-medium, 12px);
+                    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
                 }
             }
         }
