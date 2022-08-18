@@ -75,7 +75,7 @@
     );
 
     @if not map.has-key(variables.$styles, $style) {
-        @error "Invalid style, #{$style} doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
+        @error "Invalid style, '#{$style}' doesn't exist. Choose one of #{map.keys(variables.$styles)}.";
     }
 
     @include font-smoothing;

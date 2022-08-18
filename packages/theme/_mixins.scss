@@ -167,7 +167,7 @@
 ///
 @mixin prefers-color-scheme($scheme: light) {
     @if not map.has-key(variables.$prefers-color-scheme, $scheme) {
-        @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
+        @error "Invalid color scheme, '#{$scheme}' doesn't exist. Choose one of #{map.keys(variables.$prefers-color-scheme)}.";
     }
 
     @media (prefers-color-scheme: $scheme) {
