@@ -4,7 +4,7 @@
 
 @use "sass:map";
 @use "@magnesium/core";
-@use "@sass-collective/property";
+@use "@unsass/css";
 @use "@unsass/utilities";
 @use "./functions";
 @use "./variables";
@@ -100,7 +100,7 @@
 ///     --foo: darkcyan;
 ///   }
 ///
-/// @see {mixin} property.declaration
+/// @see {mixin} css.declaration
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map
 /// @see {function} functions.get-color
@@ -117,7 +117,7 @@
         $value: core.create-var(theme-#{$value}, functions.get-color($value));
     }
 
-    @include property.declaration($property, $value, $important);
+    @include css.declaration($property, $value, $important);
 }
 
 ///

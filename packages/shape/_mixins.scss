@@ -5,7 +5,7 @@
 @use "sass:map";
 @use "@magnesium/core";
 @use "@magnesium/theme";
-@use "@sass-collective/property";
+@use "@unsass/css";
 @use "./functions";
 
 ///
@@ -50,7 +50,7 @@
 }
 
 ///
-/// @see {mixin} property.declaration
+/// @see {mixin} css.declaration
 /// @see {function} core.create-var
 /// @see {function} functions.create-custom-map
 /// @see {function} functions.get-radius
@@ -67,7 +67,7 @@
         $value: core.create-var(shape-#{$value}, functions.radius($value));
     }
 
-    @include property.declaration($property, $value, $important);
+    @include css.declaration($property, $value, $important);
 }
 
 ///

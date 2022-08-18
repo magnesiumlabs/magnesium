@@ -6,7 +6,7 @@
 @use "sass:map";
 @use "@magnesium/core";
 @use "@magnesium/theme";
-@use "@sass-collective/property";
+@use "@unsass/css";
 @use "@unsass/utilities";
 @use "./variables";
 
@@ -40,7 +40,7 @@
 ///
 /// Base.
 ///
-/// @see {mixin} property.declaration
+/// @see {mixin} css.declaration
 /// @see {function} core.create-var
 ///
 @mixin base {
@@ -48,9 +48,9 @@
 
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
-            @include property.declaration($key, core.create-var(typography-font-family, $value));
+            @include css.declaration($key, core.create-var(typography-font-family, $value));
         } @else {
-            @include property.declaration($key, $value);
+            @include css.declaration($key, $value);
         }
     }
 }
@@ -58,7 +58,7 @@
 ///
 /// Typography.
 ///
-/// @see {mixin} property.declaration
+/// @see {mixin} css.declaration
 /// @see {function} core.create-var
 /// @see {function} theme.get-color
 /// @see {function} theme.exist
@@ -94,9 +94,9 @@
                 $style-prop: core.create-var(typography-#{$style}-#{$key}, $value);
             }
 
-            @include property.declaration($key, $style-prop);
+            @include css.declaration($key, $style-prop);
         } @else {
-            @include property.declaration($key, $value);
+            @include css.declaration($key, $value);
         }
     }
 }
