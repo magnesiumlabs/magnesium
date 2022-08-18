@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/magnesiumlabs/magnesium/compare/v1.9.2...v1.9.3) (2022-08-18)
+
+
+### Bug Fixes
+
+* **shape:** missing custom properties ([4bcff3d](https://github.com/magnesiumlabs/magnesium/commit/4bcff3dac8412de81c055c7e95b91717e4ff2c1b))
+
+
+### Code Refactoring
+
+* **theme, typography:** error wording ([c99873d](https://github.com/magnesiumlabs/magnesium/commit/c99873daaa32f0eedebf90227f5782184f8215d9))
+* **theme:** remove unneeded sass condition ([0d3e286](https://github.com/magnesiumlabs/magnesium/commit/0d3e2860d015c0db401e4c56768ae96d0f49ada4))
+
 ## [1.9.2](https://github.com/magnesiumlabs/magnesium/compare/v1.9.1...v1.9.2) (2022-08-17)
 
 
