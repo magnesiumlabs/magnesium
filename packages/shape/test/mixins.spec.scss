@@ -96,7 +96,7 @@
         @include assert {
             @include output(false) {
                 .test {
-                    @include shape.property(medium, 16px);
+                    @include shape.declaration(medium, 16px);
                 }
             }
 
