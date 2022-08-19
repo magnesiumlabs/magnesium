@@ -1,4 +1,4 @@
-# Typography
+# @magnesium/typography
 
 The Magnesium Design typography system help you to define your typographic styles.
 

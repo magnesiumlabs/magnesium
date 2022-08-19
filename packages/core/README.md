@@ -1,4 +1,4 @@
-# Core
+# @magnesium/core
 
 The Magnesium Design core system.
 
