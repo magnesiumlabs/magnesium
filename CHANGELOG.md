@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/magnesiumlabs/magnesium/compare/v1.9.3...v1.9.4) (2022-08-19)
+
+
+### Bug Fixes
+
+* **typography:** remove unneeded `[@debug](https://github.com/debug)` ([9629b06](https://github.com/magnesiumlabs/magnesium/commit/9629b06abaa9a9e3c6b5f60993ac8b53b4281850))
+
+
+### Code Refactoring
+
+* **core, theme:** move `$prefers-color-scheme` map ([011f24f](https://github.com/magnesiumlabs/magnesium/commit/011f24f3e4bb2c67c494abbfcf2a7408d0254707))
+* **shape:** remove unneeded `[@use](https://github.com/use)` ([fbcb681](https://github.com/magnesiumlabs/magnesium/commit/fbcb6812ee3a3393697051cd6561fbdeded87233))
+
 ## [1.9.3](https://github.com/magnesiumlabs/magnesium/compare/v1.9.2...v1.9.3) (2022-08-18)
 
 
