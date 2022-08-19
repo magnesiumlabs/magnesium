@@ -14,7 +14,7 @@
 
 @include describe("core") {
     @include describe("extended") {
-        @include describe("get-shape-radius") {
+        @include describe("get-shape-radius()") {
             @include it("Should return `shape -> radius` extended option.") {
                 @include assert-equal(core.get-shape-radius(), (
                     small: 6px,
