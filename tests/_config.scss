@@ -1,0 +1,6 @@
+@use "@magnesium/core";
+@use "./variables";
+
+@include core.configure(
+    $shape: variables.$shape
+);
