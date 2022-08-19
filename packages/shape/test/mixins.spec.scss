@@ -8,116 +8,120 @@
 @use "../../../tests/config";
 @use "../index" as shape;
 
-@include describe("shape.radius()") {
-    @include it("Should return `medium` configured declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.radius(medium);
+@include describe("shape") {
+    @include describe("mixins") {
+        @include describe("radius()") {
+            @include it("Should return `medium` configured declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.radius(medium);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                        }
+                    }
                 }
             }
 
-            @include expect(false) {
-                .test {
-                    border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
-                }
-            }
-        }
-    }
+            @include it("Should return custom value declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.radius(6px);
+                        }
+                    }
 
-    @include it("Should return custom value declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.radius(6px);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    border-radius: var(--mg-shape-radius, 6px);
-                }
-            }
-        }
-    }
-
-    @include it("Should return multiple custom values declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.radius(10px 10px 10px 10px);
+                    @include expect(false) {
+                        .test {
+                            border-radius: var(--mg-shape-radius, 6px);
+                        }
+                    }
                 }
             }
 
-            @include expect(false) {
-                .test {
-                    border-radius: var(--mg-shape-radius, 10px 10px 10px 10px);
-                }
-            }
-        }
-    }
+            @include it("Should return multiple custom values declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.radius(10px 10px 10px 10px);
+                        }
+                    }
 
-    @include it("Should return custom value declaration without `var()`.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.radius(6px, true);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    border-radius: 6px;
-                }
-            }
-        }
-    }
-}
-
-@include describe("shape.declaration()") {
-    @include it("Should return default configurated custom property declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.declaration(medium);
+                    @include expect(false) {
+                        .test {
+                            border-radius: var(--mg-shape-radius, 10px 10px 10px 10px);
+                        }
+                    }
                 }
             }
 
-            @include expect(false) {
-                .test {
-                    --mg-shape-medium: 12px;
+            @include it("Should return custom value declaration without `var()`.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.radius(6px, true);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            border-radius: 6px;
+                        }
+                    }
                 }
             }
         }
-    }
 
-    @include it("Should return default configurated custom property declaration with new value.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.declaration(medium, 16px);
+        @include describe("declaration()") {
+            @include it("Should return default configurated custom property declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.declaration(medium);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-shape-medium: 12px;
+                        }
+                    }
                 }
             }
 
-            @include expect(false) {
-                .test {
-                    --mg-shape-medium: 16px;
+            @include it("Should return default configurated custom property declaration with new value.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.declaration(medium, 16px);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-shape-medium: 16px;
+                        }
+                    }
                 }
             }
-        }
-    }
 
-    @include it("Should return shape declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include shape.declaration(border-radius, medium);
-                }
-            }
+            @include it("Should return shape declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.declaration(border-radius, medium);
+                        }
+                    }
 
-            @include expect(false) {
-                .test {
-                    border-radius: var(--mg-shape-medium, 12px);
+                    @include expect(false) {
+                        .test {
+                            border-radius: var(--mg-shape-medium, 12px);
+                        }
+                    }
                 }
             }
         }

@@ -7,18 +7,22 @@
 @use "../../../tests/config";
 @use "../index" as shape;
 
-@include describe("shape.get-radius()") {
-    @include it("Should return `medium` value without custom property.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    border-radius: shape.radius(medium);
-                }
-            }
+@include describe("shape") {
+    @include describe("functions") {
+        @include describe("get-radius()") {
+            @include it("Should return `medium` value without custom property.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            border-radius: shape.radius(medium);
+                        }
+                    }
 
-            @include expect(false) {
-                .test {
-                    border-radius: 12px;
+                    @include expect(false) {
+                        .test {
+                            border-radius: 12px;
+                        }
+                    }
                 }
             }
         }
