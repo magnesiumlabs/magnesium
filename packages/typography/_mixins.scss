@@ -135,8 +135,6 @@
 }
 
 @function get-font-family($style) {
-    @debug variables.$styles;
-
     @return map.get(variables.$styles, $style, font-family);
 }
 
