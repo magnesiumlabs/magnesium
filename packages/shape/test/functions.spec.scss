@@ -3,10 +3,9 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/variables";
-@use "../index" as shape with (
-    $shapes: variables.$shapes
-);
+@use "@magnesium/core";
+@use "../../../tests/config";
+@use "../index" as shape;
 
 @include describe("shape.get-radius()") {
     @include it("Should return `medium` value without custom property.") {
