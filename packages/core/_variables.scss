@@ -2,6 +2,8 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
+@use "sass:string";
+
 // ------------------------------------------------------------------------- //
 // Private variables
 // ------------------------------------------------------------------------- //
@@ -23,4 +25,11 @@ $theme: (
     "prefix": "mg",
     "colors": (),
     "bg-colors": ()
+) !default;
+
+$typography: (
+    "font-family": string.unquote("'Open Sans', sans-serif"),
+    "font-baseline": 16px,
+    "font-smoothing": true,
+    "styles": ()
 ) !default;

@@ -4,15 +4,17 @@
 
 @use "sass:math";
 @use "sass:string";
+@use "@magnesium/core";
 @use "@unsass/em";
 @use "@unsass/rem";
 @use "@sass-collective/strip-unit";
 @use "./functions";
 
-$font-family: string.unquote("'Open Sans', sans-serif") !default;
-$font-baseline: 16px !default;
-$font-smoothing: true !default;
-$styles: () !default;
+/// @deprecated Use core options instead.
+$font-family: core.get-typography-option("font-family") !default;
+$font-baseline: core.get-typography-option("font-baseline") !default;
+$font-smoothing: core.get-typography-option("font-smoothing") !default;
+$styles: core.get-typography-option("styles") !default;
 
 @include rem.config($font-baseline);
 

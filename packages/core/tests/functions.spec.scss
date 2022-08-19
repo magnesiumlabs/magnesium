@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "sass:string";
 @use "../index" as core;
 
 @include describe("core") {
@@ -24,6 +25,20 @@
 
             @include it("Should return `theme -> bg-colors` option.") {
                 @include assert-equal(core.get-theme-option("bg-colors"), ());
+            }
+        }
+
+        @include describe("get-typography-option()") {
+            @include it("Should return `typography -> font-family` option.") {
+                @include assert-equal(core.get-typography-option("font-family"), string.unquote("'Open Sans', sans-serif"));
+            }
+
+            @include it("Should return `typography -> font-baseline` option.") {
+                @include assert-equal(core.get-typography-option("font-baseline"), 16px);
+            }
+
+            @include it("Should return `typography -> font-baseline` option.") {
+                @include assert-equal(core.get-typography-option("font-smoothing"), true);
             }
         }
     }

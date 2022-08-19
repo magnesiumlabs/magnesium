@@ -3,7 +3,14 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "sass:string";
 @use "../index" as core with (
+    $shape: (
+        "radius": (
+            small: 6px,
+            medium: 12px
+        )
+    ),
     $theme: (
         "prefix": "mg",
         "colors": (
@@ -15,11 +22,10 @@
             secondary
         )
     ),
-    $shape: (
-        "radius": (
-            small: 6px,
-            medium: 12px
-        )
+    $typography: (
+        "font-family": string.unquote("'Open Sans', sans-serif"),
+        "font-baseline": 16px,
+        "font-smoothing": true
     )
 );
 
@@ -51,6 +57,20 @@
                     primary,
                     secondary
                 ));
+            }
+        }
+
+        @include describe("get-typography-option()") {
+            @include it("Should return `typography -> font-family` option.") {
+                @include assert-equal(core.get-typography-option("font-family"), string.unquote("'Open Sans', sans-serif"));
+            }
+
+            @include it("Should return `typography -> font-baseline` option.") {
+                @include assert-equal(core.get-typography-option("font-baseline"), 16px);
+            }
+
+            @include it("Should return `typography -> font-baseline` option.") {
+                @include assert-equal(core.get-typography-option("font-smoothing"), true);
             }
         }
     }

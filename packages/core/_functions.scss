@@ -29,3 +29,10 @@
 @function get-theme-option($option) {
     @return map.get(variables.$theme, $option);
 }
+
+///
+/// Get typography option.
+///
+@function get-typography-option($option) {
+    @return map.get(variables.$typography, $option);
+}

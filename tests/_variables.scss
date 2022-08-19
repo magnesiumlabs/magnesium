@@ -1,3 +1,5 @@
+@use "sass:string";
+
 $shape: (
     "radius": (
         small: 6px,
@@ -14,5 +16,16 @@ $theme: (
     "bg-colors": (
         primary,
         secondary
+    )
+);
+
+$typography: (
+    "font-family": string.unquote("'Open Sans', sans-serif"),
+    "font-baseline": 16px,
+    "font-smoothing": true,
+    "styles": (
+        "body-2": (
+            font-size: 16px
+        )
     )
 );

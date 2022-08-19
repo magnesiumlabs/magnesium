@@ -3,5 +3,6 @@
 
 @include core.configure(
     $shape: variables.$shape,
-    $theme: variables.$theme
+    $theme: variables.$theme,
+    $typography: variables.$typography
 );
