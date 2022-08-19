@@ -17,6 +17,14 @@
             @include it("Should return `theme -> prefix` option.") {
                 @include assert-equal(core.get-theme-option("prefix"), "mg");
             }
+
+            @include it("Should return `theme -> colors` option.") {
+                @include assert-equal(core.get-theme-option("colors"), ());
+            }
+
+            @include it("Should return `theme -> bg-colors` option.") {
+                @include assert-equal(core.get-theme-option("bg-colors"), ());
+            }
         }
     }
 }

@@ -3,11 +3,8 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/variables";
 @use "../../../tests/config";
-@use "../index" as theme with (
-    $colors: variables.$colors
-);
+@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("functions") {

@@ -3,11 +3,8 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/variables";
 @use "../../../tests/config";
-@use "../index" as theme with (
-    $colors: variables.$colors
-);
+@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -25,6 +22,14 @@
 
                         .mg-theme--secondary {
                             color: var(--mg-theme-secondary, #6e5898);
+                        }
+
+                        .mg-theme--primary-bg {
+                            background-color: var(--mg-theme-primary, #2674a2);
+                        }
+
+                        .mg-theme--secondary-bg {
+                            background-color: var(--mg-theme-secondary, #6e5898);
                         }
                     }
                 }

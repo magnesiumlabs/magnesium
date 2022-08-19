@@ -4,6 +4,17 @@
 
 @use "true" as *;
 @use "../index" as core with (
+    $theme: (
+        "prefix": "mg",
+        "colors": (
+            primary: #2674a2,
+            secondary: #6e5898
+        ),
+        "bg-colors": (
+            primary,
+            secondary
+        )
+    ),
     $shape: (
         "radius": (
             small: 6px,
@@ -19,6 +30,26 @@
                 @include assert-equal(core.get-shape-option("radius"), (
                     small: 6px,
                     medium: 12px
+                ));
+            }
+        }
+
+        @include describe("get-theme-option()") {
+            @include it("Should return `theme -> prefix` extended option.") {
+                @include assert-equal(core.get-theme-option("prefix"), "mg");
+            }
+
+            @include it("Should return `theme -> colors` extended option.") {
+                @include assert-equal(core.get-theme-option("colors"), (
+                    primary: #2674a2,
+                    secondary: #6e5898
+                ));
+            }
+
+            @include it("Should return `theme -> bg-colors` extended option.") {
+                @include assert-equal(core.get-theme-option("bg-colors"), (
+                    primary,
+                    secondary
                 ));
             }
         }

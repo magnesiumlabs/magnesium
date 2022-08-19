@@ -1,15 +1,18 @@
-$colors: (
-    primary: #2674a2,
-    secondary: #6e5898
-);
-
-$theme: (
-    "prefix": "mg"
-);
-
 $shape: (
     "radius": (
         small: 6px,
         medium: 12px
+    )
+);
+
+$theme: (
+    "prefix": "mg",
+    "colors": (
+        primary: #2674a2,
+        secondary: #6e5898
+    ),
+    "bg-colors": (
+        primary,
+        secondary
     )
 );
