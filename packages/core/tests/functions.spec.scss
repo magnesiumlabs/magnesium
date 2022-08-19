@@ -7,9 +7,9 @@
 
 @include describe("core") {
     @include describe("functions") {
-        @include describe("get-shape-radius()") {
+        @include describe("get-shape-option()") {
             @include it("Should return `shape -> radius` option.") {
-                @include assert-equal(core.get-shape-radius(), ());
+                @include assert-equal(core.get-shape-option("radius"), ());
             }
         }
 

@@ -17,10 +17,10 @@
 }
 
 ///
-/// Get shape radius option value.
+/// Get shape option.
 ///
-@function get-shape-radius() {
-    @return map.get(variables.$shape, "radius");
+@function get-shape-option($option) {
+    @return map.get(variables.$shape, $option);
 }
 
 ///

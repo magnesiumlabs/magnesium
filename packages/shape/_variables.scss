@@ -6,4 +6,4 @@
 @use "@magnesium/core";
 
 /// @deprecated Use core options instead.
-$shapes: core.get-shape-radius() !default;
+$shapes: core.get-shape-option("radius") !default;
