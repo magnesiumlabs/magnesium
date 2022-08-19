@@ -22,3 +22,10 @@
 @function get-shape-radius() {
     @return map.get(variables.$shape, "radius");
 }
+
+///
+/// Get theme option.
+///
+@function get-theme-option($option) {
+    @return map.get(variables.$theme, $option);
+}

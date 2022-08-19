@@ -4,49 +4,54 @@
 
 @use "true" as *;
 @use "../../../tests/variables";
+@use "../../../tests/config";
 @use "../index" as theme with (
     $colors: variables.$colors
 );
 
-@include describe("theme.get-color()") {
-    @include it("Should return `primary` value without custom property.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    color: theme.get-color(primary);
+@include describe("theme") {
+    @include describe("functions") {
+        @include describe("get-color()") {
+            @include it("Should return `primary` value without custom property.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            color: theme.get-color(primary);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            color: #2674a2;
+                        }
+                    }
                 }
             }
 
-            @include expect(false) {
-                .test {
-                    color: #2674a2;
+            @include it("Should return `secondary` value without custom property.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            color: theme.get-color(secondary);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            color: #6e5898;
+                        }
+                    }
                 }
             }
         }
-    }
 
-    @include it("Should return `secondary` value without custom property.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    color: theme.get-color(secondary);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    color: #6e5898;
-                }
+        @include describe("get-keys()") {
+            @include it("Should return list of theme token keys.") {
+                @include assert-equal(theme.get-keys(), (
+                    primary,
+                    secondary
+                ));
             }
         }
-    }
-}
-
-@include describe("theme.get-keys()") {
-    @include it("Should return list of theme token keys.") {
-        @include assert-equal(theme.get-keys(), (
-            primary,
-            secondary
-        ));
     }
 }

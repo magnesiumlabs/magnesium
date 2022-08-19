@@ -3,9 +3,8 @@ $colors: (
     secondary: #6e5898
 );
 
-$shapes: (
-    small: 6px,
-    medium: 12px
+$theme: (
+    "prefix": "mg"
 );
 
 $shape: (
@@ -13,4 +12,4 @@ $shape: (
         small: 6px,
         medium: 12px
     )
-)
+);

@@ -40,10 +40,14 @@
 }
 
 ///
-/// Config.
+/// Configure.
 ///
-@mixin configure($shape: null) {
+@mixin configure($shape: null, $theme: null) {
     @if $shape {
         variables.$shape: $shape;
+    }
+
+    @if $theme {
+        variables.$theme: $theme;
     }
 }

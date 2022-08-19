@@ -4,24 +4,29 @@
 
 @use "true" as *;
 @use "../../../tests/variables";
+@use "../../../tests/config";
 @use "../index" as theme with (
     $colors: variables.$colors
 );
 
-@include describe("theme.core-styles()") {
-    @include it("Should return core styles declarations.") {
-        @include assert {
-            @include output(false) {
-                @include theme.core-styles;
-            }
+@include describe("theme") {
+    @include describe("mixins") {
+        @include describe("core-styles()") {
+            @include it("Should return core styles declarations.") {
+                @include assert {
+                    @include output(false) {
+                        @include theme.core-styles;
+                    }
 
-            @include expect(false) {
-                .mg-theme--primary {
-                    color: var(--mg-theme-primary, #2674a2);
-                }
+                    @include expect(false) {
+                        .mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
 
-                .mg-theme--secondary {
-                    color: var(--mg-theme-secondary, #6e5898);
+                        .mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
                 }
             }
         }

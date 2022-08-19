@@ -5,185 +5,190 @@
 @use "true" as *;
 @use "../custom-properties";
 @use "../../../tests/variables";
+@use "../../../tests/config";
 @use "../index" as theme with (
     $colors: variables.$colors
 );
 
-@include describe("theme.property()") {
-    @include it("Should return `color` declaration with custom value.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(color, darkcyan);
-                }
-            }
+@include describe("theme") {
+    @include describe("mixins") {
+        @include describe("property()") {
+            @include it("Should return `color` declaration with custom value.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(color, darkcyan);
+                        }
+                    }
 
-            @include expect(false) {
-                .test {
-                    color: darkcyan;
-                }
-            }
-        }
-    }
-
-    @include it("Should return `color` declaration with configured `primary` color.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(color, primary);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    color: var(--mg-theme-primary, #2674a2);
-                }
-            }
-        }
-    }
-
-    @include it("Should return configured `primary` color declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(primary);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    --mg-theme-primary: #2674a2;
-                }
-            }
-        }
-    }
-
-    @include it("Should return configured `primary` color declaration with custom value.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(primary, darkcyan);
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    --mg-theme-primary: darkcyan;
-                }
-            }
-        }
-    }
-
-    @include it("Should return custom property declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(custom-properties.create(foo, darkcyan));
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    --mg-foo: darkcyan;
-                }
-            }
-        }
-    }
-
-    @include it("Should return custom property declaration without prefix.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.property(custom-properties.create(--foo, darkcyan));
-                }
-            }
-
-            @include expect(false) {
-                .test {
-                    --foo: darkcyan;
-                }
-            }
-        }
-    }
-}
-
-@include describe("theme.prefers-color-scheme()") {
-    @include it("Should return prefers color scheme `light` declaration.") {
-        @include assert {
-            @include output(false) {
-                @include theme.prefers-color-scheme {
-                    :root {
-                        background: darkcyan;
+                    @include expect(false) {
+                        .test {
+                            color: darkcyan;
+                        }
                     }
                 }
             }
 
-            @include expect(false) {
-                @media (prefers-color-scheme: light) {
-                    :root {
-                        background: darkcyan;
+            @include it("Should return `color` declaration with configured `primary` color.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(color, primary);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return configured `primary` color declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(primary);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-theme-primary: #2674a2;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return configured `primary` color declaration with custom value.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(primary, darkcyan);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-theme-primary: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return custom property declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(custom-properties.create(foo, darkcyan));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-foo: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return custom property declaration without prefix.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.property(custom-properties.create(--foo, darkcyan));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --foo: darkcyan;
+                        }
                     }
                 }
             }
         }
-    }
 
-    @include it("Should return prefers color scheme `dark` declaration.") {
-        @include assert {
-            @include output(false) {
-                @include theme.prefers-color-scheme(dark) {
-                    :root {
-                        background: darkcyan;
+        @include describe("prefers-color-scheme()") {
+            @include it("Should return prefers color scheme `light` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        @include theme.prefers-color-scheme {
+                            :root {
+                                background: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            :root {
+                                background: darkcyan;
+                            }
+                        }
                     }
                 }
             }
 
-            @include expect(false) {
-                @media (prefers-color-scheme: dark) {
-                    :root {
-                        background: darkcyan;
+            @include it("Should return prefers color scheme `dark` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        @include theme.prefers-color-scheme(dark) {
+                            :root {
+                                background: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            :root {
+                                background: darkcyan;
+                            }
+                        }
                     }
                 }
             }
         }
-    }
-}
 
-@include describe("theme.disabled-touch-screen()") {
-    @include it("Should return disabled touch screen `@media` declaration.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.disabled-touch-screen {
-                        background: darkcyan;
+        @include describe("disabled-touch-screen()") {
+            @include it("Should return disabled touch screen `@media` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.disabled-touch-screen {
+                                background: darkcyan;
+                            }
+                        }
                     }
-                }
-            }
 
-            @include expect(false) {
-                .test {
-                    @media (pointer: fine) {
-                        background: darkcyan;
+                    @include expect(false) {
+                        .test {
+                            @media (pointer: fine) {
+                                background: darkcyan;
+                            }
+                        }
                     }
                 }
             }
         }
-    }
-}
 
-@include describe("theme.disabled-pointer-events()") {
-    @include it("Should return disabled pointer events declarations.") {
-        @include assert {
-            @include output(false) {
-                .test {
-                    @include theme.disabled-pointer-events;
-                }
-            }
+        @include describe("disabled-pointer-events()") {
+            @include it("Should return disabled pointer events declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.disabled-pointer-events;
+                        }
+                    }
 
-            @include expect(false) {
-                .test {
-                    cursor: default;
-                    pointer-events: none;
+                    @include expect(false) {
+                        .test {
+                            cursor: default;
+                            pointer-events: none;
+                        }
+                    }
                 }
             }
         }

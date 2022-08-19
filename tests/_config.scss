@@ -2,5 +2,6 @@
 @use "./variables";
 
 @include core.configure(
-    $shape: variables.$shape
+    $shape: variables.$shape,
+    $theme: variables.$theme
 );

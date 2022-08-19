@@ -2,6 +2,9 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
-$prefix: "mg" !default;
+@use "@magnesium/core";
+
+/// @deprecated Use core options instead.
+$prefix: core.get-theme-option("prefix") !default;
 $colors: () !default;
 $bg-colors: () !default;
