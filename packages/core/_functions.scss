@@ -2,7 +2,9 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "@sass-collective/property/custom-properties";
+@use "./variables";
 
 ///
 /// Create `var()` CSS function.
@@ -12,4 +14,11 @@
 ///
 @function create-var($name, $fallback) {
     @return custom-properties.create-var(custom-properties.create(#{$name}, $fallback));
+}
+
+///
+/// Get shape radius option value.
+///
+@function get-shape-radius() {
+    @return map.get(variables.$shape, "radius");
 }

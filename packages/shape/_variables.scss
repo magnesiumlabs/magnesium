@@ -2,4 +2,8 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
-$shapes: () !default;
+@use "sass:map";
+@use "@magnesium/core";
+
+/// @deprecated Use core options instead.
+$shapes: core.get-shape-radius() !default;

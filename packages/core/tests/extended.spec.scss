@@ -1,0 +1,26 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as core with (
+    $shape: (
+        "radius": (
+            small: 6px,
+            medium: 12px
+        )
+    )
+);
+
+@include describe("core") {
+    @include describe("extended") {
+        @include describe("get-shape-radius") {
+            @include it("Should return `shape -> radius` extended option.") {
+                @include assert-equal(core.get-shape-radius(), (
+                    small: 6px,
+                    medium: 12px
+                ));
+            }
+        }
+    }
+}

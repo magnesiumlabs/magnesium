@@ -1,0 +1,16 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as core;
+
+@include describe("core") {
+    @include describe("functions") {
+        @include describe("get-shape-radius") {
+            @include it("Should return `shape -> radius` option.") {
+                @include assert-equal(core.get-shape-radius(), ());
+            }
+        }
+    }
+}
