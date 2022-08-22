@@ -8,3 +8,8 @@
 $prefix: core.get-theme-option("prefix") !default;
 $colors: core.get-theme-option("colors") !default;
 $bg-colors: core.get-theme-option("bg-colors") !default;
+
+$prefers-color-scheme: (
+    light: "light",
+    dark: "dark"
+);
