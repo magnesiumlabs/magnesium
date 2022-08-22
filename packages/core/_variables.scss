@@ -2,6 +2,7 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "sass:string";
 
 // ------------------------------------------------------------------------- //
@@ -13,23 +14,35 @@ $prefers-color-scheme: (
     dark: "dark"
 );
 
-// ------------------------------------------------------------------------- //
-// Public variables
-// ------------------------------------------------------------------------- //
-
-$shape: (
+$default-shape: (
     "radius": ()
-) !default;
+);
 
-$theme: (
+$default-theme: (
     "prefix": "mg",
     "colors": (),
     "bg-colors": ()
-) !default;
+);
 
-$typography: (
+$default-typography: (
     "font-family": string.unquote("'Open Sans', sans-serif"),
     "font-baseline": 16px,
     "font-smoothing": true,
     "styles": ()
-) !default;
+);
+
+// ------------------------------------------------------------------------- //
+// Public variables
+// ------------------------------------------------------------------------- //
+
+$shape: () !default;
+$theme: () !default;
+$typography: () !default;
+
+///
+/// Extend options.
+///
+
+$shape: map.deep-merge($default-shape, $shape);
+$theme: map.deep-merge($default-theme, $theme);
+$typography: map.deep-merge($default-typography, $typography);

@@ -2,6 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "./variables";
 
 // ------------------------------------------------------------------------- //
@@ -44,14 +45,14 @@
 ///
 @mixin configure($shape: null, $theme: null, $typography: null) {
     @if $shape {
-        variables.$shape: $shape;
+        variables.$shape: map.deep-merge(variables.$default-shape, $shape);
     }
 
     @if $theme {
-        variables.$theme: $theme;
+        variables.$theme: map.deep-merge(variables.$default-theme, $theme);
     }
 
     @if $typography {
-        variables.$typography: $typography;
+        variables.$typography: map.deep-merge(variables.$default-typography, $typography);
     }
 }
