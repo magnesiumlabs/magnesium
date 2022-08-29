@@ -4,12 +4,20 @@
 
 @use "@magnesium/core";
 
-/// @deprecated Use core options instead.
-$prefix: core.get-theme-option("prefix") !default;
-$colors: core.get-theme-option("colors") !default;
-$bg-colors: core.get-theme-option("bg-colors") !default;
+// ------------------------------------------------------------------------- //
+// Private variables
+// ------------------------------------------------------------------------- //
 
 $prefers-color-scheme: (
     light: "light",
     dark: "dark"
 );
+
+// ------------------------------------------------------------------------- //
+// Public variables
+// ------------------------------------------------------------------------- //
+
+/// @deprecated Use core options instead.
+$prefix: core.get-theme-option("prefix") !default;
+$colors: core.get-theme-option("colors") !default;
+$bg-colors: core.get-theme-option("bg-colors") !default;

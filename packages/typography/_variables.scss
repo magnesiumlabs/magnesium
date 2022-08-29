@@ -10,6 +10,16 @@
 @use "@sass-collective/strip-unit";
 @use "./functions";
 
+// ------------------------------------------------------------------------- //
+// Private variables
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public variables
+// ------------------------------------------------------------------------- //
+
 /// @deprecated Use core options instead.
 $font-family: core.get-typography-option("font-family") !default;
 $font-baseline: core.get-typography-option("font-baseline") !default;
