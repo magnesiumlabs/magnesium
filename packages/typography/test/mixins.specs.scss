@@ -1,0 +1,238 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "sass:string";
+@use "@unsass/rem";
+@use "../index" as typography;
+
+@include describe("typography") {
+    @include describe("mixins") {
+        @include describe("base()") {
+            @include it("Should return `base` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.base;
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
+                            font-size: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("typography()") {
+            @include it("Should return `body` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(body);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-body-font-size, rem.convert(16));
+                            line-height: var(--mg-typography-body-line-height, rem.convert(20));
+                            font-weight: var(--mg-typography-body-font-weight, 400);
+                            letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-body-text-decoration, inherit);
+                            text-transform: var(--mg-typography-body-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `headline-1` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(headline-1);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-1-font-size, rem.convert(40));
+                            line-height: var(--mg-typography-headline-1-line-height, rem.convert(48));
+                            font-weight: var(--mg-typography-headline-1-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-1-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-1-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-1-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `headline-2` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(headline-2);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-2-font-size, rem.convert(32));
+                            line-height: var(--mg-typography-headline-2-line-height, rem.convert(38));
+                            font-weight: var(--mg-typography-headline-2-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-2-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-2-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-2-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `headline-4` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(headline-4);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-4-font-size, rem.convert(24));
+                            line-height: var(--mg-typography-headline-4-line-height, rem.convert(28));
+                            font-weight: var(--mg-typography-headline-4-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-4-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-4-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-4-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `headline-5` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(headline-5);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-5-font-size, rem.convert(20));
+                            line-height: var(--mg-typography-headline-5-line-height, rem.convert(24));
+                            font-weight: var(--mg-typography-headline-5-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-5-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-5-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-5-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `headline-6` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(headline-6);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-6-font-size, rem.convert(16));
+                            line-height: var(--mg-typography-headline-6-line-height, rem.convert(20));
+                            font-weight: var(--mg-typography-headline-6-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-6-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-6-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-6-text-transform, inherit);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return `body` declaration with excluded properties.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.typography(body, font-size, line-height, text-decoration, text-transform);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-weight: var(--mg-typography-body-font-weight, 400);
+                            letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("font-smoothing()") {
+            @include it("Should return `font-smoothing` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.font-smoothing;
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("ellipsis()") {
+            @include it("Should return `ellipsis` declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.ellipsis;
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
