@@ -4,6 +4,7 @@
 
 @use "sass:map";
 @use "@unsass/css";
+@use "@unsass/selector";
 @use "@unsass/utilities";
 @use "./functions";
 @use "./variables";
@@ -19,11 +20,23 @@
         .#{functions.create-name(theme--#{$style})} {
             @include property(color, $style);
         }
+
+        @each $modifier in variables.$modifiers {
+            @include selector.create(#{functions.create-name(theme--#{$style})}, $modifier, $pseudo-class: $modifier) {
+                @include property(color, $style);
+            }
+        }
     }
 
     @each $style in variables.$bg-colors {
         .#{functions.create-name(theme--#{$style}-bg)} {
             @include property(background-color, $style);
+        }
+
+        @each $modifier in variables.$modifiers {
+            @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
+                @include property(background-color, $style);
+            }
         }
     }
 }
