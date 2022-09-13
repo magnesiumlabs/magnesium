@@ -38,6 +38,30 @@
                     .focus\:mg-theme--secondary:focus {
                         color: var(--mg-theme-secondary, #6e5898);
                     }
+
+                    .mg-theme--primary-bg {
+                        background-color: var(--mg-theme-primary, #2674a2);
+                    }
+
+                    .hover\:mg-theme--primary-bg:hover {
+                        background-color: var(--mg-theme-primary, #2674a2);
+                    }
+
+                    .focus\:mg-theme--primary-bg:focus {
+                        background-color: var(--mg-theme-primary, #2674a2);
+                    }
+
+                    .mg-theme--secondary-bg {
+                        background-color: var(--mg-theme-secondary, #6e5898);
+                    }
+
+                    .hover\:mg-theme--secondary-bg:hover {
+                        background-color: var(--mg-theme-secondary, #6e5898);
+                    }
+
+                    .focus\:mg-theme--secondary-bg:focus {
+                        background-color: var(--mg-theme-secondary, #6e5898);
+                    }
                 }
             }
         }

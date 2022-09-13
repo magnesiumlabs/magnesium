@@ -33,11 +33,11 @@ You can define the theme color variables before importing any Magnesium componen
 
 ### Options
 
-| Name         | Default | Description                                                                                                                                                        |
-|--------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                       |
-| `$bg-colors` | `()`    | Sets a list of theme background colors, who generate `background-color` classes. Work only with key declare on `$colors`. See [CSS Classes](#css-classes) section. |
-| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. Sets at `false` for disabled prefixed names.                                                                         |
+| Name         | Default | Description                                                                                                                                                                                                     |
+|--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                                                                    |
+| `$bg-colors` | `()`    | Sets automatically a list of background colors classes from `$colors` option. Set at `false` for disable background colors classes or add list of keys from `$colors` for filters only the background you want. |
+| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. Set at `false` for disable prefixed names.                                                                                                                        |
 
 ## Customization
 

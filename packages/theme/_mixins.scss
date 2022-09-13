@@ -2,7 +2,9 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "sass:list";
 @use "sass:map";
+@use "sass:meta";
 @use "@unsass/css";
 @use "@unsass/selector";
 @use "@unsass/utilities";
@@ -16,6 +18,18 @@
 /// @see {function} functions.get-keys
 ///
 @mixin core-styles {
+    $extend: ();
+
+    @if list.length(variables.$bg-colors) != 0 and (meta.type-of(variables.$bg-colors) == "list" or meta.type-of(variables.$bg-colors) == "string") {
+        $extend: variables.$bg-colors;
+    } @else if list.length(variables.$bg-colors) == 0 or not list.length(variables.$bg-colors) {
+        $extend: functions.get-keys();
+    }
+
+    // ------------------------------------------------------------------------- //
+    // Main classes
+    // ------------------------------------------------------------------------- //
+
     @each $style in functions.get-keys() {
         .#{functions.create-name(theme--#{$style})} {
             @include property(color, $style);
@@ -28,7 +42,11 @@
         }
     }
 
-    @each $style in variables.$bg-colors {
+    // ------------------------------------------------------------------------- //
+    // Background classes
+    // ------------------------------------------------------------------------- //
+
+    @each $style in $extend {
         .#{functions.create-name(theme--#{$style}-bg)} {
             @include property(background-color, $style);
         }
