@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.0](https://github.com/magnesiumlabs/magnesium/compare/v1.9.4...v1.10.0) (2022-09-13)
+
+
+### Features
+
+* **deps:** use `@unsass/css` instead of `@sass-collective/property` ([44fc50f](https://github.com/magnesiumlabs/magnesium/commit/44fc50feba9fdd3e464414737891ed3eb815b68a))
+
+
+### Build System
+
+* **deps:** removed `@sass-collective/property` dependency ([9c2088c](https://github.com/magnesiumlabs/magnesium/commit/9c2088c81d26b731e59bf7d919b0738f3a837ffd))
+
 ## [1.9.4](https://github.com/magnesiumlabs/magnesium/compare/v1.9.3...v1.9.4) (2022-08-19)
 
 
