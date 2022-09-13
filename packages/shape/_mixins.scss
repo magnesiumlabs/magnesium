@@ -3,7 +3,6 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@unsass/css";
 @use "./functions";
@@ -31,18 +30,18 @@
 
 ///
 /// @see {mixin} shape.declaration
-/// @see {function} core.create-var
+/// @see {function} theme.create-var
 ///
 @mixin radius($radius, $no-var: false) {
     $value: "";
 
     @if functions.exist($radius) {
-        $value: core.create-var(theme.create-name(shape-#{$radius}), core.create-var(theme.create-name(shape-radius), functions.radius($radius)));
+        $value: theme.create-var(theme.create-name(shape-#{$radius}), theme.create-var(theme.create-name(shape-radius), functions.radius($radius)));
     } @else {
         @if $no-var {
             $value: $radius;
         } @else {
-            $value: core.create-var(theme.create-name(shape-radius), $radius);
+            $value: theme.create-var(theme.create-name(shape-radius), $radius);
         }
     }
 
@@ -51,7 +50,7 @@
 
 ///
 /// @see {mixin} css.declaration
-/// @see {function} core.create-var
+/// @see {function} theme.create-var
 /// @see {function} functions.create-custom-map
 /// @see {function} functions.get-radius
 /// @see {function} functions.exist
@@ -64,7 +63,7 @@
             $property: functions.create-custom-map($property, functions.radius($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(theme.create-name(shape-#{$value}), functions.radius($value));
+        $value: theme.create-var(theme.create-name(shape-#{$value}), functions.radius($value));
     }
 
     @include css.declaration($property, $value, $important);

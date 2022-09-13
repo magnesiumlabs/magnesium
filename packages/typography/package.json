@@ -4,7 +4,6 @@
     "description": "The Magnesium Design components for the web typography system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.11.1",
         "@magnesium/theme": "^1.11.1",
         "@unsass/css": "^2.1.1",
         "@unsass/em": "^2.0.1",

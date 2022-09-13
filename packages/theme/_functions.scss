@@ -25,6 +25,16 @@
 }
 
 ///
+/// Create `var()` CSS function.
+///
+/// @see {function} custom-properties.create-var
+/// @see {function} custom-properties.create
+///
+@function create-var($name, $fallback) {
+    @return custom-properties.create-var(custom-properties.create(#{$name}, $fallback));
+}
+
+///
 /// Create CSS Custom Property map.
 ///
 /// @see {function} custom-properties.create
