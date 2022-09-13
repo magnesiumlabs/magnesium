@@ -31,34 +31,8 @@
 }
 
 ///
-/// @deprecated Use 'shape.exist' function instead.
-///
-@function is-shape($shape) {
-    @warn "@deprecated Use 'shape.exist' function instead.";
-
-    @return exist($shape);
-}
-
-///
 /// Get radius value from '$shapes' option.
 ///
 @function radius($radius) {
     @return map.get(variables.$shapes, $radius);
-}
-
-///
-/// Get shape radius.
-/// @deprecated Use 'shape.radius' function instead.
-///
-@function get-radius($radius) {
-    @return radius($radius);
-}
-
-///
-/// @deprecated Use 'shape.get-radius' function instead.
-///
-@function shape($shape) {
-    @warn "@deprecated Use 'shape.radius' function instead.";
-
-    @return get-radius($shape);
 }
