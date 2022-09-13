@@ -114,7 +114,7 @@
             $property: functions.create-custom-map($property, functions.get-color($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(theme-#{$value}, functions.get-color($value));
+        $value: core.create-var(#{variables.$prefix}-theme-#{$value}, functions.get-color($value));
     }
 
     @include css.declaration($property, $value, $important);

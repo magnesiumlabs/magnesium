@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "./custom-properties";
+@use "@unsass/css/custom-properties";
 @use "./variables";
 
 ///
@@ -19,7 +19,7 @@
 /// @see {function} custom-properties.create
 ///
 @function create-custom-map($name, $fallback) {
-    @return custom-properties.create(theme-#{$name}, $fallback);
+    @return custom-properties.create(#{variables.$prefix}-theme-#{$name}, $fallback);
 }
 
 ///

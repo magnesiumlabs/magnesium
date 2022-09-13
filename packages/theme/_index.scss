@@ -5,8 +5,3 @@
 @forward "./variables";
 @forward "./mixins" hide selector;
 @forward "./functions";
-
-@use "@sass-collective/property/custom-properties";
-@use "./variables";
-
-@include custom-properties.config(variables.$prefix);

@@ -37,12 +37,12 @@
     $value: "";
 
     @if functions.exist($radius) {
-        $value: core.create-var(shape-#{$radius}, core.create-var(shape-radius, functions.radius($radius)));
+        $value: core.create-var(#{theme.$prefix}-shape-#{$radius}, core.create-var(#{theme.$prefix}-shape-radius, functions.radius($radius)));
     } @else {
         @if $no-var {
             $value: $radius;
         } @else {
-            $value: core.create-var(shape-radius, $radius);
+            $value: core.create-var(#{theme.$prefix}-shape-radius, $radius);
         }
     }
 
@@ -64,7 +64,7 @@
             $property: functions.create-custom-map($property, functions.radius($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(shape-#{$value}, functions.radius($value));
+        $value: core.create-var(#{theme.$prefix}-shape-#{$value}, functions.radius($value));
     }
 
     @include css.declaration($property, $value, $important);

@@ -22,7 +22,7 @@ npm install @magnesium/core
 |--------------------------------|-------------------------------|
 | `create-var($name, $fallback)` | Sets new CSS Custom Property. |
 
-#### Color with `core.create-var()`
+#### Color with `core.create-var(#{theme.$prefix}-)`
 
 The following Sass...
 
@@ -30,7 +30,7 @@ The following Sass...
 @use "@magnesium/core";
 
 .foo {
-    color: core.create-var(foo, #2674a2);
+    color: core.create-var(#{theme.$prefix}-foo, #2674a2);
 }
 ```
 
