@@ -51,15 +51,6 @@
 }
 
 ///
-/// @deprecated Use 'theme.exist' function instead.
-///
-@function is-color($color) {
-    @warn "@deprecated Use 'theme.exist' function instead.";
-
-    @return exist($color);
-}
-
-///
 /// Get theme color.
 ///
 @function get-color($token) {
@@ -68,13 +59,4 @@
     }
 
     @return map.get(variables.$colors, $token);
-}
-
-///
-/// @deprecated Use 'theme.get-color' function instead.
-///
-@function color($color) {
-    @warn "@deprecated Use 'theme.get-color' function instead.";
-
-    @return get-color($color);
 }
