@@ -3,7 +3,6 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@magnesium/core";
 @use "@unsass/css";
 @use "@unsass/utilities";
 @use "./functions";
@@ -101,7 +100,7 @@
 ///   }
 ///
 /// @see {mixin} css.declaration
-/// @see {function} core.create-var
+/// @see {function} functions.create-var
 /// @see {function} functions.create-custom-map
 /// @see {function} functions.get-color
 /// @see {function} functions.exist
@@ -114,7 +113,7 @@
             $property: functions.create-custom-map($property, functions.get-color($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(functions.create-name(theme-#{$value}), functions.get-color($value));
+        $value: functions.create-var(functions.create-name(theme-#{$value}), functions.get-color($value));
     }
 
     @include css.declaration($property, $value, $important);
