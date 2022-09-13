@@ -1,4 +1,4 @@
-@use "./tests/variables";
+@use "./variables";
 
 @use "../packages/theme" as theme with (
     $colors: variables.$colors
