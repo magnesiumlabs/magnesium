@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.0](https://github.com/magnesiumlabs/magnesium/compare/v1.10.0...v1.11.0) (2022-09-13)
+
+
+### Features
+
+* **theme:** add `create-name` function ([35f05b0](https://github.com/magnesiumlabs/magnesium/commit/35f05b0fc8bcb65ce48f3b262f07efca44541450))
+
+
+### Code Refactoring
+
+* **shape, theme, typography:** add `$component` variables ([af32c5c](https://github.com/magnesiumlabs/magnesium/commit/af32c5c93feb2bf0e6a27c526e00d3cfd9a8e9ec))
+* **theme:** move `$prefers-color-scheme` to variables file ([cdfe668](https://github.com/magnesiumlabs/magnesium/commit/cdfe668864cb98f5129f34a5fb51eb244e59aa41))
+
 ## [1.10.0](https://github.com/magnesiumlabs/magnesium/compare/v1.9.4...v1.10.0) (2022-09-13)
 
 
