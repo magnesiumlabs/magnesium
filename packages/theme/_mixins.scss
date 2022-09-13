@@ -17,13 +17,13 @@
 ///
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        .#{variables.$prefix}-theme--#{$style} {
+        .#{functions.create-name(theme--#{$style})} {
             @include property(color, $style);
         }
     }
 
     @each $style in variables.$bg-colors {
-        .#{variables.$prefix}-theme--#{$style}-bg {
+        .#{functions.create-name(theme--#{$style}-bg)} {
             @include property(background-color, $style);
         }
     }
@@ -114,7 +114,7 @@
             $property: functions.create-custom-map($property, functions.get-color($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(#{variables.$prefix}-theme-#{$value}, functions.get-color($value));
+        $value: core.create-var(functions.create-name(theme-#{$value}), functions.get-color($value));
     }
 
     @include css.declaration($property, $value, $important);

@@ -16,12 +16,12 @@
 /// @see {mixin} typography
 ///
 @mixin core-styles {
-    .#{theme.$prefix}-typography {
+    .#{theme.create-name(typography)} {
         @include base;
     }
 
     @each $style in map.keys(variables.$styles) {
-        .#{theme.$prefix}-typography--#{$style} {
+        .#{theme.create-name(typography--#{$style})} {
             @include typography($style);
         }
     }
@@ -48,7 +48,7 @@
 
     @each $key, $value in variables.$base {
         @if ($key == "font-family") {
-            @include css.declaration($key, core.create-var(#{theme.$prefix}-typography-font-family, $value));
+            @include css.declaration($key, core.create-var(#{theme.create-name(typography-font-family)}, $value));
         } @else {
             @include css.declaration($key, $value);
         }
@@ -82,16 +82,16 @@
 
     @each $key, $value in map.remove(map.get(variables.$styles, $style), $exclude-props...) {
         @if theme.exist($value) {
-            $value: core.create-var(#{theme.$prefix}-theme-#{$value}, theme.get-color($value));
+            $value: core.create-var(theme.create-name(theme-#{$value}), theme.get-color($value));
         }
 
         @if list.index($with-custom-properties, $key) != null {
             $style-prop: "";
 
             @if ($key == "font-family") {
-                $style-prop: core.create-var(#{theme.$prefix}-typography-#{$style}-#{$key}, core.create-var(#{theme.$prefix}-typography-#{$key}, $value));
+                $style-prop: core.create-var(theme.create-name(typography-#{$style}-#{$key}), core.create-var(theme.create-name(typography-#{$key}), $value));
             } @else {
-                $style-prop: core.create-var(#{theme.$prefix}-typography-#{$style}-#{$key}, $value);
+                $style-prop: core.create-var(theme.create-name(typography-#{$style}-#{$key}), $value);
             }
 
             @include css.declaration($key, $style-prop);

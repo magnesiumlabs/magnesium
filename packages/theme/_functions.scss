@@ -14,12 +14,23 @@
 }
 
 ///
+/// Create name.
+///
+@function create-name($name) {
+    @if variables.$prefix {
+        $name: #{variables.$prefix}-#{$name}
+    }
+
+    @return $name;
+}
+
+///
 /// Create CSS Custom Property map.
 ///
 /// @see {function} custom-properties.create
 ///
 @function create-custom-map($name, $fallback) {
-    @return custom-properties.create(#{variables.$prefix}-theme-#{$name}, $fallback);
+    @return custom-properties.create(create-name(theme-#{$name}), $fallback);
 }
 
 ///
