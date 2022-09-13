@@ -17,6 +17,7 @@
         "framework",
         "front-end"
     ],
+    "license": "MIT",
     "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/core",
     "repository": {
         "type": "git",
