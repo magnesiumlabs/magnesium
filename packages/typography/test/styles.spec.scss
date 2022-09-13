@@ -4,6 +4,7 @@
 
 @use "true" as *;
 @use "sass:string";
+@use "../../../tests/config";
 @use "../index" as typography;
 
 @include describe("typography") {
