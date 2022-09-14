@@ -18,7 +18,10 @@ $default-core: (
 // ------------------------------------------------------------------------- //
 
 $core: () !default;
+$prefix: "mg" !default;
 $screens: () !default;
+$colors: () !default;
+$bg-colors: () !default;
 
 ///
 /// Extend options.
