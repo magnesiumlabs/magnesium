@@ -19,3 +19,10 @@
 @function get-responsive-option() {
     @return get-option("responsive");
 }
+
+///
+/// Get core "states" option.
+///
+@function get-states-option() {
+    @return get-option("states");
+}
