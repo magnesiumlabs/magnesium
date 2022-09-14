@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/magnesiumlabs/magnesium/compare/v1.11.1...v1.11.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update package-lock.json ([58034dd](https://github.com/magnesiumlabs/magnesium/commit/58034dd7d6e04108f8cfe5f55805948ec53a953f))
+* **theme:** unneeded `hide` condition ([6c3cd8d](https://github.com/magnesiumlabs/magnesium/commit/6c3cd8d78360215e78f5049ba2187ece5689bb77))
+
 ## [1.11.1](https://github.com/magnesiumlabs/magnesium/compare/v1.11.0...v1.11.1) (2022-09-14)
 
 
