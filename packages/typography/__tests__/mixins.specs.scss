@@ -5,8 +5,7 @@
 @use "true" as *;
 @use "sass:string";
 @use "@unsass/rem";
-@use "../../../tests/config";
-@use "../index" as typography;
+@use "@magnesium/typography";
 
 @include describe("typography") {
     @include describe("mixins") {

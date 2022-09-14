@@ -3,8 +3,10 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/config";
-@use "../index" as shape;
+@use "../../../tests/variables";
+@use "@magnesium/shape" as shape with (
+    $shapes: variables.$shapes
+);
 
 @include describe("shape") {
     @include describe("functions") {
