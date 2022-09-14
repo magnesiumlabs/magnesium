@@ -37,9 +37,15 @@
             @include property(color, $style);
         }
 
-        @each $modifier in variables.$modifiers {
-            @include selector.create(#{functions.create-name(theme--#{$style})}, $modifier, $pseudo-class: $modifier) {
-                @include property(color, $style);
+        //
+        // States.
+        //
+
+        @if core.get-states-option() {
+            @each $modifier in variables.$modifiers {
+                @include selector.create(#{functions.create-name(theme--#{$style})}, $modifier, $pseudo-class: $modifier) {
+                    @include property(color, $style);
+                }
             }
         }
 
@@ -67,9 +73,15 @@
             @include property(background-color, $style);
         }
 
-        @each $modifier in variables.$modifiers {
-            @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
-                @include property(background-color, $style);
+        //
+        // States.
+        //
+
+        @if core.get-states-option() {
+            @each $modifier in variables.$modifiers {
+                @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
+                    @include property(background-color, $style);
+                }
             }
         }
 
