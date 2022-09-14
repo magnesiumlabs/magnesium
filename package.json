@@ -29,5 +29,8 @@
         "sass-true": "^6.1.0",
         "semantic-release": "^19.0.5",
         "semantic-release-lerna": "^0.7.0"
-    }
+    },
+    "workspaces": [
+        "packages/*"
+    ]
 }
