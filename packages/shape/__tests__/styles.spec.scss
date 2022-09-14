@@ -20,7 +20,23 @@
                             border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
                         }
 
+                        .hover\:mg-shape--small:hover {
+                            border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
+                        }
+
+                        .focus\:mg-shape--small:focus {
+                            border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
+                        }
+
                         .mg-shape--medium {
+                            border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                        }
+
+                        .hover\:mg-shape--medium:hover {
+                            border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                        }
+
+                        .focus\:mg-shape--medium:focus {
                             border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
                         }
                     }

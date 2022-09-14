@@ -3,8 +3,10 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "@magnesium/theme/core";
 @use "@magnesium/theme";
 @use "@unsass/css";
+@use "@unsass/selector";
 @use "./functions";
 
 ///
@@ -14,6 +16,17 @@
     @each $style in functions.get-keys() {
         .#{theme.create-name(shape--#{$style})} {
             @include radius($style);
+        }
+
+        ///
+        /// States.
+        ///
+        @if core.get-states-option() {
+            @each $state in theme.$states {
+                @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
+                    @include radius($style);
+                }
+            }
         }
     }
 }
