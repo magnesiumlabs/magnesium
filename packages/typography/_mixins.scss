@@ -4,8 +4,11 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "@magnesium/theme/core";
 @use "@magnesium/theme";
+@use "@unsass/breakpoint";
 @use "@unsass/css";
+@use "@unsass/selector";
 @use "@unsass/utilities";
 @use "./variables";
 
@@ -19,9 +22,37 @@
         @include base;
     }
 
+    //
+    // Responsive.
+    //
+
+    @if core.get-responsive-option() {
+        @each $key, $value in breakpoint.get-screens() {
+            @include breakpoint.up($key) {
+                @include selector.create(#{theme.create-name(typography)}, $key) {
+                    @include base;
+                }
+            }
+        }
+    }
+
     @each $style in map.keys(variables.$styles) {
         .#{theme.create-name(typography--#{$style})} {
             @include typography($style);
+        }
+
+        //
+        // Responsive.
+        //
+
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{theme.create-name(typography--#{$style})}, $key) {
+                        @include base;
+                    }
+                }
+            }
         }
     }
 }
