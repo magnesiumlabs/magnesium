@@ -4,6 +4,7 @@
 *.lerna_backup
 *.log
 /packages/*/package-lock.json
+junit.xml
 
 ## Folders
 .DS_Store
