@@ -41,8 +41,8 @@
         /// States.
         ///
         @if core.get-states-option() {
-            @each $modifier in variables.$modifiers {
-                @include selector.create(#{functions.create-name(theme--#{$style})}, $modifier, $pseudo-class: $modifier) {
+            @each $state in variables.$states {
+                @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
                     @include property(color, $style);
                 }
             }
@@ -75,8 +75,8 @@
         /// States.
         ///
         @if core.get-states-option() {
-            @each $modifier in variables.$modifiers {
-                @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
+            @each $state in variables.$states {
+                @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
                     @include property(background-color, $style);
                 }
             }
