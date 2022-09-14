@@ -1,0 +1,21 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@unsass/css/custom-properties";
+@use "./variables";
+
+///
+/// Get core option.
+///
+@function get-option($name) {
+    @return map.get(variables.$core, $name);
+}
+
+///
+/// Get core "responsive" option.
+///
+@function get-responsive-option() {
+    @return get-option("responsive");
+}
