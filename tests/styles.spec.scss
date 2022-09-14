@@ -27,6 +27,42 @@
                         color: var(--mg-theme-primary, #2674a2);
                     }
 
+                    @media (min-width: 320px) {
+                        .xs\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .sm\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .md\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 960px) {
+                        .lg\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        .xl\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 1400px) {
+                        .\32 xl\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
                     .mg-theme--secondary {
                         color: var(--mg-theme-secondary, #6e5898);
                     }
@@ -37,6 +73,42 @@
 
                     .focus\:mg-theme--secondary:focus {
                         color: var(--mg-theme-secondary, #6e5898);
+                    }
+
+                    @media (min-width: 320px) {
+                        .xs\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .sm\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .md\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 960px) {
+                        .lg\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        .xl\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 1400px) {
+                        .\32 xl\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
                     }
 
                     .mg-theme--primary-bg {
@@ -51,6 +123,42 @@
                         background-color: var(--mg-theme-primary, #2674a2);
                     }
 
+                    @media (min-width: 320px) {
+                        .xs\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .sm\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .md\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 960px) {
+                        .lg\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        .xl\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
+                    @media (min-width: 1400px) {
+                        .\32 xl\:mg-theme--primary {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+                    }
+
                     .mg-theme--secondary-bg {
                         background-color: var(--mg-theme-secondary, #6e5898);
                     }
@@ -61,6 +169,42 @@
 
                     .focus\:mg-theme--secondary-bg:focus {
                         background-color: var(--mg-theme-secondary, #6e5898);
+                    }
+
+                    @media (min-width: 320px) {
+                        .xs\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .sm\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .md\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 960px) {
+                        .lg\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        .xl\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+                    }
+
+                    @media (min-width: 1400px) {
+                        .\32 xl\:mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
                     }
                 }
             }

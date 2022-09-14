@@ -5,6 +5,8 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
+@use "./core";
+@use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "@unsass/selector";
 @use "@unsass/utilities";
@@ -40,6 +42,20 @@
                 @include property(color, $style);
             }
         }
+
+        //
+        // Responsive.
+        //
+
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                        @include property(color, $style);
+                    }
+                }
+            }
+        }
     }
 
     // ------------------------------------------------------------------------- //
@@ -54,6 +70,20 @@
         @each $modifier in variables.$modifiers {
             @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
                 @include property(background-color, $style);
+            }
+        }
+
+        //
+        // Responsive.
+        //
+
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                        @include property(color, $style);
+                    }
+                }
             }
         }
     }
