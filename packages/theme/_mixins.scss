@@ -37,10 +37,9 @@
             @include property(color, $style);
         }
 
-        //
-        // States.
-        //
-
+        ///
+        /// States.
+        ///
         @if core.get-states-option() {
             @each $modifier in variables.$modifiers {
                 @include selector.create(#{functions.create-name(theme--#{$style})}, $modifier, $pseudo-class: $modifier) {
@@ -49,10 +48,9 @@
             }
         }
 
-        //
-        // Responsive.
-        //
-
+        ///
+        /// Responsive.
+        ///
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
@@ -73,10 +71,9 @@
             @include property(background-color, $style);
         }
 
-        //
-        // States.
-        //
-
+        ///
+        /// States.
+        ///
         @if core.get-states-option() {
             @each $modifier in variables.$modifiers {
                 @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $modifier, $pseudo-class: $modifier) {
@@ -85,10 +82,9 @@
             }
         }
 
-        //
-        // Responsive.
-        //
-
+        ///
+        /// Responsive.
+        ///
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {

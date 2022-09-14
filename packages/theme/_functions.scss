@@ -18,7 +18,7 @@
 ///
 @function create-name($name) {
     @if variables.$prefix {
-        $name: #{variables.$prefix}-#{$name}
+        $name: #{variables.$prefix}-#{$name};
     }
 
     @return $name;

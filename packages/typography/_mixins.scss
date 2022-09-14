@@ -22,10 +22,9 @@
         @include base;
     }
 
-    //
-    // Responsive.
-    //
-
+    ///
+    /// Responsive.
+    ///
     @if core.get-responsive-option() {
         @each $key, $value in breakpoint.get-screens() {
             @include breakpoint.up($key) {
@@ -41,10 +40,9 @@
             @include typography($style);
         }
 
-        //
-        // Responsive.
-        //
-
+        ///
+        /// Responsive.
+        ///
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {

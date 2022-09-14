@@ -21,7 +21,9 @@ $_default-props: (
 ///
 @function set-styles($base-styles, $scale-styles, $override-styles) {
 
-    // Add new keys
+    ///
+    /// Add new keys
+    ///
     @each $style, $style-props in $override-styles {
         @each $key, $value in $style-props {
             @if list.index($_default-props, $key) == null {
@@ -34,7 +36,9 @@ $_default-props: (
         }
     }
 
-    // Scale styles
+    ///
+    /// Scale styles
+    ///
     @each $style, $style-props in $scale-styles {
         $style-props: map.merge($base-styles, $style-props);
 
