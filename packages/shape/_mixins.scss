@@ -5,6 +5,7 @@
 @use "sass:map";
 @use "@magnesium/theme/core";
 @use "@magnesium/theme";
+@use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "@unsass/selector";
 @use "./functions";
@@ -25,6 +26,19 @@
             @each $state in theme.$states {
                 @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
                     @include radius($style);
+                }
+            }
+        }
+
+        ///
+        /// Responsive.
+        ///
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{theme.create-name(theme--#{$style})}, $key) {
+                        @include radius($style);
+                    }
                 }
             }
         }
