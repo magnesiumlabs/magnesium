@@ -1,0 +1,5 @@
+@use "../../theme/core/mixins";
+
+@include mixins.configure((
+    "responsive": false
+));
