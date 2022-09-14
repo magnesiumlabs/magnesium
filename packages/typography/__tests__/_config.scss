@@ -1,5 +1,0 @@
-@use "@magnesium/theme/core/mixins";
-
-@include mixins.configure($core: (
-    "responsive": false
-));

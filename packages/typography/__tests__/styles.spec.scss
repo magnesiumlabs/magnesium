@@ -4,8 +4,8 @@
 
 @use "true" as *;
 @use "sass:string";
-@use "../../../tests/config";
-@use "../index" as typography;
+@use "@magnesium/theme/core";
+@use "@magnesium/typography";
 
 @include describe("typography") {
     @include describe("styles") {
@@ -538,6 +538,111 @@
                                 font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
                                 font-size: 100%;
                             }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return core styles declarations without responsive rules.") {
+                @include assert {
+                    @include output(false) {
+                        @include core.configure($core: (
+                            "responsive": false
+                        ));
+
+                        @include typography.core-styles;
+                    }
+
+                    @include expect(false) {
+                        .mg-typography {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
+                            font-size: 100%;
+                        }
+
+                        .mg-typography--body {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-body-font-size, 1rem);
+                            line-height: var(--mg-typography-body-line-height, 1.25rem);
+                            font-weight: var(--mg-typography-body-font-weight, 400);
+                            letter-spacing: var(--mg-typography-body-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-body-text-decoration, inherit);
+                            text-transform: var(--mg-typography-body-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-1 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-1-font-size, 2.5rem);
+                            line-height: var(--mg-typography-headline-1-line-height, 3rem);
+                            font-weight: var(--mg-typography-headline-1-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-1-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-1-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-1-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-2 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-2-font-size, 2rem);
+                            line-height: var(--mg-typography-headline-2-line-height, 2.375rem);
+                            font-weight: var(--mg-typography-headline-2-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-2-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-2-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-2-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-3 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-3-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-3-font-size, 1.75rem);
+                            line-height: var(--mg-typography-headline-3-line-height, 2.125rem);
+                            font-weight: var(--mg-typography-headline-3-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-3-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-3-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-3-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-4 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-4-font-size, 1.5rem);
+                            line-height: var(--mg-typography-headline-4-line-height, 1.75rem);
+                            font-weight: var(--mg-typography-headline-4-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-4-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-4-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-4-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-5 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-5-font-size, 1.25rem);
+                            line-height: var(--mg-typography-headline-5-line-height, 1.5rem);
+                            font-weight: var(--mg-typography-headline-5-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-5-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-5-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-5-text-transform, inherit);
+                        }
+
+                        .mg-typography--headline-6 {
+                            -moz-osx-font-smoothing: grayscale;
+                            -webkit-font-smoothing: antialiased;
+                            font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
+                            font-size: var(--mg-typography-headline-6-font-size, 1rem);
+                            line-height: var(--mg-typography-headline-6-line-height, 1.25rem);
+                            font-weight: var(--mg-typography-headline-6-font-weight, 700);
+                            letter-spacing: var(--mg-typography-headline-6-letter-spacing, normal);
+                            text-decoration: var(--mg-typography-headline-6-text-decoration, inherit);
+                            text-transform: var(--mg-typography-headline-6-text-transform, inherit);
                         }
                     }
                 }
