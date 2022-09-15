@@ -4,16 +4,11 @@
 
 @use "true" as *;
 @use "@magnesium/core";
-@use "@magnesium/theme";
+@use "@magnesium/shape";
 
-@include core.configure2($theme: (
-    "colors": (
-        primary: #2674a2,
-        secondary: #6e5898
-    ),
-    "bg-colors": (
-        secondary
-    )
+@include core.configure2($shape: (
+    small: 6px,
+    medium: 12px
 ));
 
 @include describe("theme") {
@@ -27,20 +22,16 @@
                             "states": false
                         ));
 
-                        @include theme.core-styles;
+                        @include shape.core-styles;
                     }
 
                     @include expect(false) {
-                        .ls-theme--primary {
-                            color: var(--ls-theme-primary, #2674a2);
+                        .ls-shape--small {
+                            border-radius: var(--ls-shape-small, var(--ls-shape-radius, 6px));
                         }
 
-                        .ls-theme--secondary {
-                            color: var(--ls-theme-secondary, #6e5898);
-                        }
-
-                        .ls-theme--secondary-bg {
-                            background-color: var(--ls-theme-secondary, #6e5898);
+                        .ls-shape--medium {
+                            border-radius: var(--ls-shape-medium, var(--ls-shape-radius, 12px));
                         }
                     }
                 }

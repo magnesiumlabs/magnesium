@@ -31,6 +31,7 @@ $prefix: "mg";
 $core: ();
 $screens: ();
 $theme: ();
+$shape: ();
 
 ///
 /// Extend options.
@@ -43,7 +44,7 @@ $theme: map.deep-merge($default-theme, $theme);
 // Configure
 // ------------------------------------------------------------------------- //
 
-@mixin configure2($prefix: null, $screens: null, $core: null, $theme: null ) {
+@mixin configure2($prefix: null, $screens: null, $core: null, $theme: null , $shape: null) {
     @if $prefix {
         $prefix: $prefix !global;
     }
@@ -58,5 +59,9 @@ $theme: map.deep-merge($default-theme, $theme);
 
     @if $theme {
         $theme: map.deep-merge($default-theme, $theme) !global;
+    }
+
+    @if $shape {
+        $shape: $shape !global;
     }
 }

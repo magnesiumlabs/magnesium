@@ -3,10 +3,13 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/variables";
-@use "@magnesium/shape" as shape with (
-    $shapes: variables.$shapes
-);
+@use "@magnesium/core";
+@use "@magnesium/shape";
+
+@include core.configure2($shape: (
+    small: 6px,
+    medium: 12px
+));
 
 @include describe("shape") {
     @include describe("functions") {

@@ -16,7 +16,7 @@
 @include describe("theme") {
     @include describe("styles") {
         @include describe("core-styles()") {
-            @include it("Should return theme styles declarations.") {
+            @include it("Should return main styles declarations.") {
                 @include assert {
                     @include output(false) {
                         @include theme.core-styles;

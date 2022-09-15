@@ -12,7 +12,7 @@
 /// Get shape keys.
 ///
 @function get-keys() {
-    @return map.keys(variables.$shapes);
+    @return map.keys(core.$shape);
 }
 
 ///
@@ -28,12 +28,12 @@
 /// Check if shape key exist.
 ///
 @function exist($radius) {
-    @return map.has-key(variables.$shapes, $radius);
+    @return map.has-key(core.$shape, $radius);
 }
 
 ///
 /// Get radius value from '$shapes' option.
 ///
 @function radius($radius) {
-    @return map.get(variables.$shapes, $radius);
+    @return map.get(core.$shape, $radius);
 }
