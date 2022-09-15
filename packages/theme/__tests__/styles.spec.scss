@@ -3,9 +3,9 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/config";
-@use "../core" as core;
-@use "../index" as theme;
+@use "../../../tests/variables";
+@use "@magnesium/core";
+@use "@magnesium/theme";
 
 @include describe("theme") {
     @include describe("styles") {
@@ -13,6 +13,7 @@
             @include it("Should return core styles declarations.") {
                 @include assert {
                     @include output(false) {
+                        @include core.configure($colors: variables.$colors);
                         @include theme.core-styles;
                     }
 
@@ -274,10 +275,11 @@
                 }
             }
 
-            @include it("Should return core styles declarations without states rules.") {
+            @include it("Should return core styles declarations without responsive and states rules.") {
                 @include assert {
                     @include output(false) {
                         @include core.configure($core: (
+                            "responsive": false,
                             "states": false
                         ));
 
@@ -289,160 +291,16 @@
                             color: var(--mg-theme-primary, #2674a2);
                         }
 
-                        @media (min-width: 320px) {
-                            .xs\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 480px) {
-                            .sm\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 768px) {
-                            .md\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 960px) {
-                            .lg\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 1200px) {
-                            .xl\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 1400px) {
-                            .\32 xl\:mg-theme--primary {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
                         .mg-theme--secondary {
                             color: var(--mg-theme-secondary, #6e5898);
-                        }
-
-                        @media (min-width: 320px) {
-                            .xs\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 480px) {
-                            .sm\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 768px) {
-                            .md\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 960px) {
-                            .lg\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 1200px) {
-                            .xl\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 1400px) {
-                            .\32 xl\:mg-theme--secondary {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
                         }
 
                         .mg-theme--primary-bg {
                             background-color: var(--mg-theme-primary, #2674a2);
                         }
 
-                        @media (min-width: 320px) {
-                            .xs\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 480px) {
-                            .sm\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 768px) {
-                            .md\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 960px) {
-                            .lg\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 1200px) {
-                            .xl\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
-                        @media (min-width: 1400px) {
-                            .\32 xl\:mg-theme--primary-bg {
-                                color: var(--mg-theme-primary, #2674a2);
-                            }
-                        }
-
                         .mg-theme--secondary-bg {
                             background-color: var(--mg-theme-secondary, #6e5898);
-                        }
-
-                        @media (min-width: 320px) {
-                            .xs\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 480px) {
-                            .sm\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 768px) {
-                            .md\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 960px) {
-                            .lg\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 1200px) {
-                            .xl\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
-                        }
-
-                        @media (min-width: 1400px) {
-                            .\32 xl\:mg-theme--secondary-bg {
-                                color: var(--mg-theme-secondary, #6e5898);
-                            }
                         }
                     }
                 }

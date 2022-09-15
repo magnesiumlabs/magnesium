@@ -4,8 +4,11 @@
 
 @use "true" as *;
 @use "@unsass/css/custom-properties";
-@use "../../../tests/config";
-@use "../index" as theme;
+@use "../../../tests/variables";
+@use "@magnesium/core" with (
+    $colors: variables.$colors
+);
+@use "@magnesium/theme";
 
 @include describe("theme") {
     @include describe("mixins") {

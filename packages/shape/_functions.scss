@@ -4,6 +4,7 @@
 
 @use "sass:map";
 @use "@unsass/css/custom-properties";
+@use "@magnesium/core";
 @use "@magnesium/theme";
 @use "./variables";
 
@@ -20,7 +21,7 @@
 /// @see {function} custom-properties.create
 ///
 @function create-custom-map($name, $fallback) {
-    @return custom-properties.create(#{theme.$prefix}-shape-#{$name}, $fallback);
+    @return custom-properties.create(#{core.$prefix}-shape-#{$name}, $fallback);
 }
 
 ///

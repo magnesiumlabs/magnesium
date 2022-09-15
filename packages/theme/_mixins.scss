@@ -5,7 +5,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
-@use "./core";
+@use "@magnesium/core";
 @use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "@unsass/selector";
@@ -22,9 +22,9 @@
 @mixin core-styles {
     $extend: ();
 
-    @if list.length(variables.$bg-colors) != 0 and (meta.type-of(variables.$bg-colors) == "list" or meta.type-of(variables.$bg-colors) == "string") {
-        $extend: variables.$bg-colors;
-    } @else if list.length(variables.$bg-colors) == 0 or not list.length(variables.$bg-colors) {
+    @if list.length(core.$bg-colors) != 0 and (meta.type-of(core.$bg-colors) == "list" or meta.type-of(core.$bg-colors) == "string") {
+        $extend: core.$bg-colors;
+    } @else if list.length(core.$bg-colors) == 0 or not list.length(core.$bg-colors) {
         $extend: functions.get-keys();
     }
 
@@ -41,7 +41,7 @@
         /// States.
         ///
         @if core.get-states-option() {
-            @each $state in variables.$states {
+            @each $state in core.$states {
                 @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
                     @include property(color, $style);
                 }
@@ -75,7 +75,7 @@
         /// States.
         ///
         @if core.get-states-option() {
-            @each $state in variables.$states {
+            @each $state in core.$states {
                 @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
                     @include property(background-color, $style);
                 }

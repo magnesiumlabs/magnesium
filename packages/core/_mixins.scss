@@ -3,9 +3,10 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "@unsass/breakpoint";
 @use "./variables";
 
-@mixin configure($prefix: null, $colors: null, $bg-colors: null, $core: null) {
+@mixin configure($prefix: null, $colors: null, $bg-colors: null, $screens: null, $core: null) {
     @if $prefix {
         variables.$prefix: $prefix;
     }
@@ -16,6 +17,10 @@
 
     @if $bg-colors {
         variables.$bg-colors: $bg-colors;
+    }
+
+    @if $screens {
+        variables.$screens: $screens;
     }
 
     @if $core {

@@ -1,12 +1,9 @@
 {
-    "name": "@magnesium/shape",
-    "version": "1.11.2",
-    "description": "The Magnesium Design components for the web shape system.",
+    "name": "@magnesium/core",
+    "version": "1.11.1",
+    "description": "The Magnesium Design components for the web core system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.11.1",
-        "@magnesium/theme": "^1.11.2",
-        "@unsass/css": "^2.1.1",
         "sass": "^1.53.0"
     },
     "files": [
@@ -15,12 +12,12 @@
     "keywords": [
         "sass",
         "magnesium",
-        "shape",
+        "core",
         "framework",
         "front-end"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/shape",
+    "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/core",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
