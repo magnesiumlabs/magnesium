@@ -22,9 +22,9 @@
 @mixin core-styles {
     $extend: ();
 
-    @if list.length(core.get-theme-bg-colors-option()) != 0 and (meta.type-of(core.get-theme-bg-colors-option()) == "list" or meta.type-of(core.get-theme-bg-colors-option()) == "string") {
-        $extend: core.get-theme-bg-colors-option();
-    } @else if list.length(core.get-theme-bg-colors-option()) == 0 or not list.length(core.get-theme-bg-colors-option()) {
+    @if list.length(functions.get-bg-colors-option()) != 0 and (meta.type-of(functions.get-bg-colors-option()) == "list" or meta.type-of(functions.get-bg-colors-option()) == "string") {
+        $extend: functions.get-bg-colors-option();
+    } @else if list.length(functions.get-bg-colors-option()) == 0 or not list.length(functions.get-bg-colors-option()) {
         $extend: functions.get-keys();
     }
 
