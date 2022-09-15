@@ -13,6 +13,11 @@ $default-core: (
     "states": true
 );
 
+$default-theme: (
+    "colors": (),
+    "bg-colors": ()
+);
+
 $states: (
     hover,
     focus,
@@ -25,25 +30,20 @@ $states: (
 $prefix: "mg";
 $core: ();
 $screens: ();
-
-$colors: (
-    primary: #2674a2,
-    secondary: #6e5898
-);
-
-$bg-colors: () !default;
+$theme: ();
 
 ///
 /// Extend options.
 ///
 
 $core: map.deep-merge($default-core, $core);
+$theme: map.deep-merge($default-theme, $theme);
 
 // ------------------------------------------------------------------------- //
 // Configure
 // ------------------------------------------------------------------------- //
 
-@mixin configure2($prefix: null, $screens: null, $core: null) {
+@mixin configure2($prefix: null, $screens: null, $core: null, $theme: null ) {
     @if $prefix {
         $prefix: $prefix !global;
     }
@@ -54,5 +54,9 @@ $core: map.deep-merge($default-core, $core);
 
     @if $core {
         $core: map.deep-merge($default-core, $core) !global;
+    }
+
+    @if $theme {
+        $theme: map.deep-merge($default-theme, $theme) !global;
     }
 }

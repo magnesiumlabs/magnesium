@@ -3,9 +3,18 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../tests/variables";
 @use "@magnesium/core";
 @use "@magnesium/theme";
+
+@include core.configure2($theme: (
+    "colors": (
+        primary: #2674a2,
+        secondary: #6e5898
+    ),
+    "bg-colors": (
+        secondary
+    )
+));
 
 @include describe("theme") {
     @include describe("styles") {
@@ -28,10 +37,6 @@
 
                         .ls-theme--secondary {
                             color: var(--ls-theme-secondary, #6e5898);
-                        }
-
-                        .ls-theme--primary-bg {
-                            background-color: var(--ls-theme-primary, #2674a2);
                         }
 
                         .ls-theme--secondary-bg {

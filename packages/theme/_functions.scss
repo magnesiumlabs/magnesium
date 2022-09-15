@@ -8,10 +8,24 @@
 @use "./variables";
 
 ///
+/// Get "colors" option.
+///
+@function get-colors-option() {
+    @return core.get-theme-option("colors");
+}
+
+///
+/// Get "bg-colors" option.
+///
+@function get-bg-colors-option() {
+    @return core.get-theme-option("bg-colors");
+}
+
+///
 /// Get theme keys.
 ///
 @function get-keys() {
-    @return map.keys(core.$colors);
+    @return map.keys(get-colors-option());
 }
 
 ///
@@ -48,16 +62,16 @@
 /// Check if color key exist.
 ///
 @function exist($color) {
-    @return map.has-key(core.$colors, $color);
+    @return map.has-key(get-colors-option(), $color);
 }
 
 ///
 /// Get theme color.
 ///
 @function get-color($token) {
-    @if not map.has-key(core.$colors, $token) {
-        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$colors)}.";
+    @if not map.has-key(get-colors-option(), $token) {
+        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{get-keys()}.";
     }
 
-    @return map.get(core.$colors, $token);
+    @return map.get(get-colors-option(), $token);
 }

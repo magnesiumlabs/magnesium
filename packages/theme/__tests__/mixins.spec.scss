@@ -4,7 +4,15 @@
 
 @use "true" as *;
 @use "@unsass/css/custom-properties";
+@use "@magnesium/core";
 @use "@magnesium/theme";
+
+@include core.configure2($theme: (
+    "colors": (
+        primary: #2674a2,
+        secondary: #6e5898
+    )
+));
 
 @include describe("theme") {
     @include describe("mixins") {
