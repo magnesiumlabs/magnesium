@@ -2,27 +2,27 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "sass:map";
-@use "./variables";
+//@use "sass:map";
+//@use "./variables";
 
-@mixin configure($prefix: null, $colors: null, $bg-colors: null, $screens: null, $core: null) {
-    @if $prefix {
-        variables.$prefix: $prefix;
-    }
-
-    @if $colors {
-        variables.$colors: $colors;
-    }
-
-    @if $bg-colors {
-        variables.$bg-colors: $bg-colors;
-    }
-
-    @if $screens {
-        variables.$screens: $screens;
-    }
-
-    @if $core {
-        variables.$core: map.deep-merge(variables.$default-core, $core);
-    }
-}
+//@mixin configure($prefix: null, $colors: null, $bg-colors: null, $screens: null, $core: null) {
+//    @if $prefix {
+//        variables.$prefix: $prefix;
+//    }
+//
+//    @if $colors {
+//        variables.$colors: $colors;
+//    }
+//
+//    @if $bg-colors {
+//        variables.$bg-colors: $bg-colors;
+//    }
+//
+//    @if $screens {
+//        variables.$screens: $screens;
+//    }
+//
+//    @if $core {
+//        variables.$core: map.deep-merge(variables.$default-core, $core);
+//    }
+//}

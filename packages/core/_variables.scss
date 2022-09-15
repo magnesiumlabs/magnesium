@@ -22,10 +22,15 @@ $states: (
 // Public variables
 // ------------------------------------------------------------------------- //
 
-$core: () !default;
-$prefix: "mg" !default;
-$screens: () !default;
-$colors: () !default;
+$prefix: "mg";
+$core: ();
+$screens: ();
+
+$colors: (
+    primary: #2674a2,
+    secondary: #6e5898
+);
+
 $bg-colors: () !default;
 
 ///
@@ -33,3 +38,21 @@ $bg-colors: () !default;
 ///
 
 $core: map.deep-merge($default-core, $core);
+
+// ------------------------------------------------------------------------- //
+// Configure
+// ------------------------------------------------------------------------- //
+
+@mixin configure2($prefix: null, $screens: null, $core: null) {
+    @if $prefix {
+        $prefix: $prefix !global;
+    }
+
+    @if $screens {
+        $screens: $screens !global;
+    }
+
+    @if $core {
+        $core: map.deep-merge($default-core, $core) !global;
+    }
+}

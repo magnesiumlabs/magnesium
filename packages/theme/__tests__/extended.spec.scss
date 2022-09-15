@@ -1,0 +1,45 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../tests/variables";
+@use "@magnesium/core";
+@use "@magnesium/theme";
+
+@include describe("theme") {
+    @include describe("styles") {
+        @include describe("core-styles()") {
+            @include it("Should return theme styles declarations with extended options.") {
+                @include assert {
+                    @include output(false) {
+                        @include core.configure2("ls", $core: (
+                            "responsive": false,
+                            "states": false
+                        ));
+
+                        @include theme.core-styles;
+                    }
+
+                    @include expect(false) {
+                        .ls-theme--primary {
+                            color: var(--ls-theme-primary, #2674a2);
+                        }
+
+                        .ls-theme--secondary {
+                            color: var(--ls-theme-secondary, #6e5898);
+                        }
+
+                        .ls-theme--primary-bg {
+                            background-color: var(--ls-theme-primary, #2674a2);
+                        }
+
+                        .ls-theme--secondary-bg {
+                            background-color: var(--ls-theme-secondary, #6e5898);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
