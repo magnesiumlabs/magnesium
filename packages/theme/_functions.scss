@@ -11,7 +11,7 @@
 /// Get theme keys.
 ///
 @function get-keys() {
-    @return map.keys(core.$colors);
+    @return map.keys(core.get-theme-colors-option());
 }
 
 ///
@@ -48,16 +48,16 @@
 /// Check if color key exist.
 ///
 @function exist($color) {
-    @return map.has-key(core.$colors, $color);
+    @return map.has-key(core.get-theme-colors-option(), $color);
 }
 
 ///
 /// Get theme color.
 ///
 @function get-color($token) {
-    @if not map.has-key(core.$colors, $token) {
-        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$colors)}.";
+    @if not map.has-key(core.get-theme-colors-option(), $token) {
+        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{get-keys()}.";
     }
 
-    @return map.get(core.$colors, $token);
+    @return map.get(core.get-theme-colors-option(), $token);
 }

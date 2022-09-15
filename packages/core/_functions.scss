@@ -26,3 +26,24 @@
 @function get-states-option() {
     @return get-option("states");
 }
+
+///
+/// Get theme option.
+///
+@function get-theme-option($name) {
+    @return map.get(variables.$theme, $name);
+}
+
+///
+/// Get theme "colors" option.
+///
+@function get-theme-colors-option() {
+    @return get-theme-option("colors");
+}
+
+///
+/// Get theme "colors" option.
+///
+@function get-theme-bg-colors-option() {
+    @return get-theme-option("bg-colors");
+}

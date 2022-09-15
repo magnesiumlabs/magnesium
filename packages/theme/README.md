@@ -18,27 +18,6 @@ npm install @magnesium/theme
 
 > This will generate the default theme classes, see [CSS Classes](#css-classes) section for more.
 
-### Configuration
-
-You can define the theme color variables before importing any Magnesium components:
-
-```scss
-@use "@magnesium/theme" with (
-    $colors: (
-        primary: #2674a2,
-        secondary: #6e5898
-    )
-);
-```
-
-### Options
-
-| Name         | Default | Description                                                                                                                                                                                                     |
-|--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                                                                    |
-| `$bg-colors` | `()`    | Sets automatically a list of background colors classes from `$colors` option. Set at `false` for disable background colors classes or add list of keys from `$colors` for filters only the background you want. |
-| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. Set at `false` for disable prefixed names.                                                                                                                        |
-
 ## Customization
 
 ### CSS custom properties

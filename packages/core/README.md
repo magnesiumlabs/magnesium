@@ -14,31 +14,59 @@ npm install @magnesium/core
 @use "@magnesium/core";
 ```
 
-## API
+### Styles
 
-### Sass functions
+```scss
+@use "@magnesium/core/styles";
+```
 
-| Function                       | Description                   |
-|--------------------------------|-------------------------------|
-| `create-var($name, $fallback)` | Sets new CSS Custom Property. |
+### Configuration
 
-#### Color with `core.create-var()`
-
-The following Sass...
+You can define the theme color variables before importing any Magnesium components:
 
 ```scss
 @use "@magnesium/core";
 
-.foo {
-    color: core.create-var(foo, #2674a2);
-}
+@include core.configure($options);
 ```
 
-...will produce the following CSS...
+### Options
 
-```css
-.foo {
-    color: var(--mg-foo, #2674a2);
-}
+| Name      | Default                           | Description                                                                              |
+|-----------|-----------------------------------|------------------------------------------------------------------------------------------|
+| `$prefix` | `mg`                              | Sets prefix to custom properties and classes. Set at `false` for disable prefixed names. |
+| `$theme`  | `("colors": (), "bg-colors": ())` | Sets theme options Available options keys `colors` and `bg-colors`.                      |
+
+#### Sets `$theme` colors
+
+Sets a list of theme colors.
+
+```scss
+@use "@magnesium/core";
+
+@include core.configure($theme: (
+    "colors": (
+        primary: #2674a2,
+        secondary: #6e5898
+    )
+));
 ```
+
+#### Sets `$theme` background colors
+
+Sets automatically a list of background colors classes from `$theme->colors` option. Set at `false` for disable
+background colors classes or add list of keys from `$colors` for filters only the background you want.
+
+```scss
+@use "@magnesium/core";
+
+@include core.configure($theme: (
+    "colors": (
+        primary: #2674a2,
+        secondary: #6e5898
+    )
+));
+```
+
+
 

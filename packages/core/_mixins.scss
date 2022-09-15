@@ -6,17 +6,9 @@
 @use "@unsass/breakpoint";
 @use "./variables";
 
-@mixin configure($prefix: null, $colors: null, $bg-colors: null, $screens: null, $core: null) {
+@mixin configure($prefix: null, $screens: null, $core: null, $theme: null) {
     @if $prefix {
         variables.$prefix: $prefix;
-    }
-
-    @if $colors {
-        variables.$colors: $colors;
-    }
-
-    @if $bg-colors {
-        variables.$bg-colors: $bg-colors;
     }
 
     @if $screens {
@@ -25,5 +17,9 @@
 
     @if $core {
         variables.$core: map.deep-merge(variables.$default-core, $core);
+    }
+
+    @if $theme {
+        variables.$theme: map.deep-merge(variables.$default-theme, $theme);
     }
 }

@@ -13,6 +13,11 @@ $default-core: (
     "states": true
 );
 
+$default-theme: (
+    "colors": (),
+    "bg-colors": ()
+);
+
 $states: (
     hover,
     focus,
@@ -23,13 +28,13 @@ $states: (
 // ------------------------------------------------------------------------- //
 
 $core: () !default;
+$theme: () !default;
 $prefix: "mg" !default;
 $screens: () !default;
-$colors: () !default;
-$bg-colors: () !default;
 
 ///
 /// Extend options.
 ///
 
 $core: map.deep-merge($default-core, $core);
+$theme: map.deep-merge($default-theme, $theme);
