@@ -18,6 +18,8 @@ $default-theme: (
     "bg-colors": ()
 );
 
+$default-shapes: ();
+
 $states: (
     hover,
     focus,
@@ -29,6 +31,7 @@ $states: (
 
 $core: () !default;
 $theme: () !default;
+$shapes: () !default;
 $prefix: "mg" !default;
 $screens: () !default;
 
@@ -38,3 +41,4 @@ $screens: () !default;
 
 $core: map.deep-merge($default-core, $core);
 $theme: map.deep-merge($default-theme, $theme);
+$shapes: map.deep-merge($default-shapes, $shapes);

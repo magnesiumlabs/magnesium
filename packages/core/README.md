@@ -36,6 +36,7 @@ You can define the theme color variables before importing any Magnesium componen
 |-----------|-----------------------------------|------------------------------------------------------------------------------------------|
 | `$prefix` | `mg`                              | Sets prefix to custom properties and classes. Set at `false` for disable prefixed names. |
 | `$theme`  | `("colors": (), "bg-colors": ())` | Sets theme options Available options keys `colors` and `bg-colors`.                      |
+| `$shapes` | `()`                              | Sets a list of theme shapes.                                                             |                   
 
 #### Sets `$theme` colors
 
@@ -64,6 +65,17 @@ background colors classes or add list of keys from `$colors` for filters only th
     "bg-colors": (
         primary
     )
+));
+```
+
+#### Sets `$shapes` option
+
+```scss
+@use "@magnesium/core";
+
+@include core.configure($shapes: (
+    small: 6px,
+    medium: 12px
 ));
 ```
 

@@ -6,7 +6,7 @@
 @use "@unsass/breakpoint";
 @use "./variables";
 
-@mixin configure($prefix: null, $screens: null, $core: null, $theme: null) {
+@mixin configure($prefix: null, $screens: null, $core: null, $theme: null, $shapes: null) {
     @if $prefix {
         variables.$prefix: $prefix;
     }
@@ -21,5 +21,9 @@
 
     @if $theme {
         variables.$theme: map.deep-merge(variables.$default-theme, $theme);
+    }
+
+    @if $shapes {
+        variables.$shapes: map.deep-merge(variables.$default-shapes, $shapes);
     }
 }

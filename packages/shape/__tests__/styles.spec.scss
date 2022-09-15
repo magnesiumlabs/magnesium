@@ -5,7 +5,9 @@
 @use "true" as *;
 @use "../../../tests/variables";
 @use "@magnesium/core";
-@use "@magnesium/shape" with (
+@use "@magnesium/shape";
+
+@include core.configure(
     $shapes: variables.$shapes
 );
 

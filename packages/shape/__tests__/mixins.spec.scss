@@ -5,7 +5,10 @@
 @use "true" as *;
 @use "sass:string";
 @use "../../../tests/variables";
-@use "@magnesium/shape" as shape with (
+@use "@magnesium/core";
+@use "@magnesium/shape";
+
+@include core.configure(
     $shapes: variables.$shapes
 );
 
