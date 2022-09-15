@@ -61,9 +61,8 @@ background colors classes or add list of keys from `$colors` for filters only th
 @use "@magnesium/core";
 
 @include core.configure($theme: (
-    "colors": (
-        primary: #2674a2,
-        secondary: #6e5898
+    "bg-colors": (
+        primary
     )
 ));
 ```
