@@ -3,7 +3,6 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@unsass/breakpoint";
 @use "./variables";
 
 @mixin configure($prefix: null, $screens: null, $core: null, $theme: null, $shapes: null) {
