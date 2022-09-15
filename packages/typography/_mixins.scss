@@ -47,7 +47,7 @@
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
                     @include selector.create(#{theme.create-name(typography--#{$style})}, $key) {
-                        @include base;
+                        @include typography($style);
                     }
                 }
             }
