@@ -13,7 +13,9 @@
     )
 );
 @use "@magnesium/shape" with (
-    $shapes: variables.$shapes
+    $extend: (
+        "shapes": variables.$shapes
+    )
 );
 
 @include describe("shape") {

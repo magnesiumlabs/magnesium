@@ -24,19 +24,21 @@ You can define the shape variables before importing any Magnesium components:
 
 ```scss
 @use "@magnesium/shape" with (
-    $shapes: (
-        large: 24px,
-        medium: 12px,
-        small: 6px
+    $extend: (
+        "shapes": (
+            large: 24px,
+            medium: 12px,
+            small: 6px
+        )
     )
 );
 ```
 
 ### Options
 
-| Name      | Default | Description                  |
-|-----------|---------|------------------------------|
-| `$shapes` | `()`    | Sets a list of theme shapes. |
+| Name     | Default | Description                  |
+|----------|---------|------------------------------|
+| `shapes` | `()`    | Sets a list of theme shapes. |
 
 ## Customization
 

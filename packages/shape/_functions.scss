@@ -8,10 +8,17 @@
 @use "./variables";
 
 ///
+/// Get "shapes" option.
+///
+@function get-shapes() {
+    @return map.get(variables.$extend, "shapes");
+}
+
+///
 /// Get shape keys.
 ///
 @function get-keys() {
-    @return map.keys(variables.$shapes);
+    @return map.keys(get-shapes());
 }
 
 ///
@@ -27,7 +34,7 @@
 /// Check if shape key exist.
 ///
 @function exist($radius) {
-    @return map.has-key(variables.$shapes, $radius);
+    @return map.has-key(get-shapes(), $radius);
 }
 
 ///
@@ -43,7 +50,7 @@
 /// Get radius value from '$shapes' option.
 ///
 @function radius($radius) {
-    @return map.get(variables.$shapes, $radius);
+    @return map.get(get-shapes(), $radius);
 }
 
 ///

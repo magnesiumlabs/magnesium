@@ -5,7 +5,9 @@
 @use "true" as *;
 @use "../../../tests/variables";
 @use "@magnesium/shape" with (
-    $shapes: variables.$shapes
+    $extend: (
+        "shapes": variables.$shapes
+    )
 );
 
 @include describe("shape") {
