@@ -1,0 +1,40 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../tests/variables";
+@use "@magnesium/core" with (
+    $extend: (
+        "core": (
+            "states": false
+        )
+    )
+);
+@use "@magnesium/shape" with (
+    $shapes: variables.$shapes
+);
+
+@include describe("shape") {
+    @include describe("styles") {
+        @include describe("core-styles()") {
+            @include it("Should return main styles declarations with extended options.") {
+                @include assert {
+                    @include output(false) {
+                        @include shape.core-styles;
+                    }
+
+                    @include expect(false) {
+                        .mg-shape--small {
+                            border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
+                        }
+
+                        .mg-shape--medium {
+                            border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

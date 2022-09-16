@@ -30,9 +30,11 @@
         ///
         /// States.
         ///
-        @each $state in core.$states {
-            @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
-                @include property(color, $style);
+        @if core.get-states-option() {
+            @each $state in core.$states {
+                @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
+                    @include property(color, $style);
+                }
             }
         }
     }
@@ -49,9 +51,11 @@
         ///
         /// States.
         ///
-        @each $state in core.$states {
-            @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
-                @include property(background-color, $style);
+        @if core.get-states-option() {
+            @each $state in core.$states {
+                @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
+                    @include property(background-color, $style);
+                }
             }
         }
     }

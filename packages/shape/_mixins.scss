@@ -21,9 +21,11 @@
         ///
         /// States.
         ///
-        @each $state in core.$states {
-            @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
-                @include radius($style);
+        @if core.get-states-option() {
+            @each $state in core.$states {
+                @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
+                    @include radius($style);
+                }
             }
         }
     }

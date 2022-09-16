@@ -2,7 +2,16 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "@unsass/css/custom-properties";
+@use "./variables";
+
+///
+/// Get core "states" option.
+///
+@function get-states-option() {
+    @return map.get(variables.$extend, "core", "states");
+}
 
 ///
 /// Create `var()` CSS function.
