@@ -1,0 +1,11 @@
+// ============================================================================================= //
+//                                         CONFIGURATION                                         //
+// ============================================================================================= //
+
+@use "@unsass/breakpoint";
+@use "./functions";
+
+///
+/// @see {mixin} breakpoint.config
+///
+@include breakpoint.config(functions.get-screens-option());

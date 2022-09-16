@@ -7,6 +7,13 @@
 @use "./variables";
 
 ///
+/// Get core "screens" option.
+///
+@function get-screens-option() {
+    @return map.get(variables.$extend, "screens");
+}
+
+///
 /// Get core "states" option.
 ///
 @function get-states-option() {

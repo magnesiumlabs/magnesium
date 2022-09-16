@@ -2,6 +2,7 @@
 //                                          TYPOGRAPHY                                           //
 // ============================================================================================= //
 
+@use "@magnesium/core/config";
 @use "./mixins";
 
 @include mixins.core-styles;
