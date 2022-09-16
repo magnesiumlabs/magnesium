@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.0](https://github.com/magnesiumlabs/magnesium/compare/v1.11.3...v1.12.0) (2022-09-16)
+
+
+### Features
+
+* **core:** add `$extend` global map option ([97ef665](https://github.com/magnesiumlabs/magnesium/commit/97ef665954cff2f621257f8fdb4d957e35b00531))
+* **core:** add `screens` option ([09f8acb](https://github.com/magnesiumlabs/magnesium/commit/09f8acbff07bf127944d8366714d42d5b4893ce8))
+* **shape, theme, typography:** add responsive classes ([8e8231a](https://github.com/magnesiumlabs/magnesium/commit/8e8231a7b454a70462229e9666579dc419775228))
+* **shape, theme:** add states classes ([5783838](https://github.com/magnesiumlabs/magnesium/commit/5783838971871663824c0965fd188f66eaa4557a))
+
+
+### Bug Fixes
+
+* **typography:** default values ([74ac4fd](https://github.com/magnesiumlabs/magnesium/commit/74ac4fdeaf5fdcd5c74a2381e921be29ad29b2de))
+
+
+### Code Refactoring
+
+* remove `[@debug](https://github.com/debug)` ([730abc2](https://github.com/magnesiumlabs/magnesium/commit/730abc2e3e9a6eea6face6d8c33d21a02e1d4f3a))
+
 ## [1.11.3](https://github.com/magnesiumlabs/magnesium/compare/v1.11.2...v1.11.3) (2022-09-16)
 
 

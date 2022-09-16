@@ -1,11 +1,11 @@
 {
     "name": "@magnesium/shape",
-    "version": "1.11.2",
+    "version": "1.12.0",
     "description": "The Magnesium Design components for the web shape system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.11.1",
-        "@magnesium/theme": "^1.11.2",
+        "@magnesium/core": "^1.12.0",
+        "@magnesium/theme": "^1.12.0",
         "@unsass/breakpoint": "^2.2.0",
         "@unsass/css": "^2.1.1",
         "@unsass/selector": "^1.0.0",
