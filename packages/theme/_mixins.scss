@@ -79,7 +79,7 @@
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
-                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                    @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $key) {
                         @include property(color, $style);
                     }
                 }
