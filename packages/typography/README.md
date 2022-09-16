@@ -24,9 +24,11 @@ You can define the typography style variables before importing any Magnesium com
 
 ```scss
 @use "@magnesium/typography" with (
-    $styles: (
-        body: (
-            font-size: 20px
+    $extend: (
+        "styles": (
+            body: (
+                font-size: 20px
+            )
         )
     )
 );
@@ -34,12 +36,12 @@ You can define the typography style variables before importing any Magnesium com
 
 ### Options
 
-| Name              | Default                   | Description                              |
-|-------------------|---------------------------|------------------------------------------|
-| `$styles`         | See `Scales` section.     | Sets a list of theme scales.             |
-| `$font-family`    | `"Open Sans", sans-serif` | Sets the font family styles.             |
-| `$font-baseline`  | `16px`                    | Sets the font baseline for `rem` styles. |
-| `$font-smoothing` | `true`                    | Sets the font smoothing default styles.  |
+| Name             | Default                   | Description                              |
+|------------------|---------------------------|------------------------------------------|
+| `styles`         | See `Scales` section.     | Sets a list of theme scales.             |
+| `font-family`    | `"Open Sans", sans-serif` | Sets the font family styles.             |
+| `font-baseline`  | `16px`                    | Sets the font baseline for `rem` styles. |
+| `font-smoothing` | `true`                    | Sets the font smoothing default styles.  |
 
 ### Scales
 
@@ -57,9 +59,11 @@ You can also define new styles for typography:
 
 ```scss
 @use "@magnesium/typography" with (
-    $styles: (
-        body-2: (
-            font-size: 16px
+    $extend: (
+        "styles": (
+            body-2: (
+                font-size: 16px
+            )
         )
     )
 );

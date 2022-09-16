@@ -2,6 +2,7 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "sass:math";
 @use "sass:string";
 @use "@unsass/em";
@@ -9,10 +10,32 @@
 @use "@sass-collective/strip-unit";
 @use "./functions";
 
-$font-family: string.unquote("'Open Sans', sans-serif") !default;
-$font-baseline: 16px !default;
-$font-smoothing: true !default;
-$styles: () !default;
+// ------------------------------------------------------------------------- //
+// Private variables
+// ------------------------------------------------------------------------- //
+
+$_default: (
+    "font-family": string.unquote("'Open Sans', sans-serif"),
+    "font-baseline": 16px,
+    "font-smoothing": true,
+    "styles": ()
+);
+
+// ------------------------------------------------------------------------- //
+// Public variables
+// ------------------------------------------------------------------------- //
+
+$extend: () !default;
+
+///
+/// Extended options.
+///
+
+$extend: map.deep-merge($_default, $extend);
+$font-family: map.get($extend, "font-family");
+$font-baseline: map.get($extend, "font-baseline");
+$font-smoothing: map.get($extend, "font-smoothing");
+$styles: map.get($extend, "styles");
 
 @include rem.config($font-baseline);
 

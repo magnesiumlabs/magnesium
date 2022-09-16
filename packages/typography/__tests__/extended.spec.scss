@@ -11,7 +11,18 @@
         )
     )
 );
-@use "@magnesium/typography";
+@use "@magnesium/typography" with (
+    $extend: (
+        "font-family": Roboto,
+        "font-baseline": 10px,
+        "font-smoothing": false,
+        "styles": (
+            body-2: (
+                font-size: 20px
+            )
+        )
+    )
+);
 
 @include describe("typography") {
     @include describe("styles") {
@@ -24,18 +35,14 @@
 
                     @include expect(false) {
                         .mg-typography {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif);
-                            font-size: 100%;
+                            font-family: var(--mg-typography-font-family, Roboto);
+                            font-size: 62.5%;
                         }
 
                         .mg-typography--body {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-body-font-size, 1rem);
-                            line-height: var(--mg-typography-body-line-height, 1.25rem);
+                            font-family: var(--mg-typography-body-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-body-font-size, 1.6rem);
+                            line-height: var(--mg-typography-body-line-height, 2rem);
                             font-weight: var(--mg-typography-body-font-weight, 400);
                             letter-spacing: var(--mg-typography-body-letter-spacing, normal);
                             text-decoration: var(--mg-typography-body-text-decoration, inherit);
@@ -43,11 +50,9 @@
                         }
 
                         .mg-typography--headline-1 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-1-font-size, 2.25rem);
-                            line-height: var(--mg-typography-headline-1-line-height, 2.5rem);
+                            font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-1-font-size, 3.6rem);
+                            line-height: var(--mg-typography-headline-1-line-height, 4rem);
                             font-weight: var(--mg-typography-headline-1-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-1-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-1-text-decoration, inherit);
@@ -55,11 +60,9 @@
                         }
 
                         .mg-typography--headline-2 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-2-font-size, 2rem);
-                            line-height: var(--mg-typography-headline-2-line-height, 2.25rem);
+                            font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-2-font-size, 3.2rem);
+                            line-height: var(--mg-typography-headline-2-line-height, 3.6rem);
                             font-weight: var(--mg-typography-headline-2-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-2-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-2-text-decoration, inherit);
@@ -67,11 +70,9 @@
                         }
 
                         .mg-typography--headline-3 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-3-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-3-font-size, 1.75rem);
-                            line-height: var(--mg-typography-headline-3-line-height, 2rem);
+                            font-family: var(--mg-typography-headline-3-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-3-font-size, 2.8rem);
+                            line-height: var(--mg-typography-headline-3-line-height, 3.2rem);
                             font-weight: var(--mg-typography-headline-3-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-3-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-3-text-decoration, inherit);
@@ -79,11 +80,9 @@
                         }
 
                         .mg-typography--headline-4 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-4-font-size, 1.5rem);
-                            line-height: var(--mg-typography-headline-4-line-height, 1.75rem);
+                            font-family: var(--mg-typography-headline-4-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-4-font-size, 2.4rem);
+                            line-height: var(--mg-typography-headline-4-line-height, 2.8rem);
                             font-weight: var(--mg-typography-headline-4-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-4-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-4-text-decoration, inherit);
@@ -91,11 +90,9 @@
                         }
 
                         .mg-typography--headline-5 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-5-font-size, 1.25rem);
-                            line-height: var(--mg-typography-headline-5-line-height, 1.5rem);
+                            font-family: var(--mg-typography-headline-5-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-5-font-size, 2rem);
+                            line-height: var(--mg-typography-headline-5-line-height, 2.4rem);
                             font-weight: var(--mg-typography-headline-5-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-5-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-5-text-decoration, inherit);
@@ -103,15 +100,18 @@
                         }
 
                         .mg-typography--headline-6 {
-                            -moz-osx-font-smoothing: grayscale;
-                            -webkit-font-smoothing: antialiased;
-                            font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-6-font-size, 1rem);
-                            line-height: var(--mg-typography-headline-6-line-height, 1.25rem);
+                            font-family: var(--mg-typography-headline-6-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-headline-6-font-size, 1.6rem);
+                            line-height: var(--mg-typography-headline-6-line-height, 2rem);
                             font-weight: var(--mg-typography-headline-6-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-6-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-6-text-decoration, inherit);
                             text-transform: var(--mg-typography-headline-6-text-transform, inherit);
+                        }
+
+                        .mg-typography--body-2 {
+                            font-family: var(--mg-typography-body-2-font-family, var(--mg-typography-font-family, Roboto));
+                            font-size: var(--mg-typography-body-2-font-size, 20px);
                         }
                     }
                 }
