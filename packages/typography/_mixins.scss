@@ -18,12 +18,13 @@
 /// @see {mixin} typography
 ///
 @mixin core-styles {
+    $selector: theme.create-name(typography);
 
     // ------------------------------------------------------------------------- //
     // Main classes
     // ------------------------------------------------------------------------- //
 
-    .#{theme.create-name(typography)} {
+    @include selector.create(#{$selector}) {
         @include base;
     }
 
@@ -33,7 +34,7 @@
     @if core.get-responsive-option() {
         @each $key, $value in breakpoint.get-screens() {
             @include breakpoint.up($key) {
-                @include selector.create(#{theme.create-name(typography)}, $key) {
+                @include selector.create(#{$selector}, $key) {
                     @include base;
                 }
             }
@@ -45,7 +46,9 @@
     // ------------------------------------------------------------------------- //
 
     @each $style in map.keys(variables.$styles) {
-        .#{theme.create-name(typography--#{$style})} {
+        $selector: theme.create-name(typography--#{$style});
+
+        @include selector.create(#{$selector}) {
             @include typography($style);
         }
 
@@ -55,7 +58,7 @@
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
-                    @include selector.create(#{theme.create-name(typography--#{$style})}, $key) {
+                    @include selector.create(#{$selector}, $key) {
                         @include typography($style);
                     }
                 }

@@ -15,7 +15,9 @@
 ///
 @mixin core-styles {
     @each $style in functions.get-keys() {
-        .#{theme.create-name(shape--#{$style})} {
+        $selector: theme.create-name(shape--#{$style});
+
+        @include selector.create(#{$selector}) {
             @include radius($style);
         }
 
@@ -24,7 +26,7 @@
         ///
         @if core.get-states-option() {
             @each $state in core.$states {
-                @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
+                @include selector.create(#{$selector}, $state, $pseudo-class: $state) {
                     @include radius($style);
                 }
             }
@@ -36,7 +38,7 @@
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
-                    @include selector.create(#{theme.create-name(shape--#{$style})}, $key) {
+                    @include selector.create(#{$selector}, $key) {
                         @include radius($style);
                     }
                 }

@@ -33,7 +33,9 @@
     // ------------------------------------------------------------------------- //
 
     @each $style in functions.get-keys() {
-        .#{functions.create-name(theme--#{$style})} {
+        $selector: functions.create-name(theme--#{$style});
+
+        @include selector.create(#{$selector}) {
             @include property(color, $style);
         }
 
@@ -42,7 +44,7 @@
         ///
         @if core.get-states-option() {
             @each $state in core.$states {
-                @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
+                @include selector.create(#{$selector}, $state, $pseudo-class: $state) {
                     @include property(color, $style);
                 }
             }
@@ -54,7 +56,7 @@
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
-                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                    @include selector.create(#{$selector}, $key) {
                         @include property(color, $style);
                     }
                 }
@@ -67,7 +69,9 @@
     // ------------------------------------------------------------------------- //
 
     @each $style in $extend {
-        .#{functions.create-name(theme--#{$style}-bg)} {
+        $selector: #{functions.create-name(theme--#{$style}-bg)};
+
+        @include selector.create(#{$selector}) {
             @include property(background-color, $style);
         }
 
@@ -76,7 +80,7 @@
         ///
         @if core.get-states-option() {
             @each $state in core.$states {
-                @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
+                @include selector.create(#{$selector}, $state, $pseudo-class: $state) {
                     @include property(background-color, $style);
                 }
             }
@@ -88,7 +92,7 @@
         @if core.get-responsive-option() {
             @each $key, $value in breakpoint.get-screens() {
                 @include breakpoint.up($key) {
-                    @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $key) {
+                    @include selector.create(#{$selector}, $key) {
                         @include property(color, $style);
                     }
                 }
