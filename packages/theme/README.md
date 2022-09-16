@@ -37,7 +37,7 @@ You can define the theme color variables before importing any Magnesium componen
 |--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                                                                    |
 | `$bg-colors` | `()`    | Sets automatically a list of background colors classes from `$colors` option. Set at `false` for disable background colors classes or add list of keys from `$colors` for filters only the background you want. |
-| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. You can disable it with `$prefix: ""` configuration.                                                                                                              |
+| `$prefix`    | `mg`    | Sets prefix to custom properties and classes. Sets at `false` for disabled prefixed names.                                                                                                                      |
 
 ## Customization
 
