@@ -129,23 +129,3 @@
 @mixin ellipsis-multiline($line: 2, $orient: vertical) {
     @include utilities.ellipsis-multiline($line, $orient);
 }
-
-@function get-line-height($style) {
-    @return map.get(variables.$styles, $style, line-height);
-}
-
-@function get-font-family($style) {
-    @return map.get(variables.$styles, $style, font-family);
-}
-
-@function get-font-size($style) {
-    @return map.get(variables.$styles, $style, font-size);
-}
-
-@function get-font-weight($style) {
-    @return map.get(variables.$styles, $style, font-weight);
-}
-
-@function get-letter-spacing($style) {
-    @return map.get(variables.$styles, $style, letter-spacing);
-}
