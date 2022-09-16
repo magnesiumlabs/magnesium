@@ -33,15 +33,15 @@ $styles-values: functions.set-styles($base, (
         text-transform: inherit
     ),
     headline-1: (
-        line-height: rem.convert(48),
-        font-size: rem.convert(40),
+        line-height: rem.convert(40),
+        font-size: rem.convert(36),
         font-weight: 700,
         letter-spacing: normal,
         text-decoration: inherit,
         text-transform: inherit
     ),
     headline-2: (
-        line-height: rem.convert(38),
+        line-height: rem.convert(36),
         font-size: rem.convert(32),
         font-weight: 700,
         letter-spacing: normal,
@@ -49,7 +49,7 @@ $styles-values: functions.set-styles($base, (
         text-transform: inherit
     ),
     headline-3: (
-        line-height: rem.convert(34),
+        line-height: rem.convert(32),
         font-size: rem.convert(28),
         font-weight: 700,
         letter-spacing: normal,

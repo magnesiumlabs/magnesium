@@ -39,8 +39,8 @@
                             -moz-osx-font-smoothing: grayscale;
                             -webkit-font-smoothing: antialiased;
                             font-family: var(--mg-typography-headline-1-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
-                            font-size: var(--mg-typography-headline-1-font-size, 2.5rem);
-                            line-height: var(--mg-typography-headline-1-line-height, 3rem);
+                            font-size: var(--mg-typography-headline-1-font-size, 2.25rem);
+                            line-height: var(--mg-typography-headline-1-line-height, 2.5rem);
                             font-weight: var(--mg-typography-headline-1-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-1-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-1-text-decoration, inherit);
@@ -52,7 +52,7 @@
                             -webkit-font-smoothing: antialiased;
                             font-family: var(--mg-typography-headline-2-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
                             font-size: var(--mg-typography-headline-2-font-size, 2rem);
-                            line-height: var(--mg-typography-headline-2-line-height, 2.375rem);
+                            line-height: var(--mg-typography-headline-2-line-height, 2.25rem);
                             font-weight: var(--mg-typography-headline-2-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-2-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-2-text-decoration, inherit);
@@ -64,7 +64,7 @@
                             -webkit-font-smoothing: antialiased;
                             font-family: var(--mg-typography-headline-3-font-family, var(--mg-typography-font-family, string.unquote("'Open Sans'"), sans-serif));
                             font-size: var(--mg-typography-headline-3-font-size, 1.75rem);
-                            line-height: var(--mg-typography-headline-3-line-height, 2.125rem);
+                            line-height: var(--mg-typography-headline-3-line-height, 2rem);
                             font-weight: var(--mg-typography-headline-3-font-weight, 700);
                             letter-spacing: var(--mg-typography-headline-3-letter-spacing, normal);
                             text-decoration: var(--mg-typography-headline-3-text-decoration, inherit);
