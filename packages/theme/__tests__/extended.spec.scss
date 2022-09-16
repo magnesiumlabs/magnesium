@@ -13,7 +13,10 @@
     )
 );
 @use "@magnesium/theme" with (
-    $colors: variables.$colors
+    $colors: variables.$colors,
+    $bg-colors: (
+        secondary
+    )
 );
 
 @include describe("theme") {
@@ -32,6 +35,10 @@
 
                         .mg-theme--secondary {
                             color: var(--mg-theme-secondary, #6e5898);
+                        }
+
+                        .mg-theme--secondary-bg {
+                            background-color: var(--mg-theme-secondary, #6e5898);
                         }
                     }
                 }
