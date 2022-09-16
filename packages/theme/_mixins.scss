@@ -5,6 +5,7 @@
 @use "sass:map";
 @use "@magnesium/core";
 @use "@unsass/css";
+@use "@unsass/selector";
 @use "@unsass/utilities";
 @use "./functions";
 @use "./variables";
@@ -16,15 +17,42 @@
 /// @see {function} functions.get-keys
 ///
 @mixin core-styles {
+
+    // ------------------------------------------------------------------------- //
+    // Main classes
+    // ------------------------------------------------------------------------- //
+
     @each $style in functions.get-keys() {
         .#{functions.create-name(theme--#{$style})} {
             @include property(color, $style);
         }
+
+        ///
+        /// States.
+        ///
+        @each $state in core.$states {
+            @include selector.create(#{functions.create-name(theme--#{$style})}, $state, $pseudo-class: $state) {
+                @include property(color, $style);
+            }
+        }
     }
+
+    // ------------------------------------------------------------------------- //
+    // Background classes
+    // ------------------------------------------------------------------------- //
 
     @each $style in variables.$bg-colors {
         .#{functions.create-name(theme--#{$style}-bg)} {
             @include property(background-color, $style);
+        }
+
+        ///
+        /// States.
+        ///
+        @each $state in core.$states {
+            @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
+                @include property(background-color, $style);
+            }
         }
     }
 }

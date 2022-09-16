@@ -6,6 +6,7 @@
 @use "@magnesium/core";
 @use "@magnesium/theme";
 @use "@unsass/css";
+@use "@unsass/selector";
 @use "./functions";
 
 ///
@@ -15,6 +16,15 @@
     @each $style in functions.get-keys() {
         .#{theme.create-name(shape--#{$style})} {
             @include radius($style);
+        }
+
+        ///
+        /// States.
+        ///
+        @each $state in core.$states {
+            @include selector.create(#{theme.create-name(shape--#{$style})}, $state, $pseudo-class: $state) {
+                @include radius($style);
+            }
         }
     }
 }

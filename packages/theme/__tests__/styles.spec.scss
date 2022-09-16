@@ -22,7 +22,23 @@
                             color: var(--mg-theme-primary, #2674a2);
                         }
 
+                        .hover\:mg-theme--primary:hover {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+
+                        .focus\:mg-theme--primary:focus {
+                            color: var(--mg-theme-primary, #2674a2);
+                        }
+
                         .mg-theme--secondary {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+
+                        .hover\:mg-theme--secondary:hover {
+                            color: var(--mg-theme-secondary, #6e5898);
+                        }
+
+                        .focus\:mg-theme--secondary:focus {
                             color: var(--mg-theme-secondary, #6e5898);
                         }
                     }
