@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.0](https://github.com/magnesiumlabs/magnesium/compare/v1.12.2...v1.13.0) (2022-09-16)
+
+
+### Features
+
+* **theme:** generate `$bg-colors` option by default ([1b6fdfd](https://github.com/magnesiumlabs/magnesium/commit/1b6fdfd9991d33cb56bee1889941595cf763e246))
+
+
+### Code Refactoring
+
+* **shape, theme, typography:** factorize selector name creation ([6ab0cf4](https://github.com/magnesiumlabs/magnesium/commit/6ab0cf45432b9d3ae73bd595757ce8195a71ac13))
+
 ## [1.12.2](https://github.com/magnesiumlabs/magnesium/compare/v1.12.1...v1.12.2) (2022-09-16)
 
 
