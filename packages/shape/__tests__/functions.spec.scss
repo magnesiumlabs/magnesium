@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "../../../tests/variables";
-@use "../index" as shape with (
+@use "@magnesium/shape" with (
     $shapes: variables.$shapes
 );
 

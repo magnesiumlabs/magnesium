@@ -5,7 +5,7 @@
 @use "true" as *;
 @use "sass:string";
 @use "../../../tests/variables";
-@use "../index" as shape with (
+@use "@magnesium/shape" with (
     $shapes: variables.$shapes
 );
 

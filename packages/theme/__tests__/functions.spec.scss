@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "../../../tests/variables";
-@use "../index" as theme with (
+@use "@magnesium/theme" with (
     $colors: variables.$colors
 );
 
