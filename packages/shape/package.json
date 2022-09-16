@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/shape",
-    "version": "1.12.1",
+    "version": "1.12.2",
     "description": "The Magnesium Design components for the web shape system.",
     "main": "index.scss",
     "dependencies": {
