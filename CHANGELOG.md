@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/magnesiumlabs/magnesium/compare/v1.11.2...v1.11.3) (2022-09-16)
+
+
+### Bug Fixes
+
+* **typography:** removed unneeded functions ([8be62d6](https://github.com/magnesiumlabs/magnesium/commit/8be62d6d74b0d888174eb1e5651fb53bff0b2729))
+
 ## [1.11.2](https://github.com/magnesiumlabs/magnesium/compare/v1.11.1...v1.11.2) (2022-09-14)
 
 

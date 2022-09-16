@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/typography",
-    "version": "1.11.2",
+    "version": "1.11.3",
     "description": "The Magnesium Design components for the web typography system.",
     "main": "index.scss",
     "dependencies": {
