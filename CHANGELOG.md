@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/magnesiumlabs/magnesium/compare/v1.12.0...v1.12.1) (2022-09-16)
+
+
+### Bug Fixes
+
+* **theme:** background colors responsive class names ([ace9e04](https://github.com/magnesiumlabs/magnesium/commit/ace9e04b0a352130acdff65027edf0ac5678b09e))
+
 ## [1.12.0](https://github.com/magnesiumlabs/magnesium/compare/v1.11.3...v1.12.0) (2022-09-16)
 
 
