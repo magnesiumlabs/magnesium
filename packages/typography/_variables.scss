@@ -9,8 +9,6 @@
 @use "@sass-collective/strip-unit";
 @use "./functions";
 
-$component: "typography";
-
 $font-family: string.unquote("'Open Sans', sans-serif") !default;
 $font-baseline: 16px !default;
 $font-smoothing: true !default;
