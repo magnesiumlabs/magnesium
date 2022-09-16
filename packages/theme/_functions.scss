@@ -3,22 +3,38 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "@magnesium/core/config";
+@use "@magnesium/core";
 @use "@unsass/css/custom-properties";
 @use "./variables";
+
+///
+/// Get "colors" option.
+///
+@function get-colors() {
+    @return map.get(variables.$extend, "colors");
+}
+
+///
+/// Get "bg-colors" option.
+///
+@function get-bg-colors() {
+    @return map.get(variables.$extend, "bg-colors");
+}
 
 ///
 /// Get theme keys.
 ///
 @function get-keys() {
-    @return map.keys(variables.$colors);
+    @return map.keys(get-colors());
 }
 
 ///
 /// Create name.
 ///
 @function create-name($name) {
-    @if variables.$prefix {
-        $name: #{variables.$prefix}-#{$name};
+    @if core.get-prefix-option() {
+        $name: #{core.get-prefix-option()}-#{$name};
     }
 
     @return $name;
@@ -37,7 +53,7 @@
 /// Check if color key exist.
 ///
 @function exist($color) {
-    @return map.has-key(variables.$colors, $color);
+    @return map.has-key(get-colors(), $color);
 }
 
 ///
@@ -53,11 +69,11 @@
 /// Get theme color.
 ///
 @function get-color($token) {
-    @if not map.has-key(variables.$colors, $token) {
-        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
+    @if not map.has-key(get-colors(), $token) {
+        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(get-colors())}.";
     }
 
-    @return map.get(variables.$colors, $token);
+    @return map.get(get-colors(), $token);
 }
 
 ///

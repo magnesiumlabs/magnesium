@@ -5,7 +5,9 @@
 @use "true" as *;
 @use "../../../tests/variables";
 @use "@magnesium/theme" with (
-    $colors: variables.$colors
+    $extend: (
+        "colors": variables.$colors
+    )
 );
 
 @include describe("theme") {

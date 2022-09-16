@@ -6,6 +6,7 @@
 @use "../../../tests/variables";
 @use "@magnesium/core" with (
     $extend: (
+        "prefix": "foo",
         "core": (
             "responsive": false,
             "states": false
@@ -28,12 +29,12 @@
                     }
 
                     @include expect(false) {
-                        .mg-shape--small {
-                            border-radius: var(--mg-shape-small, var(--mg-shape-radius, 6px));
+                        .foo-shape--small {
+                            border-radius: var(--foo-shape-small, var(--foo-shape-radius, 6px));
                         }
 
-                        .mg-shape--medium {
-                            border-radius: var(--mg-shape-medium, var(--mg-shape-radius, 12px));
+                        .foo-shape--medium {
+                            border-radius: var(--foo-shape-medium, var(--foo-shape-radius, 12px));
                         }
                     }
                 }

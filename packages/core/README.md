@@ -21,17 +21,18 @@ You can extend default options before importing any Magnesium components:
 ```scss
 @use "@magnesium/core" with (
     $extend: (
-        // ...
+        "prefix": "foo"
     )
 );
 ```
 
 ### Options
 
-| Name      | Default                                | Description                                  |
-|-----------|----------------------------------------|----------------------------------------------|
-| `screens` | `()`                                   | Sets a map of token rules for media queries. |
-| `core`    | `("responsive": true, "states": true)` | Sets a map of token rules for core rules.    |
+| Name      | Default                                | Description                                                                                |
+|-----------|----------------------------------------|--------------------------------------------------------------------------------------------|
+| `prefix`  | `mg`                                   | Sets prefix to custom properties and classes. Sets at `false` for disabled prefixed names. |
+| `screens` | `()`                                   | Sets a map of token rules for media queries.                                               |
+| `core`    | `("responsive": true, "states": true)` | Sets a map of token rules for core rules.                                                  |
 
 ### Screens
 

@@ -6,6 +6,7 @@
 @use "../../../tests/variables";
 @use "@magnesium/core" with (
     $extend: (
+        "prefix": "foo",
         "core": (
             "responsive": false,
             "states": false
@@ -13,9 +14,11 @@
     )
 );
 @use "@magnesium/theme" with (
-    $colors: variables.$colors,
-    $bg-colors: (
-        secondary
+    $extend: (
+        "colors": variables.$colors,
+        "bg-colors": (
+            secondary
+        )
     )
 );
 
@@ -29,16 +32,16 @@
                     }
 
                     @include expect(false) {
-                        .mg-theme--primary {
-                            color: var(--mg-theme-primary, #2674a2);
+                        .foo-theme--primary {
+                            color: var(--foo-theme-primary, #2674a2);
                         }
 
-                        .mg-theme--secondary {
-                            color: var(--mg-theme-secondary, #6e5898);
+                        .foo-theme--secondary {
+                            color: var(--foo-theme-secondary, #6e5898);
                         }
 
-                        .mg-theme--secondary-bg {
-                            background-color: var(--mg-theme-secondary, #6e5898);
+                        .foo-theme--secondary-bg {
+                            background-color: var(--foo-theme-secondary, #6e5898);
                         }
                     }
                 }

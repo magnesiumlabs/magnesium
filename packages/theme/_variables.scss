@@ -2,9 +2,16 @@
 //                                           VARIABLES                                           //
 // ============================================================================================= //
 
+@use "sass:map";
+
 // ------------------------------------------------------------------------- //
 // Private variables
 // ------------------------------------------------------------------------- //
+
+$_default: (
+    "colors": (),
+    "bg-colors": ()
+);
 
 $prefers-color-scheme: (
     light: "light",
@@ -15,6 +22,10 @@ $prefers-color-scheme: (
 // Public variables
 // ------------------------------------------------------------------------- //
 
-$prefix: "mg" !default;
-$colors: () !default;
-$bg-colors: () !default;
+$extend: () !default;
+
+///
+/// Extended options.
+///
+
+$extend: map.deep-merge($_default, $extend);
