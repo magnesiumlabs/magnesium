@@ -1,5 +1,0 @@
-@use "./tests/variables";
-
-@use "../packages/theme" as theme with (
-    $colors: variables.$colors
-);
