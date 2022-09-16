@@ -9,7 +9,7 @@
 @include describe("typography") {
     @include describe("styles") {
         @include describe("core-styles()") {
-            @include it("Should return core styles declarations.") {
+            @include it("Should return main styles declarations.") {
                 @include assert {
                     @include output(false) {
                         @include typography.core-styles;
