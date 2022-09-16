@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/magnesiumlabs/magnesium/compare/v1.13.0...v1.13.1) (2022-09-16)
+
+
+### Bug Fixes
+
+* **shape, theme, typography:** extended configuration catch ([112a2ab](https://github.com/magnesiumlabs/magnesium/commit/112a2abaebc1fa612ccb74a788738e80c23dc0dd))
+
 ## [1.13.0](https://github.com/magnesiumlabs/magnesium/compare/v1.12.2...v1.13.0) (2022-09-16)
 
 
