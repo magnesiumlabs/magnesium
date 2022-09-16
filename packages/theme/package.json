@@ -5,6 +5,7 @@
     "main": "index.scss",
     "dependencies": {
         "@magnesium/core": "^1.11.1",
+        "@unsass/breakpoint": "^2.2.0",
         "@unsass/css": "^2.1.1",
         "@unsass/selector": "^1.0.0",
         "@unsass/utilities": "^1.3.1",

@@ -14,6 +14,13 @@
 }
 
 ///
+/// Get core "responsive" option.
+///
+@function get-responsive-option() {
+    @return map.get(variables.$extend, "core", "responsive");
+}
+
+///
 /// Create `var()` CSS function.
 ///
 /// @see {function} custom-properties.create-var

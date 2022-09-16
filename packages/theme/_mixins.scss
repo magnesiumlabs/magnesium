@@ -4,6 +4,7 @@
 
 @use "sass:map";
 @use "@magnesium/core";
+@use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "@unsass/selector";
 @use "@unsass/utilities";
@@ -37,6 +38,19 @@
                 }
             }
         }
+
+        ///
+        /// Responsive.
+        ///
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                        @include property(color, $style);
+                    }
+                }
+            }
+        }
     }
 
     // ------------------------------------------------------------------------- //
@@ -55,6 +69,19 @@
             @each $state in core.$states {
                 @include selector.create(#{functions.create-name(theme--#{$style}-bg)}, $state, $pseudo-class: $state) {
                     @include property(background-color, $style);
+                }
+            }
+        }
+
+        ///
+        /// Responsive.
+        ///
+        @if core.get-responsive-option() {
+            @each $key, $value in breakpoint.get-screens() {
+                @include breakpoint.up($key) {
+                    @include selector.create(#{functions.create-name(theme--#{$style})}, $key) {
+                        @include property(color, $style);
+                    }
                 }
             }
         }

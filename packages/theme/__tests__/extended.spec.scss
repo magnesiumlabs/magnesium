@@ -7,6 +7,7 @@
 @use "@magnesium/core" with (
     $extend: (
         "core": (
+            "responsive": false,
             "states": false
         )
     )
