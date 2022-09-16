@@ -23,6 +23,7 @@ $base: (
     font-size: math.div(100%, 16) * strip-unit.strip($font-baseline)
 );
 
+/* stylelint-disable */
 $styles-values: functions.set-styles($base, (
     body: (
         line-height: rem.convert(20),
@@ -81,5 +82,6 @@ $styles-values: functions.set-styles($base, (
         text-transform: inherit
     )
 ), $styles);
+/* stylelint-enable */
 
 $styles: $styles-values;
