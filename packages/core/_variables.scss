@@ -30,5 +30,3 @@ $extend: () !default;
 ///
 
 $extend: map.deep-merge($_default, $extend);
-
-@debug $extend;
