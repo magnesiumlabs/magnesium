@@ -21,7 +21,8 @@
     "homepage": "https://github.com/magnesiumlabs/magnesium/tree/main/packages/core",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/magnesiumlabs/magnesium.git"
+        "url": "git+https://github.com/magnesiumlabs/magnesium.git",
+        "directory": "packages/core"
     },
     "bugs": {
         "url": "https://github.com/magnesiumlabs/magnesium/issues"
