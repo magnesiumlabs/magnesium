@@ -4,12 +4,12 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "sass:meta";
 @use "@magnesium/core/config";
 @use "@magnesium/core";
 @use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "@unsass/selector";
+@use "@unsass/types";
 @use "@unsass/utilities";
 @use "./functions";
 @use "./variables";
@@ -23,7 +23,7 @@
 @mixin core-styles {
     $extend: ();
 
-    @if list.length(variables.$bg-colors) != 0 and (meta.type-of(variables.$bg-colors) == "list" or meta.type-of(variables.$bg-colors) == "string") {
+    @if list.length(variables.$bg-colors) != 0 and (types.is-list(variables.$bg-colors) or types.is-string(variables.$bg-colors)) {
         $extend: variables.$bg-colors;
     } @else if list.length(variables.$bg-colors) == 0 or not list.length(variables.$bg-colors) {
         $extend: functions.get-keys();
