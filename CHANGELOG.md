@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/magnesiumlabs/magnesium/compare/v1.13.1...v1.13.2) (2022-09-26)
+
+
+### Bug Fixes
+
+* **deps:** dependencies vulnerabilities ([5b2e9ae](https://github.com/magnesiumlabs/magnesium/commit/5b2e9ae90227eb49651680a974b427e9f1c1eea4))
+
+
+### Code Refactoring
+
+* **shape, theme, typography:** remove unneeded `$component` variables ([a3d4454](https://github.com/magnesiumlabs/magnesium/commit/a3d445419bc97db77d34b806e8305572961d97b5))
+
+
+### Build System
+
+* **deps:** use `@unsass/types` ([89678e7](https://github.com/magnesiumlabs/magnesium/commit/89678e7bfc91fa0635e8e6649fd7429318847d5c))
+
 ## [1.13.1](https://github.com/magnesiumlabs/magnesium/compare/v1.13.0...v1.13.1) (2022-09-16)
 
 
