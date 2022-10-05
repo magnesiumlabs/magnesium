@@ -74,7 +74,7 @@ The new key named `body-2` is now available with any other default typography ke
 > The variable `{style}` correspond with the list of `$styles` [keys](#scales), do not hesitate to check it for
 > more examples!
 
-| CSS Custom Property       | Description                  |
+| CSS custom property       | Description                  |
 |---------------------------|------------------------------|
 | `--mg-typography-{style}` | Override the selected style. |
 

@@ -45,7 +45,7 @@ You can define the theme color variables before importing any Magnesium componen
 
 > The variable `{style}` correspond with each key on the `$colors` config, see [configuration](#Configuration).
 
-| CSS Custom Property  | Description                  |
+| CSS custom property  | Description                  |
 |----------------------|------------------------------|
 | `--mg-theme-{style}` | Override the selected style. |
 
@@ -76,8 +76,8 @@ The following Sass...
 @use "@magnesium/theme";
 
 .foo {
-    @include theme.property(primary); // Will generate a CSS Custom Property with default color.
-    @include theme.property(primary, darkcyan); // Will generate a CSS Custom Property with new color.
+    @include theme.property(primary); // Will generate a CSS custom property with default color.
+    @include theme.property(primary, darkcyan); // Will generate a CSS custom property with new color.
     
     @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
     @include theme.property(color, darkcyan); // Will generate color declaration.

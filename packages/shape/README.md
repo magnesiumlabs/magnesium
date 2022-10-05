@@ -42,7 +42,7 @@ You can define the shape variables before importing any Magnesium components:
 
 ### CSS custom properties
 
-| CSS Custom Property  | Description                                          |
+| CSS custom property  | Description                                          |
 |----------------------|------------------------------------------------------|
 | `--mg-shape-radius`  | Global custom property. Override the selected style. |
 | `--mg-shape-{style}` | Override the selected style.                         |
@@ -100,8 +100,8 @@ The following Sass...
 @use "@magnesium/shape";
 
 .foo {
-    @include shape.declaration(medium); // Will generate a CSS Custom Property with default shape.
-    @include shape.declaration(medium, 16px); // Will generate a CSS Custom Property with new shape.
+    @include shape.declaration(medium); // Will generate a CSS custom property with default shape.
+    @include shape.declaration(medium, 16px); // Will generate a CSS custom property with new shape.
 }
 ```
 
