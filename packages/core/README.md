@@ -61,9 +61,9 @@ You can extend default options before importing any Magnesium components:
 
 ### Sass functions
 
-| Function                       | Description                   |
-|--------------------------------|-------------------------------|
-| `create-var($name, $fallback)` | Sets new CSS Custom Property. |
+| Function                       | Description                                           |
+|--------------------------------|-------------------------------------------------------|
+| `create-var($name, $fallback)` | Sets new CSS custom property, with optional fallback. |
 
 #### Color with `core.create-var()`
 

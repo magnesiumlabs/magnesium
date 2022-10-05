@@ -187,7 +187,7 @@
             $property: functions.create-custom-map($property, functions.get-color($property));
         }
     } @else if functions.exist($value) {
-        $value: core.create-var(functions.create-name(theme-#{$value}), functions.get-color($value));
+        $value: core.create-var(functions.create-name(theme-#{$value}), if(variables.$fallback, functions.get-color($value), null));
     }
 
     @include css.declaration($property, $value, $important);

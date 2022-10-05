@@ -38,6 +38,7 @@ You can define the theme color variables before importing any Magnesium componen
 | `$colors`    | `()`    | Sets a list of theme colors.                                                                                                                                                                                    |
 | `$bg-colors` | `()`    | Sets automatically a list of background colors classes from `$colors` option. Set at `false` for disable background colors classes or add list of keys from `$colors` for filters only the background you want. |
 | `$prefix`    | `mg`    | Sets prefix to custom properties and classes. Sets at `false` for disabled prefixed names.                                                                                                                      |
+| `$fallback`  | `true`  | Sets default fallback to CSS custom properties. Sets at `false` for generate only `var()` without fallback.                                                                                                     |
 
 ## Customization
 
@@ -78,7 +79,7 @@ The following Sass...
 .foo {
     @include theme.property(primary); // Will generate a CSS custom property with default color.
     @include theme.property(primary, darkcyan); // Will generate a CSS custom property with new color.
-    
+
     @include theme.property(color, primary); // Will generate a `var()` CSS Function with default color.
     @include theme.property(color, darkcyan); // Will generate color declaration.
 }
@@ -90,7 +91,7 @@ The following Sass...
 .foo {
     --mg-theme-primary: #2674a2;
     --mg-theme-primary: darkcyan;
-    
+
     color: var(--mg-theme-primary, #2674a2);
     color: darkcyan;
 }

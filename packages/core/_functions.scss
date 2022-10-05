@@ -33,6 +33,6 @@
 /// @see {function} custom-properties.create-var
 /// @see {function} custom-properties.create
 ///
-@function create-var($name, $fallback) {
+@function create-var($name, $fallback: null) {
     @return custom-properties.create-var(custom-properties.create(#{$name}, $fallback));
 }
