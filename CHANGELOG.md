@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.0](https://github.com/magnesiumlabs/magnesium/compare/v1.13.2...v1.14.0) (2022-10-05)
+
+
+### Features
+
+* **theme:** add `$fallback` option ([33adba6](https://github.com/magnesiumlabs/magnesium/commit/33adba69925e1c0fdd5aa9fe336f1b1456f8d0d2))
+
 ## [1.13.2](https://github.com/magnesiumlabs/magnesium/compare/v1.13.1...v1.13.2) (2022-09-26)
 
 

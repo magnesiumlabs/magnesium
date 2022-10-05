@@ -1,11 +1,11 @@
 {
     "name": "@magnesium/typography",
-    "version": "1.13.2",
+    "version": "1.14.0",
     "description": "The Magnesium Design components for the web typography system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.13.2",
-        "@magnesium/theme": "^1.13.2",
+        "@magnesium/core": "^1.14.0",
+        "@magnesium/theme": "^1.14.0",
         "@unsass/breakpoint": "^2.2.0",
         "@unsass/css": "^2.1.1",
         "@unsass/em": "^2.0.1",
