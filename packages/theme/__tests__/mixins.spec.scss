@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "@unsass/css/custom-properties";
-@use "../../../tests/variables";
+@use "../../../__tests__/variables";
 @use "@magnesium/theme" with (
     $colors: variables.$colors
 );

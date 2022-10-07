@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "sass:string";
-@use "../../../tests/variables";
+@use "../../../__tests__/variables";
 @use "@magnesium/shape" with (
     $shapes: variables.$shapes
 );
