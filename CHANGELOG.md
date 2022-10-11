@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.0](https://github.com/magnesiumlabs/magnesium/compare/v1.14.0...v1.15.0) (2022-10-11)
+
+
+### Features
+
+* **theme:** add `create` mixin ([bbca4e2](https://github.com/magnesiumlabs/magnesium/commit/bbca4e261791a161d5d536d5a9efeb4a846781e7))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.55.0 ([25d3d92](https://github.com/magnesiumlabs/magnesium/commit/25d3d9215a2d9204c06f0ffd1d628303489d4455))
+
 ## [1.14.0](https://github.com/magnesiumlabs/magnesium/compare/v1.13.2...v1.14.0) (2022-10-05)
 
 

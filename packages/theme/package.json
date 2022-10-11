@@ -1,10 +1,10 @@
 {
     "name": "@magnesium/theme",
-    "version": "1.14.0",
+    "version": "1.15.0",
     "description": "The Magnesium Design components for the web theming system.",
     "main": "index.scss",
     "dependencies": {
-        "@magnesium/core": "^1.14.0",
+        "@magnesium/core": "^1.15.0",
         "@unsass/breakpoint": "^2.2.0",
         "@unsass/css": "^2.1.1",
         "@unsass/selector": "^1.0.0",
