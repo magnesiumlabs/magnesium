@@ -191,5 +191,25 @@
                 }
             }
         }
+
+        @include describe("theme()") {
+            @include it("Should return custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.create((
+                                btn-bg-color: darkcyan
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-btn-bg-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

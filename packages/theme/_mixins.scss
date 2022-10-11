@@ -8,6 +8,7 @@
 @use "@magnesium/core";
 @use "@unsass/breakpoint";
 @use "@unsass/css";
+@use "@unsass/css/custom-properties";
 @use "@unsass/selector";
 @use "@unsass/types";
 @use "@unsass/utilities";
@@ -245,5 +246,24 @@
 
     @media (prefers-color-scheme: $scheme) {
         @content;
+    }
+}
+
+///
+/// @example - scss
+///   :root {
+///     @include theme.create((
+///       btn-bg-color: darkcyan
+///     ));
+///   }
+///
+/// @example - css
+///   :root {
+///     --mg-btn-bg-color: darkcyan;
+///   }
+///
+@mixin create($theme) {
+    @each $key, $value in $theme {
+        @include css.declaration(custom-properties.create(functions.create-name($key), $value));
     }
 }
