@@ -1,0 +1,20 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as theme;
+
+@include describe("theme") {
+    @include describe("functions") {
+        @include describe("create-theme-var()") {
+            @include it("Should return tokens map with custom variables.") {
+                @include assert-equal(theme.create-theme-var((
+                    label-color: darkcyan
+                ), button), (
+                    label-color: var(--mg-button-label-color, darkcyan)
+                ));
+            }
+        }
+    }
+}

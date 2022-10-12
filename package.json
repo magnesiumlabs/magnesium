@@ -12,6 +12,7 @@
         "node": ">=14.0.0",
         "npm": ">=8.0.0"
     },
+    "sass": "index.scss",
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
         "@commitlint/config-conventional": "^17.1.0",
@@ -34,5 +35,11 @@
         "semantic-release": "^19.0.5",
         "stylelint": "^14.14.0",
         "stylelint-config-unsass": "^1.0.1"
-    }
+    },
+    "keywords": [
+        "sass",
+        "framework",
+        "magnesium",
+        "front-end"
+    ]
 }

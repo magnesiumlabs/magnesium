@@ -26,7 +26,7 @@ function importer(url, prev, done) {
 describe('Sass', () => {
     // Find all the Sass files that end in `*.spec.scss` in any directory of this project.
     // I use path.resolve because True requires absolute paths to compile test files.
-    const sassTestFiles = glob.sync(path.resolve(process.cwd(), './packages/**/*.spec.scss'));
+    const sassTestFiles = glob.sync(path.resolve(process.cwd(), './src/**/*.spec.scss'));
 
     // Run True on every file found with to describe and its methods provided
     sassTestFiles.forEach((file) =>
@@ -34,11 +34,7 @@ describe('Sass', () => {
             importer,
             file,
             includePaths: [
-                './node_modules',
-                './packages/core/node_modules',
-                './packages/shape/node_modules',
-                './packages/theme/node_modules',
-                './packages/typography/node_modules'
+                './node_modules'
             ]
         }, {
             describe,
