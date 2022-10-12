@@ -9,7 +9,7 @@
     @include describe("functions") {
         @include describe("create-name()") {
             @include it("Should return name with prefix.") {
-                @include assert-equal(functions.create-name(button), "--mg-button");
+                @include assert-equal(functions.create-name(button), "mg-button");
             }
         }
     }

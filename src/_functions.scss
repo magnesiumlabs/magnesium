@@ -6,5 +6,5 @@
 @use "./variables";
 
 @function create-name($name) {
-    @return string.unquote('--#{variables.$prefix}-#{$name}');
+    @return string.unquote('#{variables.$prefix}-#{$name}');
 }
