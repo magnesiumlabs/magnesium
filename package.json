@@ -1,11 +1,10 @@
 {
     "private": true,
-    "name": "magnesium-monorepo",
+    "name": "@magnesium/framework",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
         "lint": "npm-run-all --parallel lint:*",
         "test": "jest",
-        "postinstall": "lerna bootstrap --hoist",
         "prepare": "husky install",
         "release": "semantic-release"
     },
@@ -29,16 +28,11 @@
         "husky": "^8.0.1",
         "jest": "^29.1.2",
         "jest-junit": "^14.0.1",
-        "lerna": "^5.6.2",
         "npm-run-all": "^4.1.5",
         "sass": "^1.55.0",
         "sass-true": "^6.1.0",
         "semantic-release": "^19.0.5",
-        "semantic-release-lerna": "^0.7.0",
         "stylelint": "^14.13.0",
         "stylelint-config-unsass": "^1.0.1"
-    },
-    "workspaces": [
-        "packages/*"
-    ]
+    }
 }
