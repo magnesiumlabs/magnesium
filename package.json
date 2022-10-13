@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/framework",
-    "version": "0.0.0",
+    "version": "1.16.0-beta.1",
     "description": "The Sass Framework for Web artisans.",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",

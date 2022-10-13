@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v1.15.0...v1.16.0-beta.1) (2022-10-13)
+
+
+### Features
+
+* **theme:** add `create-theme-var` function ([ef097ad](https://github.com/magnesiumlabs/magnesium/commit/ef097ad5861b23207ce7afdf729a6ec3e17d31b7))
+* **theme:** add `create-theme` mixin ([ea26fae](https://github.com/magnesiumlabs/magnesium/commit/ea26faeb097c96f47489c17baac92df9323df196))
+* **theme:** add `get-theme-color` function ([ff84a0e](https://github.com/magnesiumlabs/magnesium/commit/ff84a0ecb83b40d7a7192a8e94dce51e347d5393))
+* **theme:** add `get-theme-tokens` function ([9adb5d9](https://github.com/magnesiumlabs/magnesium/commit/9adb5d9900ce6c963f464e26b8040577ba6a9e16))
+* **theme:** add core styles declarations ([7e3e982](https://github.com/magnesiumlabs/magnesium/commit/7e3e982ce1aa0ff49dd2e213e842a87a35b63b4b))
+* **theme:** add default fallback with config colors ([1ee2fba](https://github.com/magnesiumlabs/magnesium/commit/1ee2fbaf1649fc8dc4f335026ab25edc7434ce06))
+* **theme:** add list option on `create-theme-var` function ([aca3fc4](https://github.com/magnesiumlabs/magnesium/commit/aca3fc41e74871663c0a0edf21d90cd6683b1377))
+
+
+### Code Refactoring
+
+* **theme:** simplify `create-theme-var` mixin ([efa74c6](https://github.com/magnesiumlabs/magnesium/commit/efa74c6ac882f75b1b0e0276378d031c2a8595b3))
+
+
+### Build System
+
+* **deps:** bump to `@unsass/string` 1.2.0 ([227978c](https://github.com/magnesiumlabs/magnesium/commit/227978c78a2ee5a765de474c5e3a993ab0aa7de0))
+
 ## [1.15.0](https://github.com/magnesiumlabs/magnesium/compare/v1.14.0...v1.15.0) (2022-10-11)
 
 
