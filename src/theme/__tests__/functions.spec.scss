@@ -3,6 +3,12 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "../../../index" as magnesium with (
+    $colors: (
+        primary: darkcyan,
+        secondary: darkorange
+    )
+);
 @use "../index" as theme;
 
 @include describe("theme") {
@@ -10,9 +16,11 @@
         @include describe("create-theme-var()") {
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(theme.create-theme-var((
-                    label-color: darkcyan
+                    fill-color: primary,
+                    label-color: darkgreen
                 ), button), (
-                    label-color: var(--mg-button-label-color, darkcyan)
+                    fill-color: var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
+                    label-color: var(--mg-button-label-color, darkgreen)
                 ));
             }
         }

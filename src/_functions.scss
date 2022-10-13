@@ -2,9 +2,20 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "sass:string";
 @use "./variables";
 
+///
+/// Create name.
+///
 @function create-name($name) {
     @return string.unquote('#{variables.$prefix}-#{$name}');
+}
+
+///
+/// Check if color key exist.
+///
+@function exist($key) {
+    @return map.has-key(variables.$colors, $key);
 }
