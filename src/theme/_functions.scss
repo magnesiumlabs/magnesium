@@ -4,12 +4,19 @@
 
 @use "sass:map";
 @use "@unsass/css/custom-properties";
-@use "../functions";
 @use "../variables";
+@use "../functions";
 
 @function create-theme-var($theme, $prefix) {
     @each $key, $value in $theme {
         $token: functions.create-name(#{$prefix}-#{$key});
+
+        @if functions.exist($value) {
+            $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
+        } @else {
+            $value: $value
+        }
+
         $value: custom-properties.create-var(custom-properties.create($token, $value));
         $theme: map.set($theme, $key, $value);
     }
