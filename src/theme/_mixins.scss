@@ -3,9 +3,8 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "sass:string";
 @use "@unsass/selector";
-@use "@unsass/string" as unsass-string;
+@use "@unsass/string";
 @use "../variables" as core-variables;
 @use "../functions" as core-functions;
 @use "./functions";
@@ -69,7 +68,7 @@
 ///
 @mixin create-theme($theme) {
     @each $key, $value in $theme {
-        $var: unsass-string.trim($value, "var(", ")");
+        $var: string.trim($value, "var(", ")");
         $comma: string.index($var, ",");
 
         #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
