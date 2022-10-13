@@ -3,14 +3,17 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "sass:string";
 @use "./variables";
 
 ///
 /// Create name.
 ///
 @function create-name($name) {
-    @return string.unquote('#{variables.$prefix}-#{$name}');
+    @if variables.$prefix {
+        $name: #{variables.$prefix}-#{$name};
+    }
+
+    @return $name;
 }
 
 ///
