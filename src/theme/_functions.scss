@@ -14,7 +14,7 @@
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: theme.create-theme-var($light-theme, button); -> (label-color: var(--mg-button-label-color, darkgreen))
+///   $theme: theme.create-theme-var($light-theme, button); -> `(label-color: var(--mg-button-label-color, darkcyan))`
 ///
 ///   .foo {
 ///     color: map.get($theme, label-color);
@@ -41,4 +41,16 @@
     }
 
     @return $theme;
+}
+
+///
+/// @example - scss
+///   $color: theme.get-theme-color(primary); -> `darkcyan`
+///
+@function get-theme-color($token) {
+    @if not map.has-key(variables.$colors, $token) {
+        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
+    }
+
+    @return map.get(variables.$colors, $token);
 }
