@@ -25,6 +25,15 @@
             }
         }
 
+        @include describe("get-theme-tokens()") {
+            @include it("Should return color value from token.") {
+                @include assert-equal(theme.get-theme-tokens(), (
+                    primary,
+                    secondary
+                ));
+            }
+        }
+
         @include describe("get-theme-color()") {
             @include it("Should return color value from token.") {
                 @include assert-equal(theme.get-theme-color(primary), darkcyan);
