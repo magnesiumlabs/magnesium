@@ -3,18 +3,37 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "sass:meta";
 @use "@unsass/css/custom-properties";
 @use "../variables";
 @use "../functions";
 
+///
+/// @example - scss
+///   $light-theme: (
+///     label-color: darkcyan
+///   );
+///
+///   $theme: theme.create-theme-var($light-theme, button); -> (label-color: var(--mg-button-label-color, darkgreen))
+///
+///   .foo {
+///     color: map.get($theme, label-color);
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--md-button-label-color, darkcyan);
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+/// @param {String} $prefix - Component name to prepend for each token's custom property name.
+///
 @function create-theme-var($theme, $prefix) {
     @each $key, $value in $theme {
         $token: functions.create-name(#{$prefix}-#{$key});
 
         @if functions.exist($value) {
             $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
-        } @else {
-            $value: $value
         }
 
         $value: custom-properties.create-var(custom-properties.create($token, $value));
