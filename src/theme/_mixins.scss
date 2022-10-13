@@ -3,7 +3,9 @@
 // ============================================================================================= //
 
 @use "sass:map";
+@use "sass:string";
 @use "@unsass/selector";
+@use "@unsass/string" as unsass-string;
 @use "../variables" as core-variables;
 @use "../functions" as core-functions;
 @use "./functions";
@@ -33,5 +35,45 @@
         @include selector.create(#{$selector}) {
             background-color: map.get($theme, $key);
         }
+    }
+}
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
+///
+/// Create custom theme with custom properties.
+///
+/// @example - scss
+///   $light-theme: (
+///     label-color: darkcyan
+///   );
+///
+///   $theme: theme.create-theme-var($light-theme, button);
+///
+///   .foo {
+///     @include theme.create-theme($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --md-button-label-color: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+///
+@mixin create-theme($theme) {
+    @each $key, $value in $theme {
+        $var: unsass-string.trim($value, "var(", ")");
+        $comma: string.index($var, ",");
+
+        #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
     }
 }

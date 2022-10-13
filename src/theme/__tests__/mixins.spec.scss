@@ -40,5 +40,29 @@
                 }
             }
         }
+
+        @include describe("create-theme()") {
+            @include it("Should return custom theme declarations.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: theme.create-theme-var((
+                            fill-color: primary,
+                            label-color: darkcyan
+                        ), button);
+
+                        .test {
+                            @include theme.create-theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-fill-color: var(--mg-theme-primary, darkcyan);
+                            --mg-button-label-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
