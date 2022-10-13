@@ -45,6 +45,14 @@
 
 ///
 /// @example - scss
+///   $color: theme.get-theme-tokens(); -> `(primary, secondary)`
+///
+@function get-theme-tokens() {
+    @return map.keys(variables.$colors);
+}
+
+///
+/// @example - scss
 ///   $color: theme.get-theme-color(primary); -> `darkcyan`
 ///
 @function get-theme-color($token) {
