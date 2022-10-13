@@ -23,6 +23,14 @@
                     label-color: var(--mg-button-label-color, darkgreen)
                 ));
             }
+
+            @include it("Should return tokens map with custom variables without fallback.") {
+                @include assert-equal(theme.create-theme-var((
+                    label-color
+                ), button), (
+                    label-color: var(--mg-button-label-color)
+                ));
+            }
         }
 
         @include describe("get-theme-tokens()") {

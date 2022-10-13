@@ -3,8 +3,8 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "sass:meta";
 @use "@unsass/css/custom-properties";
+@use "@unsass/types" as type;
 @use "../variables";
 @use "../functions";
 
@@ -29,18 +29,25 @@
 /// @param {String} $prefix - Component name to prepend for each token's custom property name.
 ///
 @function create-theme-var($theme, $prefix) {
+    $result: ();
+
     @each $key, $value in $theme {
         $token: functions.create-name(#{$prefix}-#{$key});
 
-        @if functions.exist($value) {
-            $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
+        @if type.is-map($theme) {
+            @if functions.exist($value) {
+                $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
+            }
+
+            $value: custom-properties.create-var(custom-properties.create($token, $value));
+        } @else if type.is-list($theme) or type.is-string($theme) {
+            $value: custom-properties.create-var(custom-properties.create($token));
         }
 
-        $value: custom-properties.create-var(custom-properties.create($token, $value));
-        $theme: map.set($theme, $key, $value);
+        $result: map.set($result, $key, $value);
     }
 
-    @return $theme;
+    @return $result;
 }
 
 ///
