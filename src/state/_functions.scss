@@ -25,6 +25,14 @@
 // Public mixins
 // ------------------------------------------------------------------------- //
 
+///
+/// @example - scss
+///   $theme: (
+///     default: darkcyan
+///   );
+///
+///   $default: get-default-state($theme); -> `darkcyan`
+///
 @function get-default-state($default-or-map) {
     $state: _get-state($default-or-map, default);
 
@@ -35,30 +43,86 @@
     @return $state;
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     hover: darkcyan
+///   );
+///
+///   $hover: get-hover-state($theme); -> `darkcyan`
+///
 @function get-hover-state($default-or-map) {
     @return _get-state($default-or-map, hover);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     focus: darkcyan
+///   );
+///
+///   $focus: get-focus-state($theme); -> `darkcyan`
+///
 @function get-focus-state($default-or-map) {
     @return _get-state($default-or-map, focus);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     selected: darkcyan
+///   );
+///
+///   $selected: get-selected-state($theme); -> `darkcyan`
+///
 @function get-selected-state($default-or-map) {
     @return _get-state($default-or-map, selected);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     valid: darkcyan
+///   );
+///
+///   $valid: get-valid-state($theme); -> `darkcyan`
+///
 @function get-valid-state($default-or-map) {
     @return _get-state($default-or-map, valid);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     invalid: darkcyan
+///   );
+///
+///   $invalid: get-invalid-state($theme); -> `darkcyan`
+///
 @function get-invalid-state($default-or-map) {
     @return _get-state($default-or-map, invalid);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     readonly: darkcyan
+///   );
+///
+///   $readonly: get-readonly-state($theme); -> `darkcyan`
+///
 @function get-readonly-state($default-or-map) {
     @return _get-state($default-or-map, readonly);
 }
 
+///
+/// @example - scss
+///   $theme: (
+///     disabled: darkcyan
+///   );
+///
+///   $disabled: get-disabled-state($theme); -> `darkcyan`
+///
 @function get-disabled-state($default-or-map) {
     @return _get-state($default-or-map, disabled);
 }
