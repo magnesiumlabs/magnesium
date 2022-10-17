@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v1.16.0...v2.0.0-beta.1) (2022-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **state:** move code from theme
+* **theme:** remove deditacted packages
+
+### Features
+
+* **state:** move code from theme ([da8f1b6](https://github.com/magnesiumlabs/magnesium/commit/da8f1b6940c6e01b11d6823006a55c00722afb7d))
+* **theme:** add `create-theme-var` function ([b37ec16](https://github.com/magnesiumlabs/magnesium/commit/b37ec166529a6648466b1ded3107cb79be153807))
+* **theme:** add `create-theme` mixin ([e61b5ca](https://github.com/magnesiumlabs/magnesium/commit/e61b5ca35f136b96de60208f5b682b623177a634))
+* **theme:** add `get-theme-color` function ([915bfcd](https://github.com/magnesiumlabs/magnesium/commit/915bfcd6b983b7df994422810c51b700f43f4a48))
+* **theme:** add `get-theme-tokens` function ([e577d63](https://github.com/magnesiumlabs/magnesium/commit/e577d63747f0efd379cafdeee322b61d681fd5a0))
+* **theme:** add core styles declarations ([75caec3](https://github.com/magnesiumlabs/magnesium/commit/75caec32b91e8f716814e8daf6a11e1b9c8f6f17))
+* **theme:** add default fallback with config colors ([013fb21](https://github.com/magnesiumlabs/magnesium/commit/013fb2137378645caee5404b979fd944ea6976f4))
+* **theme:** add disabled prefix option ([d0ae44b](https://github.com/magnesiumlabs/magnesium/commit/d0ae44b0b1865c956c27a105dd6c820b1e66ad96))
+* **theme:** add list option on `create-theme-var` function ([eebd755](https://github.com/magnesiumlabs/magnesium/commit/eebd755adcd5a8ab22fc45e4b79517bf059816fa))
+
+
+### Code Refactoring
+
+* **theme:** simplify `create-theme-var` mixin ([0324712](https://github.com/magnesiumlabs/magnesium/commit/03247128669488ebb1b24a218fb1d676e1f5f251))
+
+
+### Build System
+
+* **deps:** bump to `@unsass/string` 1.2.0 ([92ca705](https://github.com/magnesiumlabs/magnesium/commit/92ca705bd4724626aa4f881dcf8bc0183ed21e3c))
+
 ## [1.16.0](https://github.com/magnesiumlabs/magnesium/compare/v1.15.0...v1.16.0) (2022-10-17)
 
 
