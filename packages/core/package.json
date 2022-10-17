@@ -5,7 +5,7 @@
     "main": "index.scss",
     "dependencies": {
         "@unsass/css": "^2.1.1",
-        "sass": "^1.53.0"
+        "sass": "^1.55.0"
     },
     "files": [
         "*.scss"
