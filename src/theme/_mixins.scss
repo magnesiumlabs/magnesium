@@ -53,10 +53,10 @@
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: theme.create-theme-var($light-theme, button);
+///   $theme: create-theme-var($light-theme, "button");
 ///
 ///   .foo {
-///     @include theme.create-theme($theme);
+///     @include create-theme($theme);
 ///   }
 ///
 /// @example - css
