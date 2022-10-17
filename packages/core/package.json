@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/core",
-    "version": "1.15.0",
+    "version": "1.16.0",
     "description": "The Magnesium Design components for the web core system.",
     "main": "index.scss",
     "dependencies": {

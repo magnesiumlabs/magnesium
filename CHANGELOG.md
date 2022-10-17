@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.0](https://github.com/magnesiumlabs/magnesium/compare/v1.15.0...v1.16.0) (2022-10-17)
+
+
+### Features
+
+* **deps:** bump to `sass` 1.55.0 ([9f0c047](https://github.com/magnesiumlabs/magnesium/commit/9f0c047c18314020d73e81e5d17c9c80017162ea))
+
 ## [1.15.0](https://github.com/magnesiumlabs/magnesium/compare/v1.14.0...v1.15.0) (2022-10-11)
 
 
