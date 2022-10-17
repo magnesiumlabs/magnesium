@@ -4,14 +4,16 @@
 
 </div>
 
+[![Version](https://flat.badgen.net/npm/v/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
+[![Downloads](https://flat.badgen.net/npm/dt/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
+[![License](https://flat.badgen.net/npm/license/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
+
 ## Introduction
 
-The Magnesium Design Sass framework for web artisans.
+Easily develop your Design System for the web, The Magnesium Sass Framework is here for that!
 
-## Packages
+## Installing
 
-| Package                                                                                             | Version                                                                                                                |
-|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| [`@magnesium/shape`](https://github.com/magnesiumlabs/magnesium/blob/main/packages/shape)           | [![Version](https://flat.badgen.net/npm/v/@magnesium/shape)](https://www.npmjs.com/package/@magnesium/shape)           |
-| [`@magnesium/theme`](https://github.com/magnesiumlabs/magnesium/blob/main/packages/theme)           | [![Version](https://flat.badgen.net/npm/v/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)           |
-| [`@magnesium/typography`](https://github.com/magnesiumlabs/magnesium/blob/main/packages/typography) | [![Version](https://flat.badgen.net/npm/v/@magnesium/typography)](https://www.npmjs.com/package/@magnesium/typography) |
+```shell
+npm install @magnesium/framework
+```
