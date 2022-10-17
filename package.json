@@ -46,6 +46,15 @@
         "magnesium",
         "front-end"
     ],
+    "license": "MIT",
+    "homepage": "https://github.com/magnesium",
+    "bugs": {
+        "url": "https://github.com/magnesium/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/magnesiumlabs/magnesium.git"
+    },
     "publishConfig": {
         "access": "public"
     }
