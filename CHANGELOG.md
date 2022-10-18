@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2022-10-18)
+
+
+### Features
+
+* **state, theme:** add files for namespaces ([548c0dc](https://github.com/magnesiumlabs/magnesium/commit/548c0dc737e0dae91e7a7568f204a3752b6acf01))
+
 ## [2.0.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v1.16.0...v2.0.0-beta.1) (2022-10-17)
 
 
