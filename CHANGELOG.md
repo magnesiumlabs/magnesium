@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0-beta.3](https://github.com/magnesiumlabs/magnesium/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2022-10-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed old `core`, `shape` and `theme` packages
+
+### Bug Fixes
+
+* **theme:** allow `null` on `create-theme` mixin ([0737d35](https://github.com/magnesiumlabs/magnesium/commit/0737d357ec6ca9218a09e4297034edb6001111fe))
+
+
+### Code Refactoring
+
+* removed old packages ([cc2f3f2](https://github.com/magnesiumlabs/magnesium/commit/cc2f3f29c06470ffcdbf0a3e4c1abee148fd4bc5))
+* **state:** move `state` folder to `_state.scss` file ([6b66e07](https://github.com/magnesiumlabs/magnesium/commit/6b66e071a8dd219b07e57a6f6588007784ee0b94))
+* **theme:** move `exist` function to private ([32071a6](https://github.com/magnesiumlabs/magnesium/commit/32071a6b454e8c19c453dda03eb5bedefda95301))
+
 ## [2.0.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2022-10-18)
 
 
