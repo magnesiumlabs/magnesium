@@ -3,19 +3,28 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../index" as magnesium with (
+@use "../index" as magnesium with (
     $colors: (
         primary: darkcyan,
         secondary: darkorange
     )
 );
-@use "../index" as theme;
+
+@include describe("core") {
+    @include describe("functions") {
+        @include describe("create-name()") {
+            @include it("Should return name with prefix.") {
+                @include assert-equal(magnesium.create-name(button), "mg-button");
+            }
+        }
+    }
+}
 
 @include describe("theme") {
     @include describe("functions") {
         @include describe("create-theme-var()") {
             @include it("Should return tokens map with custom variables.") {
-                @include assert-equal(theme.create-theme-var((
+                @include assert-equal(magnesium.create-theme-var((
                     fill-color: primary,
                     label-color: darkgreen
                 ), button), (
@@ -25,7 +34,7 @@
             }
 
             @include it("Should return tokens map with custom variables without fallback (list).") {
-                @include assert-equal(theme.create-theme-var((
+                @include assert-equal(magnesium.create-theme-var((
                     label-color
                 ), button), (
                     label-color: var(--mg-button-label-color)
@@ -33,7 +42,7 @@
             }
 
             @include it("Should return tokens map with custom variables without fallback (map).") {
-                @include assert-equal(theme.create-theme-var((
+                @include assert-equal(magnesium.create-theme-var((
                     label-color: null
                 ), button), (
                     label-color: var(--mg-button-label-color)
@@ -43,7 +52,7 @@
 
         @include describe("get-theme-tokens()") {
             @include it("Should return color value from token.") {
-                @include assert-equal(theme.get-theme-tokens(), (
+                @include assert-equal(magnesium.get-theme-tokens(), (
                     primary,
                     secondary
                 ));
@@ -52,7 +61,7 @@
 
         @include describe("get-theme-color()") {
             @include it("Should return color value from token.") {
-                @include assert-equal(theme.get-theme-color(primary), darkcyan);
+                @include assert-equal(magnesium.get-theme-color(primary), darkcyan);
             }
         }
     }

@@ -3,13 +3,12 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../index" as magnesium with (
+@use "../index" as magnesium with (
     $colors: (
         primary: darkcyan,
         secondary: darkorange
     )
 );
-@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -17,7 +16,7 @@
             @include it("Should return core styles declarations.") {
                 @include assert {
                     @include output(false) {
-                        @include theme.core-styles;
+                        @include magnesium.core-styles;
                     }
 
                     @include expect(false) {
@@ -45,14 +44,14 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme.create-theme-var((
+                        $theme: magnesium.create-theme-var((
                             fill-color: primary,
                             label-color: darkcyan,
                             icon-color: null
                         ), "button");
 
                         .test {
-                            @include theme.create-theme($theme);
+                            @include magnesium.create-theme($theme);
                         }
                     }
 
