@@ -8,6 +8,21 @@
 @use "../variables";
 @use "../functions";
 
+// ------------------------------------------------------------------------- //
+// Private functions
+// ------------------------------------------------------------------------- //
+
+///
+/// Check if color key exist.
+///
+@function _exist($key) {
+    @return map.has-key(variables.$colors, $key);
+}
+
+// ------------------------------------------------------------------------- //
+// Public functions
+// ------------------------------------------------------------------------- //
+
 ///
 /// @example - scss
 ///   $light-theme: (
@@ -35,7 +50,7 @@
         $token: functions.create-name(#{$prefix}-#{$key});
 
         @if type.is-map($theme) {
-            @if functions.exist($value) {
+            @if _exist($value) {
                 $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
             }
 

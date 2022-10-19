@@ -15,10 +15,3 @@
 
     @return $name;
 }
-
-///
-/// Check if color key exist.
-///
-@function exist($key) {
-    @return map.has-key(variables.$colors, $key);
-}
