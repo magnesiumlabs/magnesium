@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/magnesiumlabs/magnesium/compare/v1.16.0...v2.0.0) (2022-10-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed old `typography` packages
+* removed old `core`, `shape` and `theme` packages
+* **state:** move code from theme
+* **theme:** remove deditacted packages
+
+### Features
+
+* **state, theme:** add files for namespaces ([548c0dc](https://github.com/magnesiumlabs/magnesium/commit/548c0dc737e0dae91e7a7568f204a3752b6acf01))
+* **state:** move code from theme ([da8f1b6](https://github.com/magnesiumlabs/magnesium/commit/da8f1b6940c6e01b11d6823006a55c00722afb7d))
+* **theme:** add `create-theme-var` function ([b37ec16](https://github.com/magnesiumlabs/magnesium/commit/b37ec166529a6648466b1ded3107cb79be153807))
+* **theme:** add `create-theme` mixin ([e61b5ca](https://github.com/magnesiumlabs/magnesium/commit/e61b5ca35f136b96de60208f5b682b623177a634))
+* **theme:** add `get-theme-color` function ([915bfcd](https://github.com/magnesiumlabs/magnesium/commit/915bfcd6b983b7df994422810c51b700f43f4a48))
+* **theme:** add `get-theme-tokens` function ([e577d63](https://github.com/magnesiumlabs/magnesium/commit/e577d63747f0efd379cafdeee322b61d681fd5a0))
+* **theme:** add core styles declarations ([75caec3](https://github.com/magnesiumlabs/magnesium/commit/75caec32b91e8f716814e8daf6a11e1b9c8f6f17))
+* **theme:** add default fallback with config colors ([013fb21](https://github.com/magnesiumlabs/magnesium/commit/013fb2137378645caee5404b979fd944ea6976f4))
+* **theme:** add disabled prefix option ([d0ae44b](https://github.com/magnesiumlabs/magnesium/commit/d0ae44b0b1865c956c27a105dd6c820b1e66ad96))
+* **theme:** add list option on `create-theme-var` function ([eebd755](https://github.com/magnesiumlabs/magnesium/commit/eebd755adcd5a8ab22fc45e4b79517bf059816fa))
+
+
+### Bug Fixes
+
+* **theme:** allow `null` on `create-theme` mixin ([0737d35](https://github.com/magnesiumlabs/magnesium/commit/0737d357ec6ca9218a09e4297034edb6001111fe))
+
+
+### Build System
+
+* **deps:** bump to `@unsass/string` 1.2.0 ([92ca705](https://github.com/magnesiumlabs/magnesium/commit/92ca705bd4724626aa4f881dcf8bc0183ed21e3c))
+
+
+### Code Refactoring
+
+* removed old packages ([51ffbdd](https://github.com/magnesiumlabs/magnesium/commit/51ffbdd54e918ceb81fbf77388a05f22d86b1d6a))
+* removed old packages ([cc2f3f2](https://github.com/magnesiumlabs/magnesium/commit/cc2f3f29c06470ffcdbf0a3e4c1abee148fd4bc5))
+* **state:** move `state` folder to `_state.scss` file ([6b66e07](https://github.com/magnesiumlabs/magnesium/commit/6b66e071a8dd219b07e57a6f6588007784ee0b94))
+* **theme:** move `exist` function to private ([32071a6](https://github.com/magnesiumlabs/magnesium/commit/32071a6b454e8c19c453dda03eb5bedefda95301))
+* **theme:** simplify `create-theme-var` mixin ([0324712](https://github.com/magnesiumlabs/magnesium/commit/03247128669488ebb1b24a218fb1d676e1f5f251))
+
 ## [2.0.0-beta.3](https://github.com/magnesiumlabs/magnesium/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2022-10-19)
 
 
