@@ -55,6 +55,12 @@
         "type": "git",
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
     },
+    "files": [
+        ".github/banner.svg",
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ],
     "publishConfig": {
         "access": "public"
     }
