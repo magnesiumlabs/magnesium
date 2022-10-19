@@ -24,9 +24,17 @@
                 ));
             }
 
-            @include it("Should return tokens map with custom variables without fallback.") {
+            @include it("Should return tokens map with custom variables without fallback (list).") {
                 @include assert-equal(theme.create-theme-var((
                     label-color
+                ), button), (
+                    label-color: var(--mg-button-label-color)
+                ));
+            }
+
+            @include it("Should return tokens map with custom variables without fallback (map).") {
+                @include assert-equal(theme.create-theme-var((
+                    label-color: null
                 ), button), (
                     label-color: var(--mg-button-label-color)
                 ));

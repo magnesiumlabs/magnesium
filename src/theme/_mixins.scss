@@ -71,6 +71,8 @@
         $var: string.trim($value, "var(", ")");
         $comma: string.index($var, ",");
 
-        #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+        @if $comma {
+            #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+        }
     }
 }

@@ -47,8 +47,9 @@
                     @include output(false) {
                         $theme: theme.create-theme-var((
                             fill-color: primary,
-                            label-color: darkcyan
-                        ), button);
+                            label-color: darkcyan,
+                            icon-color: null
+                        ), "button");
 
                         .test {
                             @include theme.create-theme($theme);
