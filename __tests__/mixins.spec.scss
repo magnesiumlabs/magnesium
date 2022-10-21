@@ -66,3 +66,29 @@
         }
     }
 }
+
+@include describe("typography") {
+    @include describe("mixins") {
+        @include describe("create-typography()") {
+            @include it("Should return custom theme declarations.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: (
+                            font-size: 16px
+                        );
+
+                        .test {
+                            @include magnesium.create-typography($theme, "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-typography-button-font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:list";
+@use "../functions";
+@use "./variables";
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $typography: (
+///     font-size: 16px
+///   );
+///
+///   .foo {
+///     @include create-theme($typography, "button");
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-typography-button-font-size: 16px;
+///   }
+///
+/// @param {Map} $typography - The typography tokens map.
+/// @param {String} $style - The typography style prefix.
+///
+@mixin create-typography($typography, $style) {
+    @each $key, $value in $typography {
+        @if list.index(variables.$allowed-tokens, $key) != null {
+            --#{functions.create-name(typography-#{$style}-#{$key})}: #{$value};
+        }
+    }
+}

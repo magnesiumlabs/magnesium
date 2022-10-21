@@ -2,11 +2,4 @@
 //                                             INDEX                                             //
 // ============================================================================================= //
 
-@forward "./src/variables";
-@forward "./src/functions";
-
-// ...
-
-@forward "./src/state";
-@forward "./src/theme";
-@forward "./src/typography";
+@forward "./mixins";
