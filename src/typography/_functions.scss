@@ -6,9 +6,9 @@
 @use "sass:map";
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
-@use "../variables";
+@use "../variables" as core-variables;
 @use "../functions";
-@use "./variables" as typo-variables;
+@use "./variables";
 
 // ------------------------------------------------------------------------- //
 // Private functions
@@ -18,7 +18,7 @@
 /// Check if style key exist.
 ///
 @function _exist($key) {
-    @return map.has-key(variables.$styles, $key);
+    @return map.has-key(core-variables.$styles, $key);
 }
 
 // ------------------------------------------------------------------------- //
@@ -46,11 +46,11 @@
     $name: $style;
 
     @if type.is-string($style) and _exist($style) {
-        $style: map.get(variables.$styles, $style);
+        $style: map.get(core-variables.$styles, $style);
     }
 
     @each $key, $value in $style {
-        @if list.index(typo-variables.$allowed-tokens, $key) == null {
+        @if list.index(variables.$allowed-tokens, $key) == null {
             @error "Invalid typography token, `#{$key}` is not allowed."
         }
 
@@ -65,5 +65,5 @@
 ///   $style: get-style-tokens(); -> `(body, button)`
 ///
 @function get-style-tokens() {
-    @return map.keys(variables.$styles);
+    @return map.keys(core-variables.$styles);
 }
