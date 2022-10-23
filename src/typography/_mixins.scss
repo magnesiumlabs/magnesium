@@ -14,13 +14,9 @@
 // ------------------------------------------------------------------------- //
 
 @mixin _typography($style) {
-    font-family: map.get($style, font-family);
-    font-size: map.get($style, font-size);
-    font-weight: map.get($style, font-weight);
-    letter-spacing: map.get($style, letter-spacing);
-    line-height: map.get($style, line-height);
-    text-decoration: map.get($style, text-decoration);
-    text-transform: map.get($style, text-transform);
+    @each $key, $value in variables.$allowed-tokens {
+        #{$key}: map.get($style, $key);
+    }
 }
 
 // ------------------------------------------------------------------------- //
