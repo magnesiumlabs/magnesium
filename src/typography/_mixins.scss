@@ -26,16 +26,15 @@
 ///
 /// @example - scss
 ///   .foo {
-///     @include theme-styles($typography, "button");
+///     @include theme-styles("button", "button-label");
 ///   }
 ///
 /// @example - css
 ///   .foo {
-///     font-family: ;
-//      font-size: ;
-//      font-weight: ;
-//      letter-spacing: ;
-//      line-height: ;
+///     font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px));
+///     font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700));
+///     letter-spacing: var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px));
+///     line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px));
 ///   }
 ///
 /// @param {Map} $style - The typography style.
