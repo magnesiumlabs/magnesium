@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.0](https://github.com/magnesiumlabs/magnesium/compare/v2.1.0...v2.2.0) (2022-10-23)
+
+
+### Features
+
+* **typography:** add styles options ([81d7487](https://github.com/magnesiumlabs/magnesium/commit/81d748796e6fe93e0e329cc57e01661b6d316aaa))
+
 ## [2.1.0](https://github.com/magnesiumlabs/magnesium/compare/v2.0.0...v2.1.0) (2022-10-21)
 
 
