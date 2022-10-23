@@ -3,18 +3,51 @@
 // ============================================================================================= //
 
 @use "sass:list";
-@use "../functions";
+@use "sass:map";
+@use "../variables" as core-variables;
+@use "../functions" as core-functions;
 @use "./variables";
+@use "./functions";
 
 // ------------------------------------------------------------------------- //
 // Private mixins
 // ------------------------------------------------------------------------- //
 
-// ...
+@mixin _typography($style) {
+    font-family: map.get($style, font-family);
+    font-size: map.get($style, font-size);
+    font-weight: map.get($style, font-weight);
+    letter-spacing: map.get($style, letter-spacing);
+    line-height: map.get($style, line-height);
+    text-decoration: map.get($style, text-decoration);
+    text-transform: map.get($style, text-transform);
+}
 
 // ------------------------------------------------------------------------- //
 // Public mixins
 // ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   .foo {
+///     @include theme-styles($typography, "button");
+///   }
+///
+/// @example - css
+///   .foo {
+///     font-family: ;
+//      font-size: ;
+//      font-weight: ;
+//      letter-spacing: ;
+//      line-height: ;
+///   }
+///
+/// @param {Map} $style - The typography style.
+/// @param {String} $prefix - The typography component prefix.
+///
+@mixin theme-styles($style, $prefix) {
+    @include _typography(functions.create-typography-var($style, $prefix));
+}
 
 ///
 /// @example - scss
@@ -37,7 +70,7 @@
 @mixin create-typography($typography, $style) {
     @each $key, $value in $typography {
         @if list.index(variables.$allowed-tokens, $key) != null {
-            --#{functions.create-name(typography-#{$style}-#{$key})}: #{$value};
+            --#{core-functions.create-name(typography-#{$style}-#{$key})}: #{$value};
         }
     }
 }

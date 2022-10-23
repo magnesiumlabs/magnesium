@@ -7,6 +7,20 @@
     $colors: (
         primary: darkcyan,
         secondary: darkorange
+    ),
+    $styles: (
+        body: (
+            line-height: 20px,
+            font-size: 16px,
+            font-weight: 400,
+            letter-spacing: normal
+        ),
+        button: (
+            line-height: 22px,
+            font-size: 20px,
+            font-weight: 700,
+            letter-spacing: 2px
+        )
     )
 );
 
@@ -62,6 +76,30 @@
         @include describe("get-theme-color()") {
             @include it("Should return color value from token.") {
                 @include assert-equal(magnesium.get-theme-color(primary), darkcyan);
+            }
+        }
+    }
+}
+
+@include describe("typography") {
+    @include describe("functions") {
+        @include describe("create-typography-var()") {
+            @include it("Should return tokens map with custom variables.") {
+                @include assert-equal(magnesium.create-typography-var("button", "button-label"), (
+                    line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px)),
+                    font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px)),
+                    font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700)),
+                    letter-spacing: var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px))
+                ));
+            }
+        }
+
+        @include describe("get-style-tokens()") {
+            @include it("Should return color value from token.") {
+                @include assert-equal(magnesium.get-style-tokens(), (
+                    body,
+                    button
+                ));
             }
         }
     }

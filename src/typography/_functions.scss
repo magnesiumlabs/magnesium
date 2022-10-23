@@ -1,0 +1,69 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:list";
+@use "sass:map";
+@use "@unsass/css/custom-properties";
+@use "@unsass/types" as type;
+@use "../variables";
+@use "../functions";
+@use "./variables" as typo-variables;
+
+// ------------------------------------------------------------------------- //
+// Private functions
+// ------------------------------------------------------------------------- //
+
+///
+/// Check if style key exist.
+///
+@function _exist($key) {
+    @return map.has-key(variables.$styles, $key);
+}
+
+// ------------------------------------------------------------------------- //
+// Public functions
+// ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $theme: create-typography-var("body", "button-label"); -> `(button-label-font-size: var(--mg-button-label-font-size, var(--mg-typography-body-font-size, 16px))`
+///
+///   .foo {
+///     font-size: map.get($theme, button-label-font-size);
+///   }
+///
+/// @example - css
+///   .foo {
+///     font-size: var(--mg-button-label-font-size, var(--mg-typography-body-font-size, 16px));
+///   }
+///
+/// @param {Map} $style - The style token.
+/// @param {String} $prefix - Component name to prepend for each token's custom property name.
+///
+@function create-typography-var($style, $prefix) {
+    $theme: ();
+    $name: $style;
+
+    @if type.is-string($style) and _exist($style) {
+        $style: map.get(variables.$styles, $style);
+    }
+
+    @each $key, $value in $style {
+        @if list.index(typo-variables.$allowed-tokens, $key) == null {
+            @error "Invalid typography token, `#{$key}` is not allowed."
+        }
+
+        $theme: map.set($theme, $key, custom-properties.create-var(custom-properties.create(functions.create-name(#{$prefix}-#{$key}), custom-properties.create-var(custom-properties.create(functions.create-name(typography-#{$name}-#{$key}), map.get($style, $key))))));
+    }
+
+    @return $theme;
+}
+
+///
+/// @example - scss
+///   $style: get-style-tokens(); -> `(body, button)`
+///
+@function get-style-tokens() {
+    @return map.keys(variables.$styles);
+}
