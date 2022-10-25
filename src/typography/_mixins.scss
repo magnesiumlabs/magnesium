@@ -25,23 +25,25 @@
 
 ///
 /// @example - scss
+///   $typography: (
+///     font-size: 16px,
+///     font-weight: 400
+///   );
+///
 ///   .foo {
-///     @include theme-styles("button", "button-label");
+///     @include theme-styles($typography);
 ///   }
 ///
 /// @example - css
 ///   .foo {
-///     font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px));
-///     font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700));
-///     letter-spacing: var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px));
-///     line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px));
+///     font-size: 16px;
+///     font-weight: 400;
 ///   }
 ///
-/// @param {Map} $style - The typography style.
-/// @param {String} $prefix - The typography component prefix.
+/// @param {Map} $theme - The typography theme map.
 ///
-@mixin theme-styles($style, $prefix) {
-    @include _typography(functions.create-typography-var($style, $prefix));
+@mixin theme-styles($theme) {
+    @include _typography($theme);
 }
 
 ///
@@ -61,6 +63,8 @@
 ///
 /// @param {Map} $typography - The typography tokens map.
 /// @param {String} $style - The typography style prefix.
+///
+/// @deprecated Use `create-theme` mixin instead.
 ///
 @mixin create-typography($typography, $style) {
     @each $key, $value in $typography {

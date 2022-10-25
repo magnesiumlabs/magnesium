@@ -41,7 +41,7 @@
 /// @param {Map} $style - The style token.
 /// @param {String} $prefix - Component name to prepend for each token's custom property name.
 ///
-@function create-typography-var($style, $prefix) {
+@function create-typography-vars($style, $prefix) {
     $theme: ();
     $name: $style;
 
@@ -58,6 +58,13 @@
     }
 
     @return $theme;
+}
+
+///
+/// @deprecated Use `create-typography-vars` function instead.
+///
+@function create-typography-var($style, $prefix) {
+    @return create-typography-vars($style, $prefix);
 }
 
 ///

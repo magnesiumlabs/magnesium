@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "sass:map";
 @use "../index" as magnesium with (
     $colors: (
         primary: darkcyan,
@@ -23,6 +24,7 @@
         )
     )
 );
+@use "../typography";
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -60,6 +62,7 @@
                     @include output(false) {
                         $theme: magnesium.create-theme-var((
                             fill-color: primary,
+                            label-size: 16px,
                             label-color: darkcyan,
                             icon-color: null
                         ), "button");
@@ -72,6 +75,7 @@
                     @include expect(false) {
                         .test {
                             --mg-button-fill-color: var(--mg-theme-primary, darkcyan);
+                            --mg-button-label-size: 16px;
                             --mg-button-label-color: darkcyan;
                         }
                     }
@@ -84,42 +88,43 @@
 @include describe("typography") {
     @include describe("mixins") {
         @include describe("theme-styles()") {
-            @include it("Should return custom typography declarations.") {
+            @include it("Should return styles declarations.") {
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include magnesium.theme-styles("button", "button-label");
+                            @include typography.theme-styles((
+                                font-size: 16px,
+                                font-weight: 400
+                            ));
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px));
-                            font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700));
-                            letter-spacing: var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px));
-                            line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px));
+                            font-size: 16px;
+                            font-weight: 400;
                         }
                     }
                 }
             }
-        }
 
-        @include describe("create-typography()") {
-            @include it("Should return custom typography declarations.") {
+            @include it("Should return extended styles declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: (
-                            font-size: 16px
-                        );
-
                         .test {
-                            @include magnesium.create-typography($theme, "button");
+                            $theme: magnesium.create-theme-var((
+                                label-size: 16px
+                            ), "button");
+
+                            @include typography.theme-styles((
+                                font-size: map.get($theme, label-size)
+                            ));
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-typography-button-font-size: 16px;
+                            font-size: var(--mg-button-label-size, 16px);
                         }
                     }
                 }

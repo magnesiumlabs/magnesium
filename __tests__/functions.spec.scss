@@ -23,6 +23,7 @@
         )
     )
 );
+@use "../typography";
 
 @include describe("core") {
     @include describe("functions") {
@@ -40,9 +41,11 @@
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(magnesium.create-theme-var((
                     fill-color: primary,
+                    label-size: 16px,
                     label-color: darkgreen
                 ), button), (
                     fill-color: var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
+                    label-size: var(--mg-button-label-size, 16px),
                     label-color: var(--mg-button-label-color, darkgreen)
                 ));
             }
@@ -83,9 +86,9 @@
 
 @include describe("typography") {
     @include describe("functions") {
-        @include describe("create-typography-var()") {
+        @include describe("create-typography-vars()") {
             @include it("Should return tokens map with custom variables.") {
-                @include assert-equal(magnesium.create-typography-var("button", "button-label"), (
+                @include assert-equal(typography.create-typography-vars("button", "button-label"), (
                     line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px)),
                     font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px)),
                     font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700)),
@@ -96,7 +99,7 @@
 
         @include describe("get-style-tokens()") {
             @include it("Should return color value from token.") {
-                @include assert-equal(magnesium.get-style-tokens(), (
+                @include assert-equal(typography.get-style-tokens(), (
                     body,
                     button
                 ));
