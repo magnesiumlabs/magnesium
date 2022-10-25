@@ -43,7 +43,7 @@
 /// @param {Map} $theme - The theme tokens map.
 /// @param {String} $prefix - Component name to prepend for each token's custom property name.
 ///
-@function create-theme-var($theme, $prefix) {
+@function create-theme-vars($theme, $prefix) {
     $result: ();
 
     @each $key, $value in $theme {
@@ -63,6 +63,13 @@
     }
 
     @return $result;
+}
+
+///
+/// @deprecated Use `create-theme-vars` function instead.
+///
+@function create-theme-var($theme, $prefix) {
+    @return create-theme-vars($theme, $prefix);
 }
 
 ///

@@ -10,7 +10,7 @@
 @use "./functions";
 
 @mixin core-styles {
-    $theme: functions.create-theme-var(core-variables.$colors, theme);
+    $theme: functions.create-theme-vars(core-variables.$colors, theme);
 
     // --------------------------------- //
     // Main classes

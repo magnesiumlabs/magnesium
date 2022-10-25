@@ -60,7 +60,7 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: magnesium.create-theme-var((
+                        $theme: magnesium.create-theme-vars((
                             fill-color: primary,
                             label-size: 16px,
                             label-color: darkcyan,
@@ -112,7 +112,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            $theme: magnesium.create-theme-var((
+                            $theme: magnesium.create-theme-vars((
                                 label-size: 16px
                             ), "button");
 

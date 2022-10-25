@@ -39,7 +39,7 @@
     @include describe("functions") {
         @include describe("create-theme-var()") {
             @include it("Should return tokens map with custom variables.") {
-                @include assert-equal(magnesium.create-theme-var((
+                @include assert-equal(magnesium.create-theme-vars((
                     fill-color: primary,
                     label-size: 16px,
                     label-color: darkgreen
@@ -51,7 +51,7 @@
             }
 
             @include it("Should return tokens map with custom variables without fallback (list).") {
-                @include assert-equal(magnesium.create-theme-var((
+                @include assert-equal(magnesium.create-theme-vars((
                     label-color
                 ), button), (
                     label-color: var(--mg-button-label-color)
@@ -59,7 +59,7 @@
             }
 
             @include it("Should return tokens map with custom variables without fallback (map).") {
-                @include assert-equal(magnesium.create-theme-var((
+                @include assert-equal(magnesium.create-theme-vars((
                     label-color: null
                 ), button), (
                     label-color: var(--mg-button-label-color)
