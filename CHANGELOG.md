@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.0](https://github.com/magnesiumlabs/magnesium/compare/v2.2.0...v2.3.0) (2022-10-25)
+
+
+### Features
+
+* **theme:** add `create-theme-vars` function ([a888754](https://github.com/magnesiumlabs/magnesium/commit/a8887540ead994af09ad8def9f06382549b0484c))
+* **typography:** update `theme-styles` mixin ([27352b8](https://github.com/magnesiumlabs/magnesium/commit/27352b8d2038e5cc0d573d7a39bcfc6e5a256506))
+
+
+### Code Refactoring
+
+* **typography:** add loop on `_typography` mixin ([57e717c](https://github.com/magnesiumlabs/magnesium/commit/57e717cbbd0288193f809eb22be1c36286521406))
+* **typography:** import namespaces ([6be2d4a](https://github.com/magnesiumlabs/magnesium/commit/6be2d4ae5a842d280152ba81eb5744d27d20e7f7))
+
 ## [2.2.0](https://github.com/magnesiumlabs/magnesium/compare/v2.1.0...v2.2.0) (2022-10-23)
 
 
