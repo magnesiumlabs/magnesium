@@ -47,6 +47,8 @@
 
     @if type.is-string($style) and _exist($style) {
         $style: map.get(core-variables.$styles, $style);
+    } @else {
+        @error "Invalid typography style, `#{$style}` doesn't exist."
     }
 
     @each $key, $value in $style {

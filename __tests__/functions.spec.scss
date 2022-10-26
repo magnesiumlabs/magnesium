@@ -37,7 +37,7 @@
 
 @include describe("theme") {
     @include describe("functions") {
-        @include describe("create-theme-var()") {
+        @include describe("create-theme-vars()") {
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(magnesium.create-theme-vars((
                     fill-color: primary,
