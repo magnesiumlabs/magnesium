@@ -19,6 +19,13 @@
     @return map.has-key(variables.$colors, $key);
 }
 
+///
+/// Check if shape key exist.
+///
+@function _exist-shape($key) {
+    @return map.has-key(variables.$shapes, $key);
+}
+
 // ------------------------------------------------------------------------- //
 // Public functions
 // ------------------------------------------------------------------------- //
@@ -52,6 +59,10 @@
         @if type.is-map($theme) {
             @if _exist($value) {
                 $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-#{$value}), map.get(variables.$colors, $value)));
+            }
+
+            @if _exist-shape($value) {
+                $value: custom-properties.create-var(custom-properties.create(functions.create-name(theme-shape), map.get(variables.$shapes, $value)));
             }
 
             $value: custom-properties.create-var(custom-properties.create($token, $value));

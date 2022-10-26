@@ -4,26 +4,8 @@
 
 @use "true" as *;
 @use "sass:map";
-@use "../index" as magnesium with (
-    $colors: (
-        primary: darkcyan,
-        secondary: darkorange
-    ),
-    $styles: (
-        body: (
-            line-height: 20px,
-            font-size: 16px,
-            font-weight: 400,
-            letter-spacing: normal
-        ),
-        button: (
-            line-height: 22px,
-            font-size: 20px,
-            font-weight: 700,
-            letter-spacing: 2px
-        )
-    )
-);
+@use "./config";
+@use "../index" as magnesium;
 @use "../typography";
 
 @include describe("theme") {
@@ -62,6 +44,7 @@
                     @include output(false) {
                         $theme: magnesium.create-theme-vars((
                             fill-color: primary,
+                            container-shape: sharped,
                             label-size: 16px,
                             label-color: darkcyan,
                             icon-color: null
@@ -75,6 +58,7 @@
                     @include expect(false) {
                         .test {
                             --mg-button-fill-color: var(--mg-theme-primary, darkcyan);
+                            --mg-button-container-shape: var(--mg-theme-shape, 0);
                             --mg-button-label-size: 16px;
                             --mg-button-label-color: darkcyan;
                         }

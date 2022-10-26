@@ -3,26 +3,8 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium with (
-    $colors: (
-        primary: darkcyan,
-        secondary: darkorange
-    ),
-    $styles: (
-        body: (
-            line-height: 20px,
-            font-size: 16px,
-            font-weight: 400,
-            letter-spacing: normal
-        ),
-        button: (
-            line-height: 22px,
-            font-size: 20px,
-            font-weight: 700,
-            letter-spacing: 2px
-        )
-    )
-);
+@use "./config";
+@use "../index" as magnesium;
 @use "../typography";
 
 @include describe("core") {
@@ -40,13 +22,11 @@
         @include describe("create-theme-vars()") {
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(magnesium.create-theme-vars((
-                    fill-color: primary,
-                    label-size: 16px,
-                    label-color: darkgreen
+                    fill-color: darkcyan,
+                    label-size: 16px
                 ), button), (
-                    fill-color: var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
-                    label-size: var(--mg-button-label-size, 16px),
-                    label-color: var(--mg-button-label-color, darkgreen)
+                    fill-color: var(--mg-button-fill-color, darkcyan),
+                    label-size: var(--mg-button-label-size, 16px)
                 ));
             }
 
@@ -63,6 +43,22 @@
                     label-color: null
                 ), button), (
                     label-color: var(--mg-button-label-color)
+                ));
+            }
+
+            @include it("Should return tokens for `$colors` option.") {
+                 @include assert-equal(magnesium.create-theme-vars((
+                     fill-color: primary
+                 ), button), (
+                     fill-color: var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
+                 ));
+             }
+
+            @include it("Should return tokens for `$shapes` option.") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    container-shape: filled
+                ), button), (
+                    container-shape: var(--mg-button-container-shape, var(--mg-theme-shape, 6px))
                 ));
             }
         }
