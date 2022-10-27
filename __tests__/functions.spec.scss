@@ -103,3 +103,13 @@
         }
     }
 }
+
+@include describe("shape") {
+    @include describe("functions") {
+        @include describe("get-shape()") {
+            @include it("Should return shape value.") {
+                @include assert-equal(magnesium.get-shape("filled"), 6px);
+            }
+        }
+    }
+}
