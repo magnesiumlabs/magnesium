@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.0](https://github.com/magnesiumlabs/magnesium/compare/v2.4.0...v2.5.0) (2022-10-27)
+
+
+### Features
+
+* **shape:** add `get-shape` function ([57e7b4c](https://github.com/magnesiumlabs/magnesium/commit/57e7b4ce2f34eed05fbab5c94ebe175badfc7b21))
+
 ## [2.4.0](https://github.com/magnesiumlabs/magnesium/compare/v2.3.1...v2.4.0) (2022-10-26)
 
 
