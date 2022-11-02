@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.0](https://github.com/magnesiumlabs/magnesium/compare/v2.5.0...v2.6.0) (2022-11-02)
+
+
+### Features
+
+* **color:** add functions ([aa3baae](https://github.com/magnesiumlabs/magnesium/commit/aa3baaeb5faefac55e00f64ba6dc663deb9c526a))
+* **radius:** add functions ([bd999d6](https://github.com/magnesiumlabs/magnesium/commit/bd999d69639875a7e712293e1b5e5be22ee6d959))
+
 ## [2.5.0](https://github.com/magnesiumlabs/magnesium/compare/v2.4.0...v2.5.0) (2022-10-27)
 
 
