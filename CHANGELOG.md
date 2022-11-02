@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/magnesiumlabs/magnesium/compare/v2.6.0...v2.6.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* **core:** add `color.scss` on root ([d45bf9d](https://github.com/magnesiumlabs/magnesium/commit/d45bf9dbf8c993fe4d8fcc2aee0d40808ad43d90))
+
 ## [2.6.0](https://github.com/magnesiumlabs/magnesium/compare/v2.5.0...v2.6.0) (2022-11-02)
 
 
