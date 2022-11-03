@@ -36,7 +36,7 @@
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: create-theme-var($light-theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
+///   $theme: create-theme-vars($light-theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
 ///
 ///   .foo {
 ///     color: map.get($theme, label-color);
