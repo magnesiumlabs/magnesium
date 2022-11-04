@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/magnesiumlabs/magnesium/compare/v2.6.1...v2.6.2) (2022-11-04)
+
+
+### Bug Fixes
+
+* **theme:** fallback on `create-theme` mixin ([7494f88](https://github.com/magnesiumlabs/magnesium/commit/7494f885397d726ad31647f65649b2ea2f181836))
+
 ## [2.6.1](https://github.com/magnesiumlabs/magnesium/compare/v2.6.0...v2.6.1) (2022-11-02)
 
 
