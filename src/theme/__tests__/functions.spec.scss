@@ -1,0 +1,38 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as magnesium;
+
+@include describe("theme") {
+    @include describe("functions") {
+        @include describe("create-theme-vars()") {
+            @include it("Should return tokens map with custom variables.") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color: darkcyan,
+                    label-size: 16px
+                ), button), (
+                    label-color: var(--mg-button-label-color, darkcyan),
+                    label-size: var(--mg-button-label-size, 16px)
+                ));
+            }
+
+            @include it("Should return tokens map with custom variables without fallback (map).") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color: null
+                ), button), (
+                    label-color: var(--mg-button-label-color)
+                ));
+            }
+
+            @include it("Should return tokens map with custom variables without fallback (list).") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color
+                ), button), (
+                    label-color: var(--mg-button-label-color)
+                ));
+            }
+        }
+    }
+}
