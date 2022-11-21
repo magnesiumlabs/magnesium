@@ -1,0 +1,31 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as magnesium with (
+    $prefix: "md",
+    $theme: (
+        "colors": (
+            "primary": darkcyan,
+            "secondary": darkorange
+        )
+    )
+);
+
+@include describe("core") {
+    @include describe("variables") {
+        @include it("Should return extended prefix option.") {
+            @include assert-equal(magnesium.$prefix, "md");
+        }
+
+        @include it("Should return extended theme options.") {
+            @include assert-equal(magnesium.$theme, (
+                "colors": (
+                    "primary": darkcyan,
+                    "secondary": darkorange
+                )
+            ));
+        }
+    }
+}

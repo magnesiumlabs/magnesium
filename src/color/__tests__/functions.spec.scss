@@ -1,0 +1,30 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../index" as magnesium with (
+    $theme: (
+        "colors": (
+            "primary": darkcyan,
+            "secondary": darkorange
+        )
+    )
+);
+@use "../index" as color;
+
+@include describe("color") {
+    @include describe("functions") {
+        @include describe("value()") {
+            @include it("Should return single color value.") {
+                @include assert-equal(color.value("primary"), darkcyan);
+            }
+        }
+
+        @include describe("create()") {
+            @include it("Should return CSS custom property.") {
+                @include assert-equal(color.create("primary"), var(--mg-color-primary, darkcyan));
+            }
+        }
+    }
+}

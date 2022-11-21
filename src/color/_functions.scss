@@ -1,0 +1,48 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@unsass/css/custom-properties";
+@use "../variables";
+
+$map: map.get(variables.$theme, "colors");
+
+// ------------------------------------------------------------------------- //
+// Private functions
+// ------------------------------------------------------------------------- //
+
+@function _exist($token) {
+    @if not map.has-key($map, $token) {
+        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of '#{map.keys(map.get($map, "colors"))}'.";
+    }
+
+    @return map.has-key($map, $token);
+}
+
+// ------------------------------------------------------------------------- //
+// Public functions
+// ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $color: value("primary"); -> `darkcyan`
+///
+@function value($token) {
+    @if _exist($token) {
+        @return map.get($map, $token);
+    }
+}
+
+///
+/// @example - scss
+///   $color: color("primary"); -> `var(--mg-color-primary, darkcyan)`
+///
+@function create($token) {
+    $name: #{variables.$prefix}-color-#{$token};
+    $value: value($token);
+
+    @if _exist($token) {
+        @return custom-properties.create-var(custom-properties.create($name, $value));
+    }
+}
