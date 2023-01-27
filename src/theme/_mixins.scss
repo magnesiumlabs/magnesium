@@ -1,0 +1,47 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "@unsass/string";
+
+// ------------------------------------------------------------------------- //
+// Private mixins
+// ------------------------------------------------------------------------- //
+
+// ...
+
+// ------------------------------------------------------------------------- //
+// Public mixins
+// ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $light-theme: (
+///     label-color: darkcyan
+///   );
+///
+///   $theme: theme.create-theme-vars($light-theme, "button");
+///
+///   .foo {
+///     @include theme.emit-theme-vars($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --md-button-label-color: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+///
+@mixin emit-theme-vars($theme) {
+    @each $key, $value in $theme {
+        $var: string.trim($value, "var(", ")");
+        $comma: string.index($var, ",");
+
+        @if $comma {
+            #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+        } @else {
+            #{$var}: $value;
+        }
+    }
+}
