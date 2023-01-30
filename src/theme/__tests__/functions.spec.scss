@@ -18,6 +18,16 @@
                 ));
             }
 
+            @include it("Should return a map with CSS variables without module name prefix.") {
+                @include assert-equal(theme.create-theme-vars((
+                    label-color: darkcyan,
+                    label-size: 16px
+                )), (
+                    label-color: var(--mg-label-color, darkcyan),
+                    label-size: var(--mg-label-size, 16px)
+                ));
+            }
+
             @include it("Should return a map with CSS variables without fallback (from map).") {
                 @include assert-equal(theme.create-theme-vars((
                     label-color: null,

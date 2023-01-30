@@ -5,6 +5,7 @@
 @use "sass:map";
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
+@use "@unsass/string";
 @use "../core/variables";
 @use "../core/functions";
 
@@ -35,14 +36,14 @@
 ///     color: var(--md-button-label-color, darkcyan);
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map.
-/// @param {String} $prefix - Component name to prepend for each token's custom property name.
+/// @param {Map} $theme - The theme tokens map. Mandatory.
+/// @param {String} $prefix - Component name to prepend for each token's custom property name. Default: `null`.
 ///
-@function create-theme-vars($theme, $prefix) {
+@function create-theme-vars($theme, $prefix: null) {
     $result: ();
 
     @each $key, $value in $theme {
-        $token: functions.create-name(#{$prefix}-#{$key});
+        $token: functions.create-name(string.combine($prefix, $key));
 
         @if type.is-map($theme) {
             $value: custom-properties.create-var(custom-properties.create($token, $value));
