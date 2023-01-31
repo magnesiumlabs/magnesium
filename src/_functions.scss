@@ -19,7 +19,8 @@
 // ------------------------------------------------------------------------- //
 
 ///
-/// Create name.
+/// @example - scss
+///   $name: magnesium.create-name("button"); -> "mg-button"
 ///
 @function create-name($name) {
     @if variables.$prefix {
@@ -28,7 +29,6 @@
 
     @return $name;
 }
-
 
 ///
 /// @example - scss
