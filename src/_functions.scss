@@ -22,6 +22,8 @@
 /// @example - scss
 ///   $name: magnesium.create-name("button"); -> "mg-button"
 ///
+/// @param {Map} $name - The string name. Mandatory.
+///
 @function create-name($name) {
     @if variables.$prefix {
         $name: #{variables.$prefix}-#{$name};
