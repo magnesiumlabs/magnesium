@@ -6,8 +6,7 @@
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
 @use "@unsass/string";
-@use "../core/variables";
-@use "../core/functions";
+@use "./variables";
 
 // ------------------------------------------------------------------------- //
 // Private functions
@@ -18,6 +17,18 @@
 // ------------------------------------------------------------------------- //
 // Public functions
 // ------------------------------------------------------------------------- //
+
+///
+/// Create name.
+///
+@function create-name($name) {
+    @if variables.$prefix {
+        $name: #{variables.$prefix}-#{$name};
+    }
+
+    @return $name;
+}
+
 
 ///
 /// @example - scss
@@ -43,7 +54,7 @@
     $result: ();
 
     @each $key, $value in $theme {
-        $token: functions.create-name(string.combine($prefix, $key));
+        $token: create-name(string.combine($prefix, $key));
 
         @if type.is-map($theme) {
             $value: custom-properties.create-var(custom-properties.create($token, $value));

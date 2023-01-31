@@ -2,7 +2,6 @@
 //                                             INDEX                                             //
 // ============================================================================================= //
 
-///
-/// Core.
-///
-@forward "./src/core/variables";
+@forward "./src/variables";
+@forward "./src/functions";
+@forward "./src/mixins";

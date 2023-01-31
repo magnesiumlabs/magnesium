@@ -20,10 +20,10 @@
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: theme.create-theme-vars($light-theme, "button");
+///   $theme: magnesium.create-theme-vars($light-theme, "button");
 ///
 ///   .foo {
-///     @include theme.emit-theme-vars($theme);
+///     @include magnesium.theme($theme);
 ///   }
 ///
 /// @example - css
@@ -33,7 +33,7 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 ///
-@mixin emit-theme-vars($theme) {
+@mixin theme($theme) {
     @each $key, $value in $theme {
         $var: string.trim($value, "var(", ")");
         $comma: string.index($var, ",");
