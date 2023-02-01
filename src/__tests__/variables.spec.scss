@@ -11,19 +11,21 @@
     )
 );
 
-@include describe("variables") {
-    @include describe("prefix") {
-        @include it("Should return extended prefix option.") {
-            @include assert-equal(magnesium.$prefix, "md");
+@include describe("core") {
+    @include describe("variables") {
+        @include describe("prefix") {
+            @include it("Should return extended prefix option.") {
+                @include assert-equal(magnesium.$prefix, "md");
+            }
         }
-    }
 
-    @include describe("colors") {
-        @include it("Should return extended colors options.") {
-            @include assert-equal(magnesium.$colors, (
-                "primary": darkcyan,
-                "secondary": darkorange
-            ));
+        @include describe("colors") {
+            @include it("Should return extended colors options.") {
+                @include assert-equal(magnesium.$colors, (
+                    "primary": darkcyan,
+                    "secondary": darkorange
+                ));
+            }
         }
     }
 }

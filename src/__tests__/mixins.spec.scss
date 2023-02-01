@@ -5,83 +5,85 @@
 @use "true" as *;
 @use "../index" as magnesium;
 
-@include describe("mixins") {
-    @include describe("theme()") {
-        @include it("Should return CSS custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    $theme: magnesium.create-theme-vars((
-                        label-color: darkcyan
-                    ), "button");
+@include describe("core") {
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return CSS custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: magnesium.create-theme-vars((
+                            label-color: darkcyan
+                        ), "button");
 
-                    .test {
-                        @include magnesium.theme($theme);
+                        .test {
+                            @include magnesium.theme($theme);
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --mg-button-label-color: darkcyan;
-                    }
-                }
-            }
-        }
-
-        @include it("Should return CSS custom properties declarations without module name prefix.") {
-            @include assert {
-                @include output(false) {
-                    $theme: magnesium.create-theme-vars((
-                        label-color: darkcyan
-                    ));
-
-                    .test {
-                        @include magnesium.theme($theme);
-                    }
-                }
-
-                @include expect(false) {
-                    .test {
-                        --mg-label-color: darkcyan;
+                    @include expect(false) {
+                        .test {
+                            --mg-button-label-color: darkcyan;
+                        }
                     }
                 }
             }
-        }
 
-        @include it("Should return CSS custom properties declarations without fallback (from map).") {
-            @include assert {
-                @include output(false) {
-                    $theme: magnesium.create-theme-vars((
-                        label-color: null
-                    ), "button");
+            @include it("Should return CSS custom properties declarations without module name prefix.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: magnesium.create-theme-vars((
+                            label-color: darkcyan
+                        ));
 
-                    .test {
-                        @include magnesium.theme($theme);
+                        .test {
+                            @include magnesium.theme($theme);
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --mg-button-label-color: var(--mg-button-label-color);
+                    @include expect(false) {
+                        .test {
+                            --mg-label-color: darkcyan;
+                        }
                     }
                 }
             }
-        }
 
-        @include it("Should return CSS custom properties declarations without fallback (from list).") {
-            @include assert {
-                @include output(false) {
-                    $theme: magnesium.create-theme-vars((
-                        label-color
-                    ), "button");
+            @include it("Should return CSS custom properties declarations without fallback (from map).") {
+                @include assert {
+                    @include output(false) {
+                        $theme: magnesium.create-theme-vars((
+                            label-color: null
+                        ), "button");
 
-                    .test {
-                        @include magnesium.theme($theme);
+                        .test {
+                            @include magnesium.theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-label-color: var(--mg-button-label-color);
+                        }
                     }
                 }
+            }
 
-                @include expect(false) {
-                    .test {
-                        --mg-button-label-color: var(--mg-button-label-color);
+            @include it("Should return CSS custom properties declarations without fallback (from list).") {
+                @include assert {
+                    @include output(false) {
+                        $theme: magnesium.create-theme-vars((
+                            label-color
+                        ), "button");
+
+                        .test {
+                            @include magnesium.theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-label-color: var(--mg-button-label-color);
+                        }
                     }
                 }
             }
