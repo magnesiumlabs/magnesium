@@ -16,11 +16,11 @@
 
 ///
 /// @example - scss
-///   $light-theme: (
+///   $theme: (
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: magnesium.create-theme-vars($light-theme, "button");
+///   $theme: magnesium.create-theme-vars($theme, "button");
 ///
 ///   .foo {
 ///     @include magnesium.theme($theme);

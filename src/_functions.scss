@@ -36,11 +36,11 @@
 
 ///
 /// @example - scss
-///   $light-theme: (
+///   $theme: (
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: theme.create-theme-vars($light-theme, "button");
+///   $theme: theme.create-theme-vars($theme, "button");
 ///
 ///   .foo {
 ///     color: map.get($theme, label-color);
