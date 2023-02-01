@@ -24,6 +24,8 @@
 ///
 /// @param {Map} $name - The string name. Mandatory.
 ///
+/// @return {String}
+///
 @function create-name($name) {
     @if variables.$prefix {
         $name: #{variables.$prefix}-#{$name};
@@ -51,6 +53,8 @@
 ///
 /// @param {Map} $theme - The theme tokens map. Mandatory.
 /// @param {String} $prefix - Component name to prepend for each token's custom property name. Default: `null`.
+///
+/// @return {Map}
 ///
 @function create-theme-vars($theme, $prefix: null) {
     $result: ();

@@ -33,6 +33,8 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 ///
+/// @return {Map}
+///
 @mixin theme($theme) {
     @each $key, $value in $theme {
         $var: string.trim($value, "var(", ")");
