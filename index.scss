@@ -3,11 +3,5 @@
 // ============================================================================================= //
 
 @forward "./src/variables";
+@forward "./src/mixins";
 @forward "./src/functions";
-
-// ...
-
-@forward "./src/state";
-@forward "./src/shape";
-@forward "./src/theme";
-@forward "./src/typography";

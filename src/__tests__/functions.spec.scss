@@ -1,0 +1,58 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as magnesium;
+
+@include describe("core") {
+    @include describe("functions") {
+        @include describe("create-name()") {
+            @include it("Should return name with prefix.") {
+                @include assert-equal(magnesium.create-name("button"), "mg-button");
+            }
+        }
+
+        @include describe("create-theme-vars()") {
+            @include it("Should return a map with CSS variables.") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color: darkcyan,
+                    label-size: 16px
+                ), "button"), (
+                    label-color: var(--mg-button-label-color, darkcyan),
+                    label-size: var(--mg-button-label-size, 16px)
+                ));
+            }
+
+            @include it("Should return a map with CSS variables without module name prefix.") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color: darkcyan,
+                    label-size: 16px
+                )), (
+                    label-color: var(--mg-label-color, darkcyan),
+                    label-size: var(--mg-label-size, 16px)
+                ));
+            }
+
+            @include it("Should return a map with CSS variables without fallback (from map).") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color: null,
+                    label-size: null
+                ), "button"), (
+                    label-color: var(--mg-button-label-color),
+                    label-size: var(--mg-button-label-size)
+                ));
+            }
+
+            @include it("Should return a map with CSS variables without fallback (from list).") {
+                @include assert-equal(magnesium.create-theme-vars((
+                    label-color,
+                    label-size
+                ), "button"), (
+                    label-color: var(--mg-button-label-color),
+                    label-size: var(--mg-button-label-size)
+                ));
+            }
+        }
+    }
+}

@@ -2,40 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "sass:map";
-@use "@unsass/selector";
 @use "@unsass/string";
-@use "../variables" as core-variables;
-@use "../functions" as core-functions;
-@use "./functions";
-
-@mixin core-styles {
-    $theme: functions.create-theme-vars(core-variables.$colors, theme);
-
-    // --------------------------------- //
-    // Main classes
-    // --------------------------------- //
-
-    @each $key, $value in $theme {
-        $selector: core-functions.create-name(theme--#{$key});
-
-        @include selector.create(#{$selector}) {
-            color: map.get($theme, $key);
-        }
-    }
-
-    // --------------------------------- //
-    // Background classes
-    // --------------------------------- //
-
-    @each $key, $value in $theme {
-        $selector: core-functions.create-name(theme--#{$key}-bg);
-
-        @include selector.create(#{$selector}) {
-            background-color: map.get($theme, $key);
-        }
-    }
-}
 
 // ------------------------------------------------------------------------- //
 // Private mixins
@@ -49,14 +16,14 @@
 
 ///
 /// @example - scss
-///   $light-theme: (
+///   $theme: (
 ///     label-color: darkcyan
 ///   );
 ///
-///   $theme: create-theme-vars($light-theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
+///   $theme: magnesium.create-theme-vars($theme, "button");
 ///
 ///   .foo {
-///     @include create-theme($theme);
+///     @include magnesium.theme($theme);
 ///   }
 ///
 /// @example - css
@@ -66,7 +33,9 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 ///
-@mixin create-theme($theme) {
+/// @return {Map}
+///
+@mixin theme($theme) {
     @each $key, $value in $theme {
         $var: string.trim($value, "var(", ")");
         $comma: string.index($var, ",");
