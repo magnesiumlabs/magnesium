@@ -45,7 +45,7 @@
 ///   $theme: theme.create-theme-vars($theme, "button");
 ///
 ///   $theme: (
-///     label-text-color: var(--md-button-label-color, darkcyan)
+///     label-text-color: var(--md-button-label-text-color, darkcyan)
 ///   );
 ///
 /// @param {Map} $theme - The theme tokens map.
