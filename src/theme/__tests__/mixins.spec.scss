@@ -3,50 +3,27 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium;
+@use "../index" as theme;
 
-@include describe("theme") {
-    @include describe("mixins") {
-        @include describe("create-theme()") {
-            @include it("Should return custom theme declarations.") {
-                @include assert {
-                    @include output(false) {
-                        $theme: magnesium.create-theme-vars((
-                            label-color: darkcyan
-                        ), "button");
-
-                        .test {
-                            @include magnesium.create-theme($theme);
-                        }
-                    }
-
-                    @include expect(false) {
-                        .test {
-                            --mg-button-label-color: darkcyan;
-                        }
-                    }
-                }
-            }
-
-            @include it("Should return custom theme declarations with variable.") {
-                @include assert {
-                    @include output(false) {
-                        $theme: magnesium.create-theme-vars((
-                            label-color
-                        ), "button");
-
-                        .test {
-                            @include magnesium.create-theme($theme);
-                        }
-                    }
-
-                    @include expect(false) {
-                        .test {
-                            --mg-button-label-color: var(--mg-button-label-color);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//@include describe("core") {
+//    @include describe("mixins") {
+//        @include describe("theme()") {
+//            @include it("Should return CSS custom properties declarations.") {
+//                @include assert {
+//                    @include output(false) {
+//                        .test {
+//                            --mg-button-label-color: darkcyan;
+//                        }
+//                    }
+//
+//                    @include expect(false) {
+//                        .test {
+//                            --mg-button-label-color: darkcyan;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+//

@@ -3,36 +3,23 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium;
+@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("functions") {
-        @include describe("create-theme-vars()") {
-            @include it("Should return tokens map with custom variables.") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    label-color: darkcyan,
-                    label-size: 16px
-                ), button), (
-                    label-color: var(--mg-button-label-color, darkcyan),
-                    label-size: var(--mg-button-label-size, 16px)
-                ));
-            }
+        @include describe("validate-tokens()") {
+            @include it("Should validates theme tokens.") {
+                $tokens: (
+                    "label-color": darkcyan
+                );
 
-            @include it("Should return tokens map with custom variables without fallback (map).") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    label-color: null
-                ), button), (
-                    label-color: var(--mg-button-label-color)
-                ));
-            }
+                $theme: (
+                    "label-color": darkorange
+                );
 
-            @include it("Should return tokens map with custom variables without fallback (list).") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    label-color
-                ), button), (
-                    label-color: var(--mg-button-label-color)
-                ));
+                @include assert-equal(theme.validate-tokens($tokens, $theme), $theme);
             }
         }
     }
 }
+
