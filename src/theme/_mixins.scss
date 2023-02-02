@@ -2,6 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "sass:list";
 @use "@unsass/string";
 
 ///
@@ -35,5 +36,49 @@
         } @else {
             #{$var}: $value;
         }
+    }
+}
+
+///
+/// @example - scss
+///   @include theme.prefers-color-scheme("light") {
+///     :root {
+///       --mg-button-label-text-color: darkcyan;
+///     }
+///   }
+///
+/// @example - css
+///   @media (prefers-color-scheme: light) {
+///     :root {
+///       --mg-button-label-text-color: darkcyan;
+///     }
+///   }
+///
+/// @example - scss
+///   @include theme.prefers-color-scheme("dark") {
+///     :root {
+///       --mg-button-label-text-color: darkorange;
+///     }
+///   }
+///
+/// @example - css
+///   @media (prefers-color-scheme: dark) {
+///     :root {
+///       --mg-button-label-text-color: darkorange;
+///     }
+///   }
+///
+@mixin prefers-color-scheme($scheme) {
+    $theme: (
+        light,
+        dark
+    );
+
+    @if list.index($theme, $scheme) == null {
+        @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{$theme}.";
+    }
+
+    @media (prefers-color-scheme: $scheme) {
+        @content;
     }
 }

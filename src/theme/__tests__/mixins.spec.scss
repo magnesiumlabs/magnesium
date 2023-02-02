@@ -29,6 +29,48 @@
                 }
             }
         }
+
+        @include describe("prefers-color-scheme()") {
+            @include it("Should return the CSS declarations for light color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("light") {
+                                --mg-button-label-text-color: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            .test {
+                                --mg-button-label-text-color: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the CSS declarations for dark color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("dark") {
+                                --mg-button-label-text-color: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --mg-button-label-text-color: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
