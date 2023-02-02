@@ -1,5 +1,5 @@
 $tokens: (
     "label-text-color": darkcyan,
     "label-text-size": 16px,
-    "label-text-line-height": null
+    "label-text-line-height": var(--mg-typography-text-line-height, normal)
 );

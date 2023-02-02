@@ -3,27 +3,32 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "../../../__tests__/tokens";
 @use "../index" as theme;
 
-//@include describe("core") {
-//    @include describe("mixins") {
-//        @include describe("theme()") {
-//            @include it("Should return CSS custom properties declarations.") {
-//                @include assert {
-//                    @include output(false) {
-//                        .test {
-//                            --mg-button-label-color: darkcyan;
-//                        }
-//                    }
-//
-//                    @include expect(false) {
-//                        .test {
-//                            --mg-button-label-color: darkcyan;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-//
+@include describe("theme") {
+    @include describe("mixins") {
+        @include describe("emit-them-vars()") {
+            @include it("Should return the theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            $theme: theme.create-theme-vars(tokens.$tokens, "button");
+
+                            @include theme.emit-theme-vars($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-label-text-color: darkcyan;
+                            --mg-button-label-text-size: 16px;
+                            --mg-button-label-text-line-height: var(--mg-typography-text-line-height, normal);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

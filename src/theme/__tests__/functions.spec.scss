@@ -24,15 +24,15 @@
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
                     "label-text-color": var(--mg-button-label-text-color, darkcyan),
                     "label-text-size": var(--mg-button-label-text-size, 16px),
-                    "label-text-line-height": var(--mg-button-label-text-line-height)
+                    "label-text-line-height": var(--mg-button-label-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
 
-            @include it("Should return a map with custom properties without component name prefix.") {
+            @include it("Should return a map of tokens with custom properties without component name prefix.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
                     "label-text-color": var(--mg-label-text-color, darkcyan),
                     "label-text-size": var(--mg-label-text-size, 16px),
-                    "label-text-line-height": var(--mg-label-text-line-height)
+                    "label-text-line-height": var(--mg-label-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
         }

@@ -1,3 +1,39 @@
 // ============================================================================================= //
 //                                            MIXINS                                             //
 // ============================================================================================= //
+
+@use "@unsass/string";
+
+///
+/// Emits CSS custom properties declaration from theme map transformed by `create-theme-vars()` function.
+///
+/// @example - scss
+///   $theme: (
+///     label-text-color: darkcyan
+///   );
+///
+///   $theme: theme.create-theme-vars($theme, "button");
+///
+///   .foo {
+///     @include theme.emit-theme-vars($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --md-button-label-text-color: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme's tokens map.
+///
+@mixin emit-theme-vars($theme) {
+    @each $key, $value in $theme {
+        $var: string.trim($value, "var(", ")");
+        $comma: string.index($var, ",");
+
+        @if $comma {
+            #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+        } @else {
+            #{$var}: $value;
+        }
+    }
+}
