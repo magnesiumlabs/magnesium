@@ -9,13 +9,31 @@
 @include describe("theme") {
     @include describe("functions") {
         @include describe("validate-tokens()") {
-            @include it("Should validates theme tokens.") {
+            @include it("Should return validates theme tokens.") {
                 $theme: (
                     "label-text-color": darkorange,
                     "label-text-size": 20px
                 );
 
                 @include assert-equal(theme.validate-tokens(tokens.$tokens, $theme), $theme);
+            }
+        }
+
+        @include describe("create-theme-vars()") {
+            @include it("Should return a map of tokens with custom properties.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
+                    "label-text-color": var(--mg-button-label-text-color, darkcyan),
+                    "label-text-size": var(--mg-button-label-text-size, 16px),
+                    "label-text-line-height": var(--mg-button-label-text-line-height)
+                ));
+            }
+
+            @include it("Should return a map with custom properties without component name prefix.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
+                    "label-text-color": var(--mg-label-text-color, darkcyan),
+                    "label-text-size": var(--mg-label-text-size, 16px),
+                    "label-text-line-height": var(--mg-label-text-line-height)
+                ));
             }
         }
     }
