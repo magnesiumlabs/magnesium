@@ -24,6 +24,7 @@
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
                     "label-text-color": var(--mg-button-label-text-color, darkcyan),
                     "label-text-size": var(--mg-button-label-text-size, 16px),
+                    "label-text-font-family": var(--mg-button-label-text-font-family, "Roboto"),
                     "label-text-line-height": var(--mg-button-label-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
@@ -32,6 +33,7 @@
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
                     "label-text-color": var(--mg-label-text-color, darkcyan),
                     "label-text-size": var(--mg-label-text-size, 16px),
+                    "label-text-font-family": var(--mg-label-text-font-family, "Roboto"),
                     "label-text-line-height": var(--mg-label-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
