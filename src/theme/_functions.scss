@@ -35,6 +35,18 @@
 }
 
 ///
+/// Get token value from theme map.
+///
+/// @param {Map} $token - A token name.
+/// @param {Map} $map - A map of theme's tokens.
+///
+/// @return {String} The token value.
+///
+@function get-token($token, $map) {
+    @return map.get($map, $token);
+}
+
+///
 /// Transforms a theme's tokens value into a `var()` custom properties.
 ///
 /// @example - scss
