@@ -21,10 +21,10 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-button-label-text-color: darkcyan;
-                            --mg-button-label-text-size: 16px;
-                            --mg-button-label-text-font-family: "Roboto";
-                            --mg-button-label-text-line-height: var(--mg-typography-text-line-height, normal);
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                            --mg-button-text-font-family: "Roboto";
+                            --mg-button-text-line-height: var(--mg-typography-text-line-height, normal);
                         }
                     }
                 }
@@ -37,7 +37,7 @@
                     @include output(false) {
                         .test {
                             @include theme.prefers-color-scheme("light") {
-                                --mg-button-label-text-color: darkcyan;
+                                --mg-button-text-color: darkcyan;
                             }
                         }
                     }
@@ -45,7 +45,7 @@
                     @include expect(false) {
                         @media (prefers-color-scheme: light) {
                             .test {
-                                --mg-button-label-text-color: darkcyan;
+                                --mg-button-text-color: darkcyan;
                             }
                         }
                     }
@@ -57,7 +57,7 @@
                     @include output(false) {
                         .test {
                             @include theme.prefers-color-scheme("dark") {
-                                --mg-button-label-text-color: darkorange;
+                                --mg-button-text-color: darkorange;
                             }
                         }
                     }
@@ -65,7 +65,7 @@
                     @include expect(false) {
                         @media (prefers-color-scheme: dark) {
                             .test {
-                                --mg-button-label-text-color: darkorange;
+                                --mg-button-text-color: darkorange;
                             }
                         }
                     }

@@ -11,8 +11,8 @@
         @include describe("validate-tokens()") {
             @include it("Should return validates theme tokens.") {
                 $theme: (
-                    "label-text-color": darkorange,
-                    "label-text-size": 20px
+                    "text-color": darkorange,
+                    "text-size": 20px
                 );
 
                 @include assert-equal(theme.validate-tokens(tokens.$tokens, $theme), $theme);
@@ -21,26 +21,26 @@
 
         @include describe("get-token()") {
             @include it("Should return value from selected theme token.") {
-                @include assert-equal(theme.get-token("label-text-color", tokens.$tokens), darkcyan);
+                @include assert-equal(theme.get-token("text-color", tokens.$tokens), darkcyan);
             }
         }
 
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
-                    "label-text-color": var(--mg-button-label-text-color, darkcyan),
-                    "label-text-size": var(--mg-button-label-text-size, 16px),
-                    "label-text-font-family": var(--mg-button-label-text-font-family, "Roboto"),
-                    "label-text-line-height": var(--mg-button-label-text-line-height, var(--mg-typography-text-line-height, normal))
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": var(--mg-button-text-size, 16px),
+                    "text-font-family": var(--mg-button-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-button-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
 
             @include it("Should return a map of tokens with custom properties without component name prefix.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
-                    "label-text-color": var(--mg-label-text-color, darkcyan),
-                    "label-text-size": var(--mg-label-text-size, 16px),
-                    "label-text-font-family": var(--mg-label-text-font-family, "Roboto"),
-                    "label-text-line-height": var(--mg-label-text-line-height, var(--mg-typography-text-line-height, normal))
+                    "text-color": var(--mg-text-color, darkcyan),
+                    "text-size": var(--mg-text-size, 16px),
+                    "text-font-family": var(--mg-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
         }
