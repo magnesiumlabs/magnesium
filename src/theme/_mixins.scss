@@ -10,7 +10,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     label-text-color: darkcyan
+///     "text-color": darkcyan
 ///   );
 ///
 ///   $theme: theme.create-theme-vars($theme, "button");
@@ -21,7 +21,7 @@
 ///
 /// @example - css
 ///   .foo {
-///     --md-button-label-text-color: darkcyan;
+///     --mg-button-text-color: darkcyan;
 ///   }
 ///
 /// @param {Map} $theme - The theme's tokens map.
@@ -43,28 +43,28 @@
 /// @example - scss
 ///   @include theme.prefers-color-scheme("light") {
 ///     :root {
-///       --mg-button-label-text-color: darkcyan;
+///       --mg-button-text-color: darkcyan;
 ///     }
 ///   }
 ///
 /// @example - css
 ///   @media (prefers-color-scheme: light) {
 ///     :root {
-///       --mg-button-label-text-color: darkcyan;
+///       --mg-button-text-color: darkcyan;
 ///     }
 ///   }
 ///
 /// @example - scss
 ///   @include theme.prefers-color-scheme("dark") {
 ///     :root {
-///       --mg-button-label-text-color: darkorange;
+///       --mg-button-text-color: darkorange;
 ///     }
 ///   }
 ///
 /// @example - css
 ///   @media (prefers-color-scheme: dark) {
 ///     :root {
-///       --mg-button-label-text-color: darkorange;
+///       --mg-button-text-color: darkorange;
 ///     }
 ///   }
 ///

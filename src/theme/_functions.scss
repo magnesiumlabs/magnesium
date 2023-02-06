@@ -51,13 +51,13 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     label-text-color: darkcyan
+///     "text-color": darkcyan
 ///   );
 ///
 ///   $theme: theme.create-theme-vars($theme, "button");
 ///
 ///   $theme: (
-///     label-text-color: var(--md-button-label-text-color, darkcyan)
+///     "text-color": var(--md-button-text-color, darkcyan)
 ///   );
 ///
 /// @param {Map} $theme - The theme tokens map.
