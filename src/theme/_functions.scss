@@ -80,3 +80,36 @@
 
     @return $theme;
 }
+
+///
+/// @example - scss
+///   $theme: (
+///     "text-color": darkcyan
+///   );
+///
+///   .foo {
+///     color: theme.create-var($theme, "text-color");
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--mg-text-color, darkcyan);
+///   }
+///
+/// @param {Map} $theme - The token's theme map.
+/// @param {String} $token - The token name.
+/// @param {Boolean} $fallback [true] - Choose if return default custom property fallback.
+/// @param {String} $prefix [null] - Add prefix name on custom property `var()`.
+///
+/// @return {String} The generated custom property.
+///
+@function create-var($theme, $token, $fallback: true, $prefix: null) {
+    $value: map.get($theme, $token);
+    $token: string.combine(variables.$prefix, $prefix, $token);
+
+    @if not $fallback {
+        @return custom-properties.create-var(custom-properties.create($token));
+    }
+
+    @return custom-properties.create-var(custom-properties.create($token, $value));
+}

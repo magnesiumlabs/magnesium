@@ -25,6 +25,20 @@
             }
         }
 
+        @include describe("create-var()") {
+            @include it("Should return custom property from selected theme token.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color"), var(--mg-text-color, darkcyan));
+            }
+
+            @include it("Should return custom property from selected theme token without fallback.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color", false), var(--mg-text-color));
+            }
+
+            @include it("Should return custom property from selected theme token with component name prefix.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color", $prefix: "button"), var(--mg-button-text-color, darkcyan));
+            }
+        }
+
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
