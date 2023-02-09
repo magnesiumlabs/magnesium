@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../__tests__/tokens";
+@use "../../__tests__/tokens";
 @use "../index" as theme;
 
 @include describe("theme") {
