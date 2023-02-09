@@ -56,9 +56,8 @@
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
     },
     "files": [
-        ".github/banner.svg",
-        "src/**/*",
         "*.scss",
+        ".github/banner.svg",
         "CHANGELOG.md"
     ],
     "publishConfig": {
