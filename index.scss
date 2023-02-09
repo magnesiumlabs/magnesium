@@ -3,3 +3,5 @@
 // ============================================================================================= //
 
 @forward "./core/variables";
+@forward "./color" as color-*;
+@forward "./theme" as theme-*;

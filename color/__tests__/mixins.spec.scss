@@ -1,0 +1,35 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../__tests__/tokens";
+@use "../../index" as magnesium with (
+    $colors: tokens.$colors
+);
+@use "../index" as color;
+
+@include describe("color") {
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return the color custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.theme((
+                                "primary": darkcyan
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
