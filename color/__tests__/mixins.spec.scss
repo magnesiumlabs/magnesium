@@ -30,6 +30,40 @@
                 }
             }
         }
+
+        @include describe("declaration()") {
+            @include it("Should return the color declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.declaration("color", "primary");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            color: var(--mg-color-primary, darkcyan);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the color declaration without fallback.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.declaration("color", "primary", false);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            color: var(--mg-color-primary);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
