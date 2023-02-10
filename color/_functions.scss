@@ -1,0 +1,15 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../core/variables";
+
+///
+/// Return color tokens name list.
+///
+/// @return {List} The token name list.
+///
+@function tokens() {
+    @return map.keys(variables.$colors);
+}
