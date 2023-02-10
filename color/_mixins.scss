@@ -5,6 +5,7 @@
 @use "@unsass/css";
 @use "../core/variables";
 @use "../theme";
+@use "./functions";
 
 $_custom-property-prefix: "color";
 
@@ -22,7 +23,7 @@ $_custom-property-prefix: "color";
 /// Declaration.
 ///
 @mixin declaration($property, $token, $fallback: true) {
-    $value: theme.create-var(variables.$colors, $token, $fallback, $_custom-property-prefix);
+    $value: functions.variable($token, $fallback);
 
     @include css.declaration($property, $value);
 }

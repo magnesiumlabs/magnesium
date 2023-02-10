@@ -25,6 +25,12 @@
                 @include assert-equal(color.value("primary"), darkcyan);
             }
         }
+
+        @include describe("variable()") {
+            @include it("Should return color token custom property.") {
+                @include assert-equal(color.variable("primary"), var(--mg-color-primary, darkcyan));
+            }
+        }
     }
 }
 

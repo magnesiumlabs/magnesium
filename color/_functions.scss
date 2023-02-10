@@ -4,6 +4,9 @@
 
 @use "sass:map";
 @use "../core/variables";
+@use "../theme";
+
+$_custom-property-prefix: "color";
 
 ///
 /// Return color tokens name list.
@@ -21,4 +24,13 @@
 ///
 @function value($token) {
     @return map.get(variables.$colors, $token);
+}
+
+///
+/// Return color token custom property.
+///
+/// @return {String} The token value.
+///
+@function variable($token, $fallback: true) {
+    @return theme.create-var(variables.$colors, $token, $fallback, $_custom-property-prefix);
 }
