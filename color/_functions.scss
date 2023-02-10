@@ -8,8 +8,17 @@
 ///
 /// Return color tokens name list.
 ///
-/// @return {List} The token name list.
+/// @return {List} The token list.
 ///
 @function tokens() {
     @return map.keys(variables.$colors);
+}
+
+///
+/// Return color token value.
+///
+/// @return {String} The token value.
+///
+@function value($token) {
+    @return map.get(variables.$colors, $token);
 }
