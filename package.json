@@ -59,6 +59,7 @@
         "*.scss",
         ".github/banner.svg",
         "CHANGELOG.md",
+        "color",
         "core",
         "theme",
         "!**/__tests__"
