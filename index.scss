@@ -3,5 +3,9 @@
 // ============================================================================================= //
 
 @forward "./core/variables";
+
+///
+/// Components.
+///
 @forward "./color" as color-*;
 @forward "./theme" as theme-*;
