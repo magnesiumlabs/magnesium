@@ -1,0 +1,77 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../__tests__/tokens";
+@use "../index" as theme;
+
+@include describe("theme") {
+    @include describe("mixins") {
+        @include describe("emit-them-vars()") {
+            @include it("Should return the theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            $theme: theme.create-theme-vars(tokens.$tokens, "button");
+
+                            @include theme.emit-theme-vars($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                            --mg-button-text-font-family: "Roboto";
+                            --mg-button-text-line-height: var(--mg-typography-text-line-height, normal);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("prefers-color-scheme()") {
+            @include it("Should return the CSS declarations for light color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("light") {
+                                --mg-button-text-color: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            .test {
+                                --mg-button-text-color: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the CSS declarations for dark color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("dark") {
+                                --mg-button-text-color: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --mg-button-text-color: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

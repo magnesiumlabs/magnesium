@@ -1,0 +1,84 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:list";
+@use "@unsass/string";
+
+///
+/// Emits CSS custom properties declaration from theme map transformed by `create-theme-vars()` function.
+///
+/// @example - scss
+///   $theme: (
+///     "text-color": darkcyan
+///   );
+///
+///   $theme: theme.create-theme-vars($theme, "button");
+///
+///   .foo {
+///     @include theme.emit-theme-vars($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-button-text-color: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme's tokens map.
+///
+@mixin emit-theme-vars($theme) {
+    @each $key, $value in $theme {
+        $var: string.trim($value, "var(", ")");
+        $comma: string.index($var, ",");
+
+        @if $comma {
+            #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+        } @else {
+            #{$var}: $value;
+        }
+    }
+}
+
+///
+/// @example - scss
+///   @include theme.prefers-color-scheme("light") {
+///     :root {
+///       --mg-button-text-color: darkcyan;
+///     }
+///   }
+///
+/// @example - css
+///   @media (prefers-color-scheme: light) {
+///     :root {
+///       --mg-button-text-color: darkcyan;
+///     }
+///   }
+///
+/// @example - scss
+///   @include theme.prefers-color-scheme("dark") {
+///     :root {
+///       --mg-button-text-color: darkorange;
+///     }
+///   }
+///
+/// @example - css
+///   @media (prefers-color-scheme: dark) {
+///     :root {
+///       --mg-button-text-color: darkorange;
+///     }
+///   }
+///
+@mixin prefers-color-scheme($scheme) {
+    $theme: (
+        light,
+        dark
+    );
+
+    @if list.index($theme, $scheme) == null {
+        @error "Invalid color scheme, #{$scheme} doesn't exist. Choose one of #{$theme}.";
+    }
+
+    @media (prefers-color-scheme: $scheme) {
+        @content;
+    }
+}

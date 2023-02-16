@@ -11,7 +11,7 @@
     },
     "engines": {
         "node": ">=16.0.0",
-        "npm": ">=9.0.0"
+        "npm": ">=8.0.0"
     },
     "sass": "index.scss",
     "devDependencies": {
@@ -56,10 +56,13 @@
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
     },
     "files": [
-        ".github/banner.svg",
-        "src/**/*",
         "*.scss",
-        "CHANGELOG.md"
+        ".github/banner.svg",
+        "CHANGELOG.md",
+        "color",
+        "core",
+        "theme",
+        "!**/__tests__"
     ],
     "publishConfig": {
         "access": "public"

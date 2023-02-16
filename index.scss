@@ -2,12 +2,10 @@
 //                                             INDEX                                             //
 // ============================================================================================= //
 
-@forward "./src/variables";
-@forward "./src/functions";
+@forward "./core/variables";
 
-// ...
-
-@forward "./src/state";
-@forward "./src/shape";
-@forward "./src/theme";
-@forward "./src/typography";
+///
+/// Components.
+///
+@forward "./color" as color-*;
+@forward "./theme" as theme-*;

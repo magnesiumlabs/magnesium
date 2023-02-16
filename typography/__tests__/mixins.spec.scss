@@ -1,0 +1,64 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../__tests__/tokens";
+@use "../index" as typography with (
+    $headlines: (
+        "headline-1": (
+            "font-size": 16px
+        )
+    )
+);
+
+@include describe("typography") {
+    @include describe("mixins") {
+        @include describe("headline()") {
+            @include it("Should return the typography custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.headline("headline-1");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            line-height: var(--mg-typography-line-height);
+                            font-family: var(--mg-typography-font-family);
+                            font-size: var(--mg-typography-font-size);
+                            font-weight: var(--mg-typography-font-weight);
+                            letter-spacing: var(--mg-typography-letter-spacing);
+                            text-decoration: var(--mg-typography-text-decoration);
+                            text-transform: var(--mg-typography-text-transform);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the typography custom properties declarations with fallback.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.headline("headline-1", true);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            line-height: var(--mg-typography-line-height);
+                            font-family: var(--mg-typography-font-family);
+                            font-size: var(--mg-typography-font-size, 16px);
+                            font-weight: var(--mg-typography-font-weight);
+                            letter-spacing: var(--mg-typography-letter-spacing);
+                            text-decoration: var(--mg-typography-text-decoration);
+                            text-transform: var(--mg-typography-text-transform);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,63 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../__tests__/tokens";
+@use "../index" as theme;
+
+@include describe("theme") {
+    @include describe("functions") {
+        @include describe("validate-tokens()") {
+            @include it("Should return validates theme tokens.") {
+                $theme: (
+                    "text-color": darkorange,
+                    "text-size": 20px
+                );
+
+                @include assert-equal(theme.validate-tokens(tokens.$tokens, $theme), $theme);
+            }
+        }
+
+        @include describe("get-token()") {
+            @include it("Should return value from selected theme token.") {
+                @include assert-equal(theme.get-token("text-color", tokens.$tokens), darkcyan);
+            }
+        }
+
+        @include describe("create-var()") {
+            @include it("Should return custom property from selected theme token.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color"), var(--mg-text-color, darkcyan));
+            }
+
+            @include it("Should return custom property from selected theme token without fallback.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color", false), var(--mg-text-color));
+            }
+
+            @include it("Should return custom property from selected theme token with component name prefix.") {
+                @include assert-equal(theme.create-var(tokens.$tokens, "text-color", $prefix: "button"), var(--mg-button-text-color, darkcyan));
+            }
+        }
+
+        @include describe("create-theme-vars()") {
+            @include it("Should return a map of tokens with custom properties.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": var(--mg-button-text-size, 16px),
+                    "text-font-family": var(--mg-button-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-button-text-line-height, var(--mg-typography-text-line-height, normal))
+                ));
+            }
+
+            @include it("Should return a map of tokens with custom properties without component name prefix.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
+                    "text-color": var(--mg-text-color, darkcyan),
+                    "text-size": var(--mg-text-size, 16px),
+                    "text-font-family": var(--mg-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-text-line-height, var(--mg-typography-text-line-height, normal))
+                ));
+            }
+        }
+    }
+}
+

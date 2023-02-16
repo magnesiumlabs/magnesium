@@ -1,0 +1,19 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@unsass/css";
+@use "./variables";
+@use "./functions";
+
+///
+/// Display all custom properties declarations of selected heading token.
+///
+@mixin headline($heading, $fallback: false) {
+    $tokens: map.get(variables.$headlines, $heading);
+
+    @each $key, $value in $tokens {
+        @include css.declaration($key, functions.headline($heading, $key, $fallback));
+    }
+}

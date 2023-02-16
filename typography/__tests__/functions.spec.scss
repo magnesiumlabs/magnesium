@@ -3,46 +3,45 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium;
+@use "../../__tests__/tokens";
+@use "../index" as typography with (
+    $headlines: (
+        "headline-1": (
+            "font-size": 16px
+        )
+    )
+);
 
-@include describe("theme") {
-    @include describe("mixins") {
-        @include describe("create-theme()") {
-            @include it("Should return custom theme declarations.") {
+@include describe("typography") {
+    @include describe("functions") {
+        @include describe("headline()") {
+            @include it("Should return the typography custom property declaration.") {
                 @include assert {
                     @include output(false) {
-                        $theme: magnesium.create-theme-vars((
-                            label-color: darkcyan
-                        ), "button");
-
                         .test {
-                            @include magnesium.create-theme($theme);
+                            font-size: typography.headline("headline-1", "font-size");
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-button-label-color: darkcyan;
+                            font-size: var(--mg-typography-font-size);
                         }
                     }
                 }
             }
 
-            @include it("Should return custom theme declarations with variable.") {
+            @include it("Should return the typography custom property declaration with fallback.") {
                 @include assert {
                     @include output(false) {
-                        $theme: magnesium.create-theme-vars((
-                            label-color
-                        ), "button");
-
                         .test {
-                            @include magnesium.create-theme($theme);
+                            font-size: typography.headline("headline-1", "font-size", true);
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-button-label-color: var(--mg-button-label-color);
+                            font-size: var(--mg-typography-font-size, 16px);
                         }
                     }
                 }
@@ -50,3 +49,4 @@
         }
     }
 }
+

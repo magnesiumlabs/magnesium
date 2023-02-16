@@ -1,0 +1,29 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "@unsass/css";
+@use "../core/variables";
+@use "../theme";
+@use "./functions";
+
+$_custom-property-prefix: "color";
+
+///
+/// Theme.
+///
+@mixin theme($theme) {
+    $tokens: theme.validate-tokens(variables.$colors, $theme);
+    $tokens: theme.create-theme-vars($tokens, $_custom-property-prefix);
+
+    @include theme.emit-theme-vars($tokens);
+}
+
+///
+/// Declaration.
+///
+@mixin declaration($property, $token, $fallback: true) {
+    $value: functions.variable($token, $fallback);
+
+    @include css.declaration($property, $value);
+}
