@@ -1,0 +1,52 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../__tests__/tokens";
+@use "../index" as typography with (
+    $headlines: (
+        "headline-1": (
+            "font-size": 16px
+        )
+    )
+);
+
+@include describe("typography") {
+    @include describe("functions") {
+        @include describe("headline()") {
+            @include it("Should return the typography custom property declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            font-size: typography.headline("headline-1", "font-size");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            font-size: var(--mg-typography-font-size);
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the typography custom property declaration with fallback.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            font-size: typography.headline("headline-1", "font-size", true);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            font-size: var(--mg-typography-font-size, 16px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

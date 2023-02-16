@@ -1,0 +1,22 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../theme";
+@use "./variables";
+
+$_custom-property-prefix: "typography";
+
+///
+/// Display custom property value of selected heading with token and fallback options.
+///
+@function headline($heading, $token, $fallback: false) {
+    $tokens: map.get(variables.$headlines, $heading);
+
+    @if $fallback {
+        @return theme.create-var($tokens, $token, true, $_custom-property-prefix);
+    }
+
+    @return theme.create-var($tokens, $token, $fallback, $_custom-property-prefix);
+}
