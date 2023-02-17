@@ -5,8 +5,8 @@
 @use "true" as *;
 @use "../../../index" with (
     $radius: (
-        small: 6px,
-        medium: 12px
+        "small": 6px,
+        "medium": 12px
     )
 );
 @use "../index" as radius;

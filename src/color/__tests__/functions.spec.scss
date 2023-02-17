@@ -5,8 +5,8 @@
 @use "true" as *;
 @use "../../../index" with (
     $colors: (
-        primary: darkcyan,
-        secondary: darkorange
+        "primary": darkcyan,
+        "secondary": darkorange
     )
 );
 @use "../index" as color;
