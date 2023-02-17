@@ -24,7 +24,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts --no-audit
 
       - name: Test
         run: npm run test
@@ -48,7 +48,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts --no-audit
 
       - name: Release
         run: npm run release
