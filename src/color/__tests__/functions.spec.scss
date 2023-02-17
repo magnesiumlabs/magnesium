@@ -3,28 +3,23 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../index" with (
-    $colors: (
-        "primary": darkcyan,
-        "secondary": darkorange
-    )
-);
+@use "../../../__tests__/config";
 @use "../index" as color;
 
 @include describe("color") {
     @include describe("functions") {
-        @include describe("get-tokens()") {
+        @include describe("tokens()") {
             @include it("Should return color tokens list.") {
-                @include assert-equal(color.get-tokens(), (
+                @include assert-equal(color.tokens(), (
                     "primary",
                     "secondary"
                 ));
             }
         }
 
-        @include describe("get-value()") {
-            @include it("Should return color value from token key.") {
-                @include assert-equal(color.get-value("primary"), darkcyan);
+        @include describe("value()") {
+            @include it("Should return color value from selected token.") {
+                @include assert-equal(color.value("primary"), darkcyan);
             }
         }
 

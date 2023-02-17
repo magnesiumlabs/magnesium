@@ -28,19 +28,41 @@
 
 ///
 /// @example - scss
+///   $color: color.tokens(); -> `("primary", "secondary")`
+///
+@function tokens() {
+    @return map.keys(variables.$colors);
+}
+
+///
+/// @example - scss
 ///   $color: get-tokens(); -> `("primary", "secondary")`
 ///
+/// @deprecated Use `tokens()` function instead.
+///
 @function get-tokens() {
-    @return map.keys(variables.$colors);
+    @return tokens();
+}
+
+///
+/// @example - scss
+///   $color: color.value("primary"); -> `darkcyan`
+///
+@function value($token) {
+    @if _exist($token) {
+        @return map.get(variables.$colors, $token);
+    }
 }
 
 ///
 /// @example - scss
 ///   $color: get-value("primary"); -> `darkcyan`
 ///
+/// @deprecated Use `value()` function instead.
+///
 @function get-value($token) {
     @if _exist($token) {
-        @return map.get(variables.$colors, $token);
+        @return value($token);
     }
 }
 
@@ -53,7 +75,7 @@
 ///
 @function get-variable($token, $prefix: theme) {
     $name: functions.create-name(#{$prefix}-#{$token});
-    $value: get-value($token);
+    $value: value($token);
 
     @return custom-properties.create-var(custom-properties.create($name, $value));
 }
