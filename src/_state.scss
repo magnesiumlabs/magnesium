@@ -28,7 +28,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     default: darkcyan
+///     "default": darkcyan
 ///   );
 ///
 ///   $default: get-default-state($theme); -> `darkcyan`
@@ -46,7 +46,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     hover: darkcyan
+///     "hover": darkcyan
 ///   );
 ///
 ///   $hover: get-hover-state($theme); -> `darkcyan`
@@ -58,7 +58,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     focus: darkcyan
+///     "focus": darkcyan
 ///   );
 ///
 ///   $focus: get-focus-state($theme); -> `darkcyan`
@@ -70,7 +70,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     selected: darkcyan
+///     "selected": darkcyan
 ///   );
 ///
 ///   $selected: get-selected-state($theme); -> `darkcyan`
@@ -82,7 +82,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     valid: darkcyan
+///     "valid": darkcyan
 ///   );
 ///
 ///   $valid: get-valid-state($theme); -> `darkcyan`
@@ -94,7 +94,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     invalid: darkcyan
+///     "invalid": darkcyan
 ///   );
 ///
 ///   $invalid: get-invalid-state($theme); -> `darkcyan`
@@ -106,7 +106,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     readonly: darkcyan
+///     "readonly": darkcyan
 ///   );
 ///
 ///   $readonly: get-readonly-state($theme); -> `darkcyan`
@@ -118,7 +118,7 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     disabled: darkcyan
+///     "disabled": darkcyan
 ///   );
 ///
 ///   $disabled: get-disabled-state($theme); -> `darkcyan`

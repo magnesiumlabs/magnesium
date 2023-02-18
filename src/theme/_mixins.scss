@@ -49,11 +49,11 @@
 
 ///
 /// @example - scss
-///   $light-theme: (
-///     label-color: darkcyan
+///   $theme: (
+///     "label-color": darkcyan
 ///   );
 ///
-///   $theme: create-theme-vars($light-theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
+///   $theme: create-theme-vars($theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
 ///
 ///   .foo {
 ///     @include create-theme($theme);
@@ -61,7 +61,7 @@
 ///
 /// @example - css
 ///   .foo {
-///     --md-button-label-color: darkcyan;
+///     --mg-button-label-color: darkcyan;
 ///   }
 ///
 /// @param {Map} $theme - The theme tokens map.
