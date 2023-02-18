@@ -23,13 +23,13 @@
             }
         }
 
-        @include describe("get-variable()") {
-            @include it("Should return color custom property from token key.") {
-                @include assert-equal(color.get-variable("primary"), var(--mg-theme-primary, darkcyan));
+        @include describe("variable()") {
+            @include it("Should return the color custom property from token key.") {
+                @include assert-equal(color.variable("primary"), var(--mg-color-primary));
             }
 
-            @include it("Should return color custom property from token key with custom prefix.") {
-                @include assert-equal(color.get-variable("primary", "color"), var(--mg-color-primary, darkcyan));
+            @include it("Should return the color custom property from token key with custom prefix.") {
+                @include assert-equal(color.variable("primary", true), var(--mg-color-primary, darkcyan));
             }
         }
     }

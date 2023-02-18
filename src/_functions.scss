@@ -2,15 +2,12 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "@unsass/string";
 @use "./variables";
 
 ///
 /// Create name.
 ///
 @function create-name($name) {
-    @if variables.$prefix {
-        $name: #{variables.$prefix}-#{$name};
-    }
-
-    @return $name;
+    @return string.combine(variables.$prefix, $name);
 }

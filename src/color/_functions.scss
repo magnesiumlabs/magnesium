@@ -7,6 +7,8 @@
 @use "../variables";
 @use "../functions";
 
+$_custom-property-prefix: "color";
+
 // ------------------------------------------------------------------------- //
 // Private functions
 // ------------------------------------------------------------------------- //
@@ -68,10 +70,36 @@
 
 ///
 /// @example - scss
+///   .foo {
+///     color: color.variable("primary");
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--mg-color-primary)
+///   }
+///
+/// @return {String} The token value.
+/// @return {Boolean} The fallback value.
+///
+@function variable($token, $fallback: false) {
+    $name: functions.create-name(#{$_custom-property-prefix}-#{$token});
+
+    @if $fallback {
+        @return custom-properties.create-var(custom-properties.create($name, value($token)));
+    }
+
+    @return custom-properties.create-var(custom-properties.create($name));
+}
+
+///
+/// @example - scss
 ///   $color: get-variable("primary"); -> `var(--mg-theme-primary, darkcyan)`
 ///
 /// @example - scss
 ///   $color: get-variable("primary", "color"); -> `var(--mg-color-primary, darkcyan)`
+///
+/// @deprecated Use `variable()` function instead.
 ///
 @function get-variable($token, $prefix: theme) {
     $name: functions.create-name(#{$prefix}-#{$token});
