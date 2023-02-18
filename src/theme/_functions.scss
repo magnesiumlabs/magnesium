@@ -85,7 +85,7 @@
 
 ///
 /// @example - scss
-///   $color: get-theme-tokens(); -> `(primary, secondary)`
+///   $color: get-theme-tokens(); -> `("primary", "secondary")`
 ///
 @function get-theme-tokens() {
     @return map.keys(variables.$colors);
@@ -93,7 +93,7 @@
 
 ///
 /// @example - scss
-///   $color: get-theme-color(primary); -> `darkcyan`
+///   $color: get-theme-color("primary"); -> `darkcyan`
 ///
 @function get-theme-color($token) {
     @if not map.has-key(variables.$colors, $token) {

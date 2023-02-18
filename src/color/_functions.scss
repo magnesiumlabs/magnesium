@@ -28,7 +28,7 @@
 
 ///
 /// @example - scss
-///   $color: get-tokens(); -> `(primary, secondary)`
+///   $color: get-tokens(); -> `("primary", "secondary")`
 ///
 @function get-tokens() {
     @return map.keys(variables.$colors);

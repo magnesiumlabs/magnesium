@@ -28,7 +28,7 @@
 
 ///
 /// @example - scss
-///   $radius: get-tokens(); -> `(small, medium)`
+///   $radius: get-tokens(); -> `("small", "medium")`
 ///
 @function get-tokens() {
     @return map.keys(variables.$radius);

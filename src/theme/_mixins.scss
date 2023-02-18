@@ -53,7 +53,7 @@
 ///     "label-color": darkcyan
 ///   );
 ///
-///   $theme: create-theme-vars($theme, "button"); -> `(label-color: var(--mg-button-label-color, darkcyan))`
+///   $theme: create-theme-vars($theme, "button"); -> `("label-color": var(--mg-button-label-color, darkcyan))`
 ///
 ///   .foo {
 ///     @include create-theme($theme);

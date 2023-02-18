@@ -27,7 +27,7 @@
 
 ///
 /// @example - scss
-///   $theme: create-typography-var("body", "button-label"); -> `(button-label-font-size: var(--mg-button-label-font-size, var(--mg-typography-body-font-size, 16px))`
+///   $theme: create-typography-var("body", "button-label"); -> `("button-label-font-size": var(--mg-button-label-font-size, var(--mg-typography-body-font-size, 16px))`
 ///
 ///   .foo {
 ///     font-size: map.get($theme, button-label-font-size);
@@ -71,7 +71,7 @@
 
 ///
 /// @example - scss
-///   $style: get-style-tokens(); -> `(body, button)`
+///   $style: get-style-tokens(); -> `("body", "button")`
 ///
 @function get-style-tokens() {
     @return map.keys(core-variables.$styles);
