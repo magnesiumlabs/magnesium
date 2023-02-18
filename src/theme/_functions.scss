@@ -2,6 +2,7 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:list";
 @use "sass:map";
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
@@ -101,4 +102,29 @@
     }
 
     @return map.get(variables.$colors, $token);
+}
+
+///
+/// Validates theme's token and throws an error if tokens are invalid.
+///
+/// @param {Map} $reference - A map of reference tokens.
+/// @param {Map} $tokens - A map of theme's tokens.
+///
+/// @return {Map} The validated theme map.
+///
+@function validate-tokens($reference, $tokens) {
+    $keys: map.keys($reference);
+    $unsupported-tokens: ();
+
+    @each $key, $value in $tokens {
+        @if list.index($keys, $key) == null {
+            $unsupported-tokens: list.append($unsupported-tokens, $key, $separator: comma);
+        }
+    }
+
+    @if list.length($unsupported-tokens) > 0 {
+        @error "The following tokens are invalid: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+    }
+
+    @return $tokens;
 }

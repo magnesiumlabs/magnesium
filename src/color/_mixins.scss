@@ -1,0 +1,37 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "../theme";
+@use "../variables";
+
+$_custom-property-prefix: "color";
+
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+///   .foo {
+///     @include color.theme($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-color-primary: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map. If `null` the mixin will use the
+///                       default `$colors` option.
+///
+@mixin theme($theme: null) {
+    $tokens: theme.create-theme-vars(variables.$colors, $_custom-property-prefix);
+
+    @if ($theme) {
+        $tokens: theme.validate-tokens(variables.$colors, $theme);
+        $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
+    }
+
+    @include theme.create-theme($tokens);
+}

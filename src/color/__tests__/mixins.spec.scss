@@ -1,0 +1,50 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../__tests__/config";
+@use "../index" as color;
+
+@include describe("color") {
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return the color custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.theme();
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: darkcyan;
+                            --mg-color-secondary: darkorange;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the color custom properties declarations with custom theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            $theme: (
+                                "primary": darkorange
+                            );
+
+                            @include color.theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: darkorange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
