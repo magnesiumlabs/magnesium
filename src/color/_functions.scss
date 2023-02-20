@@ -38,33 +38,11 @@ $_custom-property-prefix: "color";
 
 ///
 /// @example - scss
-///   $color: get-tokens(); -> `("primary", "secondary")`
-///
-/// @deprecated Use `tokens()` function instead.
-///
-@function get-tokens() {
-    @return tokens();
-}
-
-///
-/// @example - scss
 ///   $color: color.value("primary"); -> `darkcyan`
 ///
 @function value($token) {
     @if _exist($token) {
         @return map.get(variables.$colors, $token);
-    }
-}
-
-///
-/// @example - scss
-///   $color: get-value("primary"); -> `darkcyan`
-///
-/// @deprecated Use `value()` function instead.
-///
-@function get-value($token) {
-    @if _exist($token) {
-        @return value($token);
     }
 }
 
@@ -90,20 +68,4 @@ $_custom-property-prefix: "color";
     }
 
     @return custom-properties.create-var(custom-properties.create($name));
-}
-
-///
-/// @example - scss
-///   $color: get-variable("primary"); -> `var(--mg-theme-primary, darkcyan)`
-///
-/// @example - scss
-///   $color: get-variable("primary", "color"); -> `var(--mg-color-primary, darkcyan)`
-///
-/// @deprecated Use `variable()` function instead.
-///
-@function get-variable($token, $prefix: theme) {
-    $name: functions.create-name(#{$prefix}-#{$token});
-    $value: value($token);
-
-    @return custom-properties.create-var(custom-properties.create($name, $value));
 }
