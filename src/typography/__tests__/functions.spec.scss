@@ -1,0 +1,26 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../__tests__/config";
+@use "../index" as typography;
+
+@include describe("typography") {
+    @include describe("functions") {
+        @include describe("tokens()") {
+            @include it("Should return typography tokens list.") {
+                @include assert-equal(typography.tokens(), (
+                    "body",
+                    "button"
+                ));
+            }
+        }
+
+        @include describe("value()") {
+            @include it("Should return typography value from selected token.") {
+                @include assert-equal(typography.value("body", "font-size"), 16px);
+            }
+        }
+    }
+}

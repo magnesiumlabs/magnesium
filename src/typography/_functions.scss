@@ -17,13 +17,35 @@
 ///
 /// Check if style key exist.
 ///
-@function _exist($key) {
-    @return map.has-key(core-variables.$typographies, $key);
+@function _exist($token) {
+    @if not map.has-key(core-variables.$typographies, $token) {
+        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of #{map.keys(core-variables.$typographies)}.";
+    }
+
+    @return map.has-key(core-variables.$typographies, $token);
 }
 
 // ------------------------------------------------------------------------- //
 // Public functions
 // ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $typography: typography.tokens(); -> `("body", "button")`
+///
+@function tokens() {
+    @return map.keys(core-variables.$typographies);
+}
+
+///
+/// @example - scss
+///   $typography: typography.value("body", "font-size"); -> `16px`
+///
+@function value($tokens...) {
+    @if _exist(list.nth($tokens, 1)) {
+        @return map.get(core-variables.$typographies, $tokens...);
+    }
+}
 
 ///
 /// @example - scss
@@ -72,6 +94,8 @@
 ///
 /// @example - scss
 ///   $style: get-style-tokens(); -> `("body", "button")`
+///
+/// @deprecated Use `tokens()` function instead.
 ///
 @function get-style-tokens() {
     @return map.keys(core-variables.$typographies);
