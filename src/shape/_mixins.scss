@@ -1,0 +1,32 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "../theme";
+@use "../variables";
+
+$_custom-property-prefix: "shape";
+
+///
+/// @example - scss
+///   $theme: (
+///     "filled": 6px
+///   );
+///
+///   .foo {
+///     @include shape.theme($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-shape-filled: 6px;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map. Use the default `$shapes` tokens.
+///
+@mixin theme($theme: variables.$shapes) {
+    $tokens: theme.validate-tokens(variables.$shapes, $theme);
+    $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
+
+    @include theme.create-theme($tokens);
+}

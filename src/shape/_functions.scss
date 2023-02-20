@@ -1,0 +1,71 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@unsass/css/custom-properties";
+@use "../variables";
+@use "../functions";
+
+$_custom-property-prefix: "shape";
+
+// ------------------------------------------------------------------------- //
+// Private functions
+// ------------------------------------------------------------------------- //
+
+///
+/// Check if shape token exist.
+///
+@function _exist($token) {
+    @if not map.has-key(variables.$shapes, $token) {
+        @error "Invalid shape token, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$shapes)}.";
+    }
+
+    @return map.has-key(variables.$shapes, $token);
+}
+
+// ------------------------------------------------------------------------- //
+// Public functions
+// ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $shape: shape.tokens(); -> `("filled", "sharped")`
+///
+@function tokens() {
+    @return map.keys(variables.$shapes);
+}
+
+///
+/// @example - scss
+///   $shape: shape.value("filled"); -> `6px`
+///
+@function value($token) {
+    @if _exist($token) {
+        @return map.get(variables.$shapes, $token);
+    }
+}
+
+///
+/// @example - scss
+///   .foo {
+///     shape: shape.variable("primary");
+///   }
+///
+/// @example - css
+///   .foo {
+///     shape: var(--mg-shape-primary)
+///   }
+///
+/// @return {String} The token value.
+/// @return {Boolean} The fallback value.
+///
+@function variable($token, $fallback: false) {
+    $name: functions.create-name(#{$_custom-property-prefix}-#{$token});
+
+    @if $fallback {
+        @return custom-properties.create-var(custom-properties.create($name, value($token)));
+    }
+
+    @return custom-properties.create-var(custom-properties.create($name));
+}

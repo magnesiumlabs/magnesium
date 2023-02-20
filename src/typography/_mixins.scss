@@ -4,10 +4,13 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "../theme";
 @use "../variables" as core-variables;
 @use "../functions" as core-functions;
 @use "./variables";
 @use "./functions";
+
+$_custom-property-prefix: "typography";
 
 // ------------------------------------------------------------------------- //
 // Private mixins
@@ -22,6 +25,35 @@
 // ------------------------------------------------------------------------- //
 // Public mixins
 // ------------------------------------------------------------------------- //
+
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+///   .foo {
+///     @include color.theme($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-color-primary: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map. Use the default `$typographies` tokens.
+///
+@mixin theme($theme: core-variables.$typographies) {
+    @each $key, $value in $theme {
+        @debug $key;
+        @debug $value;
+    }
+
+    $tokens: theme.validate-tokens(core-variables.$typographies, $theme);
+    $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
+
+    @include theme.create-theme($tokens);
+}
 
 ///
 /// @example - scss

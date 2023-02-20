@@ -1,0 +1,36 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../__tests__/config";
+@use "../index" as shape;
+
+@include describe("shape") {
+    @include describe("functions") {
+        @include describe("tokens()") {
+            @include it("Should return shape tokens list.") {
+                @include assert-equal(shape.tokens(), (
+                    "filled",
+                    "sharped"
+                ));
+            }
+        }
+
+        @include describe("value()") {
+            @include it("Should return shape value from selected token.") {
+                @include assert-equal(shape.value("filled"), 6px);
+            }
+        }
+
+        @include describe("variable()") {
+            @include it("Should return the shape custom property from token key.") {
+                @include assert-equal(shape.variable("filled"), var(--mg-shape-filled));
+            }
+
+            @include it("Should return the shape custom property from token key with custom prefix.") {
+                @include assert-equal(shape.variable("filled", true), var(--mg-shape-filled, 6px));
+            }
+        }
+    }
+}

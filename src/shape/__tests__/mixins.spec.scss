@@ -1,0 +1,50 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../__tests__/config";
+@use "../index" as shape;
+
+@include describe("shape") {
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return the shape custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.theme();
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-shape-filled: 6px;
+                            --mg-shape-sharped: 0;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the shape custom properties declarations with custom theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            $theme: (
+                                "filled": 8px
+                            );
+
+                            @include shape.theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-shape-filled: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
