@@ -4,6 +4,7 @@
 
 @use "true" as *;
 @use "../../../__tests__/config";
+@use "../../../index" as magnesium;
 @use "../index" as shape;
 
 @include describe("shape") {
@@ -13,7 +14,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include shape.theme();
+                            @include shape.theme(magnesium.$shapes);
                         }
                     }
 

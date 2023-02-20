@@ -22,9 +22,9 @@ $_custom-property-prefix: "color";
 ///     --mg-color-primary: darkcyan;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map. Use the default `$colors` tokens.
+/// @param {Map} $theme - The theme tokens map.
 ///
-@mixin theme($theme: variables.$colors) {
+@mixin theme($theme) {
     $tokens: theme.validate-tokens(variables.$colors, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 

@@ -22,9 +22,9 @@ $_custom-property-prefix: "shape";
 ///     --mg-shape-filled: 6px;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map. Use the default `$shapes` tokens.
+/// @param {Map} $theme - The theme tokens map.
 ///
-@mixin theme($theme: variables.$shapes) {
+@mixin theme($theme) {
     $tokens: theme.validate-tokens(variables.$shapes, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
