@@ -18,7 +18,7 @@
 /// Check if style key exist.
 ///
 @function _exist($key) {
-    @return map.has-key(core-variables.$styles, $key);
+    @return map.has-key(core-variables.$typographies, $key);
 }
 
 // ------------------------------------------------------------------------- //
@@ -46,7 +46,7 @@
     $name: $style;
 
     @if type.is-string($style) and _exist($style) {
-        $style: map.get(core-variables.$styles, $style);
+        $style: map.get(core-variables.$typographies, $style);
     } @else {
         @error "Invalid typography style, `#{$style}` doesn't exist."
     }
@@ -74,5 +74,5 @@
 ///   $style: get-style-tokens(); -> `("body", "button")`
 ///
 @function get-style-tokens() {
-    @return map.keys(core-variables.$styles);
+    @return map.keys(core-variables.$typographies);
 }
