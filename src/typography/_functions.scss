@@ -83,20 +83,3 @@
 
     @return $theme;
 }
-
-///
-/// @deprecated Use `create-typography-vars` function instead.
-///
-@function create-typography-var($style, $prefix) {
-    @return create-typography-vars($style, $prefix);
-}
-
-///
-/// @example - scss
-///   $style: get-style-tokens(); -> `("body", "button")`
-///
-/// @deprecated Use `tokens()` function instead.
-///
-@function get-style-tokens() {
-    @return map.keys(core-variables.$typographies);
-}
