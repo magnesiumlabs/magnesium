@@ -22,16 +22,11 @@ $_custom-property-prefix: "color";
 ///     --mg-color-primary: darkcyan;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map. If `null` the mixin will use the
-///                       default `$colors` option.
+/// @param {Map} $theme - The theme tokens map. Use the default `$colors` option.
 ///
-@mixin theme($theme: null) {
-    $tokens: theme.create-theme-vars(variables.$colors, $_custom-property-prefix);
-
-    @if ($theme) {
-        $tokens: theme.validate-tokens(variables.$colors, $theme);
-        $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
-    }
+@mixin theme($theme: variables.$colors) {
+    $tokens: theme.validate-tokens(variables.$colors, $theme);
+    $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
     @include theme.create-theme($tokens);
 }
