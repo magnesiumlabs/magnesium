@@ -7,6 +7,7 @@
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
 @use "../core";
+@use "../theme";
 @use "./variables";
 
 // ------------------------------------------------------------------------- //
@@ -14,14 +15,25 @@
 // ------------------------------------------------------------------------- //
 
 ///
-/// Check if style key exist.
+/// Check if typography token exist.
 ///
 @function _exist($token) {
     @if not map.has-key(core.$typographies, $token) {
-        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$typographies)}.";
+        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$typographies)}'.";
     }
 
     @return map.has-key(core.$typographies, $token);
+}
+
+///
+/// Check if typography property token is allowed.
+///
+@function _allowed-property($property) {
+    @if list.index(variables.$allowed-tokens, $property) == null {
+        @error "Invalid typography property token, '#{$property}' is not allowed. Choose one of '#{variables.$allowed-tokens}'.";
+    }
+
+    @return $property;
 }
 
 // ------------------------------------------------------------------------- //
@@ -41,6 +53,8 @@
 ///   $typography: typography.value("body", "font-size"); -> `16px`
 ///
 @function value($token, $property) {
+    $property: _allowed-property($property);
+
     @if _exist(list.nth($token, 1)) {
         @return map.get(core.$typographies, $token, $property);
     }
