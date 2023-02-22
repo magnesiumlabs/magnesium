@@ -54,7 +54,7 @@ $_custom-property-prefix: "shape";
 ///
 /// @example - css
 ///   .foo {
-///     shape: var(--mg-shape-primary)
+///     shape: var(--mg-shape-primary);
 ///   }
 ///
 /// @return {String} The token value.
