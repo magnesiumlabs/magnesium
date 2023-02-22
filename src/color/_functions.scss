@@ -4,8 +4,7 @@
 
 @use "sass:map";
 @use "@unsass/css/custom-properties";
-@use "../variables";
-@use "../functions";
+@use "../core";
 
 $_custom-property-prefix: "color";
 
@@ -17,11 +16,11 @@ $_custom-property-prefix: "color";
 /// Check if color token exist.
 ///
 @function _exist($token) {
-    @if not map.has-key(variables.$colors, $token) {
-        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
+    @if not map.has-key(core.$colors, $token) {
+        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$colors)}.";
     }
 
-    @return map.has-key(variables.$colors, $token);
+    @return map.has-key(core.$colors, $token);
 }
 
 // ------------------------------------------------------------------------- //
@@ -33,7 +32,7 @@ $_custom-property-prefix: "color";
 ///   $color: color.tokens(); -> `("primary", "secondary")`
 ///
 @function tokens() {
-    @return map.keys(variables.$colors);
+    @return map.keys(core.$colors);
 }
 
 ///
@@ -42,7 +41,7 @@ $_custom-property-prefix: "color";
 ///
 @function value($token) {
     @if _exist($token) {
-        @return map.get(variables.$colors, $token);
+        @return map.get(core.$colors, $token);
     }
 }
 
@@ -61,7 +60,7 @@ $_custom-property-prefix: "color";
 /// @return {Boolean} The fallback value.
 ///
 @function variable($token, $fallback: false) {
-    $name: functions.create-name(#{$_custom-property-prefix}-#{$token});
+    $name: core.create-name(#{$_custom-property-prefix}-#{$token});
 
     @if $fallback {
         @return custom-properties.create-var(custom-properties.create($name, value($token)));

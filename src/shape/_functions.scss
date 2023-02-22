@@ -4,8 +4,7 @@
 
 @use "sass:map";
 @use "@unsass/css/custom-properties";
-@use "../variables";
-@use "../functions";
+@use "../core";
 
 $_custom-property-prefix: "shape";
 
@@ -17,11 +16,11 @@ $_custom-property-prefix: "shape";
 /// Check if shape token exist.
 ///
 @function _exist($token) {
-    @if not map.has-key(variables.$shapes, $token) {
-        @error "Invalid shape token, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$shapes)}.";
+    @if not map.has-key(core.$shapes, $token) {
+        @error "Invalid shape token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$shapes)}.";
     }
 
-    @return map.has-key(variables.$shapes, $token);
+    @return map.has-key(core.$shapes, $token);
 }
 
 // ------------------------------------------------------------------------- //
@@ -33,7 +32,7 @@ $_custom-property-prefix: "shape";
 ///   $shape: shape.tokens(); -> `("filled", "sharped")`
 ///
 @function tokens() {
-    @return map.keys(variables.$shapes);
+    @return map.keys(core.$shapes);
 }
 
 ///
@@ -42,7 +41,7 @@ $_custom-property-prefix: "shape";
 ///
 @function value($token) {
     @if _exist($token) {
-        @return map.get(variables.$shapes, $token);
+        @return map.get(core.$shapes, $token);
     }
 }
 
@@ -61,7 +60,7 @@ $_custom-property-prefix: "shape";
 /// @return {Boolean} The fallback value.
 ///
 @function variable($token, $fallback: false) {
-    $name: functions.create-name(#{$_custom-property-prefix}-#{$token});
+    $name: core.create-name(#{$_custom-property-prefix}-#{$token});
 
     @if $fallback {
         @return custom-properties.create-var(custom-properties.create($name, value($token)));

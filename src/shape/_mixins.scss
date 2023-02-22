@@ -2,8 +2,8 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "../core/variables";
 @use "../theme";
-@use "../variables";
 
 $_custom-property-prefix: "shape";
 

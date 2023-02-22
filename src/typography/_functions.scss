@@ -6,8 +6,7 @@
 @use "sass:map";
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
-@use "../variables" as core-variables;
-@use "../functions";
+@use "../core";
 @use "./variables";
 
 // ------------------------------------------------------------------------- //
@@ -18,11 +17,11 @@
 /// Check if style key exist.
 ///
 @function _exist($token) {
-    @if not map.has-key(core-variables.$typographies, $token) {
-        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of #{map.keys(core-variables.$typographies)}.";
+    @if not map.has-key(core.$typographies, $token) {
+        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$typographies)}.";
     }
 
-    @return map.has-key(core-variables.$typographies, $token);
+    @return map.has-key(core.$typographies, $token);
 }
 
 // ------------------------------------------------------------------------- //
@@ -34,16 +33,16 @@
 ///   $typography: typography.tokens(); -> `("body", "button")`
 ///
 @function tokens() {
-    @return map.keys(core-variables.$typographies);
+    @return map.keys(core.$typographies);
 }
 
 ///
 /// @example - scss
 ///   $typography: typography.value("body", "font-size"); -> `16px`
 ///
-@function value($tokens...) {
-    @if _exist(list.nth($tokens, 1)) {
-        @return map.get(core-variables.$typographies, $tokens...);
+@function value($token, $property) {
+    @if _exist(list.nth($token, 1)) {
+        @return map.get(core.$typographies, $token, $property);
     }
 }
 
@@ -68,7 +67,7 @@
     $name: $style;
 
     @if type.is-string($style) and _exist($style) {
-        $style: map.get(core-variables.$typographies, $style);
+        $style: map.get(core.$typographies, $style);
     } @else {
         @error "Invalid typography style, `#{$style}` doesn't exist."
     }
@@ -78,7 +77,7 @@
             @error "Invalid typography token, `#{$key}` is not allowed."
         }
 
-        $theme: map.set($theme, $key, custom-properties.create-var(custom-properties.create(functions.create-name(#{$prefix}-#{$key}), custom-properties.create-var(custom-properties.create(functions.create-name(typography-#{$name}-#{$key}), map.get($style, $key))))));
+        $theme: map.set($theme, $key, custom-properties.create-var(custom-properties.create(core.create-name(#{$prefix}-#{$key}), custom-properties.create-var(custom-properties.create(core.create-name(typography-#{$name}-#{$key}), map.get($style, $key))))));
     }
 
     @return $theme;

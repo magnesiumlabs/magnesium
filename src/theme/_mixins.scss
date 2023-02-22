@@ -5,8 +5,8 @@
 @use "sass:map";
 @use "@unsass/selector";
 @use "@unsass/string";
-@use "../variables" as core-variables;
-@use "../functions" as core-functions;
+@use "../core/variables" as core-variables;
+@use "../core/functions" as core-functions;
 @use "./functions";
 
 @mixin core-styles {

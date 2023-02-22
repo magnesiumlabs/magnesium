@@ -6,8 +6,8 @@
 @use "sass:map";
 @use "@unsass/css/custom-properties";
 @use "@unsass/types" as type;
-@use "../variables";
-@use "../functions";
+@use "../core/variables";
+@use "../core/functions";
 
 // ------------------------------------------------------------------------- //
 // Private functions

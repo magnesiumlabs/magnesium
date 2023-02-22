@@ -4,9 +4,8 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "../core";
 @use "../theme";
-@use "../variables" as core-variables;
-@use "../functions" as core-functions;
 @use "./variables";
 @use "./functions";
 
@@ -43,13 +42,13 @@ $_custom-property-prefix: "typography";
 ///
 /// @param {Map} $theme - The theme tokens map. Use the default `$typographies` tokens.
 ///
-@mixin theme($theme: core-variables.$typographies) {
+@mixin theme($theme: core.$typographies) {
     @each $key, $value in $theme {
         @debug $key;
         @debug $value;
     }
 
-    $tokens: theme.validate-tokens(core-variables.$typographies, $theme);
+    $tokens: theme.validate-tokens(core.$typographies, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
     @include theme.create-theme($tokens);
@@ -101,7 +100,7 @@ $_custom-property-prefix: "typography";
 @mixin create-typography($typography, $style) {
     @each $key, $value in $typography {
         @if list.index(variables.$allowed-tokens, $key) != null {
-            --#{core-functions.create-name(typography-#{$style}-#{$key})}: #{$value};
+            --#{core.create-name(typography-#{$style}-#{$key})}: #{$value};
         }
     }
 }
