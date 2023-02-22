@@ -17,7 +17,7 @@ $_custom-property-prefix: "color";
 ///
 @function _exist($token) {
     @if not map.has-key(core.$colors, $token) {
-        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$colors)}.";
+        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$colors)}'.";
     }
 
     @return map.has-key(core.$colors, $token);

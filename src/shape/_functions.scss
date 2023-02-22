@@ -17,7 +17,7 @@ $_custom-property-prefix: "shape";
 ///
 @function _exist($token) {
     @if not map.has-key(core.$shapes, $token) {
-        @error "Invalid shape token, '#{$token}' doesn't exist. Choose one of #{map.keys(core.$shapes)}.";
+        @error "Invalid shape token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$shapes)}'.";
     }
 
     @return map.has-key(core.$shapes, $token);

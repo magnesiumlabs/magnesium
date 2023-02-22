@@ -98,7 +98,7 @@
 ///
 @function get-theme-color($token) {
     @if not map.has-key(variables.$colors, $token) {
-        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of #{map.keys(variables.$colors)}.";
+        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of '#{map.keys(variables.$colors)}'.";
     }
 
     @return map.get(variables.$colors, $token);
