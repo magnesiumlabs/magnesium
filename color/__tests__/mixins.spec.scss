@@ -3,45 +3,45 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../__tests__/config";
-@use "../../../index" as magnesium;
-@use "../index" as shape;
+@use "../../__tests__/config";
+@use "../../index" as magnesium;
+@use "../index" as color;
 
-@include describe("shape") {
+@include describe("color") {
     @include describe("mixins") {
         @include describe("theme()") {
-            @include it("Should return the shape custom properties declarations.") {
+            @include it("Should return the color custom properties declarations.") {
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include shape.theme(magnesium.$shapes);
+                            @include color.theme(magnesium.$colors);
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-shape-filled: 6px;
-                            --mg-shape-sharped: 0;
+                            --mg-color-primary: darkcyan;
+                            --mg-color-secondary: darkorange;
                         }
                     }
                 }
             }
 
-            @include it("Should return the shape custom properties declarations with custom theme.") {
+            @include it("Should return the color custom properties declarations with custom theme.") {
                 @include assert {
                     @include output(false) {
                         .test {
                             $theme: (
-                                "filled": 8px
+                                "primary": darkorange
                             );
 
-                            @include shape.theme($theme);
+                            @include color.theme($theme);
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-shape-filled: 8px;
+                            --mg-color-primary: darkorange;
                         }
                     }
                 }

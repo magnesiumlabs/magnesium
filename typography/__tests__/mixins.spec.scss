@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../../__tests__/config";
+@use "../../__tests__/config";
 @use "../index" as typography;
 
 @include describe("typography") {
