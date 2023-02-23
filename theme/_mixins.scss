@@ -4,39 +4,7 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "@unsass/selector";
 @use "@unsass/string";
-@use "../core/variables" as core-variables;
-@use "../core/functions" as core-functions;
-@use "./functions";
-
-@mixin core-styles {
-    $theme: functions.create-theme-vars(core-variables.$colors, theme);
-
-    // --------------------------------- //
-    // Main classes
-    // --------------------------------- //
-
-    @each $key, $value in $theme {
-        $selector: core-functions.create-name(theme--#{$key});
-
-        @include selector.create(#{$selector}) {
-            color: map.get($theme, $key);
-        }
-    }
-
-    // --------------------------------- //
-    // Background classes
-    // --------------------------------- //
-
-    @each $key, $value in $theme {
-        $selector: core-functions.create-name(theme--#{$key}-bg);
-
-        @include selector.create(#{$selector}) {
-            background-color: map.get($theme, $key);
-        }
-    }
-}
 
 // ------------------------------------------------------------------------- //
 // Private mixins

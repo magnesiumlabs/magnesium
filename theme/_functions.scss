@@ -21,13 +21,6 @@
     @return map.has-key(variables.$colors, $key);
 }
 
-///
-/// Check if shape key exist.
-///
-@function _exist-shape($key) {
-    @return map.has-key(variables.$shapes, $key);
-}
-
 // ------------------------------------------------------------------------- //
 // Public functions
 // ------------------------------------------------------------------------- //
