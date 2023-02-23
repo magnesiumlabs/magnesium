@@ -10,20 +10,30 @@
 @use "../core/variables";
 @use "../core/functions";
 
-// ------------------------------------------------------------------------- //
-// Private functions
-// ------------------------------------------------------------------------- //
+///
+/// Validates theme's token and throws an error if tokens are invalid.
+///
+/// @param {Map} $reference - A map of reference tokens.
+/// @param {Map} $tokens - A map of theme's tokens.
+///
+/// @return {Map} The validated theme map.
+///
+@function validate-tokens($reference, $tokens) {
+    $keys: map.keys($reference);
+    $unsupported-tokens: ();
 
-///
-/// Check if color key exist.
-///
-@function _exist($key) {
-    @return map.has-key(variables.$colors, $key);
+    @each $key, $value in $tokens {
+        @if list.index($keys, $key) == null {
+            $unsupported-tokens: list.append($unsupported-tokens, $key, $separator: comma);
+        }
+    }
+
+    @if list.length($unsupported-tokens) > 0 {
+        @error "The following tokens are invalid: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+    }
+
+    @return $tokens;
 }
-
-// ------------------------------------------------------------------------- //
-// Public functions
-// ------------------------------------------------------------------------- //
 
 ///
 /// Transforms a theme's tokens value into a `var()` custom properties.
@@ -58,60 +68,4 @@
     }
 
     @return $theme;
-}
-
-///
-/// @deprecated Use `create-theme-vars` function instead.
-///
-@function create-theme-var($theme, $prefix) {
-    @return create-theme-vars($theme, $prefix);
-}
-
-///
-/// @example - scss
-///   $color: get-theme-tokens(); -> `("primary", "secondary")`
-///
-/// @deprecated
-///
-@function get-theme-tokens() {
-    @return map.keys(variables.$colors);
-}
-
-///
-/// @example - scss
-///   $color: get-theme-color("primary"); -> `darkcyan`
-///
-/// @deprecated
-///
-@function get-theme-color($token) {
-    @if not map.has-key(variables.$colors, $token) {
-        @error "Invalid color scheme, '#{$token}' doesn't exist. Choose one of '#{map.keys(variables.$colors)}'.";
-    }
-
-    @return map.get(variables.$colors, $token);
-}
-
-///
-/// Validates theme's token and throws an error if tokens are invalid.
-///
-/// @param {Map} $reference - A map of reference tokens.
-/// @param {Map} $tokens - A map of theme's tokens.
-///
-/// @return {Map} The validated theme map.
-///
-@function validate-tokens($reference, $tokens) {
-    $keys: map.keys($reference);
-    $unsupported-tokens: ();
-
-    @each $key, $value in $tokens {
-        @if list.index($keys, $key) == null {
-            $unsupported-tokens: list.append($unsupported-tokens, $key, $separator: comma);
-        }
-    }
-
-    @if list.length($unsupported-tokens) > 0 {
-        @error "The following tokens are invalid: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
-    }
-
-    @return $tokens;
 }
