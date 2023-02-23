@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium;
+@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -11,12 +11,12 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: magnesium.create-theme-vars((
+                        $theme: theme.create-theme-vars((
                             "label-color": darkcyan
                         ), "button");
 
                         .test {
-                            @include magnesium.create-theme($theme);
+                            @include theme.create-theme($theme);
                         }
                     }
 
@@ -31,18 +31,60 @@
             @include it("Should return custom theme declarations with variable.") {
                 @include assert {
                     @include output(false) {
-                        $theme: magnesium.create-theme-vars((
+                        $theme: theme.create-theme-vars((
                             "label-color"
                         ), "button");
 
                         .test {
-                            @include magnesium.create-theme($theme);
+                            @include theme.create-theme($theme);
                         }
                     }
 
                     @include expect(false) {
                         .test {
                             --mg-button-label-color: var(--mg-button-label-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("prefers-color-scheme()") {
+            @include it("Should return the CSS declarations for light color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("light") {
+                                --mg-button-text-color: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            .test {
+                                --mg-button-text-color: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the CSS declarations for dark color theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.prefers-color-scheme("dark") {
+                                --mg-button-text-color: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --mg-button-text-color: darkorange;
+                            }
                         }
                     }
                 }
