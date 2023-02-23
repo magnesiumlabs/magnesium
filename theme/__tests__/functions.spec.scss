@@ -3,34 +3,27 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../index" as magnesium;
+@use "../../__tests__/tokens";
+@use "../index" as theme;
 
 @include describe("theme") {
     @include describe("functions") {
         @include describe("create-theme-vars()") {
-            @include it("Should return tokens map with custom variables.") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    "label-color": darkcyan,
-                    "label-size": 16px
-                ), button), (
-                    "label-color": var(--mg-button-label-color, darkcyan),
-                    "label-size": var(--mg-button-label-size, 16px)
+            @include it("Should return a map of tokens with custom properties.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": var(--mg-button-text-size, 16px),
+                    "text-font-family": var(--mg-button-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-button-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
 
-            @include it("Should return tokens map with custom variables without fallback (map).") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    "label-color": null
-                ), button), (
-                    "label-color": var(--mg-button-label-color)
-                ));
-            }
-
-            @include it("Should return tokens map with custom variables without fallback (list).") {
-                @include assert-equal(magnesium.create-theme-vars((
-                    "label-color"
-                ), button), (
-                    "label-color": var(--mg-button-label-color)
+            @include it("Should return a map of tokens with custom properties without component name prefix.") {
+                @include assert-equal(theme.create-theme-vars(tokens.$tokens, false), (
+                    "text-color": var(--mg-text-color, darkcyan),
+                    "text-size": var(--mg-text-size, 16px),
+                    "text-font-family": var(--mg-text-font-family, "Roboto"),
+                    "text-line-height": var(--mg-text-line-height, var(--mg-typography-text-line-height, normal))
                 ));
             }
         }

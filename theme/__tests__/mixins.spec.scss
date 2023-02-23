@@ -27,26 +27,6 @@
                     }
                 }
             }
-
-            @include it("Should return custom theme declarations with variable.") {
-                @include assert {
-                    @include output(false) {
-                        $theme: theme.create-theme-vars((
-                            "label-color"
-                        ), "button");
-
-                        .test {
-                            @include theme.create-theme($theme);
-                        }
-                    }
-
-                    @include expect(false) {
-                        .test {
-                            --mg-button-label-color: var(--mg-button-label-color);
-                        }
-                    }
-                }
-            }
         }
 
         @include describe("prefers-color-scheme()") {
