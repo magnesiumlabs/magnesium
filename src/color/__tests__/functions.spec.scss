@@ -16,8 +16,8 @@
         @include describe("get-tokens()") {
             @include it("Should return color tokens list.") {
                 @include assert-equal(color.get-tokens(), (
-                    primary,
-                    secondary
+                    "primary",
+                    "secondary"
                 ));
             }
         }

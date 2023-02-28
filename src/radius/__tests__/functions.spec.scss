@@ -16,8 +16,8 @@
         @include describe("get-tokens()") {
             @include it("Should return radius tokens list.") {
                 @include assert-equal(radius.get-tokens(), (
-                    small,
-                    medium
+                    "small",
+                    "medium"
                 ));
             }
         }

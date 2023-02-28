@@ -22,43 +22,43 @@
         @include describe("create-theme-vars()") {
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(magnesium.create-theme-vars((
-                    fill-color: darkcyan,
-                    label-size: 16px
+                    "fill-color": darkcyan,
+                    "label-size": 16px
                 ), button), (
-                    fill-color: var(--mg-button-fill-color, darkcyan),
-                    label-size: var(--mg-button-label-size, 16px)
+                    "fill-color": var(--mg-button-fill-color, darkcyan),
+                    "label-size": var(--mg-button-label-size, 16px)
                 ));
             }
 
             @include it("Should return tokens map with custom variables without fallback (list).") {
                 @include assert-equal(magnesium.create-theme-vars((
-                    label-color
+                    "label-color"
                 ), button), (
-                    label-color: var(--mg-button-label-color)
+                    "label-color": var(--mg-button-label-color)
                 ));
             }
 
             @include it("Should return tokens map with custom variables without fallback (map).") {
                 @include assert-equal(magnesium.create-theme-vars((
-                    label-color: null
+                    "label-color": null
                 ), button), (
-                    label-color: var(--mg-button-label-color)
+                    "label-color": var(--mg-button-label-color)
                 ));
             }
 
             @include it("Should return tokens for `$colors` option.") {
-                 @include assert-equal(magnesium.create-theme-vars((
-                     fill-color: primary
-                 ), button), (
-                     fill-color: var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
-                 ));
-             }
+                @include assert-equal(magnesium.create-theme-vars((
+                    "fill-color": primary
+                ), button), (
+                    "fill-color": var(--mg-button-fill-color, var(--mg-theme-primary, darkcyan)),
+                ));
+            }
 
             @include it("Should return tokens for `$shapes` option.") {
                 @include assert-equal(magnesium.create-theme-vars((
-                    container-shape: filled
+                    "container-shape": filled
                 ), button), (
-                    container-shape: var(--mg-button-container-shape, var(--mg-theme-shape, 6px))
+                    "container-shape": var(--mg-button-container-shape, var(--mg-theme-shape, 6px))
                 ));
             }
         }
@@ -66,15 +66,15 @@
         @include describe("get-theme-tokens()") {
             @include it("Should return color value from token.") {
                 @include assert-equal(magnesium.get-theme-tokens(), (
-                    primary,
-                    secondary
+                    "primary",
+                    "secondary"
                 ));
             }
         }
 
         @include describe("get-theme-color()") {
             @include it("Should return color value from token.") {
-                @include assert-equal(magnesium.get-theme-color(primary), darkcyan);
+                @include assert-equal(magnesium.get-theme-color("primary"), darkcyan);
             }
         }
     }
@@ -85,10 +85,10 @@
         @include describe("create-typography-vars()") {
             @include it("Should return tokens map with custom variables.") {
                 @include assert-equal(typography.create-typography-vars("button", "button-label"), (
-                    line-height: var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px)),
-                    font-size: var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px)),
-                    font-weight: var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700)),
-                    letter-spacing: var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px))
+                    "line-height": var(--mg-button-label-line-height, var(--mg-typography-button-line-height, 22px)),
+                    "font-size": var(--mg-button-label-font-size, var(--mg-typography-button-font-size, 20px)),
+                    "font-weight": var(--mg-button-label-font-weight, var(--mg-typography-button-font-weight, 700)),
+                    "letter-spacing": var(--mg-button-label-letter-spacing, var(--mg-typography-button-letter-spacing, 2px))
                 ));
             }
         }
@@ -96,8 +96,8 @@
         @include describe("get-style-tokens()") {
             @include it("Should return color value from token.") {
                 @include assert-equal(typography.get-style-tokens(), (
-                    body,
-                    button
+                    "body",
+                    "button"
                 ));
             }
         }

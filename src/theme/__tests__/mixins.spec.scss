@@ -12,7 +12,7 @@
                 @include assert {
                     @include output(false) {
                         $theme: magnesium.create-theme-vars((
-                            label-color: darkcyan
+                            "label-color": darkcyan
                         ), "button");
 
                         .test {
@@ -32,7 +32,7 @@
                 @include assert {
                     @include output(false) {
                         $theme: magnesium.create-theme-vars((
-                            label-color
+                            "label-color"
                         ), "button");
 
                         .test {

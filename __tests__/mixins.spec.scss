@@ -43,11 +43,11 @@
                 @include assert {
                     @include output(false) {
                         $theme: magnesium.create-theme-vars((
-                            fill-color: primary,
-                            container-shape: sharped,
-                            label-size: 16px,
-                            label-color: darkcyan,
-                            icon-color: null
+                            "fill-color": primary,
+                            "container-shape": sharped,
+                            "label-size": 16px,
+                            "label-color": darkcyan,
+                            "icon-color": null
                         ), "button");
 
                         .test {
@@ -78,8 +78,8 @@
                     @include output(false) {
                         .test {
                             @include typography.theme-styles((
-                                font-size: 16px,
-                                font-weight: 400
+                                "font-size": 16px,
+                                "font-weight": 400
                             ));
                         }
                     }
@@ -98,11 +98,11 @@
                     @include output(false) {
                         .test {
                             $theme: magnesium.create-theme-vars((
-                                label-size: 16px
+                                "label-size": 16px
                             ), "button");
 
                             @include typography.theme-styles((
-                                font-size: map.get($theme, label-size)
+                                "font-size": map.get($theme, label-size)
                             ));
                         }
                     }
