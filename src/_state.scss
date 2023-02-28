@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "@unsass/types";
+@use "@unsass/types" as type;
 
 // ------------------------------------------------------------------------- //
 // Private functions
@@ -18,7 +18,7 @@
 }
 
 @function _is-state-map($default-or-map) {
-    @return types.is-map($default-or-map);
+    @return type.is-map($default-or-map);
 }
 
 // ------------------------------------------------------------------------- //
