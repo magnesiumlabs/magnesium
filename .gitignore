@@ -1,13 +1,10 @@
 ## Files
 *.map
 *.orig
-*.lerna_backup
 *.log
-/packages/*/package-lock.json
 junit.xml
 
 ## Folders
 .DS_Store
 /.idea
 /node_modules
-/packages/*/node_modules
