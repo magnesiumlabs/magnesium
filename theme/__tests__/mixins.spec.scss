@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "../../__tests__/tokens";
 @use "../index" as theme;
 
 @include describe("theme") {
@@ -11,9 +12,7 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme.create-theme-vars((
-                            "label-color": darkcyan
-                        ), "button");
+                        $theme: theme.create-theme-vars(tokens.$button, "button");
 
                         .test {
                             @include theme.emit-theme-vars($theme);
@@ -22,7 +21,10 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-button-label-color: darkcyan;
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                            --mg-button-text-font-family: "Roboto";
+                            --mg-button-text-line-height: var(--mg-typography-text-line-height, normal);
                         }
                     }
                 }
