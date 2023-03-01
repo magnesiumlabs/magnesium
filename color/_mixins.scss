@@ -8,6 +8,8 @@
 $_custom-property-prefix: "color";
 
 ///
+/// Generates user-provided theme's tokens for the color component management with tokens validation.
+///
 /// @example - scss
 ///   $theme: (
 ///     "primary": darkcyan
