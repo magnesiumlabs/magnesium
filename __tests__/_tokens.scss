@@ -5,6 +5,11 @@ $colors: (
     "secondary": darkorange
 );
 
+$shapes: (
+    "filled": 6px,
+    "sharped": 0
+);
+
 $button: (
     "text-color": var(--mg-color-primary, map.get($colors, "primary")),
     "text-size": 16px,
