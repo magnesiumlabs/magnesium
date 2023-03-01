@@ -21,19 +21,19 @@
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$button, "button"), (
-                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-color": var(--mg-button-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-button-text-size, 16px),
                     "text-font-family": var(--mg-button-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-button-text-line-height, var(--mg-typography-text-line-height, normal))
+                    "text-line-height": var(--mg-button-text-line-height, normal)
                 ));
             }
 
             @include it("Should return a map of tokens with custom properties without component name prefix.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$button, false), (
-                    "text-color": var(--mg-text-color, darkcyan),
+                    "text-color": var(--mg-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-text-size, 16px),
                     "text-font-family": var(--mg-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-text-line-height, var(--mg-typography-text-line-height, normal))
+                    "text-line-height": var(--mg-text-line-height, normal)
                 ));
             }
         }

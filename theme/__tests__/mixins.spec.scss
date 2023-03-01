@@ -21,10 +21,10 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-color: var(--mg-color-primary, darkcyan);
                             --mg-button-text-size: 16px;
                             --mg-button-text-font-family: "Roboto";
-                            --mg-button-text-line-height: var(--mg-typography-text-line-height, normal);
+                            --mg-button-text-line-height: normal;
                         }
                     }
                 }
