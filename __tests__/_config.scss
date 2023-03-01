@@ -2,18 +2,5 @@
 @use "../index" as magnesium with (
     $colors: tokens.$colors,
     $shapes: tokens.$shapes,
-    $typographies: (
-        "body": (
-            "line-height": 20px,
-            "font-size": 16px,
-            "font-weight": 400,
-            "letter-spacing": normal
-        ),
-        "button": (
-            "line-height": 22px,
-            "font-size": 20px,
-            "font-weight": 700,
-            "letter-spacing": 2px
-        )
-    )
+    $typographies: tokens.$typographies
 );

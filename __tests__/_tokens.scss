@@ -10,6 +10,21 @@ $shapes: (
     "sharped": 0
 );
 
+$typographies: (
+    "body": (
+        "line-height": 20px,
+        "font-size": 16px,
+        "font-weight": 400,
+        "letter-spacing": normal
+    ),
+    "button": (
+        "line-height": 22px,
+        "font-size": 20px,
+        "font-weight": 700,
+        "letter-spacing": 2px
+    )
+);
+
 $button: (
     "text-color": var(--mg-color-primary, map.get($colors, "primary")),
     "text-size": 16px,
