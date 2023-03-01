@@ -10,7 +10,7 @@
 @use "../core";
 
 ///
-/// Validates theme's token and throws an error if tokens are invalid.
+/// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
 /// @param {Map} $reference - A map of reference tokens.
 /// @param {Map} $tokens - A map of theme's tokens.
@@ -35,7 +35,7 @@
 }
 
 ///
-/// Transforms a theme's tokens value into a `var()` custom properties.
+/// Transforms a user-provided theme's tokens map values into a `var()` custom properties.
 ///
 /// @example - scss
 ///   $theme: (
@@ -48,8 +48,9 @@
 ///     "text-color": var(--mg-button-text-color, darkcyan)
 ///   );
 ///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $theme - The user-provided theme tokens map.
 /// @param {String} $prefix - Component's name to prepend for each token's custom property name.
+///                           Set to `false` for disabled.
 ///
 /// @return {Map} The transformed theme map.
 ///

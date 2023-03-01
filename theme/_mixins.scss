@@ -6,6 +6,9 @@
 @use "@unsass/string";
 
 ///
+/// Emits CSS custom properties declarations form a user-provided theme's token transformed
+/// with `create-theme-vars()` function.
+///
 /// @example - scss
 ///   $theme: (
 ///     "text-color": darkcyan
