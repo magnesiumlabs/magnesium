@@ -48,10 +48,10 @@ $_custom-property-prefix: "typography";
         @debug $value;
     }
 
-    $tokens: theme.validate-tokens(core.$typographies, $theme);
+    $tokens: theme.validate-theme(core.$typographies, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
-    @include theme.create-theme($tokens);
+    @include theme.emit-theme-vars($tokens);
 }
 
 ///
@@ -84,7 +84,7 @@ $_custom-property-prefix: "typography";
 ///   );
 ///
 ///   .foo {
-///     @include create-theme($typography, "button");
+///     @include emit-theme-vars($typography, "button");
 ///   }
 ///
 /// @example - css

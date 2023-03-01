@@ -17,7 +17,7 @@
 ///
 /// @return {Map} The validated theme map.
 ///
-@function validate-tokens($reference, $tokens) {
+@function validate-theme($reference, $tokens) {
     $keys: map.keys($reference);
     $unsupported-tokens: ();
 

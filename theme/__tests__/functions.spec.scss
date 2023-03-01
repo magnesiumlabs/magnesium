@@ -8,6 +8,16 @@
 
 @include describe("theme") {
     @include describe("functions") {
+        @include describe("validate-theme()") {
+            @include it("Should return validated theme tokens.") {
+                @include assert-equal(theme.validate-theme(tokens.$button, (
+                    "text-color": darkorange,
+                )), (
+                    "text-color": darkorange,
+                ));
+            }
+        }
+
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
                 @include assert-equal(theme.create-theme-vars(tokens.$button, "button"), (

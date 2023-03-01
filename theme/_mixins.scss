@@ -15,7 +15,7 @@
 ///   $theme: create-theme-vars($theme, "button"); -> `("label-color": var(--mg-button-label-color, darkcyan))`
 ///
 ///   .foo {
-///     @include create-theme($theme);
+///     @include emit-theme-vars($theme);
 ///   }
 ///
 /// @example - css
@@ -25,7 +25,7 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 ///
-@mixin create-theme($theme) {
+@mixin emit-theme-vars($theme) {
     @each $key, $value in $theme {
         $var: string.trim($value, "var(", ")");
         $comma: string.index($var, ",");

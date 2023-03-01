@@ -25,8 +25,8 @@ $_custom-property-prefix: "shape";
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    $tokens: theme.validate-tokens(core.$shapes, $theme);
+    $tokens: theme.validate-theme(core.$shapes, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
-    @include theme.create-theme($tokens);
+    @include theme.emit-theme-vars($tokens);
 }

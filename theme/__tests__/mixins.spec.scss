@@ -7,7 +7,7 @@
 
 @include describe("theme") {
     @include describe("mixins") {
-        @include describe("create-theme()") {
+        @include describe("emit-theme-vars()") {
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
@@ -16,7 +16,7 @@
                         ), "button");
 
                         .test {
-                            @include theme.create-theme($theme);
+                            @include theme.emit-theme-vars($theme);
                         }
                     }
 
