@@ -9,10 +9,10 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     "label-color": darkcyan
+///     "text-color": darkcyan
 ///   );
 ///
-///   $theme: create-theme-vars($theme, "button"); -> `("label-color": var(--mg-button-label-color, darkcyan))`
+///   $theme: create-theme-vars($theme, "button"); -> `("text-color": var(--mg-button-text-color, darkcyan))`
 ///
 ///   .foo {
 ///     @include emit-theme-vars($theme);
@@ -20,7 +20,7 @@
 ///
 /// @example - css
 ///   .foo {
-///     --mg-button-label-color: darkcyan;
+///     --mg-button-text-color: darkcyan;
 ///   }
 ///
 /// @param {Map} $theme - The theme tokens map.
