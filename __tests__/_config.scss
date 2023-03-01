@@ -1,8 +1,6 @@
+@use "./tokens";
 @use "../index" as magnesium with (
-    $colors: (
-        "primary": darkcyan,
-        "secondary": darkorange
-    ),
+    $colors: tokens.$colors,
     $typographies: (
         "body": (
             "line-height": 20px,

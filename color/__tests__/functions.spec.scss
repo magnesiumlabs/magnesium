@@ -12,7 +12,8 @@
             @include it("Should return color tokens list.") {
                 @include assert-equal(color.tokens(), (
                     "primary",
-                    "secondary"
+                    "secondary",
+                    "tertiary"
                 ));
             }
         }
