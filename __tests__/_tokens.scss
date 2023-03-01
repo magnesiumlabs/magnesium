@@ -1,10 +1,12 @@
+@use "sass:map";
+
 $colors: (
     "primary": darkcyan,
     "secondary": darkorange
 );
 
 $button: (
-    "text-color": var(--mg-color-primary, darkcyan),
+    "text-color": var(--mg-color-primary, map.get($colors, "primary")),
     "text-size": 16px,
     "text-font-family": "Roboto",
     "text-line-height": normal
