@@ -2,7 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "../core/variables";
+@use "../core";
 @use "../theme";
 
 $_custom-property-prefix: "color";
@@ -25,7 +25,7 @@ $_custom-property-prefix: "color";
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    $tokens: theme.validate-tokens(variables.$colors, $theme);
+    $tokens: theme.validate-tokens(core.$colors, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
     @include theme.create-theme($tokens);
