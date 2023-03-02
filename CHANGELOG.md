@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/magnesiumlabs/magnesium/compare/v2.6.2...v3.0.0) (2023-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **typography:** removed `theme-styles()` and `create-typography()` mixins
+* **theme:** removed deprecated functions
+* **theme:** removed `core-styles()` mixin
+* move sources code to root
+* remove old `@forward` imports in `index.scss`
+* **typography:** remove some allowed tokens
+* **typography:** remove deprecated `create-typography-var()` and `get-style-tokens()` functions
+* **typography:** rename `$styles` to `$typographies`
+* **color:** removed deprecated `get-tokens()`, `get-value` and `get-variable` functions
+
+### Features
+
+* **color:** add `theme()` mixin ([00ff322](https://github.com/magnesiumlabs/magnesium/commit/00ff322ddd8de8734a9ca44b72b6e9d2ac15e553))
+* **color:** add `variable()` function ([76d5f67](https://github.com/magnesiumlabs/magnesium/commit/76d5f672707a23fdeab33b76dca2c8f7bd75e075))
+* **color:** add new `tokens()` and `value()` functions ([814f9fa](https://github.com/magnesiumlabs/magnesium/commit/814f9fa378ad17a8b5c5042d9fe66fb4eb5fbead))
+* move core files to `core` folder ([836eba5](https://github.com/magnesiumlabs/magnesium/commit/836eba5cde1cad5bb3064546b0b6e788c9d13d8b))
+* remove old `[@forward](https://github.com/forward)` imports in `index.scss` ([1f45963](https://github.com/magnesiumlabs/magnesium/commit/1f459630e130c1134bdd5f662fe768fc3bd63fae))
+* **shape:** add main component ([cf60164](https://github.com/magnesiumlabs/magnesium/commit/cf60164597889cc186029bf4e042c9b2b70f8a88))
+* **theme:** add `prefers-color-scheme()` mixin ([b55a962](https://github.com/magnesiumlabs/magnesium/commit/b55a962d657b643bbf7ccee8f4a83bcb8c1d1fa4))
+* **typography:** add `theme()` mixin ([c0807e4](https://github.com/magnesiumlabs/magnesium/commit/c0807e460787ad341e0d26ab1f59bf30c2623b3b))
+* **typography:** add `tokens()` and `value()` functions ([5796888](https://github.com/magnesiumlabs/magnesium/commit/5796888c37317238265765e9de2b04ec0b957d13))
+* **typography:** remove deprecated `create-typography-var()` and `get-style-tokens()` functions ([500677b](https://github.com/magnesiumlabs/magnesium/commit/500677b773502e8887c7ce693fc71bdd50354995))
+* **typography:** remove some allowed tokens ([0cf4f7a](https://github.com/magnesiumlabs/magnesium/commit/0cf4f7a2d450f0e9f4fc2ab3c284981e81b43b3c))
+* **typography:** rename `$styles` to `$typographies` ([a80e88c](https://github.com/magnesiumlabs/magnesium/commit/a80e88c4e8819257672cd867332c19edf8c1b81f))
+
+
+### Code Refactoring
+
+* **color, shape:** remove default parameters on `theme()` mixins ([a62d2b4](https://github.com/magnesiumlabs/magnesium/commit/a62d2b49490a001981549b2dd20abc8b13c6eca9))
+* **color, shape:** reorder `[@forward](https://github.com/forward)` imports ([632aade](https://github.com/magnesiumlabs/magnesium/commit/632aadec5eee9272641efb867a1c4ad156a32d41))
+* **color:** removed deprecated `get-tokens()`, `get-value` and `get-variable` functions ([e3dd607](https://github.com/magnesiumlabs/magnesium/commit/e3dd607ea9f5113d6662b4b56ab6ea14f9c4bd41))
+* **color:** simplify `theme()` mixin parameter ([f5c1b8e](https://github.com/magnesiumlabs/magnesium/commit/f5c1b8e137beb51cdd34e192f6da71ca828b54d2))
+* move sources code to root ([1625c83](https://github.com/magnesiumlabs/magnesium/commit/1625c83ac23e5281014ff54d05412b08ecdb7507))
+* remove unneeded sass import ([4117ffa](https://github.com/magnesiumlabs/magnesium/commit/4117ffa57427fa4139a2614bd13c36dc234b01a7))
+* removed unneeded sass `[@use](https://github.com/use)` ([e2f1c08](https://github.com/magnesiumlabs/magnesium/commit/e2f1c081f57554f86efda0ef8af73901e3df96a3))
+* rename `_index.scss` to `index.scss` ([3cf9c8b](https://github.com/magnesiumlabs/magnesium/commit/3cf9c8be880625e272238ba63c44a3c7c8190280))
+* reorder variables ([23c4968](https://github.com/magnesiumlabs/magnesium/commit/23c49687141a0633cc177874bd6407af974abe36))
+* **state:** moved to they own folder ([d81ee1f](https://github.com/magnesiumlabs/magnesium/commit/d81ee1f01ebf8bf4b35ea6cba1ce6e197e62c6ca))
+* **state:** simplify sass import namespaces ([079c102](https://github.com/magnesiumlabs/magnesium/commit/079c10200b1662d83ea7a937a9140352e3ffbdcf))
+* **state:** use namespace ([0f217a6](https://github.com/magnesiumlabs/magnesium/commit/0f217a6eb4f3579cbc41ab0565b085f2528703b4))
+* **theme:** removed `core-styles()` mixin ([143a00a](https://github.com/magnesiumlabs/magnesium/commit/143a00a1a782c88d17a0da436a0baf12f273ab4d))
+* **theme:** removed deprecated functions ([3a4a979](https://github.com/magnesiumlabs/magnesium/commit/3a4a9797c50e2bc177ac8d2f32a52aaf0137e8d6))
+* **theme:** removed unneeded sass import ([9371401](https://github.com/magnesiumlabs/magnesium/commit/9371401c4f4e0f85c0c763405306a1ba7789f2f0))
+* **theme:** rename `validate-tokens()` to `validate-theme()` ([468b8d6](https://github.com/magnesiumlabs/magnesium/commit/468b8d6616578b50c144c09d07cd1439118a8e4a))
+* **theme:** simplify `create-theme-vars()` function ([babe89a](https://github.com/magnesiumlabs/magnesium/commit/babe89ac491070600916c8ab4a3efcc8c38f8c16))
+* **typography:** check allowed properties ([2b5ff97](https://github.com/magnesiumlabs/magnesium/commit/2b5ff979776f1bfef5d844b9bbc52f99ca5b574b))
+* **typography:** removed `theme-styles()` and `create-typography()` mixins ([81ce62b](https://github.com/magnesiumlabs/magnesium/commit/81ce62ba80cefd0a865d46272d2f672204c162ad))
+* use global `core` namespace ([7c8b47a](https://github.com/magnesiumlabs/magnesium/commit/7c8b47a109953a1a6c7967ebaf7d19c2a0200146))
+
 ## [3.0.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2023-03-02)
 
 
