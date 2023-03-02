@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2023-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **typography:** removed `theme-styles()` and `create-typography()` mixins
+
+### Features
+
+* **typography:** add `theme()` mixin ([c0807e4](https://github.com/magnesiumlabs/magnesium/commit/c0807e460787ad341e0d26ab1f59bf30c2623b3b))
+
+
+### Code Refactoring
+
+* **typography:** removed `theme-styles()` and `create-typography()` mixins ([81ce62b](https://github.com/magnesiumlabs/magnesium/commit/81ce62ba80cefd0a865d46272d2f672204c162ad))
+
 ## [3.0.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v2.6.2...v3.0.0-beta.1) (2023-03-01)
 
 
