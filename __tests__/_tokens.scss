@@ -11,18 +11,10 @@ $shapes: (
 );
 
 $typographies: (
-    "body": (
-        "line-height": 20px,
-        "font-size": 16px,
-        "font-weight": 400,
-        "letter-spacing": normal
-    ),
-    "button": (
-        "line-height": 22px,
-        "font-size": 20px,
-        "font-weight": 700,
-        "letter-spacing": 2px
-    )
+    "body-line-height": 20px,
+    "body-font-size": 16px,
+    "body-font-weight": 400,
+    "body-letter-spacing": normal
 );
 
 $button: (

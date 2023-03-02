@@ -11,15 +11,17 @@
         @include describe("tokens()") {
             @include it("Should return typography tokens list.") {
                 @include assert-equal(typography.tokens(), (
-                    "body",
-                    "button"
+                    "body-line-height",
+                    "body-font-size",
+                    "body-font-weight",
+                    "body-letter-spacing"
                 ));
             }
         }
 
         @include describe("value()") {
             @include it("Should return typography value from selected token.") {
-                @include assert-equal(typography.value("body", "font-size"), 16px);
+                @include assert-equal(typography.value("body-font-size"), 16px);
             }
         }
     }

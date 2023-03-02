@@ -4,47 +4,50 @@
 
 @use "true" as *;
 @use "../../__tests__/config";
+@use "../../index" as magnesium;
 @use "../index" as typography;
 
 @include describe("typography") {
     @include describe("mixins") {
         @include describe("theme()") {
-            //@include it("Should return the color custom properties declarations.") {
-            //    @include assert {
-            //        @include output(false) {
-            //            .test {
-            //                @include typography.theme();
-            //            }
-            //        }
-            //
-            //        @include expect(false) {
-            //            .test {
-            //                --mg-color-primary: darkcyan;
-            //                --mg-color-secondary: darkorange;
-            //            }
-            //        }
-            //    }
-            //}
-            //
-            //@include it("Should return the color custom properties declarations with custom theme.") {
-            //    @include assert {
-            //        @include output(false) {
-            //            .test {
-            //                $theme: (
-            //                    "primary": darkorange
-            //                );
-            //
-            //                @include typography.theme($theme);
-            //            }
-            //        }
-            //
-            //        @include expect(false) {
-            //            .test {
-            //                --mg-color-primary: darkorange;
-            //            }
-            //        }
-            //    }
-            //}
+            @include it("Should return the color custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typography.theme(magnesium.$typographies);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-typography-body-line-height: 20px;
+                            --mg-typography-body-font-size: 16px;
+                            --mg-typography-body-font-weight: 400;
+                            --mg-typography-body-letter-spacing: normal;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return the color custom properties declarations with custom theme.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            $theme: (
+                                "body-font-size": 20px
+                            );
+
+                            @include typography.theme($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-typography-body-font-size: 20px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

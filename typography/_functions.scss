@@ -42,7 +42,7 @@
 
 ///
 /// @example - scss
-///   $typography: typography.tokens(); -> `("body", "button")`
+///   $typography: typography.tokens(); -> `("body-font-size", "body-font-weight")`
 ///
 @function tokens() {
     @return map.keys(core.$typographies);
@@ -50,13 +50,11 @@
 
 ///
 /// @example - scss
-///   $typography: typography.value("body", "font-size"); -> `16px`
+///   $typography: typography.value("body-font-size"); -> `16px`
 ///
-@function value($token, $property) {
-    $property: _allowed-property($property);
-
-    @if _exist(list.nth($token, 1)) {
-        @return map.get(core.$typographies, $token, $property);
+@function value($token) {
+    @if _exist($token) {
+        @return map.get(core.$typographies, $token);
     }
 }
 

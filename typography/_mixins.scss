@@ -4,6 +4,7 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "@unsass/string";
 @use "../core";
 @use "../theme";
 @use "./variables";
@@ -28,26 +29,21 @@ $_custom-property-prefix: "typography";
 ///
 /// @example - scss
 ///   $theme: (
-///     "primary": darkcyan
+///     "body-font-size": 16px
 ///   );
 ///
 ///   .foo {
-///     @include color.theme($theme);
+///     @include typography.theme($theme);
 ///   }
 ///
 /// @example - css
 ///   .foo {
-///     --mg-color-primary: darkcyan;
+///     --mg-typography-body-font-size: 16px;
 ///   }
 ///
 /// @param {Map} $theme - The theme tokens map. Use the default `$typographies` tokens.
 ///
-@mixin theme($theme: core.$typographies) {
-    @each $key, $value in $theme {
-        @debug $key;
-        @debug $value;
-    }
-
+@mixin theme($theme) {
     $tokens: theme.validate-theme(core.$typographies, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
