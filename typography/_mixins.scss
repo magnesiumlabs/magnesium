@@ -2,30 +2,13 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "sass:list";
-@use "sass:map";
-@use "@unsass/string";
 @use "../core";
 @use "../theme";
-@use "./variables";
-@use "./functions";
 
 $_custom-property-prefix: "typography";
 
-// ------------------------------------------------------------------------- //
-// Private mixins
-// ------------------------------------------------------------------------- //
-
-@mixin _typography($style) {
-    @each $key, $value in variables.$allowed-tokens {
-        #{$key}: map.get($style, $key);
-    }
-}
-
-// ------------------------------------------------------------------------- //
-// Public mixins
-// ------------------------------------------------------------------------- //
-
+///
+/// Generates user-provided theme's tokens for the typography component management with tokens validation.
 ///
 /// @example - scss
 ///   $theme: (
@@ -48,55 +31,4 @@ $_custom-property-prefix: "typography";
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
     @include theme.emit-theme-vars($tokens);
-}
-
-///
-/// @example - scss
-///   $typography: (
-///     "font-size": 16px,
-///     "font-weight": 400
-///   );
-///
-///   .foo {
-///     @include theme-styles($typography);
-///   }
-///
-/// @example - css
-///   .foo {
-///     font-size: 16px;
-///     font-weight: 400;
-///   }
-///
-/// @param {Map} $theme - The typography theme map.
-///
-@mixin theme-styles($theme) {
-    @include _typography($theme);
-}
-
-///
-/// @example - scss
-///   $typography: (
-///     "font-size": 16px
-///   );
-///
-///   .foo {
-///     @include emit-theme-vars($typography, "button");
-///   }
-///
-/// @example - css
-///   .foo {
-///     --mg-typography-button-font-size: 16px;
-///   }
-///
-/// @param {Map} $typography - The typography tokens map.
-/// @param {String} $style - The typography style prefix.
-///
-/// @deprecated Use `create-theme` mixin instead.
-///
-@mixin create-typography($typography, $style) {
-    @each $key, $value in $typography {
-        @if list.index(variables.$allowed-tokens, $key) != null {
-            --#{core.create-name(typography-#{$style}-#{$key})}: #{$value};
-        }
-    }
 }
