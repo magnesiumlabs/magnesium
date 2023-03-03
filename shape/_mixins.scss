@@ -2,6 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "@unsass/types" as type;
 @use "../core";
 @use "../theme";
 
@@ -27,6 +28,12 @@ $_custom-property-prefix: "shape";
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
+    @each $key, $value in $theme {
+        @if type.is-map($value) {
+            @error "Invalid tokens map, the tokens map can't contain more than one level.";
+        }
+    }
+
     $tokens: theme.validate-theme(core.$shapes, $theme);
     $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
 
