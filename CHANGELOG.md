@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/magnesiumlabs/magnesium/compare/v3.0.1...v3.0.2) (2023-03-03)
+
+
+### Bug Fixes
+
+* **theme:** emit variable only if value exist ([60e4cad](https://github.com/magnesiumlabs/magnesium/commit/60e4cade348d03c95edbf9db6d424593b01a457b))
+
 ## [3.0.1](https://github.com/magnesiumlabs/magnesium/compare/v3.0.0...v3.0.1) (2023-03-03)
 
 
