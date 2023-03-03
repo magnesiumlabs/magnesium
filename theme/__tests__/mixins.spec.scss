@@ -29,6 +29,27 @@
                     }
                 }
             }
+
+            @include it("Should return custom theme declarations without null.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: theme.create-theme-vars((
+                            "text-color": darkcyan,
+                            "text-size": null
+                        ), "button");
+
+                        .test {
+                            @include theme.emit-theme-vars($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
         }
 
         @include describe("prefers-color-scheme()") {

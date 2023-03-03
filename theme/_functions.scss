@@ -56,15 +56,17 @@
 ///
 @function create-theme-vars($theme, $prefix) {
     @each $key, $value in $theme {
-        $token: string.combine(core.$prefix, $prefix, $key);
+        @if $value != null {
+            $token: string.combine(core.$prefix, $prefix, $key);
 
-        @if type.is-map($theme) {
-            $value: custom-properties.create-var(custom-properties.create($token, $value));
-        } @else if type.is-list($theme) or type.is-string($theme) {
-            $value: custom-properties.create-var(custom-properties.create($token));
+            @if type.is-map($theme) {
+                $value: custom-properties.create-var(custom-properties.create($token, $value));
+            } @else if type.is-list($theme) or type.is-string($theme) {
+                $value: custom-properties.create-var(custom-properties.create($token));
+            }
+
+            $theme: map.set($theme, $key, $value);
         }
-
-        $theme: map.set($theme, $key, $value);
     }
 
     @return $theme;

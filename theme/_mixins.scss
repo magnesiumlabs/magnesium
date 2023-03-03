@@ -29,13 +29,15 @@
 ///
 @mixin emit-theme-vars($theme) {
     @each $key, $value in $theme {
-        $var: string.trim($value, "var(", ")");
-        $comma: string.index($var, ",");
+        @if $value {
+            $var: string.trim($value, "var(", ")");
+            $comma: string.index($var, ",");
 
-        @if $comma {
-            #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
-        } @else {
-            #{$var}: $value;
+            @if $comma {
+                #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+            } @else {
+                #{$var}: $value;
+            }
         }
     }
 }
