@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/magnesiumlabs/magnesium/compare/v3.0.0...v3.0.1) (2023-03-03)
+
+
+### Bug Fixes
+
+* **theme:** add error when token is invalid ([216c1ce](https://github.com/magnesiumlabs/magnesium/commit/216c1ced92ffa1230e5eb4ec570e3ebe3c21ca8e))
+
 ## [3.0.0](https://github.com/magnesiumlabs/magnesium/compare/v2.6.2...v3.0.0) (2023-03-02)
 
 
