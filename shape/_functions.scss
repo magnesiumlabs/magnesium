@@ -48,12 +48,12 @@ $_custom-property-prefix: "shape";
 ///
 /// @example - scss
 ///   .foo {
-///     shape: shape.variable("primary");
+///     border-radius: shape.variable("filled");
 ///   }
 ///
 /// @example - css
 ///   .foo {
-///     shape: var(--mg-shape-primary);
+///     border-radius: var(--mg-shape-filled);
 ///   }
 ///
 /// @return {String} The token value.
