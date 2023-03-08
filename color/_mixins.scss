@@ -4,7 +4,6 @@
 
 @use "@unsass/types" as type;
 @use "../core";
-@use "../theme";
 
 $_custom-property-prefix: "color";
 
@@ -34,8 +33,8 @@ $_custom-property-prefix: "color";
         }
     }
 
-    $tokens: theme.validate-theme(core.$colors, $theme);
-    $tokens: theme.create-theme-vars($theme, $_custom-property-prefix);
+    $tokens: core.validate-theme(core.$colors, $theme);
+    $tokens: core.create-theme-vars($theme, $_custom-property-prefix);
 
-    @include theme.emit-theme-vars($tokens);
+    @include core.emit-theme-vars($tokens);
 }

@@ -4,9 +4,9 @@
 
 </div>
 
-[![Version](https://flat.badgen.net/npm/v/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
-[![Downloads](https://flat.badgen.net/npm/dt/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
-[![License](https://flat.badgen.net/npm/license/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
+[![Version](https://flat.badgen.net/npm/v/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
+[![Downloads](https://flat.badgen.net/npm/dt/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
+[![License](https://flat.badgen.net/npm/license/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
 
 ## Introduction
 
@@ -15,7 +15,7 @@ Easily develop your Design System for the web, The Magnesium Sass Framework is h
 ## Installing
 
 ```shell
-npm install @magnesium/framework
+npm install @magnesium/theme
 ```
 
 ## Theme
@@ -24,7 +24,7 @@ The theme component help you to easily manage theme styles with generate CSS cus
 user-provided theme's tokens map.
 
 ```scss
-@use "@magnesium/framework/theme";
+@use "@magnesium/theme";
 
 .foo {
     $theme: theme.create-theme-vars((
