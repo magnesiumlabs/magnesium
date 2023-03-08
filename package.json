@@ -1,7 +1,7 @@
 {
     "name": "@magnesium/framework",
     "version": "3.0.3",
-    "description": "The Sass Framework for Web artisans.",
+    "description": "The Sass Framework for Web Design System.",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
         "lint": "npm-run-all --parallel lint:*",
