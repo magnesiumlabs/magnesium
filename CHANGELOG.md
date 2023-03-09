@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0-beta.3](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0-beta.2...v3.1.0-beta.3) (2023-03-09)
+
+
+### Features
+
+* **theme:** set to `null` by default the `$prefix` option on `emit-custom-props()` mixin ([d69b7ab](https://github.com/magnesiumlabs/magnesium/commit/d69b7abfcf59544f375e3d838c59a819bbfe492c))
+
 ## [3.1.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0-beta.1...v3.1.0-beta.2) (2023-03-09)
 
 
