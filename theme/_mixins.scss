@@ -4,6 +4,9 @@
 
 @use "sass:list";
 @use "@unsass/string";
+@use "@unsass/css";
+@use "@unsass/css/custom-properties";
+@use "../core";
 
 ///
 /// Emits CSS custom properties declarations form a user-provided theme's token transformed
@@ -39,6 +42,36 @@
                 #{$var}: $value;
             }
         }
+    }
+}
+
+///
+/// Emits CSS custom properties declarations form a user-provided theme's.
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+///   .foo {
+///     @include emit-custom-props($theme, "theme");
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-theme-primary: darkcyan;
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+///                           Set to `false` for disabled.
+///
+@mixin emit-custom-props($theme, $prefix) {
+    @each $key, $value in $theme {
+        $token: string.combine(core.$prefix, $prefix, $key);
+        $custom-prop: custom-properties.create($token, $value);
+
+        @include css.declaration($custom-prop);
     }
 }
 

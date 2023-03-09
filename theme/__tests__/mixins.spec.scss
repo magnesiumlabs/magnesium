@@ -8,6 +8,44 @@
 
 @include describe("theme") {
     @include describe("mixins") {
+        @include describe("emit-theme()") {
+            @include it("Should return theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.emit-custom-props(tokens.$theme, "theme");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-theme-primary: darkcyan;
+                            --mg-theme-secondary: darkorange;
+                            --mg-theme-tertiary: darkgreen;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return theme custom properties declarations without prefix.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.emit-custom-props(tokens.$theme, false);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-primary: darkcyan;
+                            --mg-secondary: darkorange;
+                            --mg-tertiary: darkgreen;
+                        }
+                    }
+                }
+            }
+        }
+
         @include describe("emit-theme-vars()") {
             @include it("Should return custom theme declarations.") {
                 @include assert {
