@@ -76,8 +76,10 @@
 }
 
 ///
+/// Emits CSS media feature `prefers-color-scheme` declarations.
+///
 /// @example - scss
-///   @include theme.prefers-color-scheme("light") {
+///   @include theme.emit-color-scheme("light") {
 ///     :root {
 ///       --mg-button-text-color: darkcyan;
 ///     }
@@ -91,7 +93,7 @@
 ///   }
 ///
 /// @example - scss
-///   @include theme.prefers-color-scheme("dark") {
+///   @include theme.emit-color-scheme("dark") {
 ///     :root {
 ///       --mg-button-text-color: darkorange;
 ///     }
@@ -104,10 +106,12 @@
 ///     }
 ///   }
 ///
-@mixin prefers-color-scheme($scheme: light) {
+/// @param {Map} $scheme - The color scheme. Choose between `light` or `dark`.
+///
+@mixin emit-color-scheme($scheme: "light") {
     $theme: (
-        light,
-        dark
+        "light",
+        "dark"
     );
 
     @if list.index($theme, $scheme) == null {
@@ -117,4 +121,11 @@
     @media (prefers-color-scheme: $scheme) {
         @content;
     }
+}
+
+///
+/// @deprecated Use `emit-color-scheme()` mixin instead.
+///
+@mixin prefers-color-scheme($scheme: light) {
+    @include emit-color-scheme($scheme);
 }

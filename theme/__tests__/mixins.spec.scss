@@ -95,7 +95,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.prefers-color-scheme("light") {
+                            @include theme.emit-color-scheme("light") {
                                 --mg-button-text-color: darkcyan;
                             }
                         }
@@ -115,7 +115,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.prefers-color-scheme("dark") {
+                            @include theme.emit-color-scheme("dark") {
                                 --mg-button-text-color: darkorange;
                             }
                         }
