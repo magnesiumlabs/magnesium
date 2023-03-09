@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v3.0.4...v3.1.0-beta.1) (2023-03-09)
+
+
+### Features
+
+* **theme:** add `emit-color-scheme()` mixin ([4af4656](https://github.com/magnesiumlabs/magnesium/commit/4af46560938859b9278925ff1aa9f5fb77e1d86c))
+* **theme:** add `emit-custom-props()` mixin ([a2257ee](https://github.com/magnesiumlabs/magnesium/commit/a2257ee4b5bc110c020b8ed78156afcf3e83a6fe))
+* **theme:** add `emit-variable()` function ([0fcf95f](https://github.com/magnesiumlabs/magnesium/commit/0fcf95f491a7993d18209f8715a4615b1368d723))
+
 ## [3.0.4](https://github.com/magnesiumlabs/magnesium/compare/v3.0.3...v3.0.4) (2023-03-09)
 
 
