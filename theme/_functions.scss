@@ -71,3 +71,32 @@
 
     @return $theme;
 }
+
+///
+/// Emits CSS variable declaration form a user-provided theme's.
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+///   .foo {
+///     color: var(--mg-theme-primary);
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+/// @param {String} $token - The theme token key.
+/// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
+/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+///                           Set to `false` for disabled.
+///
+@function emit-variable($theme, $token, $fallback: false, $prefix) {
+    $value: map.get($theme, $token);
+    $token: string.combine(core.$prefix, $prefix, $token);
+
+    @if $fallback {
+        @return custom-properties.create-var(custom-properties.create($token, $value));
+    }
+
+    @return custom-properties.create-var(custom-properties.create($token));
+}
