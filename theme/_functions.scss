@@ -93,7 +93,6 @@
 /// @param {String} $token - The theme token key.
 /// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
-///                           Set to `false` for disabled.
 ///
 @function emit-variable($theme, $token, $fallback: false, $prefix: null) {
     $value: map.get($theme, $token);
