@@ -9,7 +9,7 @@
 @use "../core";
 
 ///
-/// Emits CSS custom properties declarations form a user-provided theme's token transformed
+/// Emits CSS custom properties declarations from a user-provided theme's token transformed
 /// with `create-theme-vars()` function.
 ///
 /// @example - scss
@@ -46,7 +46,7 @@
 }
 
 ///
-/// Emits CSS custom properties declarations form a user-provided theme's.
+/// Emits CSS custom properties declarations from a user-provided theme's.
 ///
 /// @example - scss
 ///   $theme: (
