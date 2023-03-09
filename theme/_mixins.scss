@@ -64,9 +64,8 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
-///                           Set to `false` for disabled.
 ///
-@mixin emit-custom-props($theme, $prefix) {
+@mixin emit-custom-props($theme, $prefix: null) {
     @each $key, $value in $theme {
         $token: string.combine(core.$prefix, $prefix, $key);
         $custom-prop: custom-properties.create($token, $value);
