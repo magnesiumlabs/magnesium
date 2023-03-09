@@ -9,7 +9,7 @@
 @use "../core";
 
 ///
-/// Emits CSS custom properties declarations form a user-provided theme's token transformed
+/// Emits CSS custom properties declarations from a user-provided theme's token transformed
 /// with `create-theme-vars()` function.
 ///
 /// @example - scss
@@ -46,7 +46,7 @@
 }
 
 ///
-/// Emits CSS custom properties declarations form a user-provided theme's.
+/// Emits CSS custom properties declarations from a user-provided theme's.
 ///
 /// @example - scss
 ///   $theme: (
@@ -64,9 +64,8 @@
 ///
 /// @param {Map} $theme - The theme tokens map.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
-///                           Set to `false` for disabled.
 ///
-@mixin emit-custom-props($theme, $prefix) {
+@mixin emit-custom-props($theme, $prefix: null) {
     @each $key, $value in $theme {
         $token: string.combine(core.$prefix, $prefix, $key);
         $custom-prop: custom-properties.create($token, $value);
@@ -89,20 +88,6 @@
 ///   @media (prefers-color-scheme: light) {
 ///     :root {
 ///       --mg-button-text-color: darkcyan;
-///     }
-///   }
-///
-/// @example - scss
-///   @include theme.emit-color-scheme("dark") {
-///     :root {
-///       --mg-button-text-color: darkorange;
-///     }
-///   }
-///
-/// @example - css
-///   @media (prefers-color-scheme: dark) {
-///     :root {
-///       --mg-button-text-color: darkorange;
 ///     }
 ///   }
 ///

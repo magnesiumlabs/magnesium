@@ -8,7 +8,7 @@
 
 @include describe("theme") {
     @include describe("mixins") {
-        @include describe("emit-theme()") {
+        @include describe("emit-custom-props()") {
             @include it("Should return theme custom properties declarations.") {
                 @include assert {
                     @include output(false) {
@@ -31,7 +31,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-custom-props(tokens.$theme, false);
+                            @include theme.emit-custom-props(tokens.$theme);
                         }
                     }
 
@@ -90,7 +90,7 @@
             }
         }
 
-        @include describe("prefers-color-scheme()") {
+        @include describe("emit-custom-props()") {
             @include it("Should return the CSS declarations for light color theme.") {
                 @include assert {
                     @include output(false) {
