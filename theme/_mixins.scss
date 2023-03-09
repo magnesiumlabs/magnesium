@@ -91,20 +91,6 @@
 ///     }
 ///   }
 ///
-/// @example - scss
-///   @include theme.emit-color-scheme("dark") {
-///     :root {
-///       --mg-button-text-color: darkorange;
-///     }
-///   }
-///
-/// @example - css
-///   @media (prefers-color-scheme: dark) {
-///     :root {
-///       --mg-button-text-color: darkorange;
-///     }
-///   }
-///
 /// @param {Map} $scheme - The color scheme. Choose between `light` or `dark`.
 ///
 @mixin emit-color-scheme($scheme: "light") {
