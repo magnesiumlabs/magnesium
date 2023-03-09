@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0-beta.1...v3.1.0-beta.2) (2023-03-09)
+
+
+### Bug Fixes
+
+* **theme:** bad `prefers-color-scheme()` mixin depreciation ([2e7637a](https://github.com/magnesiumlabs/magnesium/commit/2e7637a31035d9ec73a48afbb4ecb904530da48d))
+
+
+### Code Refactoring
+
+* **theme:** set default `$prefix` option on `emit-variable()` mixin to `null` ([54e9520](https://github.com/magnesiumlabs/magnesium/commit/54e95206531c58bef849374b7e654fb6aa9f0554))
+
 ## [3.1.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v3.0.4...v3.1.0-beta.1) (2023-03-09)
 
 
