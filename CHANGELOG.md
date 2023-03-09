@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/magnesiumlabs/magnesium/compare/v3.0.3...v3.0.4) (2023-03-09)
+
+
+### Bug Fixes
+
+* **typography:** remove unneeded sass import ([66e94d6](https://github.com/magnesiumlabs/magnesium/commit/66e94d61770f178af367a58c581cafe8d2700064))
+
 ## [3.0.3](https://github.com/magnesiumlabs/magnesium/compare/v3.0.2...v3.0.3) (2023-03-06)
 
 
