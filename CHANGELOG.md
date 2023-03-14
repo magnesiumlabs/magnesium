@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](https://github.com/magnesiumlabs/magnesium/compare/v3.0.4...v3.1.0) (2023-03-14)
+
+
+### Features
+
+* **theme:** add `emit-color-scheme()` mixin ([4af4656](https://github.com/magnesiumlabs/magnesium/commit/4af46560938859b9278925ff1aa9f5fb77e1d86c))
+* **theme:** add `emit-custom-props()` mixin ([a2257ee](https://github.com/magnesiumlabs/magnesium/commit/a2257ee4b5bc110c020b8ed78156afcf3e83a6fe))
+* **theme:** add `emit-variable()` function ([0fcf95f](https://github.com/magnesiumlabs/magnesium/commit/0fcf95f491a7993d18209f8715a4615b1368d723))
+* **theme:** move to `@magnesium/theme` ([666b553](https://github.com/magnesiumlabs/magnesium/commit/666b553e89505c626da90f3cacaf4f7a354b76d6))
+* **theme:** set to `null` by default the `$prefix` option on `emit-custom-props()` mixin ([d69b7ab](https://github.com/magnesiumlabs/magnesium/commit/d69b7abfcf59544f375e3d838c59a819bbfe492c))
+
+
+### Bug Fixes
+
+* **theme:** bad `prefers-color-scheme()` mixin depreciation ([2e7637a](https://github.com/magnesiumlabs/magnesium/commit/2e7637a31035d9ec73a48afbb4ecb904530da48d))
+
+
+### Code Refactoring
+
+* **theme:** set default `$prefix` option on `emit-variable()` mixin to `null` ([54e9520](https://github.com/magnesiumlabs/magnesium/commit/54e95206531c58bef849374b7e654fb6aa9f0554))
+
 ## [3.1.0-beta.4](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0-beta.3...v3.1.0-beta.4) (2023-03-14)
 
 
