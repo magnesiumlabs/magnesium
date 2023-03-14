@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/magnesiumlabs/magnesium/compare/v3.2.0...v3.2.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* **theme:** error when value is `null` ([85f31e4](https://github.com/magnesiumlabs/magnesium/commit/85f31e409fac13d0ee638b6b86e556e1b67eb0a0))
+
 ## [3.2.0](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0...v3.2.0) (2023-03-14)
 
 
