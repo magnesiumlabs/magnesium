@@ -4,9 +4,9 @@
 
 </div>
 
-[![Version](https://flat.badgen.net/npm/v/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
-[![Downloads](https://flat.badgen.net/npm/dt/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
-[![License](https://flat.badgen.net/npm/license/@magnesium/framework)](https://www.npmjs.com/package/@magnesium/framework)
+[![Version](https://flat.badgen.net/npm/v/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
+[![Downloads](https://flat.badgen.net/npm/dt/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
+[![License](https://flat.badgen.net/npm/license/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
 
 ## Introduction
 
@@ -15,30 +15,54 @@ Easily develop your Design System for the web, The Magnesium Sass Framework is h
 ## Installing
 
 ```shell
-npm install @magnesium/framework
+npm install @magnesium/theme
 ```
 
-## Theme
+## Usage
 
 The theme component help you to easily manage theme styles with generate CSS custom properties declarations from
 user-provided theme's tokens map.
 
+### `emit-custom-props($theme, $prefix)`
+
 ```scss
-@use "@magnesium/framework/theme";
+@use "@magnesium/theme";
+
+$theme: (
+    "text-color": darkcyan
+);
 
 .foo {
-    $theme: theme.create-theme-vars((
-        "text-color": darkcyan
-    ), "button");
-
-    @include theme.emit-theme-vars($theme);
+    @include theme.emit-custom-props($theme, "button");
 }
 ```
 
-### Output
+### Result
 
 ```scss
 .foo {
     --mg-button-text-color: darkcyan;
+}
+```
+
+### `emit-variable($theme, $token, $fallback, $prefix)`
+
+```scss
+@use "@magnesium/theme";
+
+$theme: (
+    "text-color": darkcyan
+);
+
+.foo {
+    color: theme.emit-variable($theme, "text-color", false, "button");
+}
+```
+
+### Result
+
+```css
+.foo {
+    color: var(--mg-button-text-color);
 }
 ```

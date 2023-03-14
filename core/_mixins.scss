@@ -6,7 +6,7 @@
 @use "@unsass/string";
 @use "@unsass/css";
 @use "@unsass/css/custom-properties";
-@use "../core";
+@use "./variables";
 
 ///
 /// Emits CSS custom properties declarations from a user-provided theme's token transformed
@@ -67,7 +67,7 @@
 ///
 @mixin emit-custom-props($theme, $prefix: null) {
     @each $key, $value in $theme {
-        $token: string.combine(core.$prefix, $prefix, $key);
+        $token: string.combine(variables.$prefix, $prefix, $key);
         $custom-prop: custom-properties.create($token, $value);
 
         @include css.declaration($custom-prop);

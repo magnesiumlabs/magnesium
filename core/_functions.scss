@@ -2,7 +2,11 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:list";
+@use "sass:map";
+@use "@unsass/css/custom-properties";
 @use "@unsass/string";
+@use "@unsass/types" as type;
 @use "./variables";
 
 ///
@@ -10,4 +14,100 @@
 ///
 @function create-name($name) {
     @return string.combine(variables.$prefix, $name);
+}
+
+///
+/// Validates a user-provided theme's token and throws an error if tokens are invalid.
+///
+/// @param {Map} $reference - A map of reference tokens.
+/// @param {Map} $tokens - A map of theme's tokens.
+///
+/// @return {Map} The validated theme map.
+///
+@function validate-theme($reference, $tokens) {
+    $keys: map.keys($reference);
+    $unsupported-tokens: ();
+
+    @each $key, $value in $tokens {
+        @if list.index($keys, $key) == null {
+            $unsupported-tokens: list.append($unsupported-tokens, $key, $separator: comma);
+        }
+    }
+
+    @if list.length($unsupported-tokens) > 0 {
+        @error "The following tokens are invalid: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+    }
+
+    @return $tokens;
+}
+
+///
+/// Transforms a user-provided theme's tokens map values into a `var()` custom properties.
+///
+/// @example - scss
+///   $theme: (
+///     "text-color": darkcyan
+///   );
+///
+///   $theme: theme.create-theme-vars($theme, "button");
+///
+///   $theme: (
+///     "text-color": var(--mg-button-text-color, darkcyan)
+///   );
+///
+/// @param {Map} $theme - The user-provided theme tokens map.
+/// @param {String} $prefix - Component's name to prepend for each token's custom property name.
+///                           Set to `false` for disabled.
+///
+/// @return {Map} The transformed theme map.
+///
+@function create-theme-vars($theme, $prefix) {
+    @each $key, $value in $theme {
+        @if $value != null {
+            $token: string.combine(variables.$prefix, $prefix, $key);
+
+            @if type.is-map($theme) {
+                $value: custom-properties.create-var(custom-properties.create($token, $value));
+            } @else if type.is-list($theme) or type.is-string($theme) {
+                $value: custom-properties.create-var(custom-properties.create($token));
+            }
+
+            $theme: map.set($theme, $key, $value);
+        }
+    }
+
+    @return $theme;
+}
+
+///
+/// Emits CSS variable declaration from a user-provided theme's.
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+///   .foo {
+///     color: theme.emit-variable($theme, "primary");
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--mg-theme-primary);
+///   }
+///
+/// @param {Map} $theme - The theme tokens map.
+/// @param {String} $token - The theme token key.
+/// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
+/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+///
+@function emit-variable($theme, $token, $fallback: false, $prefix: null) {
+    $value: map.get($theme, $token);
+    $token: string.combine(variables.$prefix, $prefix, $token);
+
+    @if $fallback {
+        @return custom-properties.create-var(custom-properties.create($token, $value));
+    }
+
+    @return custom-properties.create-var(custom-properties.create($token));
 }

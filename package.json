@@ -1,5 +1,5 @@
 {
-    "name": "@magnesium/framework",
+    "name": "@magnesium/theme",
     "version": "3.1.0-beta.3",
     "description": "The Sass Framework for Web Design System.",
     "scripts": {
@@ -36,7 +36,7 @@
         "@unsass/rem": "^2.1.0",
         "@unsass/string": "^1.4.1",
         "@unsass/types": "^1.0.1",
-        "sass": "^1.58.3"
+        "sass": "^1.59.2"
     },
     "keywords": [
         "sass",
