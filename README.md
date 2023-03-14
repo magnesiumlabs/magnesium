@@ -25,29 +25,9 @@ user-provided theme's tokens map.
 
 ## Mixins
 
-### `emit-variable($theme, $token, $fallback, $prefix)`
-
-```scss
-@use "@magnesium/theme";
-
-$theme: (
-    "text-color": darkcyan
-);
-
-.foo {
-    color: theme.emit-variable($theme, "text-color", false, "button");
-}
-```
-
-### Result
-
-```css
-.foo {
-    color: var(--mg-button-text-color);
-}
-```
-
 ### `emit-custom-props($theme, $prefix)`
+
+Emits CSS custom properties declarations from a user-provided theme's.
 
 ```scss
 @use "@magnesium/theme";
@@ -71,7 +51,33 @@ $theme: (
 
 ## Functions
 
+### `emit-variable($theme, $token, $fallback, $prefix)`
+
+Emits CSS variable declaration from a user-provided theme's.
+
+```scss
+@use "@magnesium/theme";
+
+$theme: (
+    "text-color": darkcyan
+);
+
+.foo {
+    color: theme.emit-variable($theme, "text-color", false, "button");
+}
+```
+
+### Result
+
+```css
+.foo {
+    color: var(--mg-button-text-color);
+}
+```
+
 ### `validation($reference, $tokens)`
+
+Validates a user-provided theme's token and throws an error if tokens are invalid.
 
 ```scss
 @use "@magnesium/theme";
