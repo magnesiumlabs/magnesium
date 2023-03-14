@@ -50,16 +50,16 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     "primary": darkcyan
+///     "text-color": darkcyan
 ///   );
 ///
 ///   .foo {
-///     @include emit-custom-props($theme, "theme");
+///     @include emit-custom-props($theme, "button");
 ///   }
 ///
 /// @example - css
 ///   .foo {
-///     --mg-theme-primary: darkcyan;
+///     --mg-button-text-color: darkcyan;
 ///   }
 ///
 /// @param {Map} $theme - The theme tokens map.
