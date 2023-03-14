@@ -67,10 +67,12 @@
 ///
 @mixin emit-custom-props($theme, $prefix: null) {
     @each $key, $value in $theme {
-        $token: string.combine(variables.$prefix, $prefix, $key);
-        $custom-prop: custom-properties.create($token, $value);
+        @if $value {
+            $token: string.combine(variables.$prefix, $prefix, $key);
+            $custom-prop: custom-properties.create($token, $value);
 
-        @include css.declaration($custom-prop);
+            @include css.declaration($custom-prop);
+        }
     }
 }
 
