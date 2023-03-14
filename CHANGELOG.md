@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.0](https://github.com/magnesiumlabs/magnesium/compare/v3.1.0...v3.2.0) (2023-03-14)
+
+
+### Features
+
+* **theme:** add `validation()` function ([892b754](https://github.com/magnesiumlabs/magnesium/commit/892b7541799997f50d38a390a0ebd0e0db6b21bc))
+
 ## [3.1.0](https://github.com/magnesiumlabs/magnesium/compare/v3.0.4...v3.1.0) (2023-03-14)
 
 
