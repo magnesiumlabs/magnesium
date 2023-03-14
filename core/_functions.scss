@@ -24,7 +24,7 @@
 ///
 /// @return {Map} The validated theme map.
 ///
-@function validate-theme($reference, $tokens) {
+@function validation($reference, $tokens) {
     $keys: map.keys($reference);
     $unsupported-tokens: ();
 
@@ -39,6 +39,13 @@
     }
 
     @return $tokens;
+}
+
+///
+/// @deprecated Use `validation()` function instead.
+///
+@function validate-theme($reference, $tokens) {
+    @return validation($reference, $tokens);
 }
 
 ///
