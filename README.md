@@ -18,10 +18,12 @@ Easily develop your Design System for the web, The Magnesium Sass Framework is h
 npm install @magnesium/theme
 ```
 
-## Theme
+## Usage
 
 The theme component help you to easily manage theme styles with generate CSS custom properties declarations from
 user-provided theme's tokens map.
+
+### `emit-custom-props($theme, $prefix)`
 
 ```scss
 @use "@magnesium/theme";
@@ -35,10 +37,32 @@ $theme: (
 }
 ```
 
-### Output
+### Result
 
 ```scss
 .foo {
     --mg-button-text-color: darkcyan;
+}
+```
+
+### `emit-variable($theme, $token, $fallback, $prefix)`
+
+```scss
+@use "@magnesium/theme";
+
+$theme: (
+    "text-color": darkcyan
+);
+
+.foo {
+    color: theme.emit-variable($theme, "text-color", false, "button");
+}
+```
+
+### Result
+
+```css
+.foo {
+    color: var(--mg-button-text-color);
 }
 ```
