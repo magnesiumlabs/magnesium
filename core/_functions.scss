@@ -75,8 +75,6 @@
 
             @if type.is-map($theme) {
                 $value: custom-properties.create-var(custom-properties.create($token, $value));
-            } @else if type.is-list($theme) or type.is-string($theme) {
-                $value: custom-properties.create-var(custom-properties.create($token));
             }
 
             $theme: map.set($theme, $key, $value);
