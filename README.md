@@ -92,3 +92,26 @@ $theme: (
 
 $theme: theme.validation($reference, $theme); // Return `$theme` map if true or error if false.
 ```
+
+## Top-level config override
+
+If variables are already configured on top-level using `@use ... with`, by another dependency for example, you can't use
+this solution anymore, because the module can only be setup once, this is a Sass restriction with **Module System**, but
+another solution exist for override the main configuration, with a mixin!
+
+See [official documentation](https://sass-lang.com/documentation/at-rules/use#with-mixins) about override configuration
+with mixins.
+
+| Mixin             | Description                                |
+|-------------------|:-------------------------------------------|
+| `config($prefix)` | Override top-level `prefix` configuration. |
+
+#### Configuration rule with `theme.config()`
+
+The following Sass will configure new parameters:
+
+```scss
+@use "@magnesium/theme";
+
+@include theme.config("fr");
+```

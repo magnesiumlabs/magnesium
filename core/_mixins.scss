@@ -127,3 +127,17 @@
         @content;
     }
 }
+
+///
+/// Config.
+///
+/// @example - scss
+///   @include theme.config("fr");
+///
+/// @param {String} $prefix - The custom property prefix.
+///
+@mixin config($prefix: null) {
+    @if $prefix {
+        variables.$prefix: $prefix;
+    }
+}
