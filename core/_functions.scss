@@ -72,11 +72,7 @@
     @each $key, $value in $theme {
         @if $value != null {
             $token: string.combine(variables.$prefix, $prefix, $key);
-
-            @if type.is-map($theme) {
-                $value: custom-properties.create-var(custom-properties.create($token, $value));
-            }
-
+            $value: custom-properties.create-var(custom-properties.create($token, $value));
             $theme: map.set($theme, $key, $value);
         }
     }
