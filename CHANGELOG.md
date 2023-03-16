@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v3.2.1...v3.3.0-beta.1) (2023-03-16)
+
+
+### Features
+
+* **theme:** add top level `config()` mixin ([edafd7e](https://github.com/magnesiumlabs/magnesium/commit/edafd7e57c32f1457e6fd5d61a1d4cf921a4496d))
+
 ## [3.2.1](https://github.com/magnesiumlabs/magnesium/compare/v3.2.0...v3.2.1) (2023-03-14)
 
 
