@@ -18,7 +18,7 @@ Easily develop your Design System for the web, The Magnesium Sass Framework is h
 npm install @magnesium/theme
 ```
 
-# API
+## Usage
 
 The theme component help you to easily manage theme styles with generate CSS custom properties declarations from
 user-provided theme's tokens map.
