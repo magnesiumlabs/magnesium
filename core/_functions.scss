@@ -73,7 +73,9 @@
         @if $value != null {
             $token: string.combine(variables.$prefix, $prefix, $key);
 
-            @if type.is-map($theme) {
+            @if type.is-map($value) {
+                $value: create-theme-vars($value, string.combine($prefix, $key));
+            } @else {
                 $value: custom-properties.create-var(custom-properties.create($token, $value));
             }
 
@@ -101,7 +103,8 @@
 ///     color: var(--mg-button-text-color);
 ///   }
 ///
-///   ...or with fallback option at `true`.
+///   ...or with fallback option at `true`...
+///
 ///   .foo {
 ///     color: var(--mg-button-text-color, darkcyan);
 ///   }

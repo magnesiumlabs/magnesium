@@ -3,8 +3,9 @@
 // ============================================================================================= //
 
 @use "sass:list";
-@use "@unsass/string";
 @use "@unsass/css";
+@use "@unsass/string";
+@use "@unsass/types" as type;
 @use "@unsass/css/custom-properties";
 @use "./variables";
 
@@ -33,13 +34,17 @@
 @mixin emit-theme-vars($theme) {
     @each $key, $value in $theme {
         @if $value {
-            $var: string.trim($value, "var(", ")");
-            $comma: string.index($var, ",");
-
-            @if $comma {
-                #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+            @if type.is-map($value) {
+                @include emit-theme-vars($value);
             } @else {
-                #{$var}: $value;
+                $var: string.trim($value, "var(", ")");
+                $comma: string.index($var, ",");
+
+                @if $comma {
+                    #{string.slice($var, 1, $comma - 1)}: string.slice($var, $comma + 1);
+                } @else {
+                    #{$var}: $value;
+                }
             }
         }
     }
@@ -69,9 +74,14 @@
     @each $key, $value in $theme {
         @if $value {
             $token: string.combine(variables.$prefix, $prefix, $key);
-            $custom-prop: custom-properties.create($token, $value);
 
-            @include css.declaration($custom-prop);
+            @if type.is-map($value) {
+                @include emit-custom-props($value, string.combine($prefix, $key));
+            } @else {
+                $value: custom-properties.create($token, $value);
+
+                @include css.declaration($value);
+            }
         }
     }
 }
@@ -138,6 +148,7 @@
 ///
 @mixin config($prefix: null) {
     @if $prefix {
-        variables.$prefix: $prefix;
+        variables.$prefix:
+        $prefix;
     }
 }

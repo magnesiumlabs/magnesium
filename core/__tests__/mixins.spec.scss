@@ -13,14 +13,18 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-custom-props(tokens.$theme, "theme");
+                            @include theme.emit-custom-props(tokens.$button, "button");
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-theme-primary: darkcyan;
-                            --mg-theme-secondary: darkorange;
+                            --mg-button-text-color: var(--mg-color-primary, darkcyan);
+                            --mg-button-text-size: 16px;
+                            --mg-button-text-font-family: "Roboto";
+                            --mg-button-text-line-height: normal;
+                            --mg-button-padding-top: 12px;
+                            --mg-button-padding-bottom: 12px;
                         }
                     }
                 }
@@ -30,14 +34,18 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-custom-props(tokens.$theme);
+                            @include theme.emit-custom-props(tokens.$button);
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-primary: darkcyan;
-                            --mg-secondary: darkorange;
+                            --mg-text-color: var(--mg-color-primary, darkcyan);
+                            --mg-text-size: 16px;
+                            --mg-text-font-family: "Roboto";
+                            --mg-text-line-height: normal;
+                            --mg-padding-top: 12px;
+                            --mg-padding-bottom: 12px;
                         }
                     }
                 }
@@ -61,6 +69,8 @@
                             --mg-button-text-size: 16px;
                             --mg-button-text-font-family: "Roboto";
                             --mg-button-text-line-height: normal;
+                            --mg-button-padding-top: 12px;
+                            --mg-button-padding-bottom: 12px;
                         }
                     }
                 }
