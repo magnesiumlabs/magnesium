@@ -50,9 +50,9 @@
         "front-end"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/magnesium",
+    "homepage": "https://github.com/magnesiumlabs/magnesium",
     "bugs": {
-        "url": "https://github.com/magnesium/issues"
+        "url": "https://github.com/magnesiumlabs/magnesium/issues"
     },
     "repository": {
         "type": "git",
