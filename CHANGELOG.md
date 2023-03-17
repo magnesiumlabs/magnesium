@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.0-beta.2](https://github.com/magnesiumlabs/magnesium/compare/v3.3.0-beta.1...v3.3.0-beta.2) (2023-03-17)
+
+
+### Features
+
+* **theme:** use multi-level map is now possible ([5b7c14b](https://github.com/magnesiumlabs/magnesium/commit/5b7c14b270d1f5c2a18a86a60a65aa94161a2c8a))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.59.3 ([4a0ff58](https://github.com/magnesiumlabs/magnesium/commit/4a0ff586a3ef93731a9e2846e46d00ee9a8c18a0))
+
+
+### Code Refactoring
+
+* **theme:** remove unneeded `else if` condition on `create-theme-vars()` function ([ba28519](https://github.com/magnesiumlabs/magnesium/commit/ba28519b2bce65d3e8785b5e7342f1dbf0239bfa))
+* **theme:** remove unneeded `if` condition on `create-theme-vars()` function ([5be6108](https://github.com/magnesiumlabs/magnesium/commit/5be6108fe7f654ba66f0754118bc5b97feade71e))
+
 ## [3.3.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v3.2.1...v3.3.0-beta.1) (2023-03-16)
 
 
