@@ -148,7 +148,6 @@
 ///
 @mixin config($prefix: null) {
     @if $prefix {
-        variables.$prefix:
-        $prefix;
+        variables.$prefix: $prefix;
     }
 }
