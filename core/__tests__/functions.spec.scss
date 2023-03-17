@@ -34,7 +34,11 @@
                     "text-color": var(--mg-button-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-button-text-size, 16px),
                     "text-font-family": var(--mg-button-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-button-text-line-height, normal)
+                    "text-line-height": var(--mg-button-text-line-height, normal),
+                    "padding": (
+                        "top": var(--mg-button-padding-top, 12px),
+                        "bottom": var(--mg-button-padding-bottom, 12px)
+                    )
                 ));
             }
 
@@ -43,7 +47,11 @@
                     "text-color": var(--mg-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-text-size, 16px),
                     "text-font-family": var(--mg-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-text-line-height, normal)
+                    "text-line-height": var(--mg-text-line-height, normal),
+                    "padding": (
+                        "top": var(--mg-padding-top, 12px),
+                        "bottom": var(--mg-padding-bottom, 12px)
+                    )
                 ));
             }
         }
