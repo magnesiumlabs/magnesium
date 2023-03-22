@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.0](https://github.com/magnesiumlabs/magnesium/compare/v3.3.1...v3.4.0) (2023-03-22)
+
+
+### Features
+
+* **core:** use `@unsass/var` ([495b527](https://github.com/magnesiumlabs/magnesium/commit/495b5279f2ba99ac9ae9bef9b6b4659cf72da187))
+
+
+### Code Refactoring
+
+* **theme:** clean code ([0b18379](https://github.com/magnesiumlabs/magnesium/commit/0b183793d5010e077222fd509c0defff5c5605ab))
+* **theme:** remove unneeded `else` condition ([2254d27](https://github.com/magnesiumlabs/magnesium/commit/2254d277d150d24e40344fe20d1b0eaed1030fc7))
+
+
+### Build System
+
+* **deps:** use `@unsass/var` ([0e1219f](https://github.com/magnesiumlabs/magnesium/commit/0e1219f543996479c6a508b7e18b13051efebde9))
+
 ## [3.3.1](https://github.com/magnesiumlabs/magnesium/compare/v3.3.0...v3.3.1) (2023-03-17)
 
 
