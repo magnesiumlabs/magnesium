@@ -6,7 +6,6 @@
 @use "@unsass/css";
 @use "@unsass/string";
 @use "@unsass/types" as type;
-@use "@unsass/css/custom-properties";
 @use "@unsass/var";
 @use "./variables";
 
@@ -72,9 +71,9 @@
             @if type.is-map($value) {
                 @include emit-custom-props($value, string.combine($prefix, $key));
             } @else {
-                $value: custom-properties.create($token, $value);
+                $value: var.create($token, $value);
 
-                @include css.declaration($value);
+                @include css.declaration(var.name($value), var.fallback($value));
             }
         }
     }

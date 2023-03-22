@@ -4,9 +4,9 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "@unsass/css/custom-properties";
 @use "@unsass/string";
 @use "@unsass/types" as type;
+@use "@unsass/var";
 @use "./variables";
 
 ///
@@ -76,7 +76,7 @@
             @if type.is-map($value) {
                 $value: create-theme-vars($value, string.combine($prefix, $key));
             } @else {
-                $value: custom-properties.create-var(custom-properties.create($token, $value));
+                $value: var.create($token, $value);
             }
 
             $theme: map.set($theme, $key, $value);
@@ -119,8 +119,8 @@
     $token: string.combine(variables.$prefix, $prefix, $token);
 
     @if $fallback {
-        @return custom-properties.create-var(custom-properties.create($token, $value));
+        @return var.create($token, $value);
     }
 
-    @return custom-properties.create-var(custom-properties.create($token));
+    @return var.create($token);
 }
