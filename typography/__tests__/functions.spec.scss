@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "../../__tests__/config";
-@use "../index" as typography;
+@use "../functions" as typography;
 
 @include describe("typography") {
     @include describe("functions") {

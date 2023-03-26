@@ -5,7 +5,7 @@
 @use "true" as *;
 @use "../../__tests__/config";
 @use "../../index" as magnesium;
-@use "../index" as typography;
+@use "../mixins" as typography;
 
 @include describe("typography") {
     @include describe("mixins") {

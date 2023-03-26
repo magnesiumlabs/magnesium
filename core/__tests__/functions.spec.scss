@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "../../__tests__/tokens";
-@use "../index" as theme;
+@use "../functions" as theme;
 
 @include describe("theme") {
     @include describe("functions") {

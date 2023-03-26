@@ -4,7 +4,8 @@
 
 @use "true" as *;
 @use "../../__tests__/tokens";
-@use "../index" as theme;
+@use "../mixins" as theme;
+@use "../functions" as theme-functions;
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -56,7 +57,7 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme.create-theme-vars(tokens.$button, "button");
+                        $theme: theme-functions.create-theme-vars(tokens.$button, "button");
 
                         .test {
                             @include theme.emit-theme-vars($theme);
@@ -79,7 +80,7 @@
             @include it("Should return custom theme declarations without null.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme.create-theme-vars((
+                        $theme: theme-functions.create-theme-vars((
                             "text-color": darkcyan,
                             "text-size": null
                         ), "button");

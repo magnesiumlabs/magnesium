@@ -4,7 +4,7 @@
 
 @use "true" as *;
 @use "../../__tests__/config";
-@use "../index" as shape;
+@use "../functions" as shape;
 
 @include describe("shape") {
     @include describe("functions") {
