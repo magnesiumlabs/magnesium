@@ -2,7 +2,6 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "@unsass/types" as type;
 @use "../core";
 
 $_custom-property-prefix: "color";
@@ -27,14 +26,7 @@ $_custom-property-prefix: "color";
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    @each $key, $value in $theme {
-        @if type.is-map($value) {
-            @error "Invalid tokens map, the tokens map can't contain more than one level.";
-        }
-    }
+    $tokens: core.validation(core.$colors, $theme);
 
-    $tokens: core.validate-theme(core.$colors, $theme);
-    $tokens: core.create-theme-vars($theme, $_custom-property-prefix);
-
-    @include core.emit-theme-vars($tokens);
+    @include core.emit-custom-props($tokens, $_custom-property-prefix);
 }

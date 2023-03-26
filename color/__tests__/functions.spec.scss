@@ -25,11 +25,11 @@
 
         @include describe("variable()") {
             @include it("Should return the color custom property from token key.") {
-                @include assert-equal(color.variable("primary"), var(--mg-color-primary));
+                @include assert-equal(color.emit-variable("primary"), var(--mg-color-primary));
             }
 
             @include it("Should return the color custom property from token key with custom prefix.") {
-                @include assert-equal(color.variable("primary", true), var(--mg-color-primary, darkcyan));
+                @include assert-equal(color.emit-variable("primary", true), var(--mg-color-primary, darkcyan));
             }
         }
     }

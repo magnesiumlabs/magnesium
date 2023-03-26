@@ -59,12 +59,13 @@ $_custom-property-prefix: "color";
 /// @return {String} The token value.
 /// @return {Boolean} The fallback value.
 ///
+@function emit-variable($token, $fallback: false) {
+    @return core.emit-variable(core.$colors, $token, $fallback, $_custom-property-prefix);
+}
+
+///
+/// @deprecated Use `emit-variable()` function instead.
+///
 @function variable($token, $fallback: false) {
-    $name: core.create-name(#{$_custom-property-prefix}-#{$token});
-
-    @if $fallback {
-        @return custom-properties.create-var(custom-properties.create($name, value($token)));
-    }
-
-    @return custom-properties.create-var(custom-properties.create($name));
+    @return emit-variable($token, $fallback);
 }
