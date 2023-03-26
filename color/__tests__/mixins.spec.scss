@@ -5,7 +5,7 @@
 @use "true" as *;
 @use "../../__tests__/config";
 @use "../../index" as magnesium;
-@use "../index" as color;
+@use "../mixins" as color;
 
 @include describe("color") {
     @include describe("mixins") {

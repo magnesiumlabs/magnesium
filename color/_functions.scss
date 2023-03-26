@@ -20,7 +20,7 @@ $_custom-property-prefix: "color";
         @error "Invalid color token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$colors)}'.";
     }
 
-    @return map.has-key(core.$colors, $token);
+    @return $token;
 }
 
 // ------------------------------------------------------------------------- //
@@ -60,7 +60,7 @@ $_custom-property-prefix: "color";
 /// @return {Boolean} The fallback value.
 ///
 @function emit-variable($token, $fallback: false) {
-    @return core.emit-variable(core.$colors, $token, $fallback, $_custom-property-prefix);
+    @return core.emit-variable(core.$colors, _exist($token), $fallback, $_custom-property-prefix);
 }
 
 ///
