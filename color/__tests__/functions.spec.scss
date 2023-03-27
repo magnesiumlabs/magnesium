@@ -17,6 +17,12 @@
             }
         }
 
+        @include describe("name()") {
+            @include it("Should return color value from selected token.") {
+                @include assert-equal(color.name("primary"), mg-color-primary);
+            }
+        }
+
         @include describe("value()") {
             @include it("Should return color value from selected token.") {
                 @include assert-equal(color.value("primary"), darkcyan);

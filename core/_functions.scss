@@ -12,8 +12,8 @@
 ///
 /// Create name.
 ///
-@function create-name($name) {
-    @return string.combine(variables.$prefix, $name);
+@function create-name($name...) {
+    @return string.combine(variables.$prefix, $name...);
 }
 
 ///

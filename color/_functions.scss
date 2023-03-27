@@ -37,6 +37,16 @@ $_custom-property-prefix: "color";
 
 ///
 /// @example - scss
+///   $color: color.name("primary"); -> `mg-color-primary`
+///
+@function name($token) {
+    @if _exist($token) {
+        @return core.create-name($_custom-property-prefix, $token);
+    }
+}
+
+///
+/// @example - scss
 ///   $color: color.value("primary"); -> `darkcyan`
 ///
 @function value($token) {
