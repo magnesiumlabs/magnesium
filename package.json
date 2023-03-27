@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/theme",
-    "version": "3.4.0",
+    "version": "3.5.0",
     "description": "The Sass Framework for Web Design System.",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",

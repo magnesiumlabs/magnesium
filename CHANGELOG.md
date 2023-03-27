@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.0](https://github.com/magnesiumlabs/magnesium/compare/v3.4.0...v3.5.0) (2023-03-27)
+
+
+### Features
+
+* **color:** add `emit-variable()` function ([bd62f39](https://github.com/magnesiumlabs/magnesium/commit/bd62f391dbf9198fda9ccf3c1756f3eea0dac308))
+* **color:** add token verification on `emit-variable()` function ([81cc8ed](https://github.com/magnesiumlabs/magnesium/commit/81cc8edbb3e950559b2e2f17795837c8556d0b1f))
+* **state:** add forward on `index.scss` ([af18d37](https://github.com/magnesiumlabs/magnesium/commit/af18d3798edda4c8c5346a4043e5ffafe19795c1))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.60.0 ([d26c9d8](https://github.com/magnesiumlabs/magnesium/commit/d26c9d8870d93dad355d03382a90051585121418))
+
 ## [3.4.0](https://github.com/magnesiumlabs/magnesium/compare/v3.3.1...v3.4.0) (2023-03-22)
 
 
