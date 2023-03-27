@@ -138,9 +138,14 @@
 ///   @include theme.config("fr");
 ///
 /// @param {String} $prefix - The custom property prefix.
+/// @param {String} $colors - The colors theme tokens map.
 ///
-@mixin config($prefix: null) {
+@mixin config($prefix: null, $colors: null) {
     @if $prefix {
         variables.$prefix: $prefix;
+    }
+
+    @if $colors {
+        variables.$colors: $colors;
     }
 }
