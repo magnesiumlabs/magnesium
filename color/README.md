@@ -1,6 +1,6 @@
 # Color
 
-The color component help you to easily manage color schemes who reflects your brand or style.
+The color component help you to easily manage color schemes who reflect your brand or style.
 
 ## Usage
 

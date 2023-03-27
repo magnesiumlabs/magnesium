@@ -115,3 +115,9 @@ The following Sass will configure new parameters:
 
 @include theme.config("fr");
 ```
+
+## Others components
+
+| Component       | Description                                                                                  |
+|-----------------|:---------------------------------------------------------------------------------------------|
+| [color](/color) | The color component help you to easily manage color schemes who reflect your brand or style. |
