@@ -71,7 +71,7 @@
 @function create-theme-vars($theme, $prefix) {
     @each $key, $value in $theme {
         @if $value != null {
-            $token: string.combine(variables.$prefix, $prefix, $key);
+            $token: create-name($prefix, $key);
 
             @if type.is-map($value) {
                 $value: create-theme-vars($value, string.combine($prefix, $key));
@@ -116,7 +116,7 @@
 ///
 @function emit-variable($theme, $token, $fallback: false, $prefix: null) {
     $value: map.get($theme, $token);
-    $token: string.combine(variables.$prefix, $prefix, $token);
+    $token: create-name($prefix, $token);
 
     @if $fallback {
         @return var.create($token, $value);
