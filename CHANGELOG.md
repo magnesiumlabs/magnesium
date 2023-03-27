@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/magnesiumlabs/magnesium/compare/v3.5.0...v3.5.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* **config:** add `$colors` option ([152cce8](https://github.com/magnesiumlabs/magnesium/commit/152cce805f96823f9e4a11b17497ce9e0e53487d))
+
 ## [3.5.0](https://github.com/magnesiumlabs/magnesium/compare/v3.4.0...v3.5.0) (2023-03-27)
 
 
