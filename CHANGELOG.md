@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.0](https://github.com/magnesiumlabs/magnesium/compare/v3.5.1...v3.6.0) (2023-03-27)
+
+
+### Features
+
+* **color:** add `name()` function ([c93a124](https://github.com/magnesiumlabs/magnesium/commit/c93a1241606d8ae8709026401913e9aabd505cba))
+
+
+### Code Refactoring
+
+* **theme:** use `create-name()` function ([d608914](https://github.com/magnesiumlabs/magnesium/commit/d608914c4daa41c614d710dc4bef466e7acc0a3b))
+
 ## [3.5.1](https://github.com/magnesiumlabs/magnesium/compare/v3.5.0...v3.5.1) (2023-03-27)
 
 
