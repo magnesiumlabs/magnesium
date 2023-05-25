@@ -8,6 +8,12 @@
 
 @include describe("theme") {
     @include describe("functions") {
+        @include describe("create-name()") {
+            @include it("Should return theme property name.") {
+                @include assert-equal(theme.create-name("button", "text-color"), "mg-button-text-color");
+            }
+        }
+
         @include describe("emit-variable()") {
             @include it("Should return theme CSS variable.") {
                 @include assert-equal(theme.emit-variable(tokens.$theme, "primary", false, "theme"), var(--mg-theme-primary));
