@@ -4,12 +4,23 @@
 
 @use "sass:map";
 
+
+$_default-colors: (
+    "prefix": "color",
+    "tokens": ()
+);
+
 // ------------------------------------------------------------------------- //
 // Private variables
 // ------------------------------------------------------------------------- //
 
 $_default-colors: (
     "prefix": "color",
+    "tokens": ()
+);
+
+$_default-typographies: (
+    "prefix": "typography",
     "tokens": ()
 );
 
@@ -27,3 +38,4 @@ $typographies: () !default;
 ///
 
 $colors: map.deep-merge($_default-colors, $colors);
+$typographies: map.deep-merge($_default-typographies, $typographies);

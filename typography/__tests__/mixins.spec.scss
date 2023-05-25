@@ -14,7 +14,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include typography.theme(magnesium.$typographies);
+                            @include typography.theme(magnesium.typography-tokens(true));
                         }
                     }
 

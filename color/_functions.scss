@@ -35,7 +35,7 @@ $_tokens: map.get(core.$colors, "tokens");
 @function tokens($value: false) {
     @if $value {
         @return $_tokens;
-    } @else{
+    } @else {
         @return map.keys($_tokens);
     }
 }

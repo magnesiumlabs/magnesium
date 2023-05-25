@@ -9,6 +9,8 @@
 @use "../core";
 @use "./variables";
 
+$_tokens: map.get(core.$typographies, "tokens");
+
 // ------------------------------------------------------------------------- //
 // Private functions
 // ------------------------------------------------------------------------- //
@@ -17,11 +19,11 @@
 /// Check if typography token exist.
 ///
 @function _exist($token) {
-    @if not map.has-key(core.$typographies, $token) {
-        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$typographies)}'.";
+    @if not map.has-key($_tokens, $token) {
+        @error "Invalid typography token, '#{$token}' doesn't exist. Choose one of '#{map.keys($_tokens)}'.";
     }
 
-    @return map.has-key(core.$typographies, $token);
+    @return map.has-key($_tokens, $token);
 }
 
 ///
@@ -43,8 +45,12 @@
 /// @example - scss
 ///   $typography: typography.tokens(); -> `("body-font-size", "body-font-weight")`
 ///
-@function tokens() {
-    @return map.keys(core.$typographies);
+@function tokens($value: false) {
+    @if $value {
+        @return $_tokens;
+    } @else {
+        @return map.keys($_tokens);
+    }
 }
 
 ///
@@ -53,7 +59,7 @@
 ///
 @function value($token) {
     @if _exist($token) {
-        @return map.get(core.$typographies, $token);
+        @return map.get($_tokens, $token);
     }
 }
 
@@ -78,7 +84,7 @@
     $name: $style;
 
     @if type.is-string($style) and _exist($style) {
-        $style: map.get(core.$typographies, $style);
+        $style: map.get($_tokens, $style);
     } @else {
         @error "Invalid typography style, `#{$style}` doesn't exist."
     }

@@ -4,5 +4,7 @@
         "tokens": tokens.$colors
     ),
     $shapes: tokens.$shapes,
-    $typographies: tokens.$typographies
+    $typographies: (
+        "tokens": tokens.$typographies
+    ),
 );
