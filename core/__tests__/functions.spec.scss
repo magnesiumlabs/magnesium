@@ -18,7 +18,7 @@
             }
         }
 
-        @include describe("validate-theme()") {
+        @include describe("validation()") {
             @include it("Should return validated theme tokens.") {
                 @include assert-equal(theme.validation(tokens.$button, (
                     "text-color": darkorange
