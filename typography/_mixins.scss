@@ -34,7 +34,7 @@ $_tokens: core.$typographies;
         }
     }
 
-    $tokens: core.validate-theme($_tokens, $theme);
+    $tokens: core.validation($_tokens, $theme);
 
     @include core.emit-custom-props($tokens, $_custom-property-prefix);
 }
