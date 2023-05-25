@@ -20,11 +20,8 @@ $typographies: (
 $button: (
     "text-color": var(--mg-color-primary, map.get($colors, "primary")),
     "text-size": 16px,
-    "text-font-family": "Roboto",
-    "text-line-height": normal,
     "padding": (
-        "top": 12px,
-        "bottom": 12px
+        "top": 12px
     )
 );
 

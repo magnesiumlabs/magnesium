@@ -14,16 +14,6 @@
             }
         }
 
-        @include describe("emit-variable()") {
-            @include it("Should return theme CSS variable.") {
-                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", false, "theme"), var(--mg-theme-primary));
-            }
-
-            @include it("Should return validated theme tokens with fallback.") {
-                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", true, "theme"), var(--mg-theme-primary, darkcyan));
-            }
-        }
-
         @include describe("validation()") {
             @include it("Should return validated theme tokens.") {
                 @include assert-equal(theme.validation(tokens.$button, (
@@ -39,26 +29,30 @@
                 @include assert-equal(theme.create-theme-vars(tokens.$button, "button"), (
                     "text-color": var(--mg-button-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-button-text-size, 16px),
-                    "text-font-family": var(--mg-button-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-button-text-line-height, normal),
                     "padding": (
-                        "top": var(--mg-button-padding-top, 12px),
-                        "bottom": var(--mg-button-padding-bottom, 12px)
+                        "top": var(--mg-button-padding-top, 12px)
                     )
                 ));
             }
 
             @include it("Should return a map of tokens with custom properties without component name prefix.") {
-                @include assert-equal(theme.create-theme-vars(tokens.$button, false), (
+                @include assert-equal(theme.create-theme-vars(tokens.$button, null), (
                     "text-color": var(--mg-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-text-size, 16px),
-                    "text-font-family": var(--mg-text-font-family, "Roboto"),
-                    "text-line-height": var(--mg-text-line-height, normal),
                     "padding": (
-                        "top": var(--mg-padding-top, 12px),
-                        "bottom": var(--mg-padding-bottom, 12px)
+                        "top": var(--mg-padding-top, 12px)
                     )
                 ));
+            }
+        }
+
+        @include describe("emit-variable()") {
+            @include it("Should return theme CSS variable.") {
+                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", false, "theme"), var(--mg-theme-primary));
+            }
+
+            @include it("Should return validated theme tokens with fallback.") {
+                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", true, "theme"), var(--mg-theme-primary, darkcyan));
             }
         }
     }
