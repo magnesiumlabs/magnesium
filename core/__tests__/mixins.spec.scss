@@ -90,7 +90,7 @@
             }
         }
 
-        @include describe("emit-custom-props()") {
+        @include describe("emit-color-scheme()") {
             @include it("Should return the CSS declarations for light color theme.") {
                 @include assert {
                     @include output(false) {
