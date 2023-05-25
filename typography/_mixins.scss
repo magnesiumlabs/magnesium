@@ -6,6 +6,7 @@
 @use "../core";
 
 $_custom-property-prefix: "typography";
+$_tokens: core.$typographies;
 
 ///
 /// Generates user-provided theme's tokens for the typography component management with tokens validation.
@@ -33,8 +34,7 @@ $_custom-property-prefix: "typography";
         }
     }
 
-    $tokens: core.validate-theme(core.$typographies, $theme);
-    $tokens: core.create-theme-vars($theme, $_custom-property-prefix);
+    $tokens: core.validate-theme($_tokens, $theme);
 
-    @include core.emit-theme-vars($tokens);
+    @include core.emit-custom-props($tokens, $_custom-property-prefix);
 }
