@@ -33,7 +33,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include typography.theme( (
+                            @include typography.theme((
                                 "body-font-size": 20px
                             ));
                         }
