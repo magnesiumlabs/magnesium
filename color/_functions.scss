@@ -6,7 +6,8 @@
 @use "@unsass/css/custom-properties";
 @use "../core";
 
-$_custom-property-prefix: "color";
+$_custom-property-prefix: map.get(core.$colors, "prefix");
+$_tokens: map.get(core.$colors, "tokens");
 
 // ------------------------------------------------------------------------- //
 // Private functions
@@ -16,8 +17,8 @@ $_custom-property-prefix: "color";
 /// Check if color token exist.
 ///
 @function _exist($token) {
-    @if not map.has-key(core.$colors, $token) {
-        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of '#{map.keys(core.$colors)}'.";
+    @if not map.has-key($_tokens, $token) {
+        @error "Invalid color token, '#{$token}' doesn't exist. Choose one of '#{map.keys($_tokens)}'.";
     }
 
     @return $token;
@@ -31,8 +32,12 @@ $_custom-property-prefix: "color";
 /// @example - scss
 ///   $color: color.tokens(); -> `("primary", "secondary")`
 ///
-@function tokens() {
-    @return map.keys(core.$colors);
+@function tokens($value: false) {
+    @if $value {
+        @return $_tokens;
+    } @else{
+        @return map.keys($_tokens);
+    }
 }
 
 ///
@@ -51,7 +56,7 @@ $_custom-property-prefix: "color";
 ///
 @function value($token) {
     @if _exist($token) {
-        @return map.get(core.$colors, $token);
+        @return map.get($_tokens, $token);
     }
 }
 
@@ -70,5 +75,5 @@ $_custom-property-prefix: "color";
 /// @return {Boolean} The fallback value.
 ///
 @function emit-variable($token, $fallback: false) {
-    @return core.emit-variable(core.$colors, _exist($token), $fallback, $_custom-property-prefix);
+    @return core.emit-variable($_tokens, _exist($token), $fallback, $_custom-property-prefix);
 }
