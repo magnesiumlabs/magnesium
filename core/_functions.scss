@@ -42,13 +42,6 @@
 }
 
 ///
-/// @deprecated Use `validation()` function instead.
-///
-@function validate-theme($reference, $tokens) {
-    @return validation($reference, $tokens);
-}
-
-///
 /// Transforms a user-provided theme's tokens map values into a `var()` custom properties.
 ///
 /// @example - scss

@@ -72,10 +72,3 @@ $_custom-property-prefix: "color";
 @function emit-variable($token, $fallback: false) {
     @return core.emit-variable(core.$colors, _exist($token), $fallback, $_custom-property-prefix);
 }
-
-///
-/// @deprecated Use `emit-variable()` function instead.
-///
-@function variable($token, $fallback: false) {
-    @return emit-variable($token, $fallback);
-}
