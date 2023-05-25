@@ -31,11 +31,9 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            $theme: (
+                            @include color.theme((
                                 "primary": darkorange
-                            );
-
-                            @include color.theme($theme);
+                            ));
                         }
                     }
 

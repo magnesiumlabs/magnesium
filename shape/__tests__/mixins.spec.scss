@@ -31,11 +31,9 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            $theme: (
+                            @include shape.theme((
                                 "filled": 8px
-                            );
-
-                            @include shape.theme($theme);
+                            ));
                         }
                     }
 
