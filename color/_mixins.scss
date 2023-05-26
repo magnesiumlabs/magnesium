@@ -2,9 +2,11 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "../core";
 
-$_custom-property-prefix: "color";
+$_custom-property-prefix: map.get(core.$colors, "prefix");
+$_tokens: map.get(core.$colors, "tokens");
 
 ///
 /// Generates user-provided theme's tokens for the color component management with tokens validation.
@@ -26,7 +28,7 @@ $_custom-property-prefix: "color";
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    $tokens: core.validation(core.$colors, $theme);
+    $tokens: core.validation($_tokens, $theme);
 
     @include core.emit-custom-props($tokens, $_custom-property-prefix);
 }

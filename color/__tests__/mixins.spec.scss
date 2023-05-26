@@ -14,7 +14,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include color.theme(magnesium.$colors);
+                            @include color.theme(magnesium.color-tokens(true));
                         }
                     }
 
@@ -31,11 +31,9 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            $theme: (
+                            @include color.theme((
                                 "primary": darkorange
-                            );
-
-                            @include color.theme($theme);
+                            ));
                         }
                     }
 

@@ -6,6 +6,7 @@
 @use "../core";
 
 $_custom-property-prefix: "shape";
+$_tokens: core.$shapes;
 
 ///
 /// Generates user-provided theme's tokens for the shape component management with tokens validation.
@@ -33,8 +34,7 @@ $_custom-property-prefix: "shape";
         }
     }
 
-    $tokens: core.validate-theme(core.$shapes, $theme);
-    $tokens: core.create-theme-vars($theme, $_custom-property-prefix);
+    $tokens: core.validation($_tokens, $theme);
 
-    @include core.emit-theme-vars($tokens);
+    @include core.emit-custom-props($tokens, $_custom-property-prefix);
 }

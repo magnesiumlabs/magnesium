@@ -33,11 +33,9 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            $theme: (
+                            @include typography.theme((
                                 "body-font-size": 20px
-                            );
-
-                            @include typography.theme($theme);
+                            ));
                         }
                     }
 

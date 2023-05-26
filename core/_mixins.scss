@@ -37,7 +37,7 @@
             @if type.is-map($value) {
                 @include emit-theme-vars($value);
             } @else {
-                #{var.name($value)}: var.fallback($value);
+                @include css.declaration(var.name($value), var.fallback($value));
             }
         }
     }
@@ -102,24 +102,6 @@
     $theme: (
         "light",
         "dark"
-    );
-
-    @if list.index($theme, $scheme) == null {
-        @error "Invalid color scheme, '#{$scheme}' doesn't exist. Choose one of '#{$theme}'.";
-    }
-
-    @media (prefers-color-scheme: $scheme) {
-        @content;
-    }
-}
-
-///
-/// @deprecated Use `emit-color-scheme()` mixin instead.
-///
-@mixin prefers-color-scheme($scheme: light) {
-    $theme: (
-        light,
-        dark
     );
 
     @if list.index($theme, $scheme) == null {

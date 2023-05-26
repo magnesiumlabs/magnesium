@@ -22,10 +22,7 @@
                         .test {
                             --mg-button-text-color: var(--mg-color-primary, darkcyan);
                             --mg-button-text-size: 16px;
-                            --mg-button-text-font-family: "Roboto";
-                            --mg-button-text-line-height: normal;
                             --mg-button-padding-top: 12px;
-                            --mg-button-padding-bottom: 12px;
                         }
                     }
                 }
@@ -43,10 +40,7 @@
                         .test {
                             --mg-text-color: var(--mg-color-primary, darkcyan);
                             --mg-text-size: 16px;
-                            --mg-text-font-family: "Roboto";
-                            --mg-text-line-height: normal;
                             --mg-padding-top: 12px;
-                            --mg-padding-bottom: 12px;
                         }
                     }
                 }
@@ -68,10 +62,7 @@
                         .test {
                             --mg-button-text-color: var(--mg-color-primary, darkcyan);
                             --mg-button-text-size: 16px;
-                            --mg-button-text-font-family: "Roboto";
-                            --mg-button-text-line-height: normal;
                             --mg-button-padding-top: 12px;
-                            --mg-button-padding-bottom: 12px;
                         }
                     }
                 }
@@ -99,7 +90,7 @@
             }
         }
 
-        @include describe("emit-custom-props()") {
+        @include describe("emit-color-scheme()") {
             @include it("Should return the CSS declarations for light color theme.") {
                 @include assert {
                     @include output(false) {
