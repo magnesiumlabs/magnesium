@@ -37,7 +37,7 @@
             @if type.is-map($value) {
                 @include emit-theme-vars($value);
             } @else {
-                #{var.name($value)}: var.fallback($value);
+                @include css.declaration(var.name($value), var.fallback($value));
             }
         }
     }
