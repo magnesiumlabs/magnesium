@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v3.6.0...v4.0.0-beta.1) (2023-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **color:** `$colors` options have level options
+* **theme:** removed deprecated functions and mixins
+
+### Features
+
+* **color:** open `prefix` option ([265c98e](https://github.com/magnesiumlabs/magnesium/commit/265c98ea8d06bb8e3044aaa546c2964ada656659))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.62.0 ([90fa6d2](https://github.com/magnesiumlabs/magnesium/commit/90fa6d292f3ce025d0662f5452a9579750fab412))
+
+
+### Code Refactoring
+
+* **color:** better variables management ([f860a9b](https://github.com/magnesiumlabs/magnesium/commit/f860a9bfc3d43a2f859772569056bb399e831936))
+* **shape, typography:** use supported `validation()` function ([48e332e](https://github.com/magnesiumlabs/magnesium/commit/48e332e4f6ad13890f9e5c2c25d8319af600f023))
+* **shape:** better variables management ([49ea4b1](https://github.com/magnesiumlabs/magnesium/commit/49ea4b1e937a5e515714b685a9d38ee250d08079))
+* **theme:** removed deprecated functions and mixins ([df0303e](https://github.com/magnesiumlabs/magnesium/commit/df0303e203da6ad80ecf2e976f8bcd60326b94de))
+* **theme:** use `css.declaration()` ([c202fe6](https://github.com/magnesiumlabs/magnesium/commit/c202fe636cda5f931473fe7fc634d116b17a16bd))
+* **typography:** better variables management ([52ae5a6](https://github.com/magnesiumlabs/magnesium/commit/52ae5a6ddeee0e265148550ddb76bdf2c7240787))
+
 ## [3.6.0](https://github.com/magnesiumlabs/magnesium/compare/v3.5.1...v3.6.0) (2023-03-27)
 
 
