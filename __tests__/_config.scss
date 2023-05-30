@@ -1,6 +1,0 @@
-@use "./tokens";
-@use "../index" as magnesium with (
-    $colors: tokens.$colors,
-    $shapes: tokens.$shapes,
-    $typographies: tokens.$typographies
-);
