@@ -117,17 +117,12 @@
 /// Config.
 ///
 /// @example - scss
-///   @include theme.config("fr");
+///   @include theme.config("foo");
 ///
 /// @param {String} $prefix - The custom property prefix.
-/// @param {String} $colors - The colors theme tokens map.
 ///
-@mixin config($prefix: null, $colors: null) {
+@mixin config($prefix: null) {
     @if $prefix {
         variables.$prefix: $prefix;
-    }
-
-    @if $colors {
-        variables.$colors: $colors;
     }
 }
