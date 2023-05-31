@@ -12,6 +12,10 @@
 ///
 /// Create name.
 ///
+/// @param {Arglist} $reference - A list of reference strings.
+///
+/// @return {String} The generated prefixed name.
+///
 @function create-name($name...) {
     @return string.combine(variables.$prefix, $name...);
 }
