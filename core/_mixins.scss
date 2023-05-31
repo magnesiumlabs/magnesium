@@ -114,24 +114,6 @@
 }
 
 ///
-/// @deprecated Use `emit-color-scheme()` mixin instead.
-///
-@mixin prefers-color-scheme($scheme: light) {
-    $theme: (
-        light,
-        dark
-    );
-
-    @if list.index($theme, $scheme) == null {
-        @error "Invalid color scheme, '#{$scheme}' doesn't exist. Choose one of '#{$theme}'.";
-    }
-
-    @media (prefers-color-scheme: $scheme) {
-        @content;
-    }
-}
-
-///
 /// Config.
 ///
 /// @example - scss
