@@ -48,11 +48,11 @@
 
         @include describe("emit-variable()") {
             @include it("Should return theme CSS variable.") {
-                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", false, "theme"), var(--mg-theme-primary));
+                @include assert-equal(theme.emit-variable(tokens.$button, "text-color", false, "button"), var(--mg-button-text-color));
             }
 
             @include it("Should return validated theme tokens with fallback.") {
-                @include assert-equal(theme.emit-variable(tokens.$theme, "primary", true, "theme"), var(--mg-theme-primary, darkcyan));
+                @include assert-equal(theme.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, var(--mg-color-primary, darkcyan)));
             }
         }
     }
