@@ -1,24 +1,5 @@
-@use "sass:map";
-
-$colors: (
-    "primary": darkcyan,
-    "secondary": darkorange
-);
-
-$shapes: (
-    "filled": 6px,
-    "sharped": 0
-);
-
-$typographies: (
-    "body-line-height": 20px,
-    "body-font-size": 16px,
-    "body-font-weight": 400,
-    "body-letter-spacing": normal
-);
-
 $button: (
-    "text-color": var(--mg-color-primary, map.get($colors, "primary")),
+    "text-color": var(--mg-color-primary, darkcyan),
     "text-size": 16px,
     "padding": (
         "top": 12px
