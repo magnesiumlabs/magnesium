@@ -39,7 +39,7 @@
     }
 
     @if list.length($unsupported-tokens) > 0 {
-        @error "The following tokens are invalid: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+        @error "The following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
     }
 
     @return $tokens;
