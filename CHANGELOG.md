@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/magnesiumlabs/magnesium/compare/v3.6.0...v4.0.0) (2023-06-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** removed deprecated functions and mixins
+* **shape:** removed shape unneeded code
+* **color:** removed color unneeded code
+* **typography:** removed typography unneeded code
+
+### Build System
+
+* **deps:** bump to `sass` 1.62.0 ([90fa6d2](https://github.com/magnesiumlabs/magnesium/commit/90fa6d292f3ce025d0662f5452a9579750fab412))
+* **deps:** bump to `sass` 1.63.6 ([f24e3f7](https://github.com/magnesiumlabs/magnesium/commit/f24e3f7e55063a16245b32aac65876343c84719c))
+
+
+### Code Refactoring
+
+* **color:** better variables management ([f860a9b](https://github.com/magnesiumlabs/magnesium/commit/f860a9bfc3d43a2f859772569056bb399e831936))
+* **color:** removed unneeded code ([a8abfb1](https://github.com/magnesiumlabs/magnesium/commit/a8abfb1096baa5688f0ad4669b909ef6a59f70e2))
+* **config:** removed unneeded parameter ([9a2b556](https://github.com/magnesiumlabs/magnesium/commit/9a2b556dd85a48dbd09666013bab8486d3053c01))
+* **core:** removed deprecated functions and mixins ([ffa7a5d](https://github.com/magnesiumlabs/magnesium/commit/ffa7a5d65e6b98915a404d3a37ed48a97386d64c))
+* **shape, typography:** use supported `validation()` function ([48e332e](https://github.com/magnesiumlabs/magnesium/commit/48e332e4f6ad13890f9e5c2c25d8319af600f023))
+* **shape:** better variables management ([49ea4b1](https://github.com/magnesiumlabs/magnesium/commit/49ea4b1e937a5e515714b685a9d38ee250d08079))
+* **shape:** removed unneeded code ([991f082](https://github.com/magnesiumlabs/magnesium/commit/991f082b7e675446876879fcaaa4bc082bb56f9d))
+* **theme:** update error sentence ([ac331a0](https://github.com/magnesiumlabs/magnesium/commit/ac331a008abcaa0f717262bb5db8303d3006cc50))
+* **typography:** better variables management ([52ae5a6](https://github.com/magnesiumlabs/magnesium/commit/52ae5a6ddeee0e265148550ddb76bdf2c7240787))
+* **typography:** removed unneeded code ([3b8789b](https://github.com/magnesiumlabs/magnesium/commit/3b8789b18723470ab78f8e8d76d75a782c74d346))
+
 ## [3.6.0](https://github.com/magnesiumlabs/magnesium/compare/v3.5.1...v3.6.0) (2023-03-27)
 
 
