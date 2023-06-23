@@ -16,11 +16,11 @@
 
         @include describe("validation()") {
             @include it("Should return validated theme tokens.") {
-                @include assert-equal(theme.validation(tokens.$button, (
+                $theme: (
                     "text-color": darkorange
-                )), (
-                    "text-color": darkorange
-                ));
+                );
+
+                @include assert-equal(theme.validation(tokens.$button, $theme), $theme);
             }
         }
 
