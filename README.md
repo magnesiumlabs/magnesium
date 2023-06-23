@@ -23,6 +23,18 @@ npm install @magnesium/theme
 The theme component help you to easily manage theme styles with generate CSS custom properties declarations from
 user-provided theme's tokens map.
 
+## Options
+
+| Option    | Description                                                                                |
+|-----------|--------------------------------------------------------------------------------------------|
+| `$prefix` | Add global prefix name on any custom properties. Default `mg`. Set to `false` for disable. |
+
+```scss
+@use "@magnesium/theme" with (
+    $prefix: "foo" // Set to `false` for disabled.
+);
+```
+
 ## Mixins
 
 ### `emit-custom-props($theme, $prefix)`
