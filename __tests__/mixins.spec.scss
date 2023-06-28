@@ -3,9 +3,9 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../__tests__/tokens";
-@use "../mixins" as theme;
-@use "../functions" as theme-functions;
+@use "./tokens";
+@use "../core/mixins" as theme;
+@use "../core/functions" as theme-functions;
 
 @include describe("theme") {
     @include describe("mixins") {

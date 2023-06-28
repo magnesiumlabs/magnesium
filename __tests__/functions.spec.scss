@@ -3,8 +3,8 @@
 // ============================================================================================= //
 
 @use "true" as *;
-@use "../../__tests__/tokens";
-@use "../functions" as theme;
+@use "./tokens";
+@use "../core/functions" as theme;
 
 @include describe("theme") {
     @include describe("functions") {
