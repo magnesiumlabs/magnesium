@@ -4,8 +4,8 @@
 
 @use "true" as *;
 @use "./tokens";
-@use "../core/mixins" as theme;
-@use "../core/functions" as theme-functions;
+@use "../src/mixins";
+@use "../src/functions";
 
 @include describe("theme") {
     @include describe("mixins") {
@@ -14,7 +14,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-custom-props(tokens.$button, "button");
+                            @include mixins.emit-custom-props(tokens.$button, "button");
                         }
                     }
 
@@ -32,7 +32,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-custom-props(tokens.$button);
+                            @include mixins.emit-custom-props(tokens.$button);
                         }
                     }
 
@@ -51,10 +51,10 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme-functions.create-theme-vars(tokens.$button, "button");
+                        $theme: functions.create-theme-vars(tokens.$button, "button");
 
                         .test {
-                            @include theme.emit-theme-vars($theme);
+                            @include mixins.emit-theme-vars($theme);
                         }
                     }
 
@@ -71,13 +71,13 @@
             @include it("Should return custom theme declarations without null.") {
                 @include assert {
                     @include output(false) {
-                        $theme: theme-functions.create-theme-vars((
+                        $theme: functions.create-theme-vars((
                             "text-color": darkcyan,
                             "text-size": null
                         ), "button");
 
                         .test {
-                            @include theme.emit-theme-vars($theme);
+                            @include mixins.emit-theme-vars($theme);
                         }
                     }
 
@@ -95,7 +95,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-color-scheme("light") {
+                            @include mixins.emit-color-scheme("light") {
                                 --mg-button-text-color: darkcyan;
                             }
                         }
@@ -115,7 +115,7 @@
                 @include assert {
                     @include output(false) {
                         .test {
-                            @include theme.emit-color-scheme("dark") {
+                            @include mixins.emit-color-scheme("dark") {
                                 --mg-button-text-color: darkorange;
                             }
                         }

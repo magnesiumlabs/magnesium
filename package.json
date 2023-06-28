@@ -58,7 +58,7 @@
     },
     "files": [
         ".github/banner.svg",
-        "core/**/*",
+        "src/**/*",
         "*.scss",
         "CHANGELOG.md"
     ],

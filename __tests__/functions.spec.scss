@@ -4,13 +4,13 @@
 
 @use "true" as *;
 @use "./tokens";
-@use "../core/functions" as theme;
+@use "../src/functions";
 
 @include describe("theme") {
     @include describe("functions") {
         @include describe("create-name()") {
             @include it("Should return theme property name.") {
-                @include assert-equal(theme.create-name("button", "text-color"), "mg-button-text-color");
+                @include assert-equal(functions.create-name("button", "text-color"), "mg-button-text-color");
             }
         }
 
@@ -20,13 +20,13 @@
                     "text-color": darkorange
                 );
 
-                @include assert-equal(theme.validation(tokens.$button, $theme), $theme);
+                @include assert-equal(functions.validation(tokens.$button, $theme), $theme);
             }
         }
 
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
-                @include assert-equal(theme.create-theme-vars(tokens.$button, "button"), (
+                @include assert-equal(functions.create-theme-vars(tokens.$button, "button"), (
                     "text-color": var(--mg-button-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-button-text-size, 16px),
                     "padding": (
@@ -36,7 +36,7 @@
             }
 
             @include it("Should return a map of tokens with custom properties without component name prefix.") {
-                @include assert-equal(theme.create-theme-vars(tokens.$button, null), (
+                @include assert-equal(functions.create-theme-vars(tokens.$button, null), (
                     "text-color": var(--mg-text-color, var(--mg-color-primary, darkcyan)),
                     "text-size": var(--mg-text-size, 16px),
                     "padding": (
@@ -48,11 +48,11 @@
 
         @include describe("emit-variable()") {
             @include it("Should return theme CSS variable.") {
-                @include assert-equal(theme.emit-variable(tokens.$button, "text-color", false, "button"), var(--mg-button-text-color));
+                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", false, "button"), var(--mg-button-text-color));
             }
 
             @include it("Should return validated theme tokens with fallback.") {
-                @include assert-equal(theme.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, var(--mg-color-primary, darkcyan)));
+                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, var(--mg-color-primary, darkcyan)));
             }
         }
     }
