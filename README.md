@@ -99,7 +99,7 @@ $reference: (
 );
 
 $theme: (
-    "text-color": darkcyan
+    "text-color": darkorange
 );
 
 $theme: theme.validation($reference, $theme); // Return `$theme` map if true or error if false.
