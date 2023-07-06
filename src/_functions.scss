@@ -92,7 +92,7 @@
 ///   );
 ///
 ///   .foo {
-///     color: theme.emit-variable($theme, "text-color");
+///     color: theme.emit-variable($theme, "text-color", false, "button");
 ///   }
 ///
 /// @example - css
