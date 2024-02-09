@@ -1,0 +1,35 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../../../index" with (
+    $color: (
+        "tokens": (
+            "primary": #006ea9
+        )
+    )
+);
+@use "../mixins";
+
+@include describe("color") {
+    @include describe("theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include mixins.theme((
+                            "primary": darkcyan
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-color-primary: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+}
