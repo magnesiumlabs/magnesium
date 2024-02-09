@@ -120,9 +120,14 @@
 ///   @include theme.config("foo");
 ///
 /// @param {String} $prefix - The custom property prefix.
+/// @param {String} $color - The custom color module.
 ///
-@mixin config($prefix: null) {
+@mixin config($prefix: null, $color: null) {
     @if $prefix {
         variables.$prefix: $prefix;
+    }
+
+    @if $color {
+        variables.$color: $color;
     }
 }
