@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.0](https://github.com/magnesiumlabs/magnesium/compare/v4.0.0...v4.1.0) (2024-02-09)
+
+
+### Features
+
+* **color:** add `theme` mixin ([97cbdf6](https://github.com/magnesiumlabs/magnesium/commit/97cbdf69a6f873310c0ae225a1b329e7b83544ad))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.69.5 ([b5e075c](https://github.com/magnesiumlabs/magnesium/commit/b5e075c007c7464bf5333d095d988312eaf75be4))
+* **deps:** bump to `sass` 1.70.0 ([256a1c7](https://github.com/magnesiumlabs/magnesium/commit/256a1c76bc9ae149a93b4ea8788843acb28fa945))
+
+
+### Code Refactoring
+
+* move files to `src` folder ([0fa303c](https://github.com/magnesiumlabs/magnesium/commit/0fa303c26be663a0184ffe2aeaff987a0cb10083))
+* use `css.declaration()` mixin ([9a1d269](https://github.com/magnesiumlabs/magnesium/commit/9a1d269ef5e5737e3c9d1dd38f951c026b533d20))
+
 ## [4.0.0](https://github.com/magnesiumlabs/magnesium/compare/v3.6.0...v4.0.0) (2023-06-23)
 
 
