@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/magnesiumlabs/magnesium/compare/v4.1.0...v4.1.1) (2024-02-09)
+
+
+### Bug Fixes
+
+* **config:** missing `$color` parameter ([df81c74](https://github.com/magnesiumlabs/magnesium/commit/df81c748b011674e16c147214798bd0b5334f398))
+
+
+### Build System
+
+* **deps:** drop node 16 for node 18 ([eed8e72](https://github.com/magnesiumlabs/magnesium/commit/eed8e727d650bcd01afcea87855f2b1d970172f0))
+
 ## [4.1.0](https://github.com/magnesiumlabs/magnesium/compare/v4.0.0...v4.1.0) (2024-02-09)
 
 
