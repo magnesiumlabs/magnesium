@@ -13,6 +13,9 @@
         "node": ">=18.0.0"
     },
     "sass": "index.scss",
+    "exports": {
+        "sass": "./index.scss"
+    },
     "devDependencies": {
         "@commitlint/cli": "^18.6.0",
         "@commitlint/config-conventional": "^18.6.0",
@@ -36,7 +39,7 @@
         "@unsass/string": "^1.4.1",
         "@unsass/types": "^1.0.1",
         "@unsass/var": "^1.0.2",
-        "sass": "^1.70.0"
+        "sass": "^1.71.0"
     },
     "keywords": [
         "sass",
