@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.0](https://github.com/magnesiumlabs/magnesium/compare/v4.1.1...v4.2.0) (2024-04-17)
+
+
+### Features
+
+* **deps:** add `pkg: importer` support ([981bd89](https://github.com/magnesiumlabs/magnesium/commit/981bd89d506e283006b3bfbd158103735934477f))
+* **validation:** better error messages ([46e48fd](https://github.com/magnesiumlabs/magnesium/commit/46e48fd2249b54590ae9ed255be3378427b9eb88))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.75.0 ([72ce49a](https://github.com/magnesiumlabs/magnesium/commit/72ce49a26b59a747104d06b3eec21b78919dfbd0))
+
 ## [4.1.1](https://github.com/magnesiumlabs/magnesium/compare/v4.1.0...v4.1.1) (2024-02-09)
 
 
