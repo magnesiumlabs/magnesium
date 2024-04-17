@@ -30,7 +30,7 @@ $_tokens: functions.create-theme-vars(map.get(variables.$color, "tokens"), $_cus
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    $tokens: functions.validation($_tokens, $theme);
+    $tokens: functions.validation($_tokens, $theme, $_custom-property-prefix);
 
     @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
 }

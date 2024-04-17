@@ -25,10 +25,11 @@
 ///
 /// @param {Map} $reference - A map of reference tokens.
 /// @param {Map} $tokens - A map of theme's tokens.
+/// @param {String} $component - The component name.
 ///
 /// @return {Map} The validated theme map.
 ///
-@function validation($reference, $tokens) {
+@function validation($reference, $tokens, $component: null) {
     $keys: map.keys($reference);
     $unsupported-tokens: ();
 
@@ -39,7 +40,7 @@
     }
 
     @if list.length($unsupported-tokens) > 0 {
-        @error "The following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+        @error "The '#{$component}' following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
     }
 
     @return $tokens;
