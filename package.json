@@ -36,7 +36,7 @@
         "@unsass/string": "^1.4.1",
         "@unsass/types": "^1.0.1",
         "@unsass/var": "^1.0.2",
-        "sass": "^1.70.0"
+        "sass": "^1.75.0"
     },
     "keywords": [
         "sass",
