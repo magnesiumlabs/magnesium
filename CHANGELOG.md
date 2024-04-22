@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/magnesiumlabs/magnesium/compare/v4.2.0...v4.3.0) (2024-04-22)
+
+
+### Features
+
+* **validation:** add list support ([0cd69d9](https://github.com/magnesiumlabs/magnesium/commit/0cd69d9e67506e3365d4cddc3cb9fe455e217d7f))
+
 ## [4.2.0](https://github.com/magnesiumlabs/magnesium/compare/v4.1.1...v4.2.0) (2024-04-17)
 
 
