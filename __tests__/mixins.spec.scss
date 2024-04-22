@@ -2,7 +2,7 @@
 //                                             TEST                                              //
 // ============================================================================================= //
 
-@use 'pkg:sass-true' as *;
+@use "pkg:sass-true" as *;
 @use "./tokens";
 @use "../src/mixins";
 @use "../src/functions";

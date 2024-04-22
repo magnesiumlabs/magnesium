@@ -23,14 +23,14 @@
 ///
 /// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
-/// @param {Map} $reference - A map of reference tokens.
+/// @param {List|Map} $reference - A list of map of reference tokens.
 /// @param {Map} $tokens - A map of theme's tokens.
 /// @param {String} $component - The component name.
 ///
 /// @return {Map} The validated theme map.
 ///
 @function validation($reference, $tokens, $component: null) {
-    $keys: map.keys($reference);
+    $keys: if(type.is-map($reference), map.keys($reference), $reference);
     $unsupported-tokens: ();
 
     @each $key, $value in $tokens {

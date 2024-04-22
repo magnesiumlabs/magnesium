@@ -2,11 +2,12 @@
 //                                             TEST                                              //
 // ============================================================================================= //
 
-@use 'pkg:sass-true' as *;
+@use "pkg:sass-true" as *;
 @use "../../../index" with (
     $color: (
         "tokens": (
-            "primary": #006ea9
+            "primary",
+            "secondary"
         )
     )
 );
@@ -19,7 +20,8 @@
                 @include output(false) {
                     .test {
                         @include mixins.theme((
-                            "primary": darkcyan
+                            "primary": darkcyan,
+                            "secondary": darkorange
                         ));
                     }
                 }
@@ -27,6 +29,7 @@
                 @include expect(false) {
                     .test {
                         --mg-color-primary: darkcyan;
+                        --mg-color-secondary: darkorange;
                     }
                 }
             }
