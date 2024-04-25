@@ -14,7 +14,12 @@
     },
     "sass": "index.scss",
     "exports": {
-        "sass": "./index.scss"
+        ".": {
+            "sass": "./index.scss"
+        },
+        "./color": {
+            "sass": "./color.scss"
+        }
     },
     "devDependencies": {
         "@commitlint/cli": "^19.2.2",
