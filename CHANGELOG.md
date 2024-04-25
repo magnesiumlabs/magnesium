@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/magnesiumlabs/magnesium/compare/v4.3.0...v4.3.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* missing export `./color` on `package.json` ([b2267b2](https://github.com/magnesiumlabs/magnesium/commit/b2267b2f589ca8db3e634803a361d26b28ee534c))
+
 ## [4.3.0](https://github.com/magnesiumlabs/magnesium/compare/v4.2.0...v4.3.0) (2024-04-22)
 
 
