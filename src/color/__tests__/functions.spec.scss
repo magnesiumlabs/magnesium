@@ -1,0 +1,40 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../index" with (
+    $color: (
+        "prefix": "sys-color",
+        "tokens": (
+            "primary": darkcyan,
+            "secondary": darkorange,
+            "tertiary": null
+        )
+    )
+);
+@use "../functions";
+
+@include describe("color") {
+    @include describe("functions") {
+        @include describe("values()") {
+            @include it("Should return a map of tokens with CSS variables.") {
+                @include assert-equal(functions.values(), (
+                    "primary": var(--mg-sys-color-primary, darkcyan),
+                    "secondary": var(--mg-sys-color-secondary, darkorange),
+                    "tertiary": null
+                ));
+            }
+        }
+
+        @include describe("values(false)") {
+            @include it("Should return a map of tokens without CSS variables.") {
+                @include assert-equal(functions.values(true), (
+                    "primary": darkcyan,
+                    "secondary": darkorange,
+                    "tertiary": null
+                ));
+            }
+        }
+    }
+}

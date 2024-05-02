@@ -1,0 +1,22 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../functions";
+@use "../variables";
+
+@function values($exclude-custom-props: false) {
+    $prefix: map.get(variables.$color, "prefix");
+    $tokens: map.get(variables.$color, "tokens");
+
+    @if not $exclude-custom-props {
+        @each $key, $value in $tokens {
+            @if $value != null {
+                $tokens: map.set($tokens, $key, functions.emit-variable($tokens, $key, true, $prefix));
+            }
+        }
+    }
+
+    @return $tokens;
+}
