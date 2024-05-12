@@ -3,12 +3,10 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
+@use "../../../__tests__/tokens";
 @use "../../../index" with (
     $color: (
-        "tokens": (
-            "primary",
-            "secondary"
-        )
+        "tokens": tokens.$color
     )
 );
 @use "../mixins";

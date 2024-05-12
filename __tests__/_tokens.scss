@@ -1,3 +1,9 @@
+$color: (
+    "primary": darkcyan,
+    "secondary": darkorange,
+    "tertiary": darkgreen
+);
+
 $button: (
     "text-color": var(--mg-color-primary, darkcyan),
     "text-size": 16px,
