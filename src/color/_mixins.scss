@@ -7,8 +7,9 @@
 @use "../mixins";
 @use "../variables";
 
-$_custom-property-prefix: map.get(variables.$color, "prefix");
-$_tokens: functions.create-theme-vars(map.get(variables.$color, "tokens"), $_custom-property-prefix);
+$_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color", map.get(variables.$color, "prefix"));
+$_tokens: map.get(variables.$color, "tokens");
+$_tokens: functions.create-theme-vars($_tokens, $_custom-property-prefix);
 
 ///
 /// Generates user-provided theme's tokens for the color component management with tokens validation.

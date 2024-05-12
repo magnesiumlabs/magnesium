@@ -18,16 +18,16 @@
                 @include output(false) {
                     .test {
                         @include mixins.theme((
-                            "primary": darkcyan,
-                            "secondary": darkorange
+                            "primary": #36454f,
+                            "secondary": #353839
                         ));
                     }
                 }
 
                 @include expect(false) {
                     .test {
-                        --mg-color-primary: darkcyan;
-                        --mg-color-secondary: darkorange;
+                        --mg-color-primary: #36454f;
+                        --mg-color-secondary: #353839;
                     }
                 }
             }
