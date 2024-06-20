@@ -6,6 +6,7 @@
 @use "../../../__tests__/tokens";
 @use "../../../index" with (
     $color: (
+        "prefix": "sys-color",
         "tokens": tokens.$color
     )
 );
@@ -26,8 +27,8 @@
 
                 @include expect(false) {
                     .test {
-                        --mg-color-primary: #36454f;
-                        --mg-color-secondary: #353839;
+                        --mg-sys-color-primary: #36454f;
+                        --mg-sys-color-secondary: #353839;
                     }
                 }
             }
