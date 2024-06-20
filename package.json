@@ -19,6 +19,9 @@
         },
         "./color": {
             "sass": "./color.scss"
+        },
+        "./shape": {
+            "sass": "./shape.scss"
         }
     },
     "devDependencies": {

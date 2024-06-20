@@ -121,13 +121,18 @@
 ///
 /// @param {String} $prefix - The custom property prefix.
 /// @param {String} $color - The custom color component.
+/// @param {String} $shape - The custom shape component.
 ///
-@mixin config($prefix: null, $color: null) {
+@mixin config($prefix: null, $color: null, $shape: null) {
     @if $prefix {
         variables.$prefix: $prefix;
     }
 
     @if $color {
         variables.$color: $color;
+    }
+
+    @if $shape {
+        variables.$shape: $shape;
     }
 }

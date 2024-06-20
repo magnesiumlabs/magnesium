@@ -13,15 +13,22 @@ $_default-color: (
     "tokens": ()
 ) !default;
 
+$_default-shape: (
+    "prefix": "shape",
+    "tokens": ()
+) !default;
+
 // ------------------------------------------------------------------------- //
 // Public variables
 // ------------------------------------------------------------------------- //
 
 $prefix: "mg" !default;
 $color: () !default;
+$shape: () !default;
 
 ///
 /// Extend options.
 ///
 
 $color: map.deep-merge($_default-color, $color);
+$shape: map.deep-merge($_default-shape, $shape);

@@ -1,0 +1,35 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../__tests__/tokens";
+@use "../../../index" with (
+    $shape: (
+        "prefix": "sys-shape",
+        "tokens": tokens.$shape
+    )
+);
+@use "../mixins";
+
+@include describe("shape") {
+    @include describe("theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include mixins.theme((
+                            "medium": 8px
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-sys-shape-medium: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
