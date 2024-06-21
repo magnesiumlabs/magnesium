@@ -6,4 +6,9 @@ $color: (
     "tokens": tokens.$color
 );
 
-@include mixins.config("md", $color);
+$shape: (
+    "prefix": "sys-shape",
+    "tokens": tokens.$shape
+);
+
+@include mixins.config("md", $color, $shape);

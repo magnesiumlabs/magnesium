@@ -1,0 +1,29 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../__tests__/config";
+@use "../mixins";
+
+@include describe("shape") {
+    @include describe("config()") {
+        @include it("Should return theme custom properties declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include mixins.theme((
+                            "medium": 8px
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --md-sys-shape-medium: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
