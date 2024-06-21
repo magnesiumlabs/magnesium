@@ -1,0 +1,9 @@
+@use "./tokens";
+@use "../src/mixins";
+
+$color: (
+    "prefix": "sys-color",
+    "tokens": tokens.$color
+);
+
+@include mixins.config("md", $color);
