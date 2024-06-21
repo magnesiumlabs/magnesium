@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.0](https://github.com/magnesiumlabs/magnesium/compare/v4.3.1...v4.4.0) (2024-06-21)
+
+
+### Features
+
+* **shape:** add native component ([eda6107](https://github.com/magnesiumlabs/magnesium/commit/eda61071da308211ebb695eef550bb7f122a45d8))
+
+
+### Bug Fixes
+
+* **color:** prevent prefix `null` configuration ([54a1ef7](https://github.com/magnesiumlabs/magnesium/commit/54a1ef7afd70a236b72906c74ef4e87ef86ce27e))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.77.6 ([adcf585](https://github.com/magnesiumlabs/magnesium/commit/adcf585d477b9c35881e0b08d392f69082b72266))
+
 ## [4.3.1](https://github.com/magnesiumlabs/magnesium/compare/v4.3.0...v4.3.1) (2024-04-25)
 
 
