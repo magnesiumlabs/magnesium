@@ -20,7 +20,7 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-button-text-color: var(--mg-color-primary, darkcyan);
+                            --mg-button-text-color: darkcyan;
                             --mg-button-text-size: 16px;
                             --mg-button-padding-top: 12px;
                         }
@@ -38,7 +38,7 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-text-color: var(--mg-color-primary, darkcyan);
+                            --mg-text-color: darkcyan;
                             --mg-text-size: 16px;
                             --mg-padding-top: 12px;
                         }
@@ -60,7 +60,7 @@
 
                     @include expect(false) {
                         .test {
-                            --mg-button-text-color: var(--mg-color-primary, darkcyan);
+                            --mg-button-text-color: darkcyan;
                             --mg-button-text-size: 16px;
                             --mg-button-padding-top: 12px;
                         }

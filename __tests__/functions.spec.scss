@@ -27,7 +27,7 @@
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with custom properties.") {
                 @include assert-equal(functions.create-theme-vars(tokens.$button, "button"), (
-                    "text-color": var(--mg-button-text-color, var(--mg-color-primary, darkcyan)),
+                    "text-color": var(--mg-button-text-color, darkcyan),
                     "text-size": var(--mg-button-text-size, 16px),
                     "padding": (
                         "top": var(--mg-button-padding-top, 12px)
@@ -37,7 +37,7 @@
 
             @include it("Should return a map of tokens with custom properties without component name prefix.") {
                 @include assert-equal(functions.create-theme-vars(tokens.$button, null), (
-                    "text-color": var(--mg-text-color, var(--mg-color-primary, darkcyan)),
+                    "text-color": var(--mg-text-color, darkcyan),
                     "text-size": var(--mg-text-size, 16px),
                     "padding": (
                         "top": var(--mg-padding-top, 12px)
@@ -52,7 +52,7 @@
             }
 
             @include it("Should return validated theme tokens with fallback.") {
-                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, var(--mg-color-primary, darkcyan)));
+                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, darkcyan));
             }
         }
     }
