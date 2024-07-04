@@ -23,7 +23,7 @@
 ///
 /// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
-/// @param {List|Map} $reference - A list of map of reference tokens.
+/// @param {List|Map} $reference - A list of supported tokens.
 /// @param {Map} $tokens - A map of theme's tokens.
 /// @param {String} $component - The component name.
 ///
@@ -33,9 +33,9 @@
     $keys: if(type.is-map($reference), map.keys($reference), $reference);
     $unsupported-tokens: ();
 
-    @each $key, $value in $tokens {
-        @if list.index($keys, $key) == null {
-            $unsupported-tokens: list.append($unsupported-tokens, $key, $separator: comma);
+    @each $token, $value in $tokens {
+        @if list.index($keys, $token) == null {
+            $unsupported-tokens: list.append($unsupported-tokens, $token, $separator: comma);
         }
     }
 
