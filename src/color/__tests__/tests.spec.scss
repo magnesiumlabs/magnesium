@@ -1,0 +1,60 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../__tests__/tokens";
+@use "../../../index" with (
+    $color: (
+        "prefix": "sys-color",
+        "tokens": tokens.$color
+    )
+);
+@use "../functions";
+@use "../mixins";
+
+@include describe("color") {
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return custom theme declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.theme((
+                                "primary": #36454f,
+                                "secondary": #353839
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-sys-color-primary: #36454f;
+                            --mg-sys-color-secondary: #353839;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("functions") {
+        @include describe("values()") {
+            @include it("Should return theme map with custom properties.") {
+                @include assert-equal(functions.values(), (
+                    "primary": var(--mg-sys-color-primary, darkcyan),
+                    "secondary": var(--mg-sys-color-secondary, darkorange),
+                    "tertiary": var(--mg-sys-color-tertiary, darkgreen)
+                ));
+            }
+
+            @include it("Should return theme map without custom properties.") {
+                @include assert-equal(functions.values(true), (
+                    "primary": darkcyan,
+                    "secondary": darkorange,
+                    "tertiary": darkgreen
+                ));
+            }
+        }
+    }
+}
