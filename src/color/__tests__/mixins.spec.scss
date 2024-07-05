@@ -7,6 +7,7 @@
 @use "../../../index" with (
     $color: config.$color
 );
+@use "../functions";
 @use "../mixins";
 
 @include describe("color") {
@@ -29,6 +30,24 @@
                     }
                 }
             }
+        }
+    }
+
+    @include describe("values()") {
+        @include it("Should return theme map with custom properties.") {
+            @include assert-equal(functions.values(), (
+                "primary": var(--mg-sys-color-primary, darkcyan),
+                "secondary": var(--mg-sys-color-secondary, darkorange),
+                "tertiary": var(--mg-sys-color-tertiary, darkgreen)
+            ));
+        }
+
+        @include it("Should return theme map without custom properties.") {
+            @include assert-equal(functions.values(true), (
+                "primary": darkcyan,
+                "secondary": darkorange,
+                "tertiary": darkgreen
+            ));
         }
     }
 }
