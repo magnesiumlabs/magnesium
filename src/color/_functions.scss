@@ -9,6 +9,21 @@
 $_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color", map.get(variables.$color, "prefix"));
 $_tokens: map.get(variables.$color, "tokens");
 
+///
+/// Generates color's tokens map with custom properties.
+///
+/// @example - scss
+///   $theme: (
+///     "primary": darkcyan
+///   );
+///
+/// @return - scss
+///   $theme: (
+///     "primary": var(--mg-color-primary, darkcyan)
+///   );
+///
+/// @param {Boolean} $exclude-custom-props - Exclude custom properties from return.
+///
 @function values($exclude-custom-props: false) {
     $tokens: $_tokens;
 
