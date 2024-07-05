@@ -7,25 +7,48 @@
 @use "../../../index" with (
     $shape: config.$shape
 );
+@use "../functions";
 @use "../mixins";
 
 @include describe("shape") {
-    @include describe("theme()") {
-        @include it("Should return custom theme declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include mixins.theme((
-                            "medium": 8px
-                        ));
+    @include describe("mixins") {
+        @include describe("theme()") {
+            @include it("Should return custom theme declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.theme((
+                                "medium": 8px
+                            ));
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --mg-sys-shape-medium: 8px;
+                    @include expect(false) {
+                        .test {
+                            --mg-sys-shape-medium: 8px;
+                        }
                     }
                 }
+            }
+        }
+    }
+
+    @include describe("functions") {
+        @include describe("values()") {
+            @include it("Should return theme map with custom properties.") {
+                @include assert-equal(functions.values(), (
+                    "small": var(--mg-sys-shape-small, 4px),
+                    "medium": var(--mg-sys-shape-medium, 6px),
+                    "large": var(--mg-sys-shape-large, 8px)
+                ));
+            }
+
+            @include it("Should return theme map without custom properties.") {
+                @include assert-equal(functions.values(true), (
+                    "small": 4px,
+                    "medium": 6px,
+                    "large": 8px
+                ));
             }
         }
     }
