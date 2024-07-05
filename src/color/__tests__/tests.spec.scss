@@ -16,7 +16,7 @@
 @include describe("color") {
     @include describe("mixins") {
         @include describe("theme()") {
-            @include it("Should return custom theme declarations.") {
+            @include it("Should return theme custom properties declarations.") {
                 @include assert {
                     @include output(false) {
                         .test {
