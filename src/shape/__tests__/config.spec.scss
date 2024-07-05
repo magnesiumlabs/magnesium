@@ -4,24 +4,41 @@
 
 @use "pkg:sass-true" as *;
 @use "../../../__tests__/config";
+@use "../functions";
 @use "../mixins";
 
 @include describe("shape") {
-    @include describe("config()") {
-        @include it("Should return theme custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include mixins.theme((
-                            "medium": 8px
-                        ));
+    @include describe("config") {
+        @include describe("mixins") {
+            @include describe("theme()") {
+                @include it("Should return theme custom properties declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include mixins.theme((
+                                    "medium": 8px
+                                ));
+                            }
+                        }
+
+                        @include expect(false) {
+                            .test {
+                                --md-sys-shape-medium: 8px;
+                            }
+                        }
                     }
                 }
+            }
+        }
 
-                @include expect(false) {
-                    .test {
-                        --md-sys-shape-medium: 8px;
-                    }
+        @include describe("functions") {
+            @include describe("values()") {
+                @include it("Should return theme map with custom properties.") {
+                    @include assert-equal(functions.values(), (
+                        "small": var(--md-sys-shape-small, 4px),
+                        "medium": var(--md-sys-shape-medium, 6px),
+                        "large": var(--md-sys-shape-large, 8px)
+                    ));
                 }
             }
         }
