@@ -42,8 +42,6 @@
     },
     "dependencies": {
         "@unsass/css": "^2.3.0",
-        "@unsass/em": "^2.1.0",
-        "@unsass/rem": "^2.1.0",
         "@unsass/string": "^1.4.1",
         "@unsass/types": "^1.0.1",
         "@unsass/var": "^1.0.2",
