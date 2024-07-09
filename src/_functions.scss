@@ -30,17 +30,17 @@
 /// @return {Map} The validated theme map.
 ///
 @function validation($reference, $tokens, $component: null) {
-    $keys: if(type.is-map($reference), map.keys($reference), $reference);
+    $supported-tokens: if(type.is-map($reference), map.keys($reference), $reference);
     $unsupported-tokens: ();
 
     @each $token, $value in $tokens {
-        @if list.index($keys, $token) == null {
+        @if list.index($supported-tokens, $token) == null {
             $unsupported-tokens: list.append($unsupported-tokens, $token, $separator: comma);
         }
     }
 
     @if list.length($unsupported-tokens) > 0 {
-        @error "The '#{$component}' following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$keys}'";
+        @error "The '#{$component}' following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$supported-tokens}'";
     }
 
     @return $tokens;
