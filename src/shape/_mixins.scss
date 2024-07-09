@@ -9,7 +9,6 @@
 
 $_custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape", map.get(variables.$shape, "prefix"));
 $_tokens: map.get(variables.$shape, "tokens");
-$_tokens: functions.create-theme-vars($_tokens, $_custom-property-prefix);
 
 ///
 /// Generates user-provided theme's tokens for the shape component management with tokens validation.
