@@ -3,12 +3,9 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../../__tests__/tokens";
+@use "../../../__tests__/config-variables" as config;
 @use "../../../index" with (
-    $shape: (
-        "prefix": "sys-shape",
-        "tokens": tokens.$shape
-    )
+    $shape: config.$shape
 );
 @use "../mixins";
 

@@ -3,16 +3,10 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../__tests__/tokens";
+@use "../__tests__/config-variables" as config;
 @use "../index" as magnesium with (
-    $color: (
-        "prefix": "sys-color",
-        "tokens": tokens.$color
-    ),
-    $shape: (
-        "prefix": "sys-shape",
-        "tokens": tokens.$shape
-    )
+    $color: config.$color,
+    $shape: config.$shape
 );
 
 @include describe("core") {
