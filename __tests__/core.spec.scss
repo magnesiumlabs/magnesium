@@ -1,0 +1,60 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../__tests__/tokens";
+@use "../index" as magnesium with (
+    $color: (
+        "prefix": "sys-color",
+        "tokens": tokens.$color
+    ),
+    $shape: (
+        "prefix": "sys-shape",
+        "tokens": tokens.$shape
+    )
+);
+
+@include describe("core") {
+    @include describe("color-theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include magnesium.color-theme((
+                            "primary": #36454f,
+                            "secondary": #353839
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-sys-color-primary: #36454f;
+                        --mg-sys-color-secondary: #353839;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("shape-theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include magnesium.shape-theme((
+                            "medium": 8px
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-sys-shape-medium: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
