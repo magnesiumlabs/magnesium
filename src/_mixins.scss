@@ -29,10 +29,10 @@
 ///     --mg-button-text-color: darkcyan;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 ///
-@mixin emit-theme-vars($theme) {
-    @each $key, $value in $theme {
+@mixin emit-theme-vars($tokens) {
+    @each $key, $value in $tokens {
         @if $value {
             @if type.is-map($value) {
                 @include emit-theme-vars($value);
