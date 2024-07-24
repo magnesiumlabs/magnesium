@@ -28,7 +28,7 @@
                 }
             }
 
-            @include it("Should return theme custom properties declarations without prefix.") {
+            @include it("Should return theme custom properties declarations without component name.") {
                 @include assert {
                     @include output(false) {
                         .test {

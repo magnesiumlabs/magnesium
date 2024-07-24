@@ -23,14 +23,14 @@
 ///
 /// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
-/// @param {List|Map} $reference - A list of supported tokens.
+/// @param {List|Map} $refs - A list of supported tokens.
 /// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $component - The component name.
 ///
 /// @return {Map} The validated theme map.
 ///
-@function validation($reference, $tokens, $component: null) {
-    $supported-tokens: if(type.is-map($reference), map.keys($reference), $reference);
+@function validation($refs, $tokens, $component: null) {
+    $supported-tokens: if(type.is-map($refs), map.keys($refs), $refs);
     $unsupported-tokens: ();
 
     @each $token, $value in $tokens {
@@ -40,7 +40,7 @@
     }
 
     @if list.length($unsupported-tokens) > 0 {
-        @error "The '#{$component}' following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$supported-tokens}'";
+        @error "The following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$supported-tokens}'";
     }
 
     @return $tokens;
