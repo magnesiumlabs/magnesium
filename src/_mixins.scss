@@ -4,11 +4,14 @@
 
 @use "sass:list";
 @use "@unsass/css";
+@use "@unsass/css/custom-properties";
 @use "@unsass/string";
 @use "@unsass/types" as type;
 @use "@unsass/var";
 @use "./variables";
 
+///
+/// @deprecated Use `emit-custom-props()` mixin instead.
 ///
 /// Emits CSS custom properties declarations from a user-provided theme's tokens transformed
 /// with `create-theme-vars()` function.
@@ -67,19 +70,17 @@
 ///   }
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
-/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name. Default: `null`.
+/// @param {String} $component - Component name to prepend for each token's custom property name. Default: `null`.
 ///
-@mixin emit-custom-props($tokens, $prefix: null) {
+@mixin emit-custom-props($tokens, $component: null) {
     @each $key, $value in $tokens {
+        $name: string.combine(variables.$prefix, $component, $key);
+
         @if $value {
-            $token: string.combine(variables.$prefix, $prefix, $key);
-
             @if type.is-map($value) {
-                @include emit-custom-props($value, string.combine($prefix, $key));
+                @include emit-custom-props($value, string.combine($component, $key));
             } @else {
-                $value: var.create($token, $value);
-
-                @include css.declaration(var.name($value), var.fallback($value));
+                @include css.declaration(custom-properties.create($name, $value));
             }
         }
     }
