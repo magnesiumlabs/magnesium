@@ -16,8 +16,6 @@
 /// Emits CSS custom properties declarations from a user-provided theme's tokens transformed
 /// with `create-theme-vars()` function.
 ///
-/// The user-provided theme's token maps can contain multilevel tokens maps. See the `@if ... @else`.
-///
 /// @example - scss
 ///   $theme: (
 ///     "text-color": darkcyan
