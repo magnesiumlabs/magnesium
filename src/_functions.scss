@@ -10,9 +10,9 @@
 @use "./variables";
 
 ///
-/// Create name.
+/// Create a name with the global config prefix.
 ///
-/// @param {Arglist} $name - A list of name strings.
+/// @param {Arglist} $name - A list of strings.
 ///
 /// @return {String} The generated prefixed name.
 ///
@@ -24,7 +24,7 @@
 /// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
 /// @param {List|Map} $reference - A list of supported tokens.
-/// @param {Map} $tokens - A map of theme's tokens.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $component - The component name.
 ///
 /// @return {Map} The validated theme map.
@@ -51,16 +51,21 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     "text-color": darkcyan
+///     "text-color": darkcyan,
+///     "text": (
+///       "size": 12px
+///     )
 ///   );
 ///
 ///   $theme: theme.create-theme-vars($theme, "button");
 ///
+/// @example - scss
 ///   $theme: (
-///     "text-color": var(--mg-button-text-color, darkcyan)
+///     "text-color": var(--mg-button-text-color, darkcyan),
+/////   "text-size": var(--mg-button-text-size, 12px)
 ///   );
 ///
-/// @param {Map} $theme - The user-provided theme tokens map.
+/// @param {Map} $theme - The user-provided theme's tokens map.
 /// @param {String} $prefix - Component's name to prepend for each token's custom property name.
 ///                           Set to `false` for disabled.
 ///
@@ -101,13 +106,7 @@
 ///     color: var(--mg-button-text-color);
 ///   }
 ///
-///   ...or with fallback option at `true`...
-///
-///   .foo {
-///     color: var(--mg-button-text-color, darkcyan);
-///   }
-///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $theme - The user-provided theme's tokens map.
 /// @param {String} $token - The theme token key.
 /// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.

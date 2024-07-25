@@ -48,11 +48,12 @@
 ///
 /// Emits CSS custom properties declarations from a user-provided theme's tokens.
 ///
-/// The user-provided theme's token maps can contain multilevel tokens maps. See the `@if ... @else`.
-///
 /// @example - scss
 ///   $theme: (
-///     "text-color": darkcyan
+///     "text-color": darkcyan,
+///     "text": (
+///       "size": 12px
+///     )
 ///   );
 ///
 ///   .foo {
@@ -62,10 +63,11 @@
 /// @example - css
 ///   .foo {
 ///     --mg-button-text-color: darkcyan;
+///     --mg-button-text-size: 12px;
 ///   }
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
-/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name. Default: `null`.
 ///
 @mixin emit-custom-props($tokens, $prefix: null) {
     @each $key, $value in $tokens {
