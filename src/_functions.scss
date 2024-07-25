@@ -62,17 +62,17 @@
 /// @example - scss
 ///   $theme: (
 ///     "text-color": var(--mg-button-text-color, darkcyan),
-/////   "text-size": var(--mg-button-text-size, 12px)
+///     "text-size": var(--mg-button-text-size, 12px)
 ///   );
 ///
-/// @param {Map} $theme - The user-provided theme's tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $prefix - Component's name to prepend for each token's custom property name.
 ///                           Set to `false` for disabled.
 ///
 /// @return {Map} The transformed theme map.
 ///
-@function create-theme-vars($theme, $prefix) {
-    @each $key, $value in $theme {
+@function create-theme-vars($tokens, $prefix) {
+    @each $key, $value in $tokens {
         @if $value != null {
             $token: create-name($prefix, $key);
 
@@ -82,11 +82,11 @@
                 $value: var.create($token, $value);
             }
 
-            $theme: map.set($theme, $key, $value);
+            $tokens: map.set($tokens, $key, $value);
         }
     }
 
-    @return $theme;
+    @return $tokens;
 }
 
 ///
@@ -106,13 +106,13 @@
 ///     color: var(--mg-button-text-color);
 ///   }
 ///
-/// @param {Map} $theme - The user-provided theme's tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $token - The theme token key.
 /// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
 ///
-@function emit-variable($theme, $token, $fallback: false, $prefix: null) {
-    $value: map.get($theme, $token);
+@function emit-variable($tokens, $token, $fallback: false, $prefix: null) {
+    $value: map.get($tokens, $token);
     $token: create-name($prefix, $token);
 
     @if $fallback {
