@@ -1,0 +1,52 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "./config";
+@use "./tokens";
+@use "../src/mixins";
+
+@include describe("core") {
+    @include describe("config") {
+        @include describe("mixins") {
+            @include describe("emit-custom-props()") {
+                @include it("Should return theme custom properties declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include mixins.emit-custom-props(tokens.$button, "button");
+                            }
+                        }
+
+                        @include expect(false) {
+                            .test {
+                                --md-button-text-color: darkcyan;
+                                --md-button-text-size: 16px;
+                                --md-button-padding-top: 12px;
+                            }
+                        }
+                    }
+                }
+
+                @include it("Should return theme custom properties declarations without component name.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include mixins.emit-custom-props(tokens.$button);
+                            }
+                        }
+
+                        @include expect(false) {
+                            .test {
+                                --md-text-color: darkcyan;
+                                --md-text-size: 16px;
+                                --md-padding-top: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

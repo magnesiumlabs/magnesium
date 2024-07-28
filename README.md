@@ -37,7 +37,7 @@ user-provided theme's tokens map.
 
 ## Mixins
 
-### `emit-custom-props($theme, $prefix)`
+### `emit-custom-props($tokens, $prefix)`
 
 Emits CSS custom properties declarations from a user-provided theme's.
 
@@ -63,7 +63,7 @@ $theme: (
 
 ## Functions
 
-### `emit-variable($theme, $token, $fallback, $prefix)`
+### `emit-variable($tokens, $token, $fallback, $prefix)`
 
 Emits CSS variable declaration from a user-provided theme's.
 

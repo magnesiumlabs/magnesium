@@ -25,7 +25,7 @@
         }
 
         @include describe("create-theme-vars()") {
-            @include it("Should return a map of tokens with custom properties.") {
+            @include it("Should return a map of tokens with `var()` CSS function.") {
                 @include assert-equal(functions.create-theme-vars(tokens.$button, "button"), (
                     "text-color": var(--mg-button-text-color, darkcyan),
                     "text-size": var(--mg-button-text-size, 16px),
@@ -35,7 +35,7 @@
                 ));
             }
 
-            @include it("Should return a map of tokens with custom properties without component name prefix.") {
+            @include it("Should return a map of tokens with `var()` CSS function without component name.") {
                 @include assert-equal(functions.create-theme-vars(tokens.$button, null), (
                     "text-color": var(--mg-text-color, darkcyan),
                     "text-size": var(--mg-text-size, 16px),
