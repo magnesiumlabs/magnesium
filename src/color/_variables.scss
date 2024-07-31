@@ -1,0 +1,9 @@
+// ============================================================================================= //
+//                                           VARIABLES                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../variables";
+
+$custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color", map.get(variables.$color, "prefix"));
+$tokens: map.get(variables.$color, "tokens");

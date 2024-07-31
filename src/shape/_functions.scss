@@ -1,0 +1,32 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../functions";
+@use "./variables";
+
+///
+/// Generates shape's tokens map with custom properties.
+///
+/// @example - scss
+///   $theme: (
+///     "medium": 6px
+///   );
+///
+/// @return - scss
+///   $theme: (
+///     "medium": var(--mg-shape-medium, 6px)
+///   );
+///
+/// @param {Boolean} $exclude-custom-props - Exclude custom properties from return.
+///
+@function values($exclude-custom-props: false) {
+    $tokens: variables.$tokens;
+
+    @if not $exclude-custom-props {
+        $tokens: functions.create-theme-vars($tokens, variables.$custom-property-prefix);
+    }
+
+    @return $tokens;
+}

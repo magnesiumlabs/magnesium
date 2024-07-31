@@ -4,13 +4,16 @@
 
 @use "sass:list";
 @use "@unsass/css";
+@use "@unsass/css/custom-properties";
 @use "@unsass/string";
 @use "@unsass/types" as type;
 @use "@unsass/var";
 @use "./variables";
 
 ///
-/// Emits CSS custom properties declarations from a user-provided theme's token transformed
+/// @deprecated Use `emit-custom-props()` mixin instead.
+///
+/// Emits CSS custom properties declarations from a user-provided theme's tokens transformed
 /// with `create-theme-vars()` function.
 ///
 /// @example - scss
@@ -29,10 +32,10 @@
 ///     --mg-button-text-color: darkcyan;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 ///
-@mixin emit-theme-vars($theme) {
-    @each $key, $value in $theme {
+@mixin emit-theme-vars($tokens) {
+    @each $key, $value in $tokens {
         @if $value {
             @if type.is-map($value) {
                 @include emit-theme-vars($value);
@@ -44,11 +47,14 @@
 }
 
 ///
-/// Emits CSS custom properties declarations from a user-provided theme's.
+/// Emits CSS custom properties declarations from a user-provided theme's tokens.
 ///
 /// @example - scss
 ///   $theme: (
-///     "text-color": darkcyan
+///     "text-color": darkcyan,
+///     "text": (
+///       "size": 12px
+///     )
 ///   );
 ///
 ///   .foo {
@@ -58,22 +64,21 @@
 /// @example - css
 ///   .foo {
 ///     --mg-button-text-color: darkcyan;
+///     --mg-button-text-size: 12px;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map.
-/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
+/// @param {String} $component - Component name to prepend for each token's custom property name. Default: `null`.
 ///
-@mixin emit-custom-props($theme, $prefix: null) {
-    @each $key, $value in $theme {
+@mixin emit-custom-props($tokens, $component: null) {
+    @each $key, $value in $tokens {
+        $name: string.combine(variables.$prefix, $component, $key);
+
         @if $value {
-            $token: string.combine(variables.$prefix, $prefix, $key);
-
             @if type.is-map($value) {
-                @include emit-custom-props($value, string.combine($prefix, $key));
+                @include emit-custom-props($value, string.combine($component, $key));
             } @else {
-                $value: var.create($token, $value);
-
-                @include css.declaration(var.name($value), var.fallback($value));
+                @include css.declaration(custom-properties.create($name, $value));
             }
         }
     }

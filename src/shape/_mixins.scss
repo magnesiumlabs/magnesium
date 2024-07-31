@@ -5,10 +5,7 @@
 @use "sass:map";
 @use "../functions";
 @use "../mixins";
-@use "../variables";
-
-$_custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape", map.get(variables.$shape, "prefix"));
-$_tokens: map.get(variables.$shape, "tokens");
+@use "./variables";
 
 ///
 /// Generates user-provided theme's tokens for the shape component management with tokens validation.
@@ -30,7 +27,7 @@ $_tokens: map.get(variables.$shape, "tokens");
 /// @param {Map} $theme - The theme tokens map.
 ///
 @mixin theme($theme) {
-    $tokens: functions.validation($_tokens, $theme, $_custom-property-prefix);
+    $tokens: functions.validation(variables.$tokens, $theme, variables.$custom-property-prefix);
 
-    @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
+    @include mixins.emit-custom-props($tokens, variables.$custom-property-prefix);
 }

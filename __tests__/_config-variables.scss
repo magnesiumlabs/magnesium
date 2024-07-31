@@ -1,0 +1,11 @@
+@use "./tokens";
+
+$color: (
+    "prefix": "sys-color",
+    "tokens": tokens.$color
+);
+
+$shape: (
+    "prefix": "sys-shape",
+    "tokens": tokens.$shape
+);

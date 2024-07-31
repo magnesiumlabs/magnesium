@@ -10,9 +10,9 @@
 @use "./variables";
 
 ///
-/// Create name.
+/// Create a name with the global config prefix.
 ///
-/// @param {Arglist} $name - A list of name strings.
+/// @param {Arglist} $name - A list of strings.
 ///
 /// @return {String} The generated prefixed name.
 ///
@@ -23,14 +23,14 @@
 ///
 /// Validates a user-provided theme's token and throws an error if tokens are invalid.
 ///
-/// @param {List|Map} $reference - A list of supported tokens.
-/// @param {Map} $tokens - A map of theme's tokens.
+/// @param {List|Map} $refs - A list of supported tokens.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $component - The component name.
 ///
 /// @return {Map} The validated theme map.
 ///
-@function validation($reference, $tokens, $component: null) {
-    $supported-tokens: if(type.is-map($reference), map.keys($reference), $reference);
+@function validation($refs, $tokens, $component: null) {
+    $supported-tokens: if(type.is-map($refs), map.keys($refs), $refs);
     $unsupported-tokens: ();
 
     @each $token, $value in $tokens {
@@ -40,7 +40,7 @@
     }
 
     @if list.length($unsupported-tokens) > 0 {
-        @error "The '#{$component}' following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$supported-tokens}'";
+        @error "The following tokens are not supported: '#{$unsupported-tokens}'. The supported theme tokens are: '#{$supported-tokens}'";
     }
 
     @return $tokens;
@@ -51,23 +51,28 @@
 ///
 /// @example - scss
 ///   $theme: (
-///     "text-color": darkcyan
+///     "text-color": darkcyan,
+///     "text": (
+///       "size": 12px
+///     )
 ///   );
 ///
 ///   $theme: theme.create-theme-vars($theme, "button");
 ///
+/// @example - scss
 ///   $theme: (
-///     "text-color": var(--mg-button-text-color, darkcyan)
+///     "text-color": var(--mg-button-text-color, darkcyan),
+///     "text-size": var(--mg-button-text-size, 12px)
 ///   );
 ///
-/// @param {Map} $theme - The user-provided theme tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $prefix - Component's name to prepend for each token's custom property name.
 ///                           Set to `false` for disabled.
 ///
 /// @return {Map} The transformed theme map.
 ///
-@function create-theme-vars($theme, $prefix) {
-    @each $key, $value in $theme {
+@function create-theme-vars($tokens, $prefix) {
+    @each $key, $value in $tokens {
         @if $value != null {
             $token: create-name($prefix, $key);
 
@@ -77,11 +82,11 @@
                 $value: var.create($token, $value);
             }
 
-            $theme: map.set($theme, $key, $value);
+            $tokens: map.set($tokens, $key, $value);
         }
     }
 
-    @return $theme;
+    @return $tokens;
 }
 
 ///
@@ -101,19 +106,13 @@
 ///     color: var(--mg-button-text-color);
 ///   }
 ///
-///   ...or with fallback option at `true`...
-///
-///   .foo {
-///     color: var(--mg-button-text-color, darkcyan);
-///   }
-///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $token - The theme token key.
 /// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
 ///
-@function emit-variable($theme, $token, $fallback: false, $prefix: null) {
-    $value: map.get($theme, $token);
+@function emit-variable($tokens, $token, $fallback: false, $prefix: null) {
+    $value: map.get($tokens, $token);
     $token: create-name($prefix, $token);
 
     @if $fallback {

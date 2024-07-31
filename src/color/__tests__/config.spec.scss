@@ -4,26 +4,43 @@
 
 @use "pkg:sass-true" as *;
 @use "../../../__tests__/config";
+@use "../functions";
 @use "../mixins";
 
 @include describe("color") {
-    @include describe("config()") {
-        @include it("Should return theme custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include mixins.theme((
-                            "primary": #36454f,
-                            "secondary": #353839
-                        ));
+    @include describe("config") {
+        @include describe("mixins") {
+            @include describe("theme()") {
+                @include it("Should return theme custom properties declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include mixins.theme((
+                                    "primary": #36454f,
+                                    "secondary": #353839
+                                ));
+                            }
+                        }
+
+                        @include expect(false) {
+                            .test {
+                                --md-sys-color-primary: #36454f;
+                                --md-sys-color-secondary: #353839;
+                            }
+                        }
                     }
                 }
+            }
+        }
 
-                @include expect(false) {
-                    .test {
-                        --md-sys-color-primary: #36454f;
-                        --md-sys-color-secondary: #353839;
-                    }
+        @include describe("functions") {
+            @include describe("values()") {
+                @include it("Should return the map with custom properties.") {
+                    @include assert-equal(functions.values(), (
+                        "primary": var(--md-sys-color-primary, darkcyan),
+                        "secondary": var(--md-sys-color-secondary, darkorange),
+                        "tertiary": var(--md-sys-color-tertiary, darkgreen)
+                    ));
                 }
             }
         }

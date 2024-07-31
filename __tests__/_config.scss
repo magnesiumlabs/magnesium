@@ -1,14 +1,4 @@
-@use "./tokens";
+@use "./config-variables" as config;
 @use "../src/mixins";
 
-$color: (
-    "prefix": "sys-color",
-    "tokens": tokens.$color
-);
-
-$shape: (
-    "prefix": "sys-shape",
-    "tokens": tokens.$shape
-);
-
-@include mixins.config("md", $color, $shape);
+@include mixins.config("md", config.$color, config.$shape);
