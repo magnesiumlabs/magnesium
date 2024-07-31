@@ -1,0 +1,10 @@
+// ============================================================================================= //
+//                                           VARIABLES                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../variables";
+
+$custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape", map.get(variables.$shape, "prefix"));
+$tokens: map.get(variables.$shape, "tokens");
+

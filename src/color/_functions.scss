@@ -4,10 +4,7 @@
 
 @use "sass:map";
 @use "../functions";
-@use "../variables";
-
-$_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color", map.get(variables.$color, "prefix"));
-$_tokens: map.get(variables.$color, "tokens");
+@use "./variables";
 
 ///
 /// Generates color's tokens map with custom properties.
@@ -25,10 +22,10 @@ $_tokens: map.get(variables.$color, "tokens");
 /// @param {Boolean} $exclude-custom-props - Exclude custom properties from return.
 ///
 @function values($exclude-custom-props: false) {
-    $tokens: $_tokens;
+    $tokens: variables.$tokens;
 
     @if not $exclude-custom-props {
-        $tokens: functions.create-theme-vars($_tokens, $_custom-property-prefix);
+        $tokens: functions.create-theme-vars($tokens, variables.$custom-property-prefix);
     }
 
     @return $tokens;
