@@ -1,7 +1,7 @@
 ## Files
+*.log
 *.map
 *.orig
-*.log
 junit.xml
 
 ## Folders
