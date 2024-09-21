@@ -11,26 +11,26 @@ $_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color
 $_tokens: map.get(variables.$color, "tokens");
 
 ///
-/// Generates user-provided theme's tokens for the color component management with tokens validation.
+/// Generates user-provided theme's tokens for the color component management with supported tokens validation.
 ///
 /// @example - scss
-///   $theme: (
-///     "primary": darkcyan
-///   );
-///
 ///   .foo {
-///     @include color.theme($theme);
+///     @include color.theme(
+///       "primary": darkcyan,
+///       "secondary": darkorange
+///     );
 ///   }
 ///
 /// @example - css
 ///   .foo {
 ///     --mg-color-primary: darkcyan;
+///     --mg-color-secondary: darkcyan;
 ///   }
 ///
-/// @param {Map} $theme - The theme tokens map.
+/// @param {Map} $tokens - The `color` tokens map.
 ///
-@mixin theme($theme) {
-    $tokens: functions.validation($_tokens, $theme, $_custom-property-prefix);
+@mixin theme($tokens) {
+    $tokens: functions.validation($_tokens, $tokens, $_custom-property-prefix);
 
     @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
 }
