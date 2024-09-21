@@ -38,6 +38,7 @@
                 @include output(false) {
                     .test {
                         @include magnesium.shape-theme((
+                            "small": 4px,
                             "medium": 8px
                         ));
                     }
@@ -45,6 +46,7 @@
 
                 @include expect(false) {
                     .test {
+                        --mg-sys-shape-small: 4px;
                         --mg-sys-shape-medium: 8px;
                     }
                 }
