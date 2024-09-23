@@ -2,35 +2,7 @@
 //                                            MIXINS                                             //
 // ============================================================================================= //
 
-@use "sass:map";
-@use "../functions";
-@use "../mixins";
-@use "../variables";
-
-$_custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape", map.get(variables.$shape, "prefix"));
-$_tokens: map.get(variables.$shape, "tokens");
-
 ///
-/// Generates user-provided theme's tokens for the shape component management with supported tokens validation.
+/// @deprecated Will be remove on next major version.
 ///
-/// @example - scss
-///   .foo {
-///     @include shape.theme(
-///       "small": 4px,
-///       "medium": 6px
-///     );
-///   }
-///
-/// @example - css
-///   .foo {
-///     --mg-shape-small: 4px;
-///     --mg-shape-medium: 8px;
-///   }
-///
-/// @param {Map} $tokens - The `shape` tokens map.
-///
-@mixin theme($tokens) {
-    $tokens: functions.validation($_tokens, $tokens, $_custom-property-prefix);
-
-    @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
-}
+@forward "./shape";

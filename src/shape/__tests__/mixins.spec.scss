@@ -7,7 +7,7 @@
 @use "../../../index" with (
     $shape: config.$shape
 );
-@use "../mixins";
+@use "../shape";
 
 @include describe("shape") {
     @include describe("theme()") {
@@ -15,7 +15,7 @@
             @include assert {
                 @include output(false) {
                     .test {
-                        @include mixins.theme((
+                        @include shape.theme((
                             "small": 4px,
                             "medium": 8px
                         ));
