@@ -1,0 +1,32 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../__tests__/config-variables" as config;
+@use "../../../index" with (
+    $typeface: config.$typeface
+);
+@use "../typeface";
+
+@include describe("typeface") {
+    @include describe("theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include typeface.theme((
+                            "brand": "Roboto"
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-ref-typeface-brand: "Roboto";
+                    }
+                }
+            }
+        }
+    }
+}

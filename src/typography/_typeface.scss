@@ -1,0 +1,34 @@
+// ============================================================================================= //
+//                                            TYPEFACE                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../functions";
+@use "../mixins";
+@use "../variables";
+
+$_custom-property-prefix: if(map.get(variables.$typeface, "prefix") == null, "typeface", map.get(variables.$typeface, "prefix"));
+$_tokens: map.get(variables.$typeface, "tokens");
+
+///
+/// Generates user-provided theme's tokens for the typeface component management with supported tokens validation.
+///
+/// @example - scss
+///   .foo {
+///     @include typeface.theme(
+///       "brand": "Open Sans"
+///     );
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-typeface-brand: "Open Sans";
+///   }
+///
+/// @param {Map} $tokens - The `typeface` tokens map.
+///
+@mixin theme($tokens) {
+    $tokens: functions.validation($_tokens, $tokens, $_custom-property-prefix);
+
+    @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
+}
