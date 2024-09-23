@@ -4,7 +4,7 @@
 
 @use "pkg:sass-true" as *;
 @use "../../../__tests__/config";
-@use "../mixins";
+@use "../color";
 
 @include describe("color") {
     @include describe("config()") {
@@ -12,7 +12,7 @@
             @include assert {
                 @include output(false) {
                     .test {
-                        @include mixins.theme((
+                        @include color.theme((
                             "primary": #36454f,
                             "secondary": #353839
                         ));

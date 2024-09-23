@@ -1,0 +1,36 @@
+// ============================================================================================= //
+//                                             COLOR                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../functions";
+@use "../mixins";
+@use "../variables";
+
+$_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color", map.get(variables.$color, "prefix"));
+$_tokens: map.get(variables.$color, "tokens");
+
+///
+/// Generates user-provided theme's tokens for the color component management with supported tokens validation.
+///
+/// @example - scss
+///   .foo {
+///     @include color.theme(
+///       "primary": darkcyan,
+///       "secondary": darkorange
+///     );
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-color-primary: darkcyan;
+///     --mg-color-secondary: darkcyan;
+///   }
+///
+/// @param {Map} $tokens - The `color` tokens map.
+///
+@mixin theme($tokens) {
+    $tokens: functions.validation($_tokens, $tokens, $_custom-property-prefix);
+
+    @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
+}
