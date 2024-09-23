@@ -1,0 +1,29 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../../__tests__/config";
+@use "../typeface";
+
+@include describe("typeface") {
+    @include describe("config()") {
+        @include it("Should return theme custom properties declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include typeface.theme((
+                            "brand": "Roboto"
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --md-ref-typeface-brand: "Roboto";
+                    }
+                }
+            }
+        }
+    }
+}
