@@ -127,8 +127,9 @@
 /// @param {String} $prefix - The custom property prefix.
 /// @param {String} $color - The custom config of color component.
 /// @param {String} $shape - The custom config of shape component.
+/// @param {String} $typeface - The custom config of typeface component.
 ///
-@mixin config($prefix: null, $color: null, $shape: null) {
+@mixin config($prefix: null, $color: null, $shape: null, $typeface: null) {
     @if $prefix {
         variables.$prefix: $prefix;
     }
@@ -139,5 +140,9 @@
 
     @if $shape {
         variables.$shape: $shape;
+    }
+
+    @if $typeface {
+        variables.$typeface: $typeface;
     }
 }
