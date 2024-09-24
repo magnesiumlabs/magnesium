@@ -5,22 +5,49 @@
 @use "pkg:sass-true" as *;
 @use "../../../__tests__/config";
 @use "../typeface";
+@use "../typescale";
 
-@include describe("typeface") {
-    @include describe("config()") {
-        @include it("Should return theme custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include typeface.theme((
-                            "brand": "Roboto"
-                        ));
+@include describe("typography") {
+    @include describe("typeface") {
+        @include describe("config()") {
+            @include it("Should return theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typeface.theme((
+                                "brand": "Roboto"
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --md-ref-typeface-brand: "Roboto";
+                        }
                     }
                 }
+            }
+        }
+    }
 
-                @include expect(false) {
-                    .test {
-                        --md-ref-typeface-brand: "Roboto";
+    @include describe("typescale") {
+        @include describe("config()") {
+            @include it("Should return theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include typescale.theme((
+                                "body-size": 16px,
+                                "body-weight": 400
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --md-sys-typescale-body-size: 16px;
+                            --md-sys-typescale-body-weight: 400;
+                        }
                     }
                 }
             }

@@ -1,4 +1,4 @@
 @use "./config-variables" as config;
 @use "../src/mixins";
 
-@include mixins.config("md", config.$color, config.$shape, config.$typeface);
+@include mixins.config("md", config.$color, config.$shape, config.$typeface, config.$typescale);
