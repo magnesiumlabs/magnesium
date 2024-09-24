@@ -5,6 +5,11 @@ $typeface: (
     "tokens": tokens.$typeface
 );
 
+$typescale: (
+    "prefix": "sys-typescale",
+    "tokens": tokens.$typescale
+);
+
 $color: (
     "prefix": "sys-color",
     "tokens": tokens.$color

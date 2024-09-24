@@ -1,0 +1,36 @@
+// ============================================================================================= //
+//                                           TYPESCALE                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "../functions";
+@use "../mixins";
+@use "../variables";
+
+$_custom-property-prefix: if(map.get(variables.$typescale, "prefix") == null, "typescale", map.get(variables.$typescale, "prefix"));
+$_tokens: map.get(variables.$typescale, "tokens");
+
+///
+/// Generates user-provided theme's tokens for the typescale component management with supported tokens validation.
+///
+/// @example - scss
+///   .foo {
+///     @include typescale.theme(
+///       "body-size": 16px,
+///       "body-weight": 400
+///     );
+///   }
+///
+/// @example - css
+///   .foo {
+///     --md-sys-typescale-body-size: 16px;
+///     --md-sys-typescale-body-weight: 400;
+///   }
+///
+/// @param {Map} $tokens - The `typescale` tokens map.
+///
+@mixin theme($tokens) {
+    $tokens: functions.validation($_tokens, $tokens, $_custom-property-prefix);
+
+    @include mixins.emit-custom-props($tokens, $_custom-property-prefix);
+}

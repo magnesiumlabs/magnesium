@@ -23,6 +23,11 @@ $_default-typeface: (
     "tokens": ()
 );
 
+$_default-typescale: (
+    "prefix": "typescale",
+    "tokens": ()
+);
+
 // ------------------------------------------------------------------------- //
 // Public variables
 // ------------------------------------------------------------------------- //
@@ -31,6 +36,7 @@ $prefix: "mg" !default;
 $color: () !default;
 $shape: () !default;
 $typeface: () !default;
+$typescale: () !default;
 
 ///
 /// Extend options.
@@ -39,3 +45,4 @@ $typeface: () !default;
 $color: map.deep-merge($_default-color, $color);
 $shape: map.deep-merge($_default-shape, $shape);
 $typeface: map.deep-merge($_default-typeface, $typeface);
+$typescale: map.deep-merge($_default-typescale, $typescale);
