@@ -22,6 +22,12 @@
         },
         "./shape": {
             "sass": "./shape.scss"
+        },
+        "./typeface": {
+            "sass": "./typeface.scss"
+        },
+        "./typescale": {
+            "sass": "./typescale.scss"
         }
     },
     "devDependencies": {
