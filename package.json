@@ -49,9 +49,11 @@
     },
     "keywords": [
         "sass",
-        "design-system",
         "framework",
+        "design-system",
         "theme",
+        "color",
+        "shape",
         "magnesium",
         "front-end"
     ],
