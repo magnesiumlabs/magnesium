@@ -1,0 +1,64 @@
+{
+    "git": {
+        "requireBranch": [
+            "main",
+            "beta",
+            "+([0-9])?(.{+([0-9]),x}).x"
+        ],
+        "commitMessage": "chore(release): publish version ${version}"
+    },
+    "github": {
+        "release": true,
+        "releaseName": "v${version}"
+    },
+    "npm": {
+        "publish": true
+    },
+    "plugins": {
+        "@release-it/conventional-changelog": {
+            "infile": "CHANGELOG.md",
+            "preset": {
+                "name": "conventionalcommits",
+                "header": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.",
+                "types": [
+                    {
+                        "type": "feat",
+                        "section": "Features"
+                    },
+                    {
+                        "type": "fix",
+                        "section": "Bug Fixes"
+                    },
+                    {
+                        "type": "chore",
+                        "hidden": true
+                    },
+                    {
+                        "type": "build",
+                        "section": "Build System"
+                    },
+                    {
+                        "type": "docs",
+                        "hidden": true
+                    },
+                    {
+                        "type": "style",
+                        "hidden": true
+                    },
+                    {
+                        "type": "refactor",
+                        "section": "Code Refactoring"
+                    },
+                    {
+                        "type": "perf",
+                        "hidden": true
+                    },
+                    {
+                        "type": "test",
+                        "hidden": true
+                    }
+                ]
+            }
+        }
+    }
+}

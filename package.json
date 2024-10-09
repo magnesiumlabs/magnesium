@@ -7,7 +7,8 @@
         "lint": "npm-run-all --parallel lint:*",
         "test": "jest",
         "prepare": "husky",
-        "release": "semantic-release"
+        "release:beta": "release-it --preRelease=beta",
+        "release": "release-it"
     },
     "engines": {
         "node": ">=18.0.0"
@@ -27,16 +28,15 @@
     "devDependencies": {
         "@commitlint/cli": "^19.5.0",
         "@commitlint/config-conventional": "^19.5.0",
-        "@semantic-release/changelog": "^6.0.3",
-        "@semantic-release/git": "^10.0.1",
+        "@release-it/conventional-changelog": "^8.0.2",
         "glob": "^7.2.3",
         "husky": "^9.1.6",
         "jest": "^29.7.0",
         "jest-environment-node-single-context": "^29.4.0",
         "jest-junit": "^16.0.0",
         "npm-run-all": "^4.1.5",
+        "release-it": "^17.7.0",
         "sass-true": "^8.1.0",
-        "semantic-release": "^24.1.2",
         "stylelint": "^15.8.0",
         "stylelint-config-unsass": "^1.0.1"
     },
