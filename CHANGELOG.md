@@ -1,3 +1,32 @@
+
+
+## [4.4.1-beta.0](https://github.com/magnesiumlabs/magnesium/compare/v4.4.0...v4.4.1-beta.0) (2024-10-10)
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.77.8 ([966ff1b](https://github.com/magnesiumlabs/magnesium/commit/966ff1b560f0cd2111546358cec1b304b5b82839))
+* **deps:** remove unneeded dependencies ([47f37c4](https://github.com/magnesiumlabs/magnesium/commit/47f37c4724e9d0628ece889a7518e06e5e613e6b))
+
+
+### Code Refactoring
+
+* **color, shape:** remove `show` restriction ([5539343](https://github.com/magnesiumlabs/magnesium/commit/553934349b1daf1b0b9d1ca79f3c382db8ea94d0))
+* **color, shape:** remove unneeded `$_tokens` variable ([1c99416](https://github.com/magnesiumlabs/magnesium/commit/1c99416d40b779e778dde9c8bf6758278b4d23db))
+* **color:** change `$theme` parameter for `$tokens` ([7f6a3cd](https://github.com/magnesiumlabs/magnesium/commit/7f6a3cd3b6cf8d079d6125cf77e9b0ba925a3ba1))
+* **color:** rename `_mixins` to `_color` ([3651e07](https://github.com/magnesiumlabs/magnesium/commit/3651e07de0a96808869f86f8b7d3ffffc650d874))
+* **core:** rename `$theme` parameter for `$tokens` in `emit-custom-props()` mixin ([d214333](https://github.com/magnesiumlabs/magnesium/commit/d21433322e8598bb87998de101dc5438f96b6e9c))
+* **core:** rename `$theme` parameter for `$tokens` in `emit-theme-vars()` mixin ([a4b09c9](https://github.com/magnesiumlabs/magnesium/commit/a4b09c97ae9041be525ad88d0c4d2279caa60368))
+* **core:** renamed `$reference` to `$refs` in `validation()` function ([db9dbe7](https://github.com/magnesiumlabs/magnesium/commit/db9dbe75f9b5a194c428d3d89a64706ca73d74ff))
+* **core:** renamed `$theme` parameter for `$tokens` in functions ([85f6988](https://github.com/magnesiumlabs/magnesium/commit/85f69880cf3891832b03b63730d1c640eb3b2c30))
+* **core:** simplify `emit-custom-props()` mixin ([6026df6](https://github.com/magnesiumlabs/magnesium/commit/6026df67836c4ddaa167f6998974aeb1428880c6))
+* **create-name:** update comments ([e409756](https://github.com/magnesiumlabs/magnesium/commit/e40975659eeef703276285a5cfd92e8f50fc955e))
+* removed unneeded `!default` ([f3f495d](https://github.com/magnesiumlabs/magnesium/commit/f3f495d2ec43d50485cdc2049f2db8e9b0a7edd4))
+* **shape:** change `$theme` parameter for `$tokens` ([5d39d93](https://github.com/magnesiumlabs/magnesium/commit/5d39d9333f9b59d74a55be6348c97b7d6a9c3529))
+* **shape:** rename `_mixins` to `_shape` ([6bc942a](https://github.com/magnesiumlabs/magnesium/commit/6bc942a93d6698a5fb3ed83b298c9b2357c519a5))
+* **validation:** change internal variable name ([8f84083](https://github.com/magnesiumlabs/magnesium/commit/8f840837275b0250246877e19a4bad0ead2b06e1))
+* **validation:** change internal variable name ([62e158c](https://github.com/magnesiumlabs/magnesium/commit/62e158cfb3ee2f8174e536a2e4409ed6bb7f2e6d))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
