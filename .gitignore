@@ -2,6 +2,7 @@
 *.log
 *.map
 *.orig
+.npmrc
 junit.xml
 
 ## Folders
