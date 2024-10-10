@@ -1,4 +1,8 @@
+# Changelog
 
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.4.1-beta.1](https://github.com/magnesiumlabs/magnesium/compare/v4.4.1-beta.0...v4.4.1-beta.1) (2024-10-10)
 
 ## [4.4.1-beta.0](https://github.com/magnesiumlabs/magnesium/compare/v4.4.0...v4.4.1-beta.0) (2024-10-10)
 
@@ -27,9 +31,7 @@
 * **validation:** change internal variable name ([8f84083](https://github.com/magnesiumlabs/magnesium/commit/8f840837275b0250246877e19a4bad0ead2b06e1))
 * **validation:** change internal variable name ([62e158c](https://github.com/magnesiumlabs/magnesium/commit/62e158cfb3ee2f8174e536a2e4409ed6bb7f2e6d))
 
-# Changelog
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [4.4.0](https://github.com/magnesiumlabs/magnesium/compare/v4.3.1...v4.4.0) (2024-06-21)
 
