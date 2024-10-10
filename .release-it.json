@@ -2,16 +2,17 @@
     "git": {
         "requireBranch": [
             "main",
+            "ci",
             "beta"
         ],
         "commitMessage": "chore(release): publish version ${version}"
     },
     "github": {
-        "release": true,
+        "release": false,
         "releaseName": "v${version}"
     },
     "npm": {
-        "publish": true
+        "publish": false
     },
     "plugins": {
         "@release-it/conventional-changelog": {
