@@ -30,32 +30,12 @@
                         "section": "Bug Fixes"
                     },
                     {
-                        "type": "chore",
-                        "hidden": true
-                    },
-                    {
                         "type": "build",
                         "section": "Build System"
                     },
                     {
-                        "type": "docs",
-                        "hidden": true
-                    },
-                    {
-                        "type": "style",
-                        "hidden": true
-                    },
-                    {
                         "type": "refactor",
                         "section": "Code Refactoring"
-                    },
-                    {
-                        "type": "perf",
-                        "hidden": true
-                    },
-                    {
-                        "type": "test",
-                        "hidden": true
                     }
                 ]
             }
