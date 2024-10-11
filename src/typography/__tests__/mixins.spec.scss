@@ -19,14 +19,16 @@
                     @include output(false) {
                         .test {
                             @include typeface.theme((
-                                "brand": "Roboto"
+                                "brand": "Open Sans",
+                                "plain": "Roboto"
                             ));
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --mg-ref-typeface-brand: "Roboto";
+                            --mg-ref-typeface-brand: "Open Sans";
+                            --mg-ref-typeface-plain: "Roboto";
                         }
                     }
                 }

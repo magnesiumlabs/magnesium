@@ -15,14 +15,16 @@
                     @include output(false) {
                         .test {
                             @include typeface.theme((
-                                "brand": "Roboto"
+                                "brand": "Open Sans",
+                                "plain": "Roboto"
                             ));
                         }
                     }
 
                     @include expect(false) {
                         .test {
-                            --md-ref-typeface-brand: "Roboto";
+                            --md-ref-typeface-brand: "Open Sans";
+                            --md-ref-typeface-plain: "Roboto";
                         }
                     }
                 }

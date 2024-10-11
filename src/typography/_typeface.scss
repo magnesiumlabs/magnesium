@@ -16,13 +16,15 @@ $_tokens: map.get(variables.$typeface, "tokens");
 /// @example - scss
 ///   .foo {
 ///     @include typeface.theme(
-///       "brand": "Open Sans"
+///       "brand": "Open Sans",
+///       "plain": "Roboto"
 ///     );
 ///   }
 ///
 /// @example - css
 ///   .foo {
 ///     --mg-typeface-brand: "Open Sans";
+///     --mg-typeface-plain: "Roboto";
 ///   }
 ///
 /// @param {Map} $tokens - The `typeface` tokens map.
