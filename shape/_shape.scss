@@ -3,9 +3,9 @@
 // ============================================================================================= //
 
 @use "sass:map";
-@use "../src/functions";
-@use "../src/mixins";
-@use "../src/variables";
+@use "../core/functions";
+@use "../core/mixins";
+@use "../core/variables";
 
 $_custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape", map.get(variables.$shape, "prefix"));
 $_tokens: map.get(variables.$shape, "tokens");

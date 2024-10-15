@@ -4,7 +4,7 @@
 
 @use "pkg:sass-true" as *;
 @use "./tokens";
-@use "../src/functions";
+@use "../core/functions";
 
 @include describe("theme") {
     @include describe("functions") {

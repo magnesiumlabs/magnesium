@@ -4,8 +4,8 @@
 
 @use "pkg:sass-true" as *;
 @use "./tokens";
-@use "../src/mixins";
-@use "../src/functions";
+@use "../core/mixins";
+@use "../core/functions";
 
 @include describe("theme") {
     @include describe("mixins") {
