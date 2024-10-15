@@ -50,15 +50,13 @@
 /// Emits CSS custom properties declarations from a user-provided theme's tokens.
 ///
 /// @example - scss
-///   $theme: (
-///     "text-color": darkcyan,
-///     "text": (
-///       "size": 12px
-///     )
-///   );
-///
 ///   .foo {
-///     @include emit-custom-props($theme, "button");
+///     @include emit-custom-props((
+///       "text-color": darkcyan,
+///       "text": (
+///         "size": 12px
+///       )
+///     ), "button");
 ///   }
 ///
 /// @example - css

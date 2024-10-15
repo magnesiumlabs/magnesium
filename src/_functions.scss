@@ -50,14 +50,11 @@
 /// Transforms a user-provided theme's tokens map values into a `var()` custom properties.
 ///
 /// @example - scss
-///   $theme: (
+///   $theme: theme.create-theme-vars((
 ///     "text-color": darkcyan,
 ///     "text": (
 ///       "size": 12px
-///     )
-///   );
-///
-///   $theme: theme.create-theme-vars($theme, "button");
+///     )), "button");
 ///
 /// @example - scss
 ///   $theme: (
@@ -93,12 +90,10 @@
 /// Emits CSS variable declaration from a user-provided theme's.
 ///
 /// @example - scss
-///   $theme: (
-///     "text-color": darkcyan
-///   );
-///
 ///   .foo {
-///     color: theme.emit-variable($theme, "text-color", false, "button");
+///     color: theme.emit-variable((
+///       "text-color": darkcyan
+///     ), "text-color", false, "button");
 ///   }
 ///
 /// @example - css
