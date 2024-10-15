@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../../__tests__/config";
+@use "../../__tests__/config";
 @use "../shape";
 
 @include describe("shape") {
