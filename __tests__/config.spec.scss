@@ -5,7 +5,7 @@
 @use "pkg:sass-true" as *;
 @use "./config";
 @use "./tokens";
-@use "../src/mixins";
+@use "../core/mixins";
 
 @include describe("core") {
     @include describe("config") {

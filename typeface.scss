@@ -2,4 +2,7 @@
 //                                            TYPEFACE                                           //
 // ============================================================================================= //
 
-@forward "./src/typography/typeface";
+///
+/// @deprecated Will be remove on next major version.
+///
+@forward "./typography/typeface";
