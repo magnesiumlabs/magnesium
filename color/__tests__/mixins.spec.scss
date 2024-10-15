@@ -3,8 +3,8 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../../__tests__/config-variables" as config;
-@use "../../../index" with (
+@use "../../__tests__/config-variables" as config;
+@use "../../index" with (
     $color: config.$color
 );
 @use "../color";
