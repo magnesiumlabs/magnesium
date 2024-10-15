@@ -57,9 +57,11 @@
         "conventional-changelog-conventionalcommits": ">= 8.0.0"
     },
     "keywords": [
+        "magnesium",
         "sass",
         "framework",
-        "design-system",
+        "design system",
+        "components",
         "theme",
         "color",
         "shape",
