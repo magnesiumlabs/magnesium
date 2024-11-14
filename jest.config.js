@@ -1,10 +1,14 @@
-module.exports = {
-    'testEnvironment': 'jest-environment-node-single-context',
-    'moduleFileExtensions': [
+// ============================================================================================= //
+//                                             JEST                                              //
+// ============================================================================================= //
+
+export default {
+    testEnvironment: 'jest-environment-node-single-context',
+    moduleFileExtensions: [
         'js',
         'scss'
     ],
-    'reporters': [
+    reporters: [
         'default',
         'jest-junit'
     ]
