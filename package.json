@@ -56,7 +56,7 @@
         "@unsass/string": "^1.4.1",
         "@unsass/types": "^1.0.1",
         "@unsass/var": "^1.0.2",
-        "sass": "^1.80.6"
+        "sass": "^1.83.0"
     },
     "overrides": {
         "conventional-changelog-conventionalcommits": ">= 8.0.0"
