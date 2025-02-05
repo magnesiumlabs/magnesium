@@ -1,0 +1,56 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../__tests__/config-variables" as config;
+@use "../../index" with (
+    $components: (
+        "button": (
+            "prefix": "comp-button",
+            "tokens": (
+                "primary": darkcyan,
+                "secondary": darkorange
+            )
+        ),
+        "badge": (
+            "prefix": "comp-badge",
+            "tokens": (
+                "primary": darkcyan,
+                "secondary": darkorange
+            )
+        )
+    )
+);
+@use "../mixins";
+
+@include describe("api") {
+    @include describe("theme()") {
+        @include it("Should return custom theme declarations.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include mixins.theme("button", (
+                            "primar": #36454f,
+                            "secondary": #353839
+                        ));
+
+                        @include mixins.theme("badge", (
+                            "primary": #36454f,
+                            "secondary": #353839
+                        ));
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --mg-comp-button-primary: #36454f;
+                        --mg-comp-button-secondary: #353839;
+                        --mg-comp-badge-primary: #36454f;
+                        --mg-comp-badge-secondary: #353839;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,12 +3,14 @@
 // ============================================================================================= //
 
 @use "sass:list";
+@use "sass:map";
 @use "@unsass/css";
 @use "@unsass/css/custom-properties";
 @use "@unsass/string";
 @use "@unsass/types" as type;
 @use "@unsass/var";
 @use "./variables";
+@use "./functions";
 
 ///
 /// @deprecated Use `emit-custom-props()` mixin instead.
@@ -148,4 +150,21 @@
     @if $typescale {
         variables.$typescale: $typescale;
     }
+}
+
+///
+/// Component.
+///
+/// @example - scss
+///   @include theme.component("foo", "");
+///
+/// @param {String} $prefix - The custom property prefix.
+/// @param {String} $color - The custom config of color component.
+///
+@mixin component($component, $tokens) {
+    $_tokens: map.get(variables.$components, $component, "tokens");
+    $prefix: map.get(variables.$components, $component, "prefix");
+    $tokens: functions.validation($_tokens, $tokens, $prefix);
+
+    @include emit-custom-props($tokens, $prefix);
 }
