@@ -30,12 +30,12 @@
             @include assert {
                 @include output(false) {
                     .test {
-                        @include mixins.theme("button", (
-                            "primar": #36454f,
+                        @include mixins.component("button", (
+                            "primary": #36454f,
                             "secondary": #353839
                         ));
 
-                        @include mixins.theme("badge", (
+                        @include mixins.component("badge", (
                             "primary": #36454f,
                             "secondary": #353839
                         ));
