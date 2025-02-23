@@ -3,10 +3,9 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "./tokens";
 @use "../core/functions";
 
-@include describe("theme") {
+@include describe("core") {
     @include describe("functions") {
         @include describe("create-name()") {
             @include it("Should return theme property name.") {
@@ -16,17 +15,30 @@
 
         @include describe("validation()") {
             @include it("Should return validated theme tokens.") {
+                $refs: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
                 $theme: (
                     "text-color": darkorange
                 );
 
-                @include assert-equal(functions.validation(tokens.$button, $theme), $theme);
+                @include assert-equal(functions.validation($refs, $theme), $theme);
             }
         }
 
         @include describe("create-theme-vars()") {
             @include it("Should return a map of tokens with `var()` CSS function.") {
-                @include assert-equal(functions.create-theme-vars(tokens.$button, "button"), (
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px,
+                    "padding": (
+                        "top": 12px
+                    )
+                );
+
+                @include assert-equal(functions.create-theme-vars($tokens, "button"), (
                     "text-color": var(--mg-button-text-color, darkcyan),
                     "text-size": var(--mg-button-text-size, 16px),
                     "padding": (
@@ -36,7 +48,15 @@
             }
 
             @include it("Should return a map of tokens with `var()` CSS function without component name.") {
-                @include assert-equal(functions.create-theme-vars(tokens.$button, null), (
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px,
+                    "padding": (
+                        "top": 12px
+                    )
+                );
+
+                @include assert-equal(functions.create-theme-vars($tokens, null), (
                     "text-color": var(--mg-text-color, darkcyan),
                     "text-size": var(--mg-text-size, 16px),
                     "padding": (
@@ -48,11 +68,21 @@
 
         @include describe("emit-variable()") {
             @include it("Should return theme CSS variable.") {
-                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", false, "button"), var(--mg-button-text-color));
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.emit-variable($tokens, "text-color", false, "button"), var(--mg-button-text-color));
             }
 
             @include it("Should return validated theme tokens with fallback.") {
-                @include assert-equal(functions.emit-variable(tokens.$button, "text-color", true, "button"), var(--mg-button-text-color, darkcyan));
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.emit-variable($tokens, "text-color", true, "button"), var(--mg-button-text-color, darkcyan));
             }
         }
     }
