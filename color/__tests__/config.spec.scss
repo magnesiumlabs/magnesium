@@ -3,26 +3,28 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../__tests__/config";
+@use "./config";
 @use "../color";
 
-@include describe("color") {
-    @include describe("config()") {
-        @include it("Should return theme custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include color.theme((
-                            "primary": #36454f,
-                            "secondary": #353839
-                        ));
+@include describe("components") {
+    @include describe("color") {
+        @include describe("config()") {
+            @include it("Should return theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.theme((
+                                "primary": #36454f,
+                                "secondary": #353839
+                            ));
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --md-sys-color-primary: #36454f;
-                        --md-sys-color-secondary: #353839;
+                    @include expect(false) {
+                        .test {
+                            --md-sys-color-primary: #36454f;
+                            --md-sys-color-secondary: #353839;
+                        }
                     }
                 }
             }

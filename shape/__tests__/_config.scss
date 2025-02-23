@@ -1,0 +1,12 @@
+@use "../../core/mixins";
+
+$shape: (
+    "prefix": "sys-shape",
+    "tokens": (
+        "small": 4px,
+        "medium": 6px,
+        "large": 8px
+    )
+);
+
+@include mixins.config("md", null, $shape);

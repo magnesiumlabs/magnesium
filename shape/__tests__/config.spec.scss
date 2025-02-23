@@ -3,26 +3,28 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../__tests__/config";
+@use "./config";
 @use "../shape";
 
-@include describe("shape") {
-    @include describe("config()") {
-        @include it("Should return theme custom properties declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include shape.theme((
-                            "small": 4px,
-                            "medium": 8px
-                        ));
+@include describe("components") {
+    @include describe("shape") {
+        @include describe("config()") {
+            @include it("Should return theme custom properties declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include shape.theme((
+                                "small": 4px,
+                                "medium": 8px
+                            ));
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --md-sys-shape-small: 4px;
-                        --md-sys-shape-medium: 8px;
+                    @include expect(false) {
+                        .test {
+                            --md-sys-shape-small: 4px;
+                            --md-sys-shape-medium: 8px;
+                        }
                     }
                 }
             }

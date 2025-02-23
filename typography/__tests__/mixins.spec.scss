@@ -3,56 +3,69 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../__tests__/config-variables" as config;
 @use "../../index" with (
-    $typeface: config.$typeface,
-    $typescale: config.$typescale
+    $typeface: (
+        "prefix": "ref-typeface",
+        "tokens": (
+            "brand": "Open Sans",
+            "plain": "Roboto"
+        )
+    ),
+    $typescale: (
+        "prefix": "sys-typescale",
+        "tokens": (
+            "body-size": 16px,
+            "body-weight": 400
+        )
+    )
 );
 @use "../typeface";
 @use "../typescale";
 
-@include describe("typography") {
-    @include describe("typeface") {
-        @include describe("theme()") {
-            @include it("Should return custom theme declarations.") {
-                @include assert {
-                    @include output(false) {
-                        .test {
-                            @include typeface.theme((
-                                "brand": "Open Sans",
-                                "plain": "Roboto"
-                            ));
+@include describe("components") {
+    @include describe("typography") {
+        @include describe("typeface") {
+            @include describe("theme()") {
+                @include it("Should return custom theme declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include typeface.theme((
+                                    "brand": "Open Sans",
+                                    "plain": "Roboto"
+                                ));
+                            }
                         }
-                    }
 
-                    @include expect(false) {
-                        .test {
-                            --mg-ref-typeface-brand: "Open Sans";
-                            --mg-ref-typeface-plain: "Roboto";
+                        @include expect(false) {
+                            .test {
+                                --mg-ref-typeface-brand: "Open Sans";
+                                --mg-ref-typeface-plain: "Roboto";
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    @include describe("typescale") {
-        @include describe("theme()") {
-            @include it("Should return custom theme declarations.") {
-                @include assert {
-                    @include output(false) {
-                        .test {
-                            @include typescale.theme((
-                                "body-size": 16px,
-                                "body-weight": 400
-                            ));
+        @include describe("typescale") {
+            @include describe("theme()") {
+                @include it("Should return custom theme declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include typescale.theme((
+                                    "body-size": 16px,
+                                    "body-weight": 400
+                                ));
+                            }
                         }
-                    }
 
-                    @include expect(false) {
-                        .test {
-                            --mg-sys-typescale-body-size: 16px;
-                            --mg-sys-typescale-body-weight: 400
+                        @include expect(false) {
+                            .test {
+                                --mg-sys-typescale-body-size: 16px;
+                                --mg-sys-typescale-body-weight: 400
+                            }
                         }
                     }
                 }

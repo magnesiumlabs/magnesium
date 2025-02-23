@@ -1,0 +1,12 @@
+@use "../../core/mixins";
+
+$color: (
+    "prefix": "sys-color",
+    "tokens": (
+        "primary": darkcyan,
+        "secondary": darkorange,
+        "tertiary": darkgreen
+    )
+);
+
+@include mixins.config("md", $color);

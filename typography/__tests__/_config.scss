@@ -1,0 +1,19 @@
+@use "../../core/mixins";
+
+$typeface: (
+    "prefix": "ref-typeface",
+    "tokens": (
+        "brand": "Open Sans",
+        "plain": "Roboto"
+    )
+);
+
+$typescale: (
+    "prefix": "sys-typescale",
+    "tokens": (
+        "body-size": 16px,
+        "body-weight": 400
+    )
+);
+
+@include mixins.config("md", null, null, $typeface, $typescale);

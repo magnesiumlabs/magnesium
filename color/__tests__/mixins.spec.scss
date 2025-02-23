@@ -3,29 +3,37 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../__tests__/config-variables" as config;
 @use "../../index" with (
-    $color: config.$color
+    $color: (
+        "prefix": "sys-color",
+        "tokens": (
+            "primary": darkcyan,
+            "secondary": darkorange,
+            "tertiary": darkgreen
+        )
+    )
 );
 @use "../color";
 
-@include describe("color") {
-    @include describe("theme()") {
-        @include it("Should return custom theme declarations.") {
-            @include assert {
-                @include output(false) {
-                    .test {
-                        @include color.theme((
-                            "primary": #36454f,
-                            "secondary": #353839
-                        ));
+@include describe("components") {
+    @include describe("color") {
+        @include describe("theme()") {
+            @include it("Should return custom theme declarations.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include color.theme((
+                                "primary": #36454f,
+                                "secondary": #353839
+                            ));
+                        }
                     }
-                }
 
-                @include expect(false) {
-                    .test {
-                        --mg-sys-color-primary: #36454f;
-                        --mg-sys-color-secondary: #353839;
+                    @include expect(false) {
+                        .test {
+                            --mg-sys-color-primary: #36454f;
+                            --mg-sys-color-secondary: #353839;
+                        }
                     }
                 }
             }

@@ -3,52 +3,54 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../../__tests__/config";
+@use "./config";
 @use "../typeface";
 @use "../typescale";
 
-@include describe("typography") {
-    @include describe("typeface") {
-        @include describe("config()") {
-            @include it("Should return theme custom properties declarations.") {
-                @include assert {
-                    @include output(false) {
-                        .test {
-                            @include typeface.theme((
-                                "brand": "Open Sans",
-                                "plain": "Roboto"
-                            ));
+@include describe("components") {
+    @include describe("typography") {
+        @include describe("typeface") {
+            @include describe("config()") {
+                @include it("Should return theme custom properties declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include typeface.theme((
+                                    "brand": "Open Sans",
+                                    "plain": "Roboto"
+                                ));
+                            }
                         }
-                    }
 
-                    @include expect(false) {
-                        .test {
-                            --md-ref-typeface-brand: "Open Sans";
-                            --md-ref-typeface-plain: "Roboto";
+                        @include expect(false) {
+                            .test {
+                                --md-ref-typeface-brand: "Open Sans";
+                                --md-ref-typeface-plain: "Roboto";
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    @include describe("typescale") {
-        @include describe("config()") {
-            @include it("Should return theme custom properties declarations.") {
-                @include assert {
-                    @include output(false) {
-                        .test {
-                            @include typescale.theme((
-                                "body-size": 16px,
-                                "body-weight": 400
-                            ));
+        @include describe("typescale") {
+            @include describe("config()") {
+                @include it("Should return theme custom properties declarations.") {
+                    @include assert {
+                        @include output(false) {
+                            .test {
+                                @include typescale.theme((
+                                    "body-size": 16px,
+                                    "body-weight": 400
+                                ));
+                            }
                         }
-                    }
 
-                    @include expect(false) {
-                        .test {
-                            --md-sys-typescale-body-size: 16px;
-                            --md-sys-typescale-body-weight: 400;
+                        @include expect(false) {
+                            .test {
+                                --md-sys-typescale-body-size: 16px;
+                                --md-sys-typescale-body-weight: 400;
+                            }
                         }
                     }
                 }
