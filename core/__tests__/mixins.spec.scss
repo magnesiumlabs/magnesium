@@ -3,8 +3,8 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../core/mixins";
-@use "../core/functions";
+@use "../mixins";
+@use "../functions";
 
 @include describe("core") {
     @include describe("mixins") {

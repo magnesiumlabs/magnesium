@@ -3,7 +3,7 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "../core/functions";
+@use "../functions";
 
 @include describe("core") {
     @include describe("functions") {
