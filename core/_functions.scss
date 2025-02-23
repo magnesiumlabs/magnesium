@@ -59,7 +59,9 @@
 /// @example - scss
 ///   $theme: (
 ///     "text-color": var(--mg-button-text-color, darkcyan),
-///     "text-size": var(--mg-button-text-size, 12px)
+///     "text": (
+///       "size": var(--mg-button-text-size, 12px)
+///     )
 ///   );
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
