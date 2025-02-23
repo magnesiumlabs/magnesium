@@ -3,18 +3,25 @@
 // ============================================================================================= //
 
 @use "pkg:sass-true" as *;
-@use "./tokens";
 @use "../core/mixins";
 @use "../core/functions";
 
-@include describe("theme") {
+@include describe("core") {
     @include describe("mixins") {
         @include describe("emit-custom-props()") {
             @include it("Should return theme custom properties declarations.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": (
+                                "top": 12px
+                            )
+                        );
+
                         .test {
-                            @include mixins.emit-custom-props(tokens.$button, "button");
+                            @include mixins.emit-custom-props($tokens, "button");
                         }
                     }
 
@@ -31,8 +38,16 @@
             @include it("Should return theme custom properties declarations without component name.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": (
+                                "top": 12px
+                            )
+                        );
+
                         .test {
-                            @include mixins.emit-custom-props(tokens.$button);
+                            @include mixins.emit-custom-props($tokens);
                         }
                     }
 
@@ -51,10 +66,16 @@
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
-                        $theme: functions.create-theme-vars(tokens.$button, "button");
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": (
+                                "top": 12px
+                            )
+                        );
 
                         .test {
-                            @include mixins.emit-theme-vars($theme);
+                            @include mixins.emit-theme-vars(functions.create-theme-vars($tokens, "button"));
                         }
                     }
 
@@ -68,7 +89,7 @@
                 }
             }
 
-            @include it("Should return custom theme declarations without null.") {
+            @include it("Should return custom theme declarations without `null` value.") {
                 @include assert {
                     @include output(false) {
                         $theme: functions.create-theme-vars((
