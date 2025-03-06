@@ -16,21 +16,7 @@
     },
     "sass": "index.scss",
     "exports": {
-        ".": {
-            "sass": "./index.scss"
-        },
-        "./color": {
-            "sass": "./color.scss"
-        },
-        "./shape": {
-            "sass": "./shape.scss"
-        },
-        "./typeface": {
-            "sass": "./typeface.scss"
-        },
-        "./typescale": {
-            "sass": "./typescale.scss"
-        }
+        "sass": "./index.scss"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.6.0",
