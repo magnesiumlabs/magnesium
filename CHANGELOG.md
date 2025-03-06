@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.2](https://github.com/magnesiumlabs/magnesium/compare/v4.5.1...v4.5.2) (2025-03-06)
+
+### Bug Fixes
+
+* clean `exports` in `package.json` ([6fc8efe](https://github.com/magnesiumlabs/magnesium/commit/6fc8efef65a4432c9593fb5515993fefcf92f5c7))
+
+### Build System
+
+* **deps:** bump to `sass` 1.83.0 ([d4d577d](https://github.com/magnesiumlabs/magnesium/commit/d4d577df9db991043f2f1fa494870fc812109ada))
+
 ## [4.5.1](https://github.com/magnesiumlabs/magnesium/compare/v4.5.0...v4.5.1) (2024-10-11)
 
 ### Bug Fixes
