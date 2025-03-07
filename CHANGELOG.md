@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.3](https://github.com/magnesiumlabs/magnesium/compare/v4.5.2...v4.5.3) (2025-03-07)
+
+### Bug Fixes
+
+* **build:** bad files path on `package.json` ([c7237d9](https://github.com/magnesiumlabs/magnesium/commit/c7237d98d8345be466806e058024811097973d04))
+
+### Build System
+
+* update `pkg` importer path ([2b5e994](https://github.com/magnesiumlabs/magnesium/commit/2b5e994f550a962db50054d2bff924e94756da70))
+
 ## [4.5.2](https://github.com/magnesiumlabs/magnesium/compare/v4.5.1...v4.5.2) (2025-03-06)
 
 ### Bug Fixes
