@@ -11,9 +11,11 @@ $_custom-property-prefix: if(map.get(variables.$color, "prefix") == null, "color
 $_tokens: map.get(variables.$color, "tokens");
 
 ///
-/// Generates user-provided theme's tokens for the color component management with supported tokens validation.
+/// The "color.theme()" emit `--mg-color-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
+///   @use "@magnesium/theme/color";
+///
 ///   .foo {
 ///     @include color.theme(
 ///       "primary": darkcyan,
