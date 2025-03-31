@@ -11,9 +11,11 @@ $_custom-property-prefix: if(map.get(variables.$shape, "prefix") == null, "shape
 $_tokens: map.get(variables.$shape, "tokens");
 
 ///
-/// Generates user-provided theme's tokens for the shape component management with supported tokens validation.
+/// The "shape.theme()" emit `--mg-shape-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
+///   @use "@magnesium/theme/shape";
+///
 ///   .foo {
 ///     @include shape.theme(
 ///       "small": 4px,
