@@ -11,9 +11,11 @@ $_custom-property-prefix: if(map.get(variables.$typeface, "prefix") == null, "ty
 $_tokens: map.get(variables.$typeface, "tokens");
 
 ///
-/// Generates user-provided theme's tokens for the typeface component management with supported tokens validation.
+/// The "typeface.theme()" emit `--mg-typeface-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
+///   @use "@magnesium/theme/typography/typeface";
+///
 ///   .foo {
 ///     @include typeface.theme(
 ///       "brand": "Open Sans",

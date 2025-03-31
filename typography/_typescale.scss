@@ -11,9 +11,11 @@ $_custom-property-prefix: if(map.get(variables.$typescale, "prefix") == null, "t
 $_tokens: map.get(variables.$typescale, "tokens");
 
 ///
-/// Generates user-provided theme's tokens for the typescale component management with supported tokens validation.
+/// The "typescale.theme()" emit `--mg-typescale-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
+///   @use "@magnesium/theme/typography/typescale";
+///
 ///   .foo {
 ///     @include typescale.theme(
 ///       "body-size": 16px,
@@ -23,8 +25,8 @@ $_tokens: map.get(variables.$typescale, "tokens");
 ///
 /// @example - css
 ///   .foo {
-///     --md-sys-typescale-body-size: 16px;
-///     --md-sys-typescale-body-weight: 400;
+///     --md-typescale-body-size: 16px;
+///     --md-typescale-body-weight: 400;
 ///   }
 ///
 /// @param {Map} $tokens - The `typescale` tokens map.
