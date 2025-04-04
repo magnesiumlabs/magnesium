@@ -7,7 +7,7 @@
 @use "../core/mixins";
 @use "../core/variables";
 
-$_custom-property-prefix: if(map.get(variables.$typeface, "prefix") == null, "typeface", map.get(variables.$typeface, "prefix"));
+$_custom-property-prefix: map.get(variables.$typeface, "prefix");
 $_tokens: map.get(variables.$typeface, "tokens");
 
 ///

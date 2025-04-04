@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "sass:list";
+@use "sass:map";
 @use "@unsass/css";
 @use "@unsass/css/custom-properties";
 @use "@unsass/string";
@@ -134,18 +135,18 @@
     }
 
     @if $color {
-        variables.$color: $color;
+        variables.$color: map.deep-merge(variables.$color, $color);
     }
 
     @if $shape {
-        variables.$shape: $shape;
+        variables.$shape: map.deep-merge(variables.$shape, $shape);
     }
 
     @if $typeface {
-        variables.$typeface: $typeface;
+        variables.$typeface: map.deep-merge(variables.$typeface, $typeface);
     }
 
     @if $typescale {
-        variables.$typescale: $typescale;
+        variables.$typescale: map.deep-merge(variables.$typescale, $typescale);
     }
 }
