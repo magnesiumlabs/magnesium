@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.4](https://github.com/magnesiumlabs/magnesium/compare/v4.5.3...v4.5.4) (2025-04-05)
+
+### Bug Fixes
+
+* **config:** manage default values inside config mixin ([2ab2684](https://github.com/magnesiumlabs/magnesium/commit/2ab2684fdd3c13544c2cf107fcf84c56e0aac95d))
+
 ## [4.5.3](https://github.com/magnesiumlabs/magnesium/compare/v4.5.2...v4.5.3) (2025-03-07)
 
 ### Bug Fixes
