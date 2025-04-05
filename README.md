@@ -44,12 +44,12 @@ Emits CSS custom properties declarations from a user-provided theme's.
 ```scss
 @use "@magnesium/theme";
 
-$theme: (
+$tokens: (
     "text-color": darkcyan
 );
 
 .foo {
-    @include theme.emit-custom-props($theme, "button");
+    @include theme.emit-custom-props($tokens, "button");
 }
 ```
 
@@ -70,12 +70,12 @@ Emits CSS variable declaration from a user-provided theme's.
 ```scss
 @use "@magnesium/theme";
 
-$theme: (
+$tokens: (
     "text-color": darkcyan
 );
 
 .foo {
-    color: theme.emit-variable($theme, "text-color", false, "button");
+    color: theme.emit-variable($tokens, "text-color", false, "button");
 }
 ```
 
@@ -98,11 +98,11 @@ $reference: (
     "text-color": darkcyan
 );
 
-$theme: (
+$tokens: (
     "text-color": darkorange
 );
 
-$theme: theme.validation($reference, $theme); // Return `$theme` map if true or error if false.
+$tokens: theme.validation($reference, $tokens); // Return `$tokens` map if true or error if false.
 ```
 
 ## Top-level config override
