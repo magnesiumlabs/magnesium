@@ -10,7 +10,7 @@
 
 ## Introduction
 
-Easily develop your Design System for the web, The Magnesium Sass Framework is here for that!
+The Magnesium Sass Framework helps you easily develop your Web Design System.
 
 ## Installing
 
