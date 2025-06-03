@@ -39,7 +39,7 @@
         "@front-factory/stylelint-config": "^1.7.0",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
-        "eslint": "^9.27.0",
+        "eslint": "^9.28.0",
         "husky": "^9.1.7",
         "npm-run-all": "^4.1.5",
         "sass-true": "^8.1.0",
