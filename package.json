@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/theme",
-    "version": "4.5.4",
+    "version": "4.6.0",
     "description": "The Sass Framework for Web Design System.",
     "type": "module",
     "scripts": {
