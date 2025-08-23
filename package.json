@@ -12,7 +12,7 @@
         "release": "semantic-release"
     },
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=18"
     },
     "sass": "index.scss",
     "exports": {
@@ -48,11 +48,11 @@
         "vitest": "^3.2.4"
     },
     "dependencies": {
-        "@unsass/css": "^2.3.0",
-        "@unsass/string": "^1.4.1",
+        "@unsass/css": "^3.0.0",
+        "@unsass/string": "^1.4.4",
         "@unsass/types": "^1.0.1",
-        "@unsass/var": "^1.0.2",
-        "sass": "^1.83.0"
+        "@unsass/var": "^1.0.3",
+        "sass": "^1.90.0"
     },
     "overrides": {
         "conventional-changelog-conventionalcommits": ">= 8.0.0"
