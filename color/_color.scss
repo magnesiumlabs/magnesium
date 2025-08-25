@@ -16,17 +16,19 @@ $_tokens: map.get(variables.$color, "tokens");
 /// @example - scss
 ///   @use "@magnesium/theme/color";
 ///
-///   .foo {
+///   :root {
 ///     @include color.theme(
 ///       "primary": darkcyan,
-///       "secondary": darkorange
+///       "secondary": darkorange,
+///       "tertiary": darkgreen
 ///     );
 ///   }
 ///
 /// @example - css
-///   .foo {
+///   :root {
 ///     --mg-color-primary: darkcyan;
-///     --mg-color-secondary: darkcyan;
+///     --mg-color-secondary: darkorange;
+///     --mg-color-tertiary: darkgreen;
 ///   }
 ///
 /// @param {Map} $tokens - The `color` tokens map.
