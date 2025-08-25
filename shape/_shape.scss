@@ -16,7 +16,7 @@ $_tokens: map.get(variables.$shape, "tokens");
 /// @example - scss
 ///   @use "@magnesium/theme/shape";
 ///
-///   .foo {
+///   :root {
 ///     @include shape.theme(
 ///       "small": 4px,
 ///       "medium": 6px
@@ -24,7 +24,7 @@ $_tokens: map.get(variables.$shape, "tokens");
 ///   }
 ///
 /// @example - css
-///   .foo {
+///   :root {
 ///     --mg-shape-small: 4px;
 ///     --mg-shape-medium: 8px;
 ///   }
