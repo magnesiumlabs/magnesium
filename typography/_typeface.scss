@@ -16,7 +16,7 @@ $_tokens: map.get(variables.$typeface, "tokens");
 /// @example - scss
 ///   @use "@magnesium/theme/typography/typeface";
 ///
-///   .foo {
+///   :root {
 ///     @include typeface.theme(
 ///       "brand": "Open Sans",
 ///       "plain": "Roboto"
@@ -24,7 +24,7 @@ $_tokens: map.get(variables.$typeface, "tokens");
 ///   }
 ///
 /// @example - css
-///   .foo {
+///   :root {
 ///     --mg-typeface-brand: "Open Sans";
 ///     --mg-typeface-plain: "Roboto";
 ///   }

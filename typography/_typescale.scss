@@ -16,7 +16,7 @@ $_tokens: map.get(variables.$typescale, "tokens");
 /// @example - scss
 ///   @use "@magnesium/theme/typography/typescale";
 ///
-///   .foo {
+///   :root {
 ///     @include typescale.theme(
 ///       "body-size": 16px,
 ///       "body-weight": 400
@@ -24,7 +24,7 @@ $_tokens: map.get(variables.$typescale, "tokens");
 ///   }
 ///
 /// @example - css
-///   .foo {
+///   :root {
 ///     --md-typescale-body-size: 16px;
 ///     --md-typescale-body-weight: 400;
 ///   }
