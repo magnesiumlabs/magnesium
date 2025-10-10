@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.0](https://github.com/magnesiumlabs/magnesium/compare/v4.6.0...v4.7.0) (2025-10-10)
+
+### Bug Fixes
+
+* **typography:** npm exports path ([67b5f71](https://github.com/magnesiumlabs/magnesium/commit/67b5f716931c035875037b14fa07d017a74993ef))
+
+### Code Refactoring
+
+* **color:** update comments ([cfb4cfe](https://github.com/magnesiumlabs/magnesium/commit/cfb4cfed51a094c379f3120daad43da40344395a))
+* **shape:** update comments ([5b16ebb](https://github.com/magnesiumlabs/magnesium/commit/5b16ebb54ae02141ae315413bf28271ffff7d109))
+* **typeface, typescale:** update comments ([f102dc9](https://github.com/magnesiumlabs/magnesium/commit/f102dc95b4333a9bb149f65fea8fff782b432d32))
+
 ## [4.6.0](https://github.com/magnesiumlabs/magnesium/compare/v4.5.4...v4.6.0) (2025-08-23)
 
 ### Features
