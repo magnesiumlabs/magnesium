@@ -25,8 +25,8 @@ $_tokens: map.get(variables.$typescale, "tokens");
 ///
 /// @example - css
 ///   :root {
-///     --md-typescale-body-size: 16px;
-///     --md-typescale-body-weight: 400;
+///     --mg-typescale-body-size: 16px;
+///     --mg-typescale-body-weight: 400;
 ///   }
 ///
 /// @param {Map} $tokens - The `typescale` tokens map.
