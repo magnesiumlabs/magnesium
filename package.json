@@ -26,10 +26,10 @@
             "sass": "./shape/index.scss"
         },
         "./typeface": {
-            "sass": "./typography/typeface/index.scss"
+            "sass": "./typography/typeface.scss"
         },
         "./typescale": {
-            "sass": "./typography/typescale/index.scss"
+            "sass": "./typography/typescale.scss"
         }
     },
     "devDependencies": {
