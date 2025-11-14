@@ -45,7 +45,7 @@
         "sass-true": "^9.0.0",
         "semantic-release": "^25.0.2",
         "stylelint": "^16.23.1",
-        "vitest": "^3.2.4"
+        "vitest": "^4.0.9"
     },
     "dependencies": {
         "@unsass/css": "^3.0.0",
