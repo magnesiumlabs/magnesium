@@ -17,10 +17,10 @@ $_tokens: map.get(variables.$typeface, "tokens");
 ///   @use "@magnesium/theme/typography/typeface";
 ///
 ///   :root {
-///     @include typeface.theme(
+///     @include typeface.theme((
 ///       "brand": "Open Sans",
 ///       "plain": "Roboto"
-///     );
+///     ));
 ///   }
 ///
 /// @example - css

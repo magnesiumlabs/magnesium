@@ -17,11 +17,11 @@ $_tokens: map.get(variables.$color, "tokens");
 ///   @use "@magnesium/theme/color";
 ///
 ///   :root {
-///     @include color.theme(
+///     @include color.theme((
 ///       "primary": darkcyan,
 ///       "secondary": darkorange,
 ///       "tertiary": darkgreen
-///     );
+///     ));
 ///   }
 ///
 /// @example - css

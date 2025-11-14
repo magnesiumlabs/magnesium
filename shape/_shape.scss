@@ -17,10 +17,10 @@ $_tokens: map.get(variables.$shape, "tokens");
 ///   @use "@magnesium/theme/shape";
 ///
 ///   :root {
-///     @include shape.theme(
+///     @include shape.theme((
 ///       "small": 4px,
 ///       "medium": 6px
-///     );
+///     ));
 ///   }
 ///
 /// @example - css
