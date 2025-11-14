@@ -17,10 +17,10 @@ $_tokens: map.get(variables.$typescale, "tokens");
 ///   @use "@magnesium/theme/typography/typescale";
 ///
 ///   :root {
-///     @include typescale.theme(
+///     @include typescale.theme((
 ///       "body-size": 16px,
 ///       "body-weight": 400
-///     );
+///     ));
 ///   }
 ///
 /// @example - css
