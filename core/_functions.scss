@@ -108,6 +108,8 @@
 /// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
 /// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
 ///
+/// @return {String} The CSS variable.
+///
 @function emit-variable($tokens, $token, $fallback: false, $prefix: null) {
     $value: map.get($tokens, $token);
     $token: create-name($prefix, $token);
