@@ -50,7 +50,7 @@
         "vitest": "^4.0.16"
     },
     "dependencies": {
-        "@unsass/css": "^3.0.0",
+        "@unsass/css": "^3.1.0",
         "@unsass/string": "^1.4.4",
         "@unsass/types": "^1.0.1",
         "@unsass/var": "^1.0.3",
