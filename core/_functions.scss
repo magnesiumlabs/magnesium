@@ -30,7 +30,7 @@
 /// @return {Map} The validated theme map.
 ///
 @function validation($refs, $tokens, $component: null) {
-    $supported-tokens: if(type.is-map($refs), map.keys($refs), $refs);
+    $supported-tokens: if(sass(type.is-map($refs)): map.keys($refs); else: $refs);
     $unsupported-tokens: ();
 
     @each $token, $value in $tokens {
