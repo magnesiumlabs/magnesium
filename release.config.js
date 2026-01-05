@@ -7,8 +7,8 @@ export default {
         'main',
         '+([0-9])?(.{+([0-9]),x}).x',
         {
-            'name': 'beta',
-            'prerelease': true
+            name: 'beta',
+            prerelease: true
         }
     ],
     plugins: [
@@ -18,12 +18,8 @@ export default {
                 preset: 'conventionalcommits',
                 releaseRules: [
                     {
-                        type: 'docs',
-                        scope: 'README',
-                        release: 'patch'
-                    },
-                    {
-                        type: 'refactor',
+                        type: 'chore',
+                        scope: 'deps',
                         release: 'minor'
                     }
                 ]
@@ -45,31 +41,8 @@ export default {
                         },
                         {
                             type: 'chore',
-                            hidden: true
-                        },
-                        {
-                            type: 'build',
-                            section: 'Build System'
-                        },
-                        {
-                            type: 'docs',
-                            hidden: true
-                        },
-                        {
-                            type: 'style',
-                            hidden: true
-                        },
-                        {
-                            type: 'refactor',
-                            section: 'Code Refactoring'
-                        },
-                        {
-                            type: 'perf',
-                            hidden: true
-                        },
-                        {
-                            type: 'test',
-                            hidden: true
+                            scope: 'deps',
+                            section: 'Dependencies'
                         }
                     ]
                 }
