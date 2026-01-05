@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.0](https://github.com/magnesiumlabs/magnesium/compare/v4.7.0...v4.8.0) (2026-01-05)
+
+### Features
+
+* use the plain-CSS `if()` syntax ([6642122](https://github.com/magnesiumlabs/magnesium/commit/664212239067c454e5938d7adf19d1234afda73f))
+
+### Dependencies
+
+* **deps:** bump to `@unsass/css` 3.1.0 ([39059ba](https://github.com/magnesiumlabs/magnesium/commit/39059bac8ab9ab33d94940ebe8951ebba73e6424))
+* **deps:** bump to `sass` 1.97.1 ([4a19f24](https://github.com/magnesiumlabs/magnesium/commit/4a19f2480bad60dfa4a1ea4ac23e4920e0468a94))
+
 ## [4.7.0](https://github.com/magnesiumlabs/magnesium/compare/v4.6.0...v4.7.0) (2025-10-10)
 
 ### Bug Fixes
