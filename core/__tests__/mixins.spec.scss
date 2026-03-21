@@ -35,6 +35,51 @@
                 }
             }
 
+            @include it("Should return theme custom properties declarations with falsy values.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "border-radius": 0,
+                            "gap": 0px,
+                            "visible": false
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($tokens, "card");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-card-border-radius: 0;
+                            --mg-card-gap: 0px;
+                            --mg-card-visible: false;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should skip tokens with null values.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": null
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($tokens, "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
             @include it("Should return theme custom properties declarations without component name.") {
                 @include assert {
                     @include output(false) {
@@ -89,7 +134,29 @@
                 }
             }
 
-            @include it("Should return custom theme declarations without `null` value.") {
+            @include it("Should return custom theme declarations with falsy values.") {
+                @include assert {
+                    @include output(false) {
+                        $theme: functions.create-theme-vars((
+                            "border-radius": 0,
+                            "gap": 0px
+                        ), "card");
+
+                        .test {
+                            @include mixins.emit-theme-vars($theme);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-card-border-radius: 0;
+                            --mg-card-gap: 0px;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should return custom theme declarations without null values.") {
                 @include assert {
                     @include output(false) {
                         $theme: functions.create-theme-vars((
@@ -105,6 +172,29 @@
                     @include expect(false) {
                         .test {
                             --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("config()") {
+            @include it("Should override prefix and emit custom properties with new prefix.") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.config("custom");
+
+                        .test {
+                            @include mixins.emit-custom-props(("text-color": darkcyan), "button");
+                        }
+
+                        // Reset prefix to default.
+                        @include mixins.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --custom-button-text-color: darkcyan;
                         }
                     }
                 }

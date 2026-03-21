@@ -26,6 +26,16 @@
 
                 @include assert-equal(functions.validation($refs, $theme), $theme);
             }
+
+            @include it("Should return validated theme tokens from a list of references.") {
+                $refs: ("text-color", "text-size");
+
+                $theme: (
+                    "text-color": darkorange
+                );
+
+                @include assert-equal(functions.validation($refs, $theme), $theme);
+            }
         }
 
         @include describe("create-theme-vars()") {
@@ -44,6 +54,18 @@
                     "padding": (
                         "top": var(--mg-button-padding-top, 12px)
                     )
+                ));
+            }
+
+            @include it("Should skip tokens with null values.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": null
+                );
+
+                @include assert-equal(functions.create-theme-vars($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": null
                 ));
             }
 
@@ -83,6 +105,14 @@
                 );
 
                 @include assert-equal(functions.emit-variable($tokens, "text-color", true, "button"), var(--mg-button-text-color, darkcyan));
+            }
+
+            @include it("Should return theme CSS variable without prefix.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.emit-variable($tokens, "text-color"), var(--mg-text-color));
             }
         }
     }
