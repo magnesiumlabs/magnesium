@@ -26,7 +26,7 @@ $_tokens: map.get(variables.$shape, "tokens");
 /// @example - css
 ///   :root {
 ///     --mg-shape-small: 4px;
-///     --mg-shape-medium: 8px;
+///     --mg-shape-medium: 6px;
 ///   }
 ///
 /// @param {Map} $tokens - The `shape` tokens map.

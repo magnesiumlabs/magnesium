@@ -21,7 +21,7 @@
 }
 
 ///
-/// Validates a user-provided theme's token and throws an error if tokens are invalid.
+/// Validates user-provided theme's tokens and throws an error if tokens are invalid.
 ///
 /// @param {List|Map} $refs - A list of supported tokens.
 /// @param {Map} $tokens - The user-provided theme's tokens map.
@@ -65,8 +65,8 @@
 ///   );
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
-/// @param {String} $prefix - Component's name to prepend for each token's custom property name.
-///                           Set to `false` for disabled.
+/// @param {String} $prefix - The component name to prepend for each token's custom property name.
+///                           Set to `false` to disable.
 ///
 /// @return {Map} The transformed theme map.
 ///
@@ -89,7 +89,7 @@
 }
 
 ///
-/// Emits CSS variable declaration from a user-provided theme's.
+/// Emits CSS variable declaration from a user-provided theme.
 ///
 /// @example - scss
 ///   .foo {
@@ -105,8 +105,8 @@
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $token - The theme token key.
-/// @param {Boolean} $fallback - Allow to display the CSS variable fallback.
-/// @param {String} $prefix - Token's prefix name to prepend for each token's custom property name.
+/// @param {Boolean} $fallback - Whether to display the CSS variable fallback.
+/// @param {String} $prefix - The token prefix name to prepend for each token's custom property name.
 ///
 /// @return {String} The CSS variable.
 ///

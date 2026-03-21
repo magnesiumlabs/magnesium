@@ -20,18 +20,18 @@ npm install @magnesium/theme
 
 ## Usage
 
-The theme component help you to easily manage theme styles with generate CSS custom properties declarations from
-user-provided theme's tokens map.
+The theme component helps you easily manage theme styles by generating CSS custom properties declarations from
+a user-provided theme tokens map.
 
 ## Options
 
 | Option    | Description                                                                                |
 |-----------|--------------------------------------------------------------------------------------------|
-| `$prefix` | Add global prefix name on any custom properties. Default `mg`. Set to `false` for disable. |
+| `$prefix` | Add a global prefix name on any custom properties. Default `mg`. Set to `false` to disable. |
 
 ```scss
 @use "@magnesium/theme" with (
-    $prefix: "foo" // Set to `false` for disabled.
+    $prefix: "foo" // Set to `false` to disable.
 );
 ```
 
@@ -39,7 +39,7 @@ user-provided theme's tokens map.
 
 ### `emit-custom-props($tokens, $prefix)`
 
-Emits CSS custom properties declarations from a user-provided theme's.
+Emits CSS custom properties declarations from a user-provided theme.
 
 ```scss
 @use "@magnesium/theme";
@@ -65,7 +65,7 @@ $tokens: (
 
 ### `emit-variable($tokens, $token, $fallback, $prefix)`
 
-Emits CSS variable declaration from a user-provided theme's.
+Emits CSS variable declaration from a user-provided theme.
 
 ```scss
 @use "@magnesium/theme";
@@ -109,7 +109,7 @@ $tokens: theme.validation($reference, $tokens); // Return `$tokens` map if true 
 
 If variables are already configured on top-level using `@use ... with`, by another dependency for example, you can't use
 this solution anymore, because the module can only be setup once, this is a Sass restriction with **Module System**, but
-another solution exist for override the main configuration, with a mixin!
+another solution exists for overriding the main configuration, with a mixin!
 
 See [official documentation](https://sass-lang.com/documentation/at-rules/use#with-mixins) about override configuration
 with mixins.
