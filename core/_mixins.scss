@@ -37,7 +37,7 @@
 ///
 @mixin emit-theme-vars($tokens) {
     @each $key, $value in $tokens {
-        @if $value {
+        @if $value != null {
             @if type.is-map($value) {
                 @include emit-theme-vars($value);
             } @else {
@@ -73,7 +73,7 @@
     @each $key, $value in $tokens {
         $name: string.combine(variables.$prefix, $component, $key);
 
-        @if $value {
+        @if $value != null {
             @if type.is-map($value) {
                 @include emit-custom-props($value, string.combine($component, $key));
             } @else {
