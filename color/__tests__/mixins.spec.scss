@@ -17,6 +17,16 @@
 
 @include describe("components") {
     @include describe("color") {
+        @include describe("get()") {
+            @include it("Should return a CSS variable reference.") {
+                @include assert-equal(color.get("primary"), var(--mg-sys-color-primary));
+            }
+
+            @include it("Should return a CSS variable reference with fallback.") {
+                @include assert-equal(color.get("primary", $fallback: true), var(--mg-sys-color-primary, darkcyan));
+            }
+        }
+
         @include describe("theme()") {
             @include it("Should return theme custom properties declarations.") {
                 @include assert {

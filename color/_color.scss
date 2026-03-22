@@ -11,6 +11,30 @@ $_custom-property-prefix: map.get(variables.$color, "prefix");
 $_tokens: map.get(variables.$color, "tokens");
 
 ///
+/// Returns a CSS `var()` reference to a color token.
+///
+/// @example - scss
+///   @use "@magnesium/theme/color";
+///
+///   .button {
+///     background-color: color.get("primary");
+///   }
+///
+/// @example - css
+///   .button {
+///     background-color: var(--mg-color-primary);
+///   }
+///
+/// @param {String} $token - The color token key.
+/// @param {Boolean} $fallback - Whether to include the fallback value. Default: `false`.
+///
+/// @return {String} The CSS variable.
+///
+@function get($token, $fallback: false) {
+    @return functions.emit-variable($_tokens, $token, $fallback, $_custom-property-prefix);
+}
+
+///
 /// The "color.theme()" emit `--mg-color-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss

@@ -11,6 +11,30 @@ $_custom-property-prefix: map.get(variables.$typescale, "prefix");
 $_tokens: map.get(variables.$typescale, "tokens");
 
 ///
+/// Returns a CSS `var()` reference to a typescale token.
+///
+/// @example - scss
+///   @use "@magnesium/theme/typescale";
+///
+///   .body {
+///     font-size: typescale.get("body-size");
+///   }
+///
+/// @example - css
+///   .body {
+///     font-size: var(--mg-typescale-body-size);
+///   }
+///
+/// @param {String} $token - The typescale token key.
+/// @param {Boolean} $fallback - Whether to include the fallback value. Default: `false`.
+///
+/// @return {String} The CSS variable.
+///
+@function get($token, $fallback: false) {
+    @return functions.emit-variable($_tokens, $token, $fallback, $_custom-property-prefix);
+}
+
+///
 /// The "typescale.theme()" emit `--mg-typescale-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss

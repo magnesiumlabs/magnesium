@@ -17,6 +17,16 @@
 
 @include describe("components") {
     @include describe("shape") {
+        @include describe("get()") {
+            @include it("Should return a CSS variable reference.") {
+                @include assert-equal(shape.get("small"), var(--mg-sys-shape-small));
+            }
+
+            @include it("Should return a CSS variable reference with fallback.") {
+                @include assert-equal(shape.get("medium", $fallback: true), var(--mg-sys-shape-medium, 6px));
+            }
+        }
+
         @include describe("theme()") {
             @include it("Should return theme custom properties declarations.") {
                 @include assert {

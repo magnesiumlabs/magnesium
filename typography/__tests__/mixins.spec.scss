@@ -25,6 +25,16 @@
 @include describe("components") {
     @include describe("typography") {
         @include describe("typeface") {
+            @include describe("get()") {
+                @include it("Should return a CSS variable reference.") {
+                    @include assert-equal(typeface.get("brand"), var(--mg-ref-typeface-brand));
+                }
+
+                @include it("Should return a CSS variable reference with fallback.") {
+                    @include assert-equal(typeface.get("brand", $fallback: true), var(--mg-ref-typeface-brand, "Open Sans"));
+                }
+            }
+
             @include describe("theme()") {
                 @include it("Should return theme custom properties declarations.") {
                     @include assert {
@@ -49,6 +59,16 @@
         }
 
         @include describe("typescale") {
+            @include describe("get()") {
+                @include it("Should return a CSS variable reference.") {
+                    @include assert-equal(typescale.get("body-size"), var(--mg-sys-typescale-body-size));
+                }
+
+                @include it("Should return a CSS variable reference with fallback.") {
+                    @include assert-equal(typescale.get("body-size", $fallback: true), var(--mg-sys-typescale-body-size, 16px));
+                }
+            }
+
             @include describe("theme()") {
                 @include it("Should return theme custom properties declarations.") {
                     @include assert {

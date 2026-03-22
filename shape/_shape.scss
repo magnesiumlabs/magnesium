@@ -11,6 +11,30 @@ $_custom-property-prefix: map.get(variables.$shape, "prefix");
 $_tokens: map.get(variables.$shape, "tokens");
 
 ///
+/// Returns a CSS `var()` reference to a shape token.
+///
+/// @example - scss
+///   @use "@magnesium/theme/shape";
+///
+///   .card {
+///     border-radius: shape.get("medium");
+///   }
+///
+/// @example - css
+///   .card {
+///     border-radius: var(--mg-shape-medium);
+///   }
+///
+/// @param {String} $token - The shape token key.
+/// @param {Boolean} $fallback - Whether to include the fallback value. Default: `false`.
+///
+/// @return {String} The CSS variable.
+///
+@function get($token, $fallback: false) {
+    @return functions.emit-variable($_tokens, $token, $fallback, $_custom-property-prefix);
+}
+
+///
 /// The "shape.theme()" emit `--mg-shape-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss

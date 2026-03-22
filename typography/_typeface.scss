@@ -11,6 +11,30 @@ $_custom-property-prefix: map.get(variables.$typeface, "prefix");
 $_tokens: map.get(variables.$typeface, "tokens");
 
 ///
+/// Returns a CSS `var()` reference to a typeface token.
+///
+/// @example - scss
+///   @use "@magnesium/theme/typeface";
+///
+///   .heading {
+///     font-family: typeface.get("brand");
+///   }
+///
+/// @example - css
+///   .heading {
+///     font-family: var(--mg-typeface-brand);
+///   }
+///
+/// @param {String} $token - The typeface token key.
+/// @param {Boolean} $fallback - Whether to include the fallback value. Default: `false`.
+///
+/// @return {String} The CSS variable.
+///
+@function get($token, $fallback: false) {
+    @return functions.emit-variable($_tokens, $token, $fallback, $_custom-property-prefix);
+}
+
+///
 /// The "typeface.theme()" emit `--mg-typeface-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
