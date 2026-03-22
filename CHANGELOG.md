@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.9.0](https://github.com/magnesiumlabs/magnesium/compare/v4.8.1...v4.9.0) (2026-03-22)
+
+### Features
+
+* add debug mixin to inspect current configuration state ([ff5fb3e](https://github.com/magnesiumlabs/magnesium/commit/ff5fb3e8d226514cbaa8a82164593c0c11b112be))
+* add get() function to each domain module ([3ac5366](https://github.com/magnesiumlabs/magnesium/commit/3ac53660ad501f0e74fe5e94eb53c1e4b83f3102))
+* add include/exclude filtering to emit-custom-props mixin ([ce10214](https://github.com/magnesiumlabs/magnesium/commit/ce10214560760472adb9556a013228c1a97bf855))
+
 ## [4.8.1](https://github.com/magnesiumlabs/magnesium/compare/v4.8.0...v4.8.1) (2026-03-22)
 
 ### Bug Fixes
