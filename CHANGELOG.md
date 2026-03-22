@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.1](https://github.com/magnesiumlabs/magnesium/compare/v4.8.0...v4.8.1) (2026-03-22)
+
+### Bug Fixes
+
+* handle falsy token values in custom properties emission ([4c6bc45](https://github.com/magnesiumlabs/magnesium/commit/4c6bc45866d3dbb8887d6a4a3bd5af3125510f89))
+
 ## [4.8.0](https://github.com/magnesiumlabs/magnesium/compare/v4.7.0...v4.8.0) (2026-01-05)
 
 ### Features
