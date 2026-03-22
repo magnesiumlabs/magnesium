@@ -68,16 +68,22 @@
 ///
 /// @param {Map} $tokens - The user-provided theme's tokens map.
 /// @param {String} $component - Component name to prepend for each token's custom property name. Default: `null`.
+/// @param {List} $include - A list of token keys to include. Default: `null` (include all).
+/// @param {List} $exclude - A list of token keys to exclude. Default: `null` (exclude none).
 ///
-@mixin emit-custom-props($tokens, $component: null) {
+@mixin emit-custom-props($tokens, $component: null, $include: null, $exclude: null) {
     @each $key, $value in $tokens {
-        $name: string.combine(variables.$prefix, $component, $key);
+        @if ($include and list.index($include, $key) == null) or ($exclude and list.index($exclude, $key) != null) {
+            // Skip filtered tokens.
+        } @else {
+            $name: string.combine(variables.$prefix, $component, $key);
 
-        @if $value != null {
-            @if type.is-map($value) {
-                @include emit-custom-props($value, string.combine($component, $key));
-            } @else {
-                @include css.declaration(custom-properties.create($name, $value));
+            @if $value != null {
+                @if type.is-map($value) {
+                    @include emit-custom-props($value, string.combine($component, $key));
+                } @else {
+                    @include css.declaration(custom-properties.create($name, $value));
+                }
             }
         }
     }

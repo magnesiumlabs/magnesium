@@ -129,6 +129,52 @@
                 }
             }
 
+            @include it("Should emit only included tokens.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "primary": blue,
+                            "secondary": coral,
+                            "accent": gold
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($tokens, "color", $include: ("primary", "accent"));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: blue;
+                            --mg-color-accent: gold;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit all tokens except excluded ones.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "primary": blue,
+                            "secondary": coral,
+                            "accent": gold
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($tokens, "color", $exclude: ("secondary",));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: blue;
+                            --mg-color-accent: gold;
+                        }
+                    }
+                }
+            }
+
             @include it("Should return theme custom properties declarations without component name.") {
                 @include assert {
                     @include output(false) {
