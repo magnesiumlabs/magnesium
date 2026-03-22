@@ -106,7 +106,7 @@
 ///     }
 ///   }
 ///
-/// @param {Map} $scheme - The color scheme. Choose between `light` or `dark`.
+/// @param {String} $scheme - The color scheme. Choose between `light` or `dark`.
 ///
 @mixin emit-color-scheme($scheme: "light") {
     $theme: (
@@ -124,18 +124,6 @@
 }
 
 ///
-/// Config.
-///
-/// @example - scss
-///   @include theme.config("foo");
-///
-/// @param {String} $prefix - The custom property prefix.
-/// @param {String} $color - The custom config of color component.
-/// @param {String} $shape - The custom config of shape component.
-/// @param {String} $typeface - The custom config of typeface component.
-/// @param {String} $typescale - The custom config of typescale component.
-///
-///
 /// Prints the current configuration state to the console via `@debug`.
 ///
 /// @example - scss
@@ -149,6 +137,18 @@
     @debug "[magnesium] typescale: #{variables.$typescale}";
 }
 
+///
+/// Overrides the global configuration at runtime.
+///
+/// @example - scss
+///   @include theme.config("foo");
+///
+/// @param {String} $prefix - The custom property prefix.
+/// @param {Map} $color - The custom config of color component.
+/// @param {Map} $shape - The custom config of shape component.
+/// @param {Map} $typeface - The custom config of typeface component.
+/// @param {Map} $typescale - The custom config of typescale component.
+///
 @mixin config($prefix: null, $color: null, $shape: null, $typeface: null, $typescale: null) {
     @if $prefix {
         variables.$prefix: $prefix;

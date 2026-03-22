@@ -35,7 +35,7 @@ $_tokens: map.get(variables.$typescale, "tokens");
 }
 
 ///
-/// The "typescale.theme()" emit `--mg-typescale-*` custom properties for a user-provided theme's tokens.
+/// The "typescale.theme()" emits `--mg-typescale-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
 ///   @use "@magnesium/theme/typography/typescale";

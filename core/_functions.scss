@@ -10,7 +10,7 @@
 @use "./variables";
 
 ///
-/// Create a name with the global config prefix.
+/// Creates a name with the global config prefix.
 ///
 /// @param {Arglist} $name - A list of strings.
 ///
@@ -42,7 +42,7 @@
 }
 
 ///
-/// Transforms a user-provided theme's tokens map values into a `var()` custom properties.
+/// Transforms a user-provided theme's tokens map values into `var()` custom properties.
 ///
 /// @example - scss
 ///   $theme: theme.create-theme-vars((
@@ -51,7 +51,7 @@
 ///       "size": 12px
 ///     )), "button");
 ///
-/// @example - scss
+/// @example - css
 ///   $theme: (
 ///     "text-color": var(--mg-button-text-color, darkcyan),
 ///     "text": (
@@ -84,7 +84,7 @@
 }
 
 ///
-/// Emits CSS variable declaration from a user-provided theme.
+/// Returns a CSS variable reference from a user-provided theme.
 ///
 /// @example - scss
 ///   .foo {

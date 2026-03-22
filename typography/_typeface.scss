@@ -35,7 +35,7 @@ $_tokens: map.get(variables.$typeface, "tokens");
 }
 
 ///
-/// The "typeface.theme()" emit `--mg-typeface-*` custom properties for a user-provided theme's tokens.
+/// The "typeface.theme()" emits `--mg-typeface-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
 ///   @use "@magnesium/theme/typography/typeface";

@@ -35,7 +35,7 @@ $_tokens: map.get(variables.$shape, "tokens");
 }
 
 ///
-/// The "shape.theme()" emit `--mg-shape-*` custom properties for a user-provided theme's tokens.
+/// The "shape.theme()" emits `--mg-shape-*` custom properties for a user-provided theme's tokens.
 ///
 /// @example - scss
 ///   @use "@magnesium/theme/shape";
