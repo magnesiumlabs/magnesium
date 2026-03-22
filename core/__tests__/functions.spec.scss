@@ -57,6 +57,28 @@
                 ));
             }
 
+            @include it("Should return a map of tokens with `var()` CSS function for deeply nested maps.") {
+                $tokens: (
+                    "spacing": (
+                        "padding": (
+                            "top": 12px,
+                            "bottom": 8px
+                        )
+                    ),
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.create-theme-vars($tokens, "button"), (
+                    "spacing": (
+                        "padding": (
+                            "top": var(--mg-button-spacing-padding-top, 12px),
+                            "bottom": var(--mg-button-spacing-padding-bottom, 8px)
+                        )
+                    ),
+                    "text-color": var(--mg-button-text-color, darkcyan)
+                ));
+            }
+
             @include it("Should skip tokens with null values.") {
                 $tokens: (
                     "text-color": darkcyan,

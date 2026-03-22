@@ -80,6 +80,55 @@
                 }
             }
 
+            @include it("Should return theme custom properties declarations with deeply nested maps.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "spacing": (
+                                "padding": (
+                                    "top": 12px,
+                                    "bottom": 8px
+                                ),
+                                "margin": (
+                                    "left": 4px
+                                )
+                            ),
+                            "text-color": darkcyan
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($tokens, "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-spacing-padding-top: 12px;
+                            --mg-button-spacing-padding-bottom: 8px;
+                            --mg-button-spacing-margin-left: 4px;
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit nothing for an empty tokens map.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit-custom-props((), "button");
+                            content: "placeholder";
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            content: "placeholder";
+                        }
+                    }
+                }
+            }
+
             @include it("Should return theme custom properties declarations without component name.") {
                 @include assert {
                     @include output(false) {
@@ -108,6 +157,34 @@
         }
 
         @include describe("emit-theme-vars()") {
+            @include it("Should return custom theme declarations with deeply nested maps.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: (
+                            "spacing": (
+                                "padding": (
+                                    "top": 12px,
+                                    "bottom": 8px
+                                )
+                            ),
+                            "text-color": darkcyan
+                        );
+
+                        .test {
+                            @include mixins.emit-theme-vars(functions.create-theme-vars($tokens, "button"));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-spacing-padding-top: 12px;
+                            --mg-button-spacing-padding-bottom: 8px;
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
             @include it("Should return custom theme declarations.") {
                 @include assert {
                     @include output(false) {
@@ -195,6 +272,69 @@
                     @include expect(false) {
                         .test {
                             --custom-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("config() integration") {
+            @include it("Should override color config and propagate to emit-custom-props().") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.config($prefix: "ds", $color: (
+                            "prefix": "palette",
+                            "tokens": (
+                                "primary": blue,
+                                "accent": coral
+                            )
+                        ));
+
+                        $color-tokens: (
+                            "primary": navy,
+                            "accent": salmon
+                        );
+
+                        .test {
+                            @include mixins.emit-custom-props($color-tokens, "palette");
+                        }
+
+                        // Reset to defaults.
+                        @include mixins.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --ds-palette-primary: navy;
+                            --ds-palette-accent: salmon;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should override shape config and propagate to emit-custom-props().") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.config($prefix: "ds", $shape: (
+                            "prefix": "radius",
+                            "tokens": (
+                                "small": 4px,
+                                "large": 16px
+                            )
+                        ));
+
+                        .test {
+                            @include mixins.emit-custom-props(("small": 2px, "large": 12px), "radius");
+                        }
+
+                        // Reset to defaults.
+                        @include mixins.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --ds-radius-small: 2px;
+                            --ds-radius-large: 12px;
                         }
                     }
                 }
