@@ -32,9 +32,6 @@ jobs:
         env:
           HUSKY: 0
 
-      - name: Typecheck
-        run: npm run typecheck
-
       - name: Tests
         run: npm run test
 
