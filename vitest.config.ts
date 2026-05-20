@@ -7,19 +7,15 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
     test: {
         globals: true,
-        watch: false,
+        include: [
+            '**/__tests__/scss.spec.js'
+        ],
         reporters: [
-            [
-                'default', {
-                    summary: false
-                }
-            ],
-            [
-                'junit', {
-                    suiteName: 'Tests',
-                    outputFile: './junit.xml'
-                }
-            ]
-        ]
+            'default',
+            'junit'
+        ],
+        outputFile: {
+            junit: 'junit.xml'
+        }
     }
 });
