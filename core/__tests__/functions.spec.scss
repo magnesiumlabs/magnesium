@@ -136,6 +136,14 @@
 
                 @include assert-equal(functions.emit-variable($tokens, "text-color"), var(--mg-text-color));
             }
+
+            @include it("Should return theme CSS variable with fallback without component name.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.emit-variable($tokens, "text-color", $fallback: true), var(--mg-text-color, darkcyan));
+            }
         }
     }
 }

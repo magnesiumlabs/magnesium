@@ -8,7 +8,7 @@
 
 @include describe("components") {
     @include describe("color") {
-        @include describe("config()") {
+        @include describe("theme() with custom prefix") {
             @include it("Should return theme custom properties declarations.") {
                 @include assert {
                     @include output(false) {

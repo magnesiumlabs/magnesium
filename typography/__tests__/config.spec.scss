@@ -10,7 +10,7 @@
 @include describe("components") {
     @include describe("typography") {
         @include describe("typeface") {
-            @include describe("config()") {
+            @include describe("theme() with custom prefix") {
                 @include it("Should return theme custom properties declarations.") {
                     @include assert {
                         @include output(false) {
@@ -34,7 +34,7 @@
         }
 
         @include describe("typescale") {
-            @include describe("config()") {
+            @include describe("theme() with custom prefix") {
                 @include it("Should return theme custom properties declarations.") {
                     @include assert {
                         @include output(false) {
