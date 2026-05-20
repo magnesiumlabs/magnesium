@@ -80,10 +80,10 @@
     },
     "files": [
         ".github/banner.svg",
-        "color/**/*",
-        "core/**/*",
-        "shape/**/*",
-        "typography/**/*",
+        "color/*.scss",
+        "core/*.scss",
+        "shape/*.scss",
+        "typography/*.scss",
         "*.scss",
         "CHANGELOG.md"
     ],
