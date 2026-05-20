@@ -385,6 +385,62 @@
                     }
                 }
             }
+
+            @include it("Should override typeface config and propagate to emit-custom-props().") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.config($prefix: "ds", $typeface: (
+                            "prefix": "font",
+                            "tokens": (
+                                "brand": "Helvetica",
+                                "plain": "Arial"
+                            )
+                        ));
+
+                        .test {
+                            @include mixins.emit-custom-props(("brand": "Helvetica", "plain": "Arial"), "font");
+                        }
+
+                        // Reset to defaults.
+                        @include mixins.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --ds-font-brand: "Helvetica";
+                            --ds-font-plain: "Arial";
+                        }
+                    }
+                }
+            }
+
+            @include it("Should override typescale config and propagate to emit-custom-props().") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.config($prefix: "ds", $typescale: (
+                            "prefix": "scale",
+                            "tokens": (
+                                "body-size": 14px,
+                                "body-weight": 500
+                            )
+                        ));
+
+                        .test {
+                            @include mixins.emit-custom-props(("body-size": 14px, "body-weight": 500), "scale");
+                        }
+
+                        // Reset to defaults.
+                        @include mixins.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --ds-scale-body-size: 14px;
+                            --ds-scale-body-weight: 500;
+                        }
+                    }
+                }
+            }
         }
 
         @include describe("emit-color-scheme()") {
