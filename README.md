@@ -10,7 +10,7 @@
 
 ## Introduction
 
-The Magnesium Sass Framework helps you easily develop your Web Design System.
+Sass toolkit for managing design tokens as CSS custom properties.
 
 ## Installing
 

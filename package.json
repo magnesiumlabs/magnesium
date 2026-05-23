@@ -1,7 +1,7 @@
 {
     "name": "@magnesium/theme",
     "version": "5.0.0",
-    "description": "The Sass Framework for Web Design Systems.",
+    "description": "Sass toolkit for managing design tokens as CSS custom properties.",
     "type": "module",
     "scripts": {
         "dev": "vite playground",
@@ -53,13 +53,10 @@
     "keywords": [
         "magnesium",
         "sass",
-        "framework",
         "design system",
-        "components",
         "theme",
-        "color",
-        "shape",
-        "typography",
+        "tokens",
+        "css-custom-properties",
         "front-end"
     ],
     "license": "MIT",
