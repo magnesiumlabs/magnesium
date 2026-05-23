@@ -1,6 +1,6 @@
 {
     "name": "@magnesium/theme",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "Sass toolkit for managing design tokens as CSS custom properties.",
     "type": "module",
     "scripts": {
