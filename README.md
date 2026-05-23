@@ -169,6 +169,24 @@ $tokens: theme.refs(("text-color": darkcyan, "text-size": 16px), "button");
 // -> ("text-color": var(--ds-button-text-color, darkcyan), "text-size": var(--ds-button-text-size, 16px))
 ```
 
+### `ref($token)`
+
+Returns a CSS `var()` reference for a token name, using the configured `$prefix`. Useful for cross-namespace references without hardcoding the prefix.
+
+```scss
+@use "@magnesium/theme" with ($prefix: "ds");
+
+.foo {
+    color: theme.ref("button-text-color");
+}
+```
+
+```css
+.foo {
+    color: var(--ds-button-text-color);
+}
+```
+
 ### `validation($refs, $tokens)`
 
 Validates user-provided tokens against a reference schema. Throws `@error` if a token is unsupported.
