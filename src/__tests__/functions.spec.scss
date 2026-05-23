@@ -126,6 +126,16 @@
             }
         }
 
+        @include describe("ref()") {
+            @include it("Should return a var() reference with prefix.") {
+                @include assert-equal(functions.ref("sys-primary"), var(--mg-sys-primary));
+            }
+
+            @include it("Should return a var() reference with multi-part token name.") {
+                @include assert-equal(functions.ref("color-blue-500"), var(--mg-color-blue-500));
+            }
+        }
+
         @include describe("variable()") {
             @include it("Should return a CSS variable reference with prefix.") {
                 $tokens: (

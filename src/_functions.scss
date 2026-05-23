@@ -70,6 +70,18 @@
 }
 
 ///
+/// Returns a CSS `var()` reference for a token name, using the configured `$prefix`.
+/// Use this to create cross-namespace token references without hardcoding the prefix.
+///
+/// @param {String} $token - The token name (may include namespace, e.g. `"sys-primary"`).
+///
+/// @return {String} The CSS variable reference.
+///
+@function ref($token) {
+    @return var.create(name($token));
+}
+
+///
 /// Returns a CSS `var()` reference for a single token.
 /// Emits `@warn` if the token does not exist in the map.
 ///
