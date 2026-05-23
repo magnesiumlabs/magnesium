@@ -51,18 +51,26 @@
 }
 
 ///
-/// Emits CSS `@media (prefers-color-scheme)` declarations.
+/// Emits scoped CSS declarations for a color scheme.
+/// With `$selector`, wraps in a selector rule; otherwise uses `@media (prefers-color-scheme)`.
 ///
-/// @param {String} $scheme - The color scheme (`"light"` or `"dark"`).
+/// @param {String} $scheme   - The color scheme (`"light"` or `"dark"`). Default: `"light"`.
+/// @param {String} $selector - A CSS selector to scope the declarations. Default: `null`.
 ///
-@mixin scheme($scheme: "light") {
-    $valid: ("light", "dark");
+@mixin scheme($scheme: "light", $selector: null) {
+    @if $selector {
+        #{$selector} {
+            @content;
+        }
+    } @else {
+        $valid: ("light", "dark");
 
-    @if list.index($valid, $scheme) == null {
-        @error "Invalid color scheme '#{$scheme}'. Choose one of '#{$valid}'.";
-    }
+        @if list.index($valid, $scheme) == null {
+            @error "Invalid color scheme '#{$scheme}'. Choose one of '#{$valid}'.";
+        }
 
-    @media (prefers-color-scheme: $scheme) {
-        @content;
+        @media (prefers-color-scheme: $scheme) {
+            @content;
+        }
     }
 }
