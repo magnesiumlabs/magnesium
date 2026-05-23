@@ -44,7 +44,27 @@ npm run dev
 
 ## Mixins
 
-### `emit($tokens, $namespace, $include, $exclude)`
+### `theme($refs, $tokens, $namespace)`
+
+Validates tokens then emits CSS custom properties in one call.
+
+```scss
+@use "@magnesium/theme" with ($prefix: "ds");
+
+$refs: ("text-color": darkcyan, "text-size": 16px);
+
+.foo {
+    @include theme.theme($refs, ("text-color": darkorange), "button");
+}
+```
+
+```css
+.foo {
+    --ds-button-text-color: darkorange;
+}
+```
+
+### `emit($tokens, $namespace, $include, $exclude, $layer)`
 
 Emits CSS custom properties declarations.
 
@@ -62,9 +82,27 @@ Emits CSS custom properties declarations.
 }
 ```
 
-### `scheme($scheme)`
+Use `$layer` to wrap the output in a named [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer):
 
-Emits `@media (prefers-color-scheme)` declarations.
+```scss
+:root {
+    @include theme.emit(("text-color": darkcyan), "button", $layer: "tokens");
+}
+```
+
+```css
+@layer tokens {
+    :root {
+        --ds-button-text-color: darkcyan;
+    }
+}
+```
+
+### `scheme($scheme, $selector)`
+
+Emits scoped declarations for a color scheme.
+
+Use `$scheme` alone to emit a `@media (prefers-color-scheme)` block:
 
 ```scss
 @include theme.scheme("dark") {
@@ -79,6 +117,20 @@ Emits `@media (prefers-color-scheme)` declarations.
     :root {
         --ds-color-primary: darkorange;
     }
+}
+```
+
+Use `$selector` to scope to a class or attribute instead:
+
+```scss
+@include theme.scheme("dark", $selector: "[data-theme='dark']") {
+    @include theme.emit(("primary": darkorange), "color");
+}
+```
+
+```css
+[data-theme='dark'] {
+    --ds-color-primary: darkorange;
 }
 ```
 
@@ -135,34 +187,7 @@ Creates a hyphenated name prefixed with the configured `$prefix`.
 ```scss
 @use "@magnesium/theme" with ($prefix: "ds");
 
-theme.name
-
-(
-"button"
-,
-"text-color"
-)
-; // -> "ds-button-text-color"
-```
-
-### `theme($refs, $tokens, $namespace)`
-
-Validates tokens then emits CSS custom properties in one call.
-
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-
-$refs: ("text-color": darkcyan, "text-size": 16px);
-
-.foo {
-    @include theme.theme($refs, ("text-color": darkorange), "button");
-}
-```
-
-```css
-.foo {
-    --ds-button-text-color: darkorange;
-}
+theme.name("button", "text-color"); // -> "ds-button-text-color"
 ```
 
 ## Migration from v4

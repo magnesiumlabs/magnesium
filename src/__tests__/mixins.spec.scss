@@ -184,6 +184,24 @@
                 }
             }
 
+            @include it("Should emit custom properties in a named @layer.") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.emit((
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        ), "button", $layer: "tokens");
+                    }
+
+                    @include expect(false) {
+                        @layer tokens {
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                        }
+                    }
+                }
+            }
+
             @include it("Should emit custom properties without namespace.") {
                 @include assert {
                     @include output(false) {

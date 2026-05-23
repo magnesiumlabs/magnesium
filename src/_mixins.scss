@@ -17,20 +17,27 @@
 /// @param {String} $namespace - The namespace (without prefix). Default: `null`.
 /// @param {List} $include - A list of token keys to include. Default: `null` (include all).
 /// @param {List} $exclude - A list of token keys to exclude. Default: `null` (exclude none).
+/// @param {String} $layer - A CSS cascade layer name. Default: `null`.
 ///
-@mixin emit($tokens, $namespace: null, $include: null, $exclude: null) {
-    @each $key, $value in $tokens {
-        @if ($include and list.index($include, $key) == null) or ($exclude and list.index($exclude, $key) != null) {
+@mixin emit($tokens, $namespace: null, $include: null, $exclude: null, $layer: null) {
+    @if $layer {
+        @layer #{$layer} {
+            @include emit($tokens, $namespace, $include, $exclude);
+        }
+    } @else {
+        @each $key, $value in $tokens {
+            @if ($include and list.index($include, $key) == null) or ($exclude and list.index($exclude, $key) != null) {
 
-            // Skip filtered tokens.
-        } @else {
-            $name: string.combine(variables.$prefix, $namespace, $key);
+                // Skip filtered tokens.
+            } @else {
+                $name: string.combine(variables.$prefix, $namespace, $key);
 
-            @if $value != null {
-                @if type.is-map($value) {
-                    @include emit($value, string.combine($namespace, $key));
-                } @else {
-                    @include css.declaration(custom-properties.create($name, $value));
+                @if $value != null {
+                    @if type.is-map($value) {
+                        @include emit($value, string.combine($namespace, $key));
+                    } @else {
+                        @include css.declaration(custom-properties.create($name, $value));
+                    }
                 }
             }
         }
