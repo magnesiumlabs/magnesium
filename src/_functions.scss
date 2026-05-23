@@ -1,0 +1,96 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:list";
+@use "sass:map";
+@use "@unsass/string";
+@use "@unsass/types" as type;
+@use "@unsass/var";
+@use "./variables";
+
+///
+/// Creates a hyphenated name prefixed with the configured `$prefix`.
+/// Null parts are skipped.
+///
+/// @param {Arglist} $name - A list of strings to combine.
+///
+/// @return {String} The generated prefixed name.
+///
+@function name($name...) {
+    @return string.combine(variables.$prefix, $name...);
+}
+
+///
+/// Validates user-provided tokens against a reference schema.
+/// Throws `@error` if a token is not in the supported list.
+///
+/// @param {List|Map} $refs - A list or map of supported tokens.
+/// @param {Map} $tokens - The user-provided tokens map.
+///
+/// @return {Map} The validated tokens map (unchanged).
+///
+@function validation($refs, $tokens) {
+    $supported-tokens: if(sass(type.is-map($refs)): map.keys($refs); else: $refs);
+
+    @each $token, $value in $tokens {
+        @if list.index($supported-tokens, $token) == null {
+            @error "Unsupported token: '#{$token}'. Supported tokens: '#{$supported-tokens}'";
+        }
+    }
+
+    @return $tokens;
+}
+
+///
+/// Transforms a tokens map into `var()` CSS custom property references.
+/// Handles nested maps recursively.
+///
+/// @param {Map} $tokens - The tokens map.
+/// @param {String} $namespace - The namespace (without prefix). Default: `null`.
+///
+/// @return {Map} The transformed tokens map.
+///
+@function refs($tokens, $namespace: null) {
+    @each $key, $value in $tokens {
+        @if $value != null {
+            $token: name($namespace, $key);
+
+            @if type.is-map($value) {
+                $value: refs($value, string.combine($namespace, $key));
+            } @else {
+                $value: var.create($token, $value);
+            }
+
+            $tokens: map.set($tokens, $key, $value);
+        }
+    }
+
+    @return $tokens;
+}
+
+///
+/// Returns a CSS `var()` reference for a single token.
+/// Emits `@warn` if the token does not exist in the map.
+///
+/// @param {Map} $tokens - The tokens map.
+/// @param {String} $token - The token key.
+/// @param {String} $namespace - The namespace (without prefix). Default: `null`.
+/// @param {Boolean} $fallback - Whether to include the fallback value. Default: `false`.
+///
+/// @return {String} The CSS variable reference.
+///
+@function variable($tokens, $token, $namespace: null, $fallback: false) {
+    @if not map.has-key($tokens, $token) {
+        @warn "[magnesium] Unknown token '#{$token}'. Available tokens: #{map.keys($tokens)}";
+    }
+
+    $value: map.get($tokens, $token);
+    $var-name: name($namespace, $token);
+
+    @if $fallback {
+        @return var.create($var-name, $value);
+    }
+
+    @return var.create($var-name);
+}

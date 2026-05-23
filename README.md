@@ -18,112 +18,166 @@ The Magnesium Sass Framework helps you easily develop your Web Design System.
 npm install @magnesium/theme
 ```
 
+## Playground
+
+Try it live on StackBlitz:
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/~/github.com/magnesiumlabs/magnesium)
+
+Or run it locally:
+
+```shell
+npm run dev
+```
+
 ## Usage
 
-The theme component helps you easily manage theme styles by generating CSS custom properties declarations from
-a user-provided theme tokens map.
-
-## Options
-
-| Option    | Description                                                                                |
-|-----------|--------------------------------------------------------------------------------------------|
-| `$prefix` | Add a global prefix name on any custom properties. Default `mg`. Set to `false` to disable. |
-
 ```scss
-@use "@magnesium/theme" with (
-    $prefix: "foo" // Set to `false` to disable.
-);
+@use "@magnesium/theme" with ($prefix: "ds");
 ```
+
+### Options
+
+| Option    | Description                                             |
+|-----------|---------------------------------------------------------|
+| `$prefix` | Global prefix for all custom properties. Default: `mg`. |
 
 ## Mixins
 
-### `emit-custom-props($tokens, $prefix)`
+### `emit($tokens, $namespace, $include, $exclude)`
 
-Emits CSS custom properties declarations from a user-provided theme.
+Emits CSS custom properties declarations.
 
 ```scss
-@use "@magnesium/theme";
-
-$tokens: (
-    "text-color": darkcyan
-);
+@use "@magnesium/theme" with ($prefix: "ds");
 
 .foo {
-    @include theme.emit-custom-props($tokens, "button");
+    @include theme.emit(("text-color": darkcyan), "button");
 }
 ```
 
-### Result
+```css
+.foo {
+    --ds-button-text-color: darkcyan;
+}
+```
+
+### `scheme($scheme)`
+
+Emits `@media (prefers-color-scheme)` declarations.
 
 ```scss
-.foo {
-    --mg-button-text-color: darkcyan;
+@include theme.scheme("dark") {
+    :root {
+        @include theme.emit(("primary": darkorange), "color");
+    }
+}
+```
+
+```css
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ds-color-primary: darkorange;
+    }
 }
 ```
 
 ## Functions
 
-### `emit-variable($tokens, $token, $fallback, $prefix)`
+### `variable($tokens, $token, $namespace, $fallback)`
 
-Emits CSS variable declaration from a user-provided theme.
+Returns a CSS `var()` reference for a single token.
 
 ```scss
-@use "@magnesium/theme";
+@use "@magnesium/theme" with ($prefix: "ds");
 
-$tokens: (
-    "text-color": darkcyan
-);
+$tokens: ("text-color": darkcyan);
 
 .foo {
-    color: theme.emit-variable($tokens, "text-color", false, "button");
+    color: theme.variable($tokens, "text-color", "button");
 }
 ```
-
-### Result
 
 ```css
 .foo {
-    color: var(--mg-button-text-color);
+    color: var(--ds-button-text-color);
 }
 ```
 
-### `validation($reference, $tokens)`
+### `refs($tokens, $namespace)`
 
-Validates a user-provided theme's token and throws an error if tokens are invalid.
+Transforms a tokens map into `var()` CSS custom property references.
+
+```scss
+@use "@magnesium/theme" with ($prefix: "ds");
+
+$tokens: theme.refs(("text-color": darkcyan, "text-size": 16px), "button");
+// -> ("text-color": var(--ds-button-text-color, darkcyan), "text-size": var(--ds-button-text-size, 16px))
+```
+
+### `validation($refs, $tokens)`
+
+Validates user-provided tokens against a reference schema. Throws `@error` if a token is unsupported.
 
 ```scss
 @use "@magnesium/theme";
 
-$reference: (
-    "text-color": darkcyan
-);
+$refs: ("text-color": darkcyan);
+$tokens: ("text-color": darkorange);
 
-$tokens: (
-    "text-color": darkorange
-);
-
-$tokens: theme.validation($reference, $tokens); // Return `$tokens` map if true or error if false.
+$tokens: theme.validation($refs, $tokens);
 ```
 
-## Top-level config override
+### `name($name...)`
 
-If variables are already configured on top-level using `@use ... with`, by another dependency for example, you can't use
-this solution anymore, because the module can only be setup once, this is a Sass restriction with **Module System**, but
-another solution exists for overriding the main configuration, with a mixin!
-
-See [official documentation](https://sass-lang.com/documentation/at-rules/use#with-mixins) about override configuration
-with mixins.
-
-| Mixin             | Description                                |
-|-------------------|:-------------------------------------------|
-| `config($prefix)` | Override top-level `prefix` configuration. |
-
-#### Configuration rule with `theme.config()`
-
-The following Sass will configure new parameters:
+Creates a hyphenated name prefixed with the configured `$prefix`.
 
 ```scss
-@use "@magnesium/theme";
+@use "@magnesium/theme" with ($prefix: "ds");
 
-@include theme.config("fr");
+theme.name
+
+(
+"button"
+,
+"text-color"
+)
+; // -> "ds-button-text-color"
 ```
+
+### `theme($refs, $tokens, $namespace)`
+
+Validates tokens then emits CSS custom properties in one call.
+
+```scss
+@use "@magnesium/theme" with ($prefix: "ds");
+
+$refs: ("text-color": darkcyan, "text-size": 16px);
+
+.foo {
+    @include theme.theme($refs, ("text-color": darkorange), "button");
+}
+```
+
+```css
+.foo {
+    --ds-button-text-color: darkorange;
+}
+```
+
+## Migration from v4
+
+Import the compatibility layer to keep using the v4 API:
+
+```scss
+@use "@magnesium/theme/compat" as theme;
+```
+
+| v4                                             | v5                                             |
+|------------------------------------------------|------------------------------------------------|
+| `config($prefix: "ds")`                        | `@use "@magnesium/theme" with ($prefix: "ds")` |
+| `create-name("btn", "color")`                  | `name("btn", "color")`                         |
+| `create-theme-vars($tokens, "btn")`            | `refs($tokens, "btn")`                         |
+| `emit-variable($tokens, "token", true, "btn")` | `variable($tokens, "token", "btn", true)`      |
+| `emit-custom-props($tokens, "btn")`            | `emit($tokens, "btn")`                         |
+| `emit-color-scheme("dark")`                    | `scheme("dark")`                               |

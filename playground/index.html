@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnesium Playground</title>
+    <link rel="stylesheet" href="./playground.scss">
+</head>
+<body>
+    <div class="playground">
+        <h1>Magnesium Playground</h1>
+        <p style="opacity:0.5;margin-bottom:24px">This library has no default theme. Everything below is a custom example to showcase the API.</p>
+
+        <div class="section">
+            <p class="section__title">Theme</p>
+            <label class="toggle">
+                <input type="checkbox" id="theme-toggle">
+                Dark mode
+            </label>
+        </div>
+
+        <div class="section">
+            <p class="section__title">Colors — emit()</p>
+            <div class="row">
+                <div class="swatch" style="background: var(--ds-color-primary)" title="primary"></div>
+                <div class="swatch" style="background: var(--ds-color-on-primary)" title="on-primary"></div>
+                <div class="swatch" style="background: var(--ds-color-surface)" title="surface"></div>
+                <div class="swatch" style="background: var(--ds-color-on-surface)" title="on-surface"></div>
+                <div class="swatch" style="background: var(--ds-color-error)" title="error"></div>
+                <div class="swatch" style="background: var(--ds-color-success)" title="success"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="section__title">Buttons — variable()</p>
+            <div class="row">
+                <button class="button">Filled</button>
+                <button class="button button--outlined">Outlined</button>
+                <button class="button button--error">Error</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="section__title">Badges — theme()</p>
+            <div class="row">
+                <span class="badge">Success</span>
+                <span class="badge badge--error">Error</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="section__title">Card — refs()</p>
+            <div class="card">
+                <p class="card__title">Design tokens</p>
+                <p class="card__text">All styles on this page are driven by CSS custom properties emitted by @magnesium/theme.</p>
+                <div class="row">
+                    <button class="button">Action</button>
+                    <button class="button button--outlined">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+
+        toggle.addEventListener('change', () => {
+            document.documentElement.setAttribute('data-theme', toggle.checked ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>

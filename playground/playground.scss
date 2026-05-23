@@ -1,0 +1,237 @@
+@use "sass:map";
+@use "../index" as theme with ($prefix: "ds");
+
+// --------------------------------------------------------------------------- //
+// Tokens
+// --------------------------------------------------------------------------- //
+
+$colors: (
+    "primary": #3c61dd,
+    "on-primary": #fff,
+    "surface": #fcfcfd,
+    "on-surface": #11181c,
+    "outline": #d7dbdf,
+    "error": #e54d2e,
+    "on-error": #fff,
+    "success": #45a557,
+    "on-success": #fff
+);
+
+$shape: (
+    "small": 6px,
+    "medium": 10px,
+    "large": 16px
+);
+
+$button-refs: (
+    "container-color": map.get($colors, "primary"),
+    "text-color": map.get($colors, "on-primary"),
+    "radius": map.get($shape, "small")
+);
+
+$badge-refs: (
+    "bg-color": map.get($colors, "primary"),
+    "label-color": map.get($colors, "on-primary"),
+    "radius": map.get($shape, "small")
+);
+
+$colors-dark: (
+    "primary": #8fa6ef,
+    "on-primary": #101d47,
+    "surface": #1c1c1e,
+    "on-surface": #e5e5e7,
+    "outline": #3a3a3c,
+    "error": #f3aea0,
+    "on-error": #361811,
+    "success": #96cf9b,
+    "on-success": #1b311e
+);
+
+// --------------------------------------------------------------------------- //
+// Emit global tokens
+// --------------------------------------------------------------------------- //
+
+:root {
+    @include theme.emit($colors, "color");
+    @include theme.emit($shape, "shape");
+}
+
+@include theme.scheme("dark") {
+    :root {
+        @include theme.emit($colors-dark, "color");
+    }
+}
+
+[data-theme="light"] {
+    @include theme.emit($colors, "color");
+}
+
+[data-theme="dark"] {
+    @include theme.emit($colors-dark, "color");
+}
+
+// --------------------------------------------------------------------------- //
+// Base
+// --------------------------------------------------------------------------- //
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--ds-color-surface);
+    color: var(--ds-color-on-surface);
+    padding: 40px 32px;
+    line-height: 1.5;
+    transition: background 0.2s, color 0.2s;
+}
+
+// --------------------------------------------------------------------------- //
+// Layout
+// --------------------------------------------------------------------------- //
+
+.playground {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.section__title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.4;
+    margin-bottom: 12px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+// --------------------------------------------------------------------------- //
+// Palette — emit() showcase
+// --------------------------------------------------------------------------- //
+
+.swatch {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--ds-shape-small);
+    border: 1px solid var(--ds-color-outline);
+}
+
+// --------------------------------------------------------------------------- //
+// Button — variable() showcase
+// --------------------------------------------------------------------------- //
+
+.button {
+    background: theme.variable($button-refs, "container-color", "button", true);
+    color: theme.variable($button-refs, "text-color", "button", true);
+    border: 2px solid transparent;
+    border-radius: theme.variable($button-refs, "radius", "button", true);
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+.button--outlined {
+    background: transparent;
+    color: var(--ds-color-primary);
+    border-color: var(--ds-color-primary);
+}
+
+.button--error {
+    background: var(--ds-color-error);
+    color: var(--ds-color-on-error);
+}
+
+// --------------------------------------------------------------------------- //
+// Badge — theme() showcase (validation + emit in one call)
+// --------------------------------------------------------------------------- //
+
+.badge {
+    @include theme.theme($badge-refs, (
+        "bg-color": map.get($colors, "success"),
+        "label-color": map.get($colors, "on-success"),
+        "radius": 999px
+    ), "badge");
+
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--ds-badge-bg-color);
+    color: var(--ds-badge-label-color);
+    border-radius: var(--ds-badge-radius);
+}
+
+.badge--error {
+    @include theme.theme($badge-refs, (
+        "bg-color": map.get($colors, "error"),
+        "label-color": map.get($colors, "on-error")
+    ), "badge");
+}
+
+// --------------------------------------------------------------------------- //
+// Card — refs() showcase
+// --------------------------------------------------------------------------- //
+
+$card-tokens: (
+    "bg": map.get($colors, "surface"),
+    "text": map.get($colors, "on-surface"),
+    "border": map.get($colors, "outline"),
+    "radius": map.get($shape, "large")
+);
+
+.card {
+    $refs: theme.refs($card-tokens, "card");
+
+    background: map.get($refs, "bg");
+    color: map.get($refs, "text");
+    border: 1px solid map.get($refs, "border");
+    border-radius: map.get($refs, "radius");
+    padding: 24px;
+
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    &__text {
+        font-size: 14px;
+        opacity: 0.6;
+        margin-bottom: 16px;
+    }
+}
+
+// --------------------------------------------------------------------------- //
+// Toggle
+// --------------------------------------------------------------------------- //
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+
+    input {
+        accent-color: var(--ds-color-primary);
+    }
+}

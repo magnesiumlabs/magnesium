@@ -1,0 +1,165 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../functions";
+
+@include describe("core") {
+    @include describe("functions") {
+        @include describe("name()") {
+            @include it("Should prepend prefix and combine parts.") {
+                @include assert-equal(functions.name("button", "text-color"), "mg-button-text-color");
+            }
+
+            @include it("Should skip null parts.") {
+                @include assert-equal(functions.name(null, "button"), "mg-button");
+            }
+
+            @include it("Should return prefix with single part.") {
+                @include assert-equal(functions.name("button"), "mg-button");
+            }
+        }
+
+        @include describe("validation()") {
+            @include it("Should return validated tokens from a map of references.") {
+                $refs: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                $tokens: (
+                    "text-color": darkorange
+                );
+
+                @include assert-equal(functions.validation($refs, $tokens), $tokens);
+            }
+
+            @include it("Should return validated tokens from a list of references.") {
+                $refs: ("text-color", "text-size");
+
+                $tokens: (
+                    "text-color": darkorange
+                );
+
+                @include assert-equal(functions.validation($refs, $tokens), $tokens);
+            }
+        }
+
+        @include describe("refs()") {
+            @include it("Should transform tokens into var() references with prefix.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.refs($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": var(--mg-button-text-size, 16px)
+                ));
+            }
+
+            @include it("Should handle nested maps recursively.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "padding": (
+                        "top": 12px
+                    )
+                );
+
+                @include assert-equal(functions.refs($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "padding": (
+                        "top": var(--mg-button-padding-top, 12px)
+                    )
+                ));
+            }
+
+            @include it("Should handle deeply nested maps.") {
+                $tokens: (
+                    "spacing": (
+                        "padding": (
+                            "top": 12px,
+                            "bottom": 8px
+                        )
+                    ),
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.refs($tokens, "button"), (
+                    "spacing": (
+                        "padding": (
+                            "top": var(--mg-button-spacing-padding-top, 12px),
+                            "bottom": var(--mg-button-spacing-padding-bottom, 8px)
+                        )
+                    ),
+                    "text-color": var(--mg-button-text-color, darkcyan)
+                ));
+            }
+
+            @include it("Should skip null values.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": null
+                );
+
+                @include assert-equal(functions.refs($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": null
+                ));
+            }
+
+            @include it("Should return empty map unchanged.") {
+                @include assert-equal(functions.refs(()), ());
+            }
+
+            @include it("Should work without a namespace.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.refs($tokens), (
+                    "text-color": var(--mg-text-color, darkcyan),
+                    "text-size": var(--mg-text-size, 16px)
+                ));
+            }
+        }
+
+        @include describe("variable()") {
+            @include it("Should return a CSS variable reference with prefix.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.variable($tokens, "text-color", "button"), var(--mg-button-text-color));
+            }
+
+            @include it("Should return a CSS variable reference with fallback.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(functions.variable($tokens, "text-color", "button", true), var(--mg-button-text-color, darkcyan));
+            }
+
+            @include it("Should return a CSS variable reference without namespace.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.variable($tokens, "text-color"), var(--mg-text-color));
+            }
+
+            @include it("Should return a CSS variable reference with fallback without namespace.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(functions.variable($tokens, "text-color", $fallback: true), var(--mg-text-color, darkcyan));
+            }
+        }
+    }
+}

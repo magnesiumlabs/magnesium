@@ -1,0 +1,219 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../compat" as theme;
+
+@include describe("compat") {
+    @include describe("v4 API mapping") {
+        @include describe("create-name()") {
+            @include it("Should prepend the default prefix.") {
+                @include assert-equal(theme.create-name("button", "text-color"), "mg-button-text-color");
+            }
+        }
+
+        @include describe("create-theme-vars()") {
+            @include it("Should transform tokens with prefix.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(theme.create-theme-vars($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan),
+                    "text-size": var(--mg-button-text-size, 16px)
+                ));
+            }
+        }
+
+        @include describe("emit-variable()") {
+            @include it("Should return CSS variable with default prefix.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(theme.emit-variable($tokens, "text-color", false, "button"), var(--mg-button-text-color));
+            }
+
+            @include it("Should return CSS variable with fallback.") {
+                $tokens: (
+                    "text-color": darkcyan,
+                    "text-size": 16px
+                );
+
+                @include assert-equal(theme.emit-variable($tokens, "text-color", true, "button"), var(--mg-button-text-color, darkcyan));
+            }
+        }
+
+        @include describe("emit-custom-props()") {
+            @include it("Should emit custom properties with default prefix.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.emit-custom-props((
+                                "text-color": darkcyan,
+                                "text-size": 16px
+                            ), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("emit-theme-vars()") {
+            @include it("Should emit custom properties from var() transformed tokens.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: theme.create-theme-vars((
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        ), "button");
+
+                        .test {
+                            @include theme.emit-theme-vars($tokens);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("emit-color-scheme()") {
+            @include it("Should emit prefers-color-scheme media query.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.emit-color-scheme("dark") {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("config()") {
+            @include it("Should override prefix for subsequent calls.") {
+                @include assert {
+                    @include output(false) {
+                        @include theme.config("custom");
+
+                        .test {
+                            @include theme.emit-custom-props(("text-color": darkcyan), "button");
+                        }
+
+                        @include theme.config("mg");
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --custom-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("validation()") {
+            @include it("Should validate tokens through compat.") {
+                $refs: ("text-color", "text-size");
+                $tokens: ("text-color": darkcyan);
+
+                @include assert-equal(theme.validation($refs, $tokens), $tokens);
+            }
+        }
+    }
+
+    @include describe("v5 API passthrough") {
+        @include describe("name()") {
+            @include it("Should prepend prefix and combine parts.") {
+                @include assert-equal(theme.name("button", "text-color"), "mg-button-text-color");
+            }
+        }
+
+        @include describe("refs()") {
+            @include it("Should transform tokens with prefix.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(theme.refs($tokens, "button"), (
+                    "text-color": var(--mg-button-text-color, darkcyan)
+                ));
+            }
+        }
+
+        @include describe("variable()") {
+            @include it("Should return CSS variable with prefix.") {
+                $tokens: (
+                    "text-color": darkcyan
+                );
+
+                @include assert-equal(theme.variable($tokens, "text-color", "button"), var(--mg-button-text-color));
+            }
+        }
+
+        @include describe("emit()") {
+            @include it("Should emit custom properties with prefix.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.emit(("text-color": darkcyan), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("scheme()") {
+            @include it("Should emit color scheme media query.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include theme.scheme("dark") {
+                                --ds-color-primary: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --ds-color-primary: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

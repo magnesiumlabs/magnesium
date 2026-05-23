@@ -1,0 +1,122 @@
+// ============================================================================================= //
+//                                          COMPAT v4                                            //
+// ============================================================================================= //
+
+// Backward-compatible layer for migrating from @magnesium/theme v4 to v5.
+// Usage: @use "@magnesium/theme/compat" as theme;
+// This module re-exposes the v4 API, mapping calls to v5 primitives internally.
+// Migration guide:
+//   config($prefix: "ds")         -> @use "@magnesium/theme" with ($prefix: "ds")
+//   create-name("a", "b")         -> theme.name("a", "b")
+//   create-theme-vars($tokens, "btn")  -> theme.refs($tokens, "btn")
+//   emit-variable($tokens, "k", ...)   -> theme.variable($tokens, "k", "btn")
+//   emit-custom-props($tokens, "btn")  -> theme.emit($tokens, "btn")
+//   emit-color-scheme("dark")          -> theme.scheme("dark")
+//   emit-theme-vars($tokens)           -> theme.emit($tokens, "...")
+
+@use "sass:list";
+@use "sass:map";
+@use "@unsass/css";
+@use "@unsass/css/custom-properties";
+@use "@unsass/string";
+@use "@unsass/types" as type;
+@use "@unsass/var";
+@use "./src/variables" as vars;
+@use "./src/functions" as fn;
+@use "./src/mixins" as mx;
+
+// ------------------------------------------------------------------------- //
+// v5 re-exports (new API, no deprecation warnings)
+// ------------------------------------------------------------------------- //
+
+@function name($parts...) {
+    @return fn.name($parts...);
+}
+
+@function refs($tokens, $namespace: null) {
+    @return fn.refs($tokens, $namespace: $namespace);
+}
+
+@function variable($tokens, $token, $namespace: null, $fallback: false) {
+    @return fn.variable($tokens, $token, $namespace: $namespace, $fallback: $fallback);
+}
+
+@function validation($refs, $tokens) {
+    @return fn.validation($refs, $tokens);
+}
+
+@mixin emit($tokens, $namespace: null, $include: null, $exclude: null) {
+    @include mx.emit($tokens, $namespace: $namespace, $include: $include, $exclude: $exclude);
+}
+
+@mixin scheme($scheme: "light") {
+    @include mx.scheme($scheme) {
+        @content;
+    }
+}
+
+// ------------------------------------------------------------------------- //
+// Deprecated v4 API
+// ------------------------------------------------------------------------- //
+
+///
+/// @deprecated Use `@use "@magnesium/theme" with ($prefix: ...)` instead. Will be removed in v6.
+///
+@mixin config($prefix: null) {
+    @if $prefix {
+        @warn "[magnesium/compat] config() is deprecated in v5. Use @use \"@magnesium/theme\" with ($prefix: \"#{$prefix}\") instead.";
+        vars.$prefix: $prefix;
+    }
+}
+
+///
+/// @deprecated Use `name()` instead. Will be removed in v6.
+///
+@function create-name($name...) {
+    @return fn.name($name...);
+}
+
+///
+/// @deprecated Use `refs()` instead. Will be removed in v6.
+///
+@function create-theme-vars($tokens, $component) {
+    @return fn.refs($tokens, $namespace: $component);
+}
+
+///
+/// @deprecated Use `variable()` instead. Will be removed in v6.
+///
+@function emit-variable($tokens, $token, $fallback: false, $component: null) {
+    @return fn.variable($tokens, $token, $namespace: $component, $fallback: $fallback);
+}
+
+///
+/// @deprecated Use `emit()` instead. Will be removed in v6.
+///
+@mixin emit-custom-props($tokens, $component: null, $include: null, $exclude: null) {
+    @include mx.emit($tokens, $namespace: $component, $include: $include, $exclude: $exclude);
+}
+
+///
+/// @deprecated Use `scheme()` instead. Will be removed in v6.
+///
+@mixin emit-color-scheme($scheme: "light") {
+    @include mx.scheme($scheme) {
+        @content;
+    }
+}
+
+///
+/// @deprecated Use `emit()` with raw tokens instead. Will be removed in v6.
+///
+@mixin emit-theme-vars($tokens) {
+    @each $key, $value in $tokens {
+        @if $value != null {
+            @if type.is-map($value) {
+                @include emit-theme-vars($value);
+            } @else {
+                @include css.declaration(var.name($value), var.fallback($value));
+            }
+        }
+    }
+}

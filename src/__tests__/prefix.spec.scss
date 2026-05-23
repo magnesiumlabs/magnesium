@@ -1,0 +1,104 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../../index" as theme with ($prefix: "ds");
+
+@include describe("custom prefix") {
+    @include describe("name()") {
+        @include it("Should use custom prefix.") {
+            @include assert-equal(theme.name("button", "text-color"), "ds-button-text-color");
+        }
+    }
+
+    @include describe("refs()") {
+        @include it("Should use custom prefix in var() references.") {
+            $tokens: (
+                "text-color": darkcyan
+            );
+
+            @include assert-equal(theme.refs($tokens, "button"), (
+                "text-color": var(--ds-button-text-color, darkcyan)
+            ));
+        }
+    }
+
+    @include describe("variable()") {
+        @include it("Should use custom prefix in CSS variable.") {
+            $tokens: (
+                "text-color": darkcyan
+            );
+
+            @include assert-equal(theme.variable($tokens, "text-color", "button"), var(--ds-button-text-color));
+        }
+
+        @include it("Should use custom prefix with fallback.") {
+            $tokens: (
+                "text-color": darkcyan
+            );
+
+            @include assert-equal(theme.variable($tokens, "text-color", "button", true), var(--ds-button-text-color, darkcyan));
+        }
+    }
+
+    @include describe("theme()") {
+        @include it("Should validate and emit with custom prefix.") {
+            @include assert {
+                @include output(false) {
+                    $refs: ("text-color": darkcyan);
+
+                    .test {
+                        @include theme.theme($refs, ("text-color": coral), "button");
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --ds-button-text-color: coral;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("emit()") {
+        @include it("Should emit custom properties with custom prefix.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include theme.emit(("text-color": darkcyan), "button");
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --ds-button-text-color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should emit nested tokens with custom prefix.") {
+            @include assert {
+                @include output(false) {
+                    .test {
+                        @include theme.emit((
+                            "text": (
+                                "color": darkcyan,
+                                "size": 16px
+                            )
+                        ), "button");
+                    }
+                }
+
+                @include expect(false) {
+                    .test {
+                        --ds-button-text-color: darkcyan;
+                        --ds-button-text-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,273 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "pkg:sass-true" as *;
+@use "../mixins";
+
+@include describe("core") {
+    @include describe("mixins") {
+        @include describe("emit()") {
+            @include it("Should emit custom properties with prefix and namespace.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "text-color": darkcyan,
+                                "text-size": 16px,
+                                "padding": (
+                                    "top": 12px
+                                )
+                            ), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                            --mg-button-text-size: 16px;
+                            --mg-button-padding-top: 12px;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit custom properties with falsy values.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "border-radius": 0,
+                                "gap": 0px,
+                                "visible": false
+                            ), "card");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-card-border-radius: 0;
+                            --mg-card-gap: 0px;
+                            --mg-card-visible: false;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should skip null values.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "text-color": darkcyan,
+                                "text-size": null
+                            ), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should handle deeply nested maps.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "spacing": (
+                                    "padding": (
+                                        "top": 12px,
+                                        "bottom": 8px
+                                    ),
+                                    "margin": (
+                                        "left": 4px
+                                    )
+                                ),
+                                "text-color": darkcyan
+                            ), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-spacing-padding-top: 12px;
+                            --mg-button-spacing-padding-bottom: 8px;
+                            --mg-button-spacing-margin-left: 4px;
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit nothing for an empty map.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((), "button");
+                            content: "placeholder";
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            content: "placeholder";
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit only included tokens.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "primary": blue,
+                                "secondary": coral,
+                                "accent": gold
+                            ), "color", $include:("primary", "accent"));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: blue;
+                            --mg-color-accent: gold;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit all tokens except excluded ones.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "primary": blue,
+                                "secondary": coral,
+                                "accent": gold
+                            ), "color", $exclude: ("secondary",));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: blue;
+                            --mg-color-accent: gold;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should apply include and exclude together.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "primary": blue,
+                                "secondary": coral,
+                                "accent": gold,
+                                "muted": gray
+                            ), "color", $include:("primary", "accent", "muted"), $exclude: ("muted",));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-color-primary: blue;
+                            --mg-color-accent: gold;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit custom properties without namespace.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.emit((
+                                "text-color": darkcyan,
+                                "text-size": 16px
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-text-color: darkcyan;
+                            --mg-text-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("theme()") {
+            @include it("Should validate and emit custom properties.") {
+                @include assert {
+                    @include output(false) {
+                        $refs: (
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        );
+
+                        .test {
+                            @include mixins.theme($refs, ("text-color": darkorange), "button");
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkorange;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("scheme()") {
+            @include it("Should emit light color scheme media query.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.scheme("light") {
+                                --mg-color-primary: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            .test {
+                                --mg-color-primary: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit dark color scheme media query.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.scheme("dark") {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: dark) {
+                            .test {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
