@@ -44,7 +44,7 @@ npm run dev
 
 ## Mixins
 
-### `theme($refs, $tokens, $namespace)`
+### `theme($refs, $tokens, $namespace, $include, $exclude)`
 
 Validates tokens then emits CSS custom properties in one call.
 
@@ -63,6 +63,8 @@ $refs: ("text-color": darkcyan, "text-size": 16px);
     --ds-button-text-color: darkorange;
 }
 ```
+
+`$include` and `$exclude` work the same as in `emit()`.
 
 ### `emit($tokens, $namespace, $include, $exclude, $layer)`
 

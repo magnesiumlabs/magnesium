@@ -244,6 +244,44 @@
                     }
                 }
             }
+
+            @include it("Should emit only included tokens.") {
+                @include assert {
+                    @include output(false) {
+                        $refs: ("text-color": darkcyan, "text-size": 16px, "padding": 8px);
+
+                        .test {
+                            @include mixins.theme($refs, ("text-color": darkorange, "text-size": 14px, "padding": 4px), "button", $include: ("text-color", "padding"));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkorange;
+                            --mg-button-padding: 4px;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit all tokens except excluded ones.") {
+                @include assert {
+                    @include output(false) {
+                        $refs: ("text-color": darkcyan, "text-size": 16px, "padding": 8px);
+
+                        .test {
+                            @include mixins.theme($refs, ("text-color": darkorange, "text-size": 14px, "padding": 4px), "button", $exclude: ("text-size",));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkorange;
+                            --mg-button-padding: 4px;
+                        }
+                    }
+                }
+            }
         }
 
         @include describe("scheme()") {
