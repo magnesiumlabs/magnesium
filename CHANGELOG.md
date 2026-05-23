@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.0](https://github.com/magnesiumlabs/magnesium/compare/v4.9.0...v5.0.0) (2026-05-23)
+
+### ⚠ BREAKING CHANGES
+
+* rewrite v5 API — stateless, explicit $namespace, compat layer
+
+### Features
+
+* **functions:** add ref() ([c488910](https://github.com/magnesiumlabs/magnesium/commit/c488910b9c99b55ae601f826a92fe8e9fccc9664))
+* **mixins:** add `$selector` param to `scheme()` ([430b1b4](https://github.com/magnesiumlabs/magnesium/commit/430b1b4a877a58b9dc1f5b9844dc0c6649f67c0c))
+* **mixins:** add $include and $exclude params to theme() ([55d54d9](https://github.com/magnesiumlabs/magnesium/commit/55d54d9d59c35cecdd2d77e40ecaa50b9d45d0a4))
+* **mixins:** add $layer param to emit() ([2938b1b](https://github.com/magnesiumlabs/magnesium/commit/2938b1b1633f15e6041a80898de02b9db1861cd4))
+* rewrite v5 API — stateless, explicit $namespace, compat layer ([d07f2b2](https://github.com/magnesiumlabs/magnesium/commit/d07f2b234823aa3720f940fc4682d2381e41ac3a))
+
 ## [4.9.0](https://github.com/magnesiumlabs/magnesium/compare/v4.8.1...v4.9.0) (2026-03-22)
 
 ### Features
