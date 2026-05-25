@@ -42,6 +42,8 @@ npm run dev
 |-----------|---------------------------------------------------------|
 | `$prefix` | Global prefix for all custom properties. Default: `mg`. |
 
+> `$prefix` must be configured once, at your compilation entry point. Configuring it in multiple files will cause a Sass error.
+
 ## Mixins
 
 ### `theme($refs, $tokens, $namespace, $include, $exclude)`
@@ -171,7 +173,8 @@ $tokens: theme.refs(("text-color": darkcyan, "text-size": 16px), "button");
 
 ### `ref($token)`
 
-Returns a CSS `var()` reference for a token name, using the configured `$prefix`. Useful for cross-namespace references without hardcoding the prefix.
+Returns a CSS `var()` reference for a token name, using the configured `$prefix`. Useful for cross-namespace references
+without hardcoding the prefix.
 
 ```scss
 @use "@magnesium/theme" with ($prefix: "ds");
@@ -218,11 +221,11 @@ Import the compatibility layer to keep using the v4 API:
 @use "@magnesium/theme/compat" as theme;
 ```
 
-| v4                                             | v5                                             |
-|------------------------------------------------|------------------------------------------------|
-| `config($prefix: "ds")`                        | `@use "@magnesium/theme" with ($prefix: "ds")` |
-| `create-name("btn", "color")`                  | `name("btn", "color")`                         |
-| `create-theme-vars($tokens, "btn")`            | `refs($tokens, "btn")`                         |
-| `emit-variable($tokens, "token", true, "btn")` | `variable($tokens, "token", "btn", true)`      |
-| `emit-custom-props($tokens, "btn")`            | `emit($tokens, "btn")`                         |
-| `emit-color-scheme("dark")`                    | `scheme("dark")`                               |
+| v4                                                | v5                                             |
+|---------------------------------------------------|------------------------------------------------|
+| `config($prefix: "ds")`                           | `@use "@magnesium/theme" with ($prefix: "ds")` |
+| `create-name("button", "color")`                  | `name("button", "color")`                      |
+| `create-theme-vars($tokens, "button")`            | `refs($tokens, "button")`                      |
+| `emit-variable($tokens, "token", true, "button")` | `variable($tokens, "token", "button", true)`   |
+| `emit-custom-props($tokens, "button")`            | `emit($tokens, "button")`                      |
+| `emit-color-scheme("dark")`                       | `scheme("dark")`                               |
