@@ -11,14 +11,16 @@
             @include it("Should emit custom properties with prefix and namespace.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": (
+                                "top": 12px
+                            )
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "text-color": darkcyan,
-                                "text-size": 16px,
-                                "padding": (
-                                    "top": 12px
-                                )
-                            ), "button");
+                            @include mixins.emit($tokens, "button");
                         }
                     }
 
@@ -35,12 +37,14 @@
             @include it("Should emit custom properties with falsy values.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "border-radius": 0,
+                            "gap": 0px,
+                            "visible": false
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "border-radius": 0,
-                                "gap": 0px,
-                                "visible": false
-                            ), "card");
+                            @include mixins.emit($tokens, "card");
                         }
                     }
 
@@ -57,11 +61,13 @@
             @include it("Should skip null values.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": null
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "text-color": darkcyan,
-                                "text-size": null
-                            ), "button");
+                            @include mixins.emit($tokens, "button");
                         }
                     }
 
@@ -76,19 +82,21 @@
             @include it("Should handle deeply nested maps.") {
                 @include assert {
                     @include output(false) {
-                        .test {
-                            @include mixins.emit((
-                                "spacing": (
-                                    "padding": (
-                                        "top": 12px,
-                                        "bottom": 8px
-                                    ),
-                                    "margin": (
-                                        "left": 4px
-                                    )
+                        $tokens: (
+                            "spacing": (
+                                "padding": (
+                                    "top": 12px,
+                                    "bottom": 8px
                                 ),
-                                "text-color": darkcyan
-                            ), "button");
+                                "margin": (
+                                    "left": 4px
+                                )
+                            ),
+                            "text-color": darkcyan
+                        );
+
+                        .test {
+                            @include mixins.emit($tokens, "button");
                         }
                     }
 
@@ -106,8 +114,10 @@
             @include it("Should emit nothing for an empty map.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: ();
+
                         .test {
-                            @include mixins.emit((), "button");
+                            @include mixins.emit($tokens, "button");
                             content: "placeholder";
                         }
                     }
@@ -123,12 +133,19 @@
             @include it("Should emit only included tokens.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "primary": blue,
+                            "secondary": coral,
+                            "accent": gold
+                        );
+
+                        $include: (
+                            "primary",
+                            "accent"
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "primary": blue,
-                                "secondary": coral,
-                                "accent": gold
-                            ), "color", $include:("primary", "accent"));
+                            @include mixins.emit($tokens, "color", $include: $include);
                         }
                     }
 
@@ -144,12 +161,18 @@
             @include it("Should emit all tokens except excluded ones.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "primary": blue,
+                            "secondary": coral,
+                            "accent": gold
+                        );
+
+                        $exclude: (
+                            "secondary"
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "primary": blue,
-                                "secondary": coral,
-                                "accent": gold
-                            ), "color", $exclude: ("secondary",));
+                            @include mixins.emit($tokens, "color", $exclude: $exclude);
                         }
                     }
 
@@ -165,13 +188,25 @@
             @include it("Should apply include and exclude together.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "primary": blue,
+                            "secondary": coral,
+                            "accent": gold,
+                            "muted": gray
+                        );
+
+                        $include: (
+                            "primary",
+                            "accent",
+                            "muted"
+                        );
+
+                        $exclude: (
+                            "muted"
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "primary": blue,
-                                "secondary": coral,
-                                "accent": gold,
-                                "muted": gray
-                            ), "color", $include:("primary", "accent", "muted"), $exclude: ("muted",));
+                            @include mixins.emit($tokens, "color", $include: $include, $exclude: $exclude);
                         }
                     }
 
@@ -187,10 +222,12 @@
             @include it("Should emit custom properties in a named @layer.") {
                 @include assert {
                     @include output(false) {
-                        @include mixins.emit((
+                        $tokens: (
                             "text-color": darkcyan,
                             "text-size": 16px
-                        ), "button", $layer: "tokens");
+                        );
+
+                        @include mixins.emit($tokens, "button", $layer: "tokens");
                     }
 
                     @include expect(false) {
@@ -205,11 +242,13 @@
             @include it("Should emit custom properties without namespace.") {
                 @include assert {
                     @include output(false) {
+                        $tokens: (
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        );
+
                         .test {
-                            @include mixins.emit((
-                                "text-color": darkcyan,
-                                "text-size": 16px
-                            ));
+                            @include mixins.emit($tokens);
                         }
                     }
 
@@ -233,7 +272,9 @@
                         );
 
                         .test {
-                            @include mixins.theme($refs, ("text-color": darkorange), "button");
+                            @include mixins.theme($refs, (
+                                "text-color": darkorange
+                            ), "button");
                         }
                     }
 
@@ -248,10 +289,23 @@
             @include it("Should emit only included tokens.") {
                 @include assert {
                     @include output(false) {
-                        $refs: ("text-color": darkcyan, "text-size": 16px, "padding": 8px);
+                        $refs: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": 8px
+                        );
+
+                        $include: (
+                            "text-color",
+                            "padding"
+                        );
 
                         .test {
-                            @include mixins.theme($refs, ("text-color": darkorange, "text-size": 14px, "padding": 4px), "button", $include: ("text-color", "padding"));
+                            @include mixins.theme($refs, (
+                                "text-color": darkorange,
+                                "text-size": 14px,
+                                "padding": 4px
+                            ), "button", $include: $include);
                         }
                     }
 
@@ -267,10 +321,22 @@
             @include it("Should emit all tokens except excluded ones.") {
                 @include assert {
                     @include output(false) {
-                        $refs: ("text-color": darkcyan, "text-size": 16px, "padding": 8px);
+                        $refs: (
+                            "text-color": darkcyan,
+                            "text-size": 16px,
+                            "padding": 8px
+                        );
+
+                        $exclude: (
+                            "text-size"
+                        );
 
                         .test {
-                            @include mixins.theme($refs, ("text-color": darkorange, "text-size": 14px, "padding": 4px), "button", $exclude: ("text-size",));
+                            @include mixins.theme($refs, (
+                                "text-color": darkorange,
+                                "text-size": 14px,
+                                "padding": 4px
+                            ), "button", $exclude: $exclude);
                         }
                     }
 
@@ -278,6 +344,29 @@
                         .test {
                             --mg-button-text-color: darkorange;
                             --mg-button-padding: 4px;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should emit custom properties without namespace.") {
+                @include assert {
+                    @include output(false) {
+                        $refs: (
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        );
+
+                        .test {
+                            @include mixins.theme($refs, (
+                                "text-color": darkorange
+                            ));
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-text-color: darkorange;
                         }
                     }
                 }
@@ -334,7 +423,7 @@
                     }
 
                     @include expect(false) {
-                        [data-theme='dark'] {
+                        [data-theme="dark"] {
                             --mg-color-primary: darkorange;
                         }
                     }

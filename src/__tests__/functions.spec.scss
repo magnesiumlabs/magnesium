@@ -36,7 +36,10 @@
             }
 
             @include it("Should return validated tokens from a list of references.") {
-                $refs: ("text-color", "text-size");
+                $refs: (
+                    "text-color",
+                    "text-size"
+                );
 
                 $tokens: (
                     "text-color": darkorange
