@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.0](https://github.com/magnesiumlabs/magnesium/compare/v5.0.1...v5.1.0) (2026-05-29)
+
+### Features
+
+* **scheme:** wrap output in a named cascade layer via $layer ([78cdd83](https://github.com/magnesiumlabs/magnesium/commit/78cdd83d85e61bb442a39f51ca43254b3e511fb0))
+
 ## [5.0.1](https://github.com/magnesiumlabs/magnesium/compare/v5.0.0...v5.0.1) (2026-05-23)
 
 ### Bug Fixes
