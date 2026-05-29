@@ -62,12 +62,20 @@
 ///
 /// Emits scoped CSS declarations for a color scheme.
 /// With `$selector`, wraps in a selector rule; otherwise uses `@media (prefers-color-scheme)`.
+/// With `$layer`, wraps the whole output in a named cascade layer.
 ///
 /// @param {String} $scheme   - The color scheme (`"light"` or `"dark"`). Default: `"light"`.
 /// @param {String} $selector - A CSS selector to scope the declarations. Default: `null`.
+/// @param {String} $layer    - A CSS cascade layer name. Default: `null`.
 ///
-@mixin scheme($scheme: "light", $selector: null) {
-    @if $selector {
+@mixin scheme($scheme: "light", $selector: null, $layer: null) {
+    @if $layer {
+        @layer #{$layer} {
+            @include scheme($scheme, $selector) {
+                @content;
+            }
+        }
+    } @else if $selector {
         #{$selector} {
             @content;
         }

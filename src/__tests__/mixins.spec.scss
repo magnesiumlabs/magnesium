@@ -445,6 +445,46 @@
                     }
                 }
             }
+
+            @include it("Should wrap the media query in a named @layer.") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.scheme("dark", $layer: "tokens") {
+                            .test {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @layer tokens {
+                            @media (prefers-color-scheme: dark) {
+                                .test {
+                                    --mg-color-primary: darkorange;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include it("Should wrap the selector in a named @layer.") {
+                @include assert {
+                    @include output(false) {
+                        @include mixins.scheme($selector: ".theme-dark", $layer: "tokens") {
+                            --mg-color-primary: darkorange;
+                        }
+                    }
+
+                    @include expect(false) {
+                        @layer tokens {
+                            .theme-dark {
+                                --mg-color-primary: darkorange;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
