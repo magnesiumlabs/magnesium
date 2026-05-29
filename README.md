@@ -102,7 +102,7 @@ Use `$layer` to wrap the output in a named [cascade layer](https://developer.moz
 }
 ```
 
-### `scheme($scheme, $selector)`
+### `scheme($scheme, $selector, $layer)`
 
 Emits scoped declarations for a color scheme.
 
@@ -135,6 +135,26 @@ Use `$selector` to scope to a class or attribute instead:
 ```css
 [data-theme='dark'] {
     --ds-color-primary: darkorange;
+}
+```
+
+Use `$layer` to wrap the output in a named [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer):
+
+```scss
+@include theme.scheme("dark", $layer: "tokens") {
+    :root {
+        @include theme.emit(("primary": darkorange), "color");
+    }
+}
+```
+
+```css
+@layer tokens {
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --ds-color-primary: darkorange;
+        }
+    }
 }
 ```
 
