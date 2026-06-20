@@ -83,7 +83,7 @@
 
 ///
 /// Returns a CSS `var()` reference for a single token.
-/// Emits `@warn` if the token does not exist in the map.
+/// Throws `@error` if the token does not exist in the map.
 ///
 /// @param {Map} $tokens - The tokens map.
 /// @param {String} $token - The token key.
@@ -94,7 +94,7 @@
 ///
 @function variable($tokens, $token, $namespace: null, $fallback: false) {
     @if not map.has-key($tokens, $token) {
-        @warn "[magnesium] Unknown token '#{$token}'. Available tokens: #{map.keys($tokens)}";
+        @error "Unknown token: '#{$token}'. Available tokens: '#{map.keys($tokens)}'";
     }
 
     $value: map.get($tokens, $token);
