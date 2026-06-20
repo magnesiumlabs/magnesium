@@ -371,6 +371,27 @@
                     }
                 }
             }
+
+            @include it("Should validate and emit in a named @layer.") {
+                @include assert {
+                    @include output(false) {
+                        $refs: (
+                            "text-color": darkcyan,
+                            "text-size": 16px
+                        );
+
+                        @include mixins.theme($refs, (
+                            "text-color": darkorange
+                        ), "button", $layer: "tokens");
+                    }
+
+                    @include expect(false) {
+                        @layer tokens {
+                            --mg-button-text-color: darkorange;
+                        }
+                    }
+                }
+            }
         }
 
         @include describe("scheme()") {

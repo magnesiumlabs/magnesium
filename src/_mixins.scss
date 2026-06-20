@@ -49,11 +49,12 @@
 /// @param {String} $namespace - The namespace (without prefix). Default: `null`.
 /// @param {List} $include - A list of token keys to include. Default: `null` (include all).
 /// @param {List} $exclude - A list of token keys to exclude. Default: `null` (exclude none).
+/// @param {String} $layer - A CSS cascade layer name. Default: `null`.
 ///
-@mixin theme($refs, $tokens, $namespace: null, $include: null, $exclude: null) {
+@mixin theme($refs, $tokens, $namespace: null, $include: null, $exclude: null, $layer: null) {
     $tokens: functions.validation($refs, $tokens);
 
-    @include emit($tokens, $namespace: $namespace, $include: $include, $exclude: $exclude);
+    @include emit($tokens, $namespace: $namespace, $include: $include, $exclude: $exclude, $layer: $layer);
 }
 
 ///
