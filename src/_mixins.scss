@@ -8,7 +8,6 @@
 @use "@unsass/string";
 @use "@unsass/types" as type;
 @use "./functions";
-@use "./variables";
 
 ///
 /// Emits CSS custom properties declarations from a tokens map.
@@ -30,7 +29,7 @@
             $excluded: $exclude and list.index($exclude, $key) != null;
 
             @if $included and not $excluded and $value != null {
-                $name: string.combine(variables.$prefix, $namespace, $key);
+                $name: functions.name($namespace, $key);
 
                 @if type.is-map($value) {
                     @include emit($value, string.combine($namespace, $key));
