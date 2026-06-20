@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.0](https://github.com/magnesiumlabs/magnesium/compare/v5.1.0...v5.2.0) (2026-06-20)
+
+### Features
+
+* **mixins:** support $layer in theme() ([149174f](https://github.com/magnesiumlabs/magnesium/commit/149174f81b3dd569cc502c5ac59ec11544f27feb))
+
+### Bug Fixes
+
+* **deps:** align engines.node with vite 8 requirement ([eaf7493](https://github.com/magnesiumlabs/magnesium/commit/eaf749355181b9be9bfc37116fcbbc0ff87561c3))
+* **functions:** throw on unknown token in variable() ([d6663fb](https://github.com/magnesiumlabs/magnesium/commit/d6663fb47e852933e4e5b4f58c67c61d75972782))
+
 ## [5.1.0](https://github.com/magnesiumlabs/magnesium/compare/v5.0.1...v5.1.0) (2026-05-29)
 
 ### Features
