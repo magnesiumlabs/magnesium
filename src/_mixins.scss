@@ -26,18 +26,16 @@
         }
     } @else {
         @each $key, $value in $tokens {
-            @if ($include and list.index($include, $key) == null) or ($exclude and list.index($exclude, $key) != null) {
+            $included: not $include or list.index($include, $key) != null;
+            $excluded: $exclude and list.index($exclude, $key) != null;
 
-                // Skip filtered tokens.
-            } @else {
+            @if $included and not $excluded and $value != null {
                 $name: string.combine(variables.$prefix, $namespace, $key);
 
-                @if $value != null {
-                    @if type.is-map($value) {
-                        @include emit($value, string.combine($namespace, $key));
-                    } @else {
-                        @include css.declaration(custom-properties.create($name, $value));
-                    }
+                @if type.is-map($value) {
+                    @include emit($value, string.combine($namespace, $key));
+                } @else {
+                    @include css.declaration(custom-properties.create($name, $value));
                 }
             }
         }
