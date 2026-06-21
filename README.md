@@ -1,8 +1,4 @@
-<div align="center">
-
-![Magnesium Design](.github/banner.svg)
-
-</div>
+# Magnesium
 
 [![Version](https://flat.badgen.net/npm/v/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
 [![Downloads](https://flat.badgen.net/npm/dt/@magnesium/theme)](https://www.npmjs.com/package/@magnesium/theme)
@@ -10,7 +6,24 @@
 
 ## Introduction
 
-Sass toolkit for managing design tokens as CSS custom properties.
+Sass toolkit for managing design tokens as CSS custom properties. The model is **define → emit → consume**: declare
+tokens as plain Sass maps, emit them as scoped, prefixed custom properties, then reference them in your rules.
+
+<div align="center">
+
+![Magnesium](.github/banner.svg)
+
+</div>
+
+> **Full documentation:** [magnesium.dev](https://magnesium.dev) — this README is a summary; the site is the complete
+> reference.
+
+## Requirements
+
+| Dependency | Version     |
+|------------|-------------|
+| Node.js    | `>= 18`     |
+| Sass       | `>= 1.97.1` |
 
 ## Installing
 
@@ -32,210 +45,55 @@ npm run dev
 
 ## Usage
 
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-```
-
-### Options
-
-| Option    | Description                                             |
-|-----------|---------------------------------------------------------|
-| `$prefix` | Global prefix for all custom properties. Default: `mg`. |
-
-> `$prefix` must be configured once, at your compilation entry point. Configuring it in multiple files will cause a Sass error.
-
-## Mixins
-
-### `theme($refs, $tokens, $namespace, $include, $exclude, $layer)`
-
-Validates tokens then emits CSS custom properties in one call.
-
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-
-$refs: ("text-color": darkcyan, "text-size": 16px);
-
-.foo {
-    @include theme.theme($refs, ("text-color": darkorange), "button");
-}
-```
-
-```css
-.foo {
-    --ds-button-text-color: darkorange;
-}
-```
-
-`$include`, `$exclude` and `$layer` work the same as in `emit()`.
-
-### `emit($tokens, $namespace, $include, $exclude, $layer)`
-
-Emits CSS custom properties declarations.
-
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-
-.foo {
-    @include theme.emit(("text-color": darkcyan), "button");
-}
-```
-
-```css
-.foo {
-    --ds-button-text-color: darkcyan;
-}
-```
-
-Use `$layer` to wrap the output in a named [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer):
-
-```scss
-:root {
-    @include theme.emit(("text-color": darkcyan), "button", $layer: "tokens");
-}
-```
-
-```css
-@layer tokens {
-    :root {
-        --ds-button-text-color: darkcyan;
-    }
-}
-```
-
-### `scheme($scheme, $selector, $layer)`
-
-Emits scoped declarations for a color scheme.
-
-Use `$scheme` alone to emit a `@media (prefers-color-scheme)` block:
-
-```scss
-@include theme.scheme("dark") {
-    :root {
-        @include theme.emit(("primary": darkorange), "color");
-    }
-}
-```
-
-```css
-@media (prefers-color-scheme: dark) {
-    :root {
-        --ds-color-primary: darkorange;
-    }
-}
-```
-
-Use `$selector` to scope to a class or attribute instead:
-
-```scss
-@include theme.scheme("dark", $selector: "[data-theme='dark']") {
-    @include theme.emit(("primary": darkorange), "color");
-}
-```
-
-```css
-[data-theme='dark'] {
-    --ds-color-primary: darkorange;
-}
-```
-
-Use `$layer` to wrap the output in a named [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer):
-
-```scss
-@include theme.scheme("dark", $layer: "tokens") {
-    :root {
-        @include theme.emit(("primary": darkorange), "color");
-    }
-}
-```
-
-```css
-@layer tokens {
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --ds-color-primary: darkorange;
-        }
-    }
-}
-```
-
-## Functions
-
-### `variable($tokens, $token, $namespace, $fallback)`
-
-Returns a CSS `var()` reference for a single token.
+Configure the prefix once, at your compilation entry point, then define, emit and consume tokens:
 
 ```scss
 @use "@magnesium/theme" with ($prefix: "ds");
 
 $tokens: ("text-color": darkcyan);
 
-.foo {
-    color: theme.variable($tokens, "text-color", "button");
+:root {
+    @include theme.emit($tokens, "button"); // --ds-button-text-color: darkcyan;
+}
+
+.button {
+    color: theme.variable($tokens, "text-color", "button"); // var(--ds-button-text-color)
 }
 ```
 
-```css
-.foo {
-    color: var(--ds-button-text-color);
-}
-```
+### Options
 
-### `refs($tokens, $namespace)`
+| Option    | Description                                                                        |
+|-----------|------------------------------------------------------------------------------------|
+| `$prefix` | Global prefix for all custom properties. Set to `false` to disable. Default: `mg`. |
 
-Transforms a tokens map into `var()` CSS custom property references.
+> Configure `$prefix` once. Setting it in multiple files causes a Sass error. With the `pkg:` importer, use
+> `@use "pkg:@magnesium/theme"`.
 
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
+## Mixins
 
-$tokens: theme.refs(("text-color": darkcyan, "text-size": 16px), "button");
-// -> ("text-color": var(--ds-button-text-color, darkcyan), "text-size": var(--ds-button-text-size, 16px))
-```
+| Mixin                                                           | Description                                                                                                      |
+|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `emit($tokens, $namespace, $include, $exclude, $layer)`         | Emits CSS custom property declarations. Filter keys with `$include` / `$exclude`, wrap in `@layer` via `$layer`. |
+| `theme($refs, $tokens, $namespace, $include, $exclude, $layer)` | Validates tokens against a reference schema, then emits them in one call. Throws `@error` on unknown tokens.     |
+| `scheme($scheme, $selector, $layer)`                            | Scopes declarations to a color scheme via `@media (prefers-color-scheme)`, or an explicit `$selector`.           |
 
-### `ref($token)`
+## Functions
 
-Returns a CSS `var()` reference for a token name, using the configured `$prefix`. Useful for cross-namespace references
-without hardcoding the prefix.
+| Function                                           | Description                                                                   |
+|----------------------------------------------------|-------------------------------------------------------------------------------|
+| `name($name...)`                                   | Builds a hyphenated, prefixed name string.                                    |
+| `ref($token)`                                      | Returns a `var()` reference for a token name, using the configured prefix.    |
+| `refs($tokens, $namespace)`                        | Transforms a tokens map into `var()` references with fallback values.         |
+| `validation($refs, $tokens)`                       | Validates tokens against a reference schema; throws `@error` on unknown keys. |
+| `variable($tokens, $token, $namespace, $fallback)` | Returns a `var()` reference for a single token.                               |
 
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-
-.foo {
-    color: theme.ref("button-text-color");
-}
-```
-
-```css
-.foo {
-    color: var(--ds-button-text-color);
-}
-```
-
-### `validation($refs, $tokens)`
-
-Validates user-provided tokens against a reference schema. Throws `@error` if a token is unsupported.
-
-```scss
-@use "@magnesium/theme";
-
-$refs: ("text-color": darkcyan);
-$tokens: ("text-color": darkorange);
-
-$tokens: theme.validation($refs, $tokens);
-```
-
-### `name($name...)`
-
-Creates a hyphenated name prefixed with the configured `$prefix`.
-
-```scss
-@use "@magnesium/theme" with ($prefix: "ds");
-
-theme.name("button", "text-color"); // -> "ds-button-text-color"
-```
+See [magnesium.dev](https://magnesium.dev) for parameters and examples.
 
 ## Migration from v4
 
-Import the compatibility layer to keep using the v4 API:
+The v4 API is **deprecated** and will be removed in v6. Import the compatibility layer to keep it working while you
+migrate — each deprecated call emits a `@warn`:
 
 ```scss
 @use "@magnesium/theme/compat" as theme;
@@ -248,4 +106,7 @@ Import the compatibility layer to keep using the v4 API:
 | `create-theme-vars($tokens, "button")`            | `refs($tokens, "button")`                      |
 | `emit-variable($tokens, "token", true, "button")` | `variable($tokens, "token", "button", true)`   |
 | `emit-custom-props($tokens, "button")`            | `emit($tokens, "button")`                      |
+| `emit-theme-vars($refs)`                          | `emit($refs)`                                  |
 | `emit-color-scheme("dark")`                       | `scheme("dark")`                               |
+
+See the full [migration guide](https://magnesium.dev/guide/migration) for before/after examples.
