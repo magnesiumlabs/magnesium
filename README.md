@@ -9,14 +9,13 @@
 Sass toolkit for managing design tokens as CSS custom properties. The model is **define → emit → consume**: declare
 tokens as plain Sass maps, emit them as scoped, prefixed custom properties, then reference them in your rules.
 
+This README is a quick overview, the full guides and API reference live at **[magnesium.dev](https://magnesium.dev)**.
+
 <div align="center">
 
 ![Magnesium](.github/banner.svg)
 
 </div>
-
-> **Full documentation:** [magnesium.dev](https://magnesium.dev) — this README is a summary; the site is the complete
-> reference.
 
 ## Requirements
 
