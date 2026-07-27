@@ -7,65 +7,344 @@
     <link rel="stylesheet" href="./playground.scss">
 </head>
 <body>
-    <div class="playground">
-        <h1>Magnesium Playground</h1>
-        <p style="opacity:0.5;margin-bottom:24px">This library has no default theme. Everything below is a custom example to showcase the API.</p>
+    <header class="masthead">
+        <div class="masthead__inner">
+            <div>
+                <h1 class="masthead__title">Magnesium</h1>
+                <p class="masthead__tagline">
+                    Every element below is styled by CSS custom properties emitted through the API.
+                    The library ships no theme &mdash; these tokens are the playground's own.
+                </p>
+                <p class="masthead__meta">
+                    <code>@use "@magnesium/theme" with ($prefix: "ds")</code>
+                </p>
+            </div>
 
-        <div class="section">
-            <p class="section__title">Theme</p>
-            <label class="toggle">
-                <input type="checkbox" id="theme-toggle">
-                Dark mode
-            </label>
-        </div>
-
-        <div class="section">
-            <p class="section__title">Colors — emit()</p>
-            <div class="row">
-                <div class="swatch" style="background: var(--ds-color-primary)" title="primary"></div>
-                <div class="swatch" style="background: var(--ds-color-on-primary)" title="on-primary"></div>
-                <div class="swatch" style="background: var(--ds-color-surface)" title="surface"></div>
-                <div class="swatch" style="background: var(--ds-color-on-surface)" title="on-surface"></div>
-                <div class="swatch" style="background: var(--ds-color-error)" title="error"></div>
-                <div class="swatch" style="background: var(--ds-color-success)" title="success"></div>
+            <div class="segmented" role="group" aria-label="Color scheme">
+                <button type="button" class="segmented__item is-active" data-scheme="auto">Auto</button>
+                <button type="button" class="segmented__item" data-scheme="light">Light</button>
+                <button type="button" class="segmented__item" data-scheme="dark">Dark</button>
             </div>
         </div>
+    </header>
 
-        <div class="section">
-            <p class="section__title">Buttons — variable()</p>
-            <div class="row">
-                <button class="button">Filled</button>
-                <button class="button button--outlined">Outlined</button>
-                <button class="button button--error">Error</button>
+    <main class="page">
+        <!-- emit() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">emit<span>()</span></h2>
+                <p class="feature__sig">emit($tokens, $namespace, $include, $exclude, $layer)</p>
+                <p class="feature__desc">
+                    Turns a Sass map into custom property declarations. Nested maps flatten into hyphenated
+                    names, and <code>null</code> values are skipped entirely.
+                </p>
             </div>
-        </div>
 
-        <div class="section">
-            <p class="section__title">Badges — theme()</p>
-            <div class="row">
-                <span class="badge">Success</span>
-                <span class="badge badge--error">Error</span>
-            </div>
-        </div>
+            <div class="feature__body">
+                <div class="preview">
+                    <div class="swatches">
+                        <div class="swatch"><i style="background: var(--ds-color-primary)"></i>primary</div>
+                        <div class="swatch"><i style="background: var(--ds-color-surface-sunken)"></i>surface-sunken</div>
+                        <div class="swatch"><i style="background: var(--ds-color-on-surface)"></i>on-surface</div>
+                        <div class="swatch"><i style="background: var(--ds-color-muted)"></i>muted</div>
+                        <div class="swatch"><i style="background: var(--ds-color-error)"></i>error</div>
+                        <div class="swatch"><i style="background: var(--ds-color-success)"></i>success</div>
+                    </div>
+                </div>
 
-        <div class="section">
-            <p class="section__title">Card — refs()</p>
-            <div class="card">
-                <p class="card__title">Design tokens</p>
-                <p class="card__text">All styles on this page are driven by CSS custom properties emitted by @magnesium/theme.</p>
-                <div class="row">
-                    <button class="button">Action</button>
-                    <button class="button button--outlined">Cancel</button>
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">$colors: (
+    "primary": #4f46e5,
+    "error": #dc2626
+);
+
+:root {
+    @include theme.emit($colors, "color");
+}</pre>
+                    <pre class="code__block" data-lang="css">:root {
+    --ds-color-primary: #4f46e5;
+    --ds-color-error: #dc2626;
+}</pre>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- variable() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">variable<span>()</span></h2>
+                <p class="feature__sig">variable($tokens, $token, $namespace, $fallback)</p>
+                <p class="feature__desc">
+                    Returns a <code>var()</code> reference for one token. With <code>$fallback: true</code> the
+                    map value is inlined, so the component still renders if the property was never emitted.
+                    An unknown key raises an <code>@error</code> at compile time.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <div class="row">
+                        <button class="button">Filled</button>
+                        <button class="button button--outlined">Outlined</button>
+                        <button class="button button--danger">Danger</button>
+                    </div>
+                    <p class="preview__note">No <code>:root</code> declaration backs these buttons &mdash; the fallbacks carry them.</p>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">.button {
+    background: theme.variable(
+        $button, "container-color", "button", true
+    );
+}</pre>
+                    <pre class="code__block" data-lang="css">.button {
+    background: var(--ds-button-container-color, #4f46e5);
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- refs() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">refs<span>()</span></h2>
+                <p class="feature__sig">refs($tokens, $namespace)</p>
+                <p class="feature__desc">
+                    Rewrites a whole map into <code>var()</code> references, recursing through nested maps.
+                    You keep the map shape and read it with <code>map.get()</code>, so a token is declared once
+                    and consumed everywhere. Here the fallbacks are themselves tokens, which is why the card
+                    follows the scheme without ever emitting <code>--ds-card-*</code>.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <article class="card">
+                        <h3 class="card__title">Design tokens</h3>
+                        <p class="card__text">
+                            This card's background, border, radius and padding all come out of a single
+                            transformed map.
+                        </p>
+                        <div class="row">
+                            <button class="button">Action</button>
+                            <button class="button button--outlined">Cancel</button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">$card: (
+    "bg": theme.ref("color-surface-raised"),
+    "radius": 14px
+);
+
+$refs: theme.refs($card, "card");
+
+.card {
+    background: map.get($refs, "bg");
+    border-radius: map.get($refs, "radius");
+}</pre>
+                    <pre class="code__block" data-lang="css">.card {
+    background: var(--ds-card-bg, var(--ds-color-surface-raised));
+    border-radius: var(--ds-card-radius, 14px);
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- theme() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">theme<span>()</span></h2>
+                <p class="feature__sig">theme($refs, $tokens, $namespace, $include, $exclude, $layer)</p>
+                <p class="feature__desc">
+                    Validates a token map against a reference schema, then emits it. Any key absent from the
+                    schema stops the build with an <code>@error</code> &mdash; a typo becomes a compile failure
+                    instead of a property that silently never applies.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <div class="row">
+                        <span class="badge">Success</span>
+                        <span class="badge badge--danger">Error</span>
+                        <span class="badge badge--neutral">Neutral</span>
+                    </div>
+                    <p class="preview__note">Same schema, three overrides &mdash; each one checked at compile time.</p>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">.badge {
+    @include theme.theme($badge, (
+        "bg-color": #16a34a
+    ), "badge");
+}</pre>
+                    <pre class="code__block" data-lang="scss">// "bg-colour" is not in the schema
+@include theme.theme($badge, (
+    "bg-colour": #16a34a
+), "badge");
+
+// Error: Unsupported token: 'bg-colour'.</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- scheme() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">scheme<span>()</span></h2>
+                <p class="feature__sig">scheme($scheme, $selector, $layer)</p>
+                <p class="feature__desc">
+                    Scopes declarations to a color scheme. Without <code>$selector</code> it wraps them in
+                    <code>@media (prefers-color-scheme)</code>; with one, in that selector instead. The control
+                    in the header switches between both paths.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <div class="scheme-demo">
+                        <div class="scheme-demo__row">
+                            <span class="dot dot--auto"></span>
+                            <div><strong>Auto</strong><span>the media query decides</span></div>
+                        </div>
+                        <div class="scheme-demo__row">
+                            <span class="dot dot--manual"></span>
+                            <div><strong>Light / Dark</strong><span>the selector overrides it</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">@include theme.scheme("dark") {
+    :root { @include theme.emit($dark, "color"); }
+}
+
+@include theme.scheme($selector: "[data-theme='dark']") {
+    @include theme.emit($dark, "color");
+}</pre>
+                    <pre class="code__block" data-lang="css">@media (prefers-color-scheme: dark) {
+    :root { --ds-color-surface: #0e0f13; }
+}
+
+[data-theme="dark"] {
+    --ds-color-surface: #0e0f13;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ref() + name() -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">ref<span>()</span> &amp; name<span>()</span></h2>
+                <p class="feature__sig">ref($token) &middot; name($name...)</p>
+                <p class="feature__desc">
+                    The two prefix-aware primitives. <code>ref()</code> points at a token from another namespace
+                    without holding its map; <code>name()</code> just builds the hyphenated string. Neither
+                    hardcodes <code>ds</code>, so renaming the prefix stays a one-line change.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <p class="ref-demo">
+                        A <a href="#" class="link">link</a> colored through <code>ref()</code>, with no access
+                        to the color map.
+                    </p>
+                    <p class="name-demo">name("color", "primary") &rarr; <span class="name-demo__out"></span></p>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">.link {
+    color: theme.ref("color-primary");
+}
+
+.token::after {
+    content: "#{theme.name('color', 'primary')}";
+}</pre>
+                    <pre class="code__block" data-lang="css">.link {
+    color: var(--ds-color-primary);
+}
+
+.token::after {
+    content: "ds-color-primary";
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Options -->
+        <section class="feature">
+            <div class="feature__head">
+                <h2 class="feature__name">$include &middot; $exclude &middot; $layer</h2>
+                <p class="feature__sig">shared by emit() and theme()</p>
+                <p class="feature__desc">
+                    <code>$include</code> and <code>$exclude</code> filter which keys reach the output, so one
+                    map can serve several scopes. <code>$layer</code> wraps the result in a named cascade layer,
+                    which keeps token defaults beneath any unlayered override.
+                </p>
+            </div>
+
+            <div class="feature__body">
+                <div class="preview">
+                    <div class="swatches">
+                        <div class="swatch"><i style="background: var(--ds-status-info)"></i>info</div>
+                        <div class="swatch"><i style="background: var(--ds-status-warn)"></i>warn</div>
+                        <div class="swatch"><i style="background: var(--ds-status-danger)"></i>danger</div>
+                        <div class="swatch swatch--missing"><i></i>debug &mdash; excluded</div>
+                    </div>
+                    <p class="preview__note">
+                        The <code>debug</code> key exists in the map but never reached the CSS, so its swatch has
+                        nothing to paint with.
+                    </p>
+                </div>
+
+                <div class="code">
+                    <pre class="code__block" data-lang="scss">:root {
+    @include theme.emit(
+        $status, "status", $exclude: ("debug")
+    );
+
+    @include theme.emit(
+        ("accent": #db2777), "demo", $layer: "tokens"
+    );
+}</pre>
+                    <pre class="code__block" data-lang="css">:root {
+    --ds-status-info: #0284c7;
+    --ds-status-warn: #d97706;
+    --ds-status-danger: #dc2626;
+}
+
+@layer tokens {
+    :root { --ds-demo-accent: #db2777; }
+}</pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Full guides and API reference at <a href="https://magnesium.dev" class="link">magnesium.dev</a></p>
+    </footer>
 
     <script>
-        const toggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const buttons = document.querySelectorAll('.segmented__item');
 
-        toggle.addEventListener('change', () => {
-            document.documentElement.setAttribute('data-theme', toggle.checked ? 'dark' : 'light');
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const scheme = button.dataset.scheme;
+
+                if (scheme === 'auto') {
+                    root.removeAttribute('data-theme');
+                } else {
+                    root.setAttribute('data-theme', scheme);
+                }
+
+                buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+            });
         });
     </script>
 </body>
