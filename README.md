@@ -19,8 +19,8 @@ This README is a quick overview, the full guides and API reference live at **[ma
 
 ## Why not plain custom properties?
 
-Writing `--button-text-color: darkcyan` by hand works right up until the token set grows. Magnesium adds three things
-on top of it:
+Writing `--button-text-color: darkcyan` by hand works right up until the token set grows. Magnesium adds three things on
+top of it:
 
 - **A typo becomes a build error.** `theme()` checks every token against a reference schema, so a misspelled key stops
   the compilation instead of quietly emitting a property that nothing ever reads.
