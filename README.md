@@ -19,10 +19,10 @@ This README is a quick overview, the full guides and API reference live at **[ma
 
 ## Requirements
 
-| Dependency | Version                    |
-|------------|----------------------------|
-| Node.js    | `^20.19.0 \|\| >= 22.12.0` |
-| Sass       | `>= 1.97.1`                |
+| Dependency | Version     |
+|------------|-------------|
+| Node.js    | `>= 20`     |
+| Sass       | `>= 1.97.1` |
 
 ## Installing
 

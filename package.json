@@ -14,7 +14,7 @@
         "release": "semantic-release"
     },
     "engines": {
-        "node": "^20.19.0 || >=22.12.0"
+        "node": ">=20"
     },
     "sass": "index.scss",
     "exports": {
@@ -23,7 +23,8 @@
         },
         "./compat": {
             "sass": "./compat.scss"
-        }
+        },
+        "./package.json": "./package.json"
     },
     "devDependencies": {
         "@commitlint/cli": "^21.0.1",
@@ -53,11 +54,14 @@
     "keywords": [
         "magnesium",
         "sass",
-        "design system",
+        "scss",
+        "design-tokens",
+        "design-system",
         "theme",
+        "theming",
         "tokens",
         "css-custom-properties",
-        "front-end"
+        "css-variables"
     ],
     "license": "MIT",
     "homepage": "https://github.com/magnesiumlabs/magnesium",
@@ -69,10 +73,8 @@
         "url": "git+https://github.com/magnesiumlabs/magnesium.git"
     },
     "files": [
-        ".github/banner.svg",
         "src/*.scss",
-        "*.scss",
-        "CHANGELOG.md"
+        "*.scss"
     ],
     "publishConfig": {
         "access": "public",
