@@ -91,6 +91,53 @@
                     }
                 }
             }
+
+            @include it("Should handle nested maps recursively.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: theme.create-theme-vars((
+                            "spacing": (
+                                "top": 12px,
+                                "bottom": 8px
+                            ),
+                            "text-color": darkcyan
+                        ), "button");
+
+                        .test {
+                            @include theme.emit-theme-vars($tokens);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-spacing-top: 12px;
+                            --mg-button-spacing-bottom: 8px;
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
+
+            @include it("Should skip null values.") {
+                @include assert {
+                    @include output(false) {
+                        $tokens: theme.create-theme-vars((
+                            "text-color": darkcyan,
+                            "text-size": null
+                        ), "button");
+
+                        .test {
+                            @include theme.emit-theme-vars($tokens);
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            --mg-button-text-color: darkcyan;
+                        }
+                    }
+                }
+            }
         }
 
         @include describe("emit-color-scheme()") {

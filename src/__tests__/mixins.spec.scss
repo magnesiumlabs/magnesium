@@ -395,6 +395,26 @@
         }
 
         @include describe("scheme()") {
+            @include it("Should default to light color scheme when no arguments are given.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            @include mixins.scheme {
+                                --mg-color-primary: darkcyan;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        @media (prefers-color-scheme: light) {
+                            .test {
+                                --mg-color-primary: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
             @include it("Should emit light color scheme media query.") {
                 @include assert {
                     @include output(false) {
