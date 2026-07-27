@@ -9,13 +9,27 @@
 Sass toolkit for managing design tokens as CSS custom properties. The model is **define → emit → consume**: declare
 tokens as plain Sass maps, emit them as scoped, prefixed custom properties, then reference them in your rules.
 
-This README is a quick overview, the full guides and API reference live at **[magnesium.dev](https://magnesium.dev)**.
-
 <div align="center">
 
 ![Magnesium](.github/banner.svg)
 
 </div>
+
+This README is a quick overview, the full guides and API reference live at **[magnesium.dev](https://magnesium.dev)**.
+
+## Why not plain custom properties?
+
+Writing `--button-text-color: darkcyan` by hand works right up until the token set grows. Magnesium adds three things
+on top of it:
+
+- **A typo becomes a build error.** `theme()` checks every token against a reference schema, so a misspelled key stops
+  the compilation instead of quietly emitting a property that nothing ever reads.
+- **One source of truth.** The same Sass map produces the declarations, the `var()` references and their fallbacks, so
+  the side that defines a token and the side that consumes it cannot drift apart.
+- **One prefix to change.** Every custom property is namespaced through `$prefix`, so renaming it is a single line
+  rather than a find-and-replace across the codebase.
+
+Magnesium ships no theme, no components and no reset &mdash; only the plumbing to declare tokens and read them back.
 
 ## Requirements
 
@@ -129,4 +143,4 @@ migrate — each deprecated call emits a `@warn`:
 > `emit-theme-vars()` re-emitted the values carried by a `create-theme-vars()` map, so it maps back to the raw tokens.
 > Passing a `refs()` map to `emit()` is a different operation — it declares aliases pointing at another layer.
 
-See the full [migration guide](https://magnesium.dev/guide/migration) for before/after examples.
+See the full [migration guide](https://magnesium.dev/guide/migration.html) for before/after examples.
