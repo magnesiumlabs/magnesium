@@ -19,10 +19,10 @@ This README is a quick overview, the full guides and API reference live at **[ma
 
 ## Requirements
 
-| Dependency | Version     |
-|------------|-------------|
-| Node.js    | `>= 18`     |
-| Sass       | `>= 1.97.1` |
+| Dependency | Version                    |
+|------------|----------------------------|
+| Node.js    | `^20.19.0 \|\| >= 22.12.0` |
+| Sass       | `>= 1.97.1`                |
 
 ## Installing
 
@@ -49,16 +49,22 @@ Configure the prefix once, at your compilation entry point, then define, emit an
 ```scss
 @use "@magnesium/theme" with ($prefix: "ds");
 
+// 1. Define — plain Sass maps, no output.
 $tokens: ("text-color": darkcyan);
 
+// 2. Emit — declare them as custom properties.
 :root {
     @include theme.emit($tokens, "button"); // --ds-button-text-color: darkcyan;
 }
 
+// 3. Consume — reference them in your rules.
 .button {
     color: theme.variable($tokens, "text-color", "button"); // var(--ds-button-text-color)
 }
 ```
+
+Emit and consume derive the custom property name from the same `$prefix` and `$namespace`, so the two sides cannot
+drift apart.
 
 ### Options
 
@@ -69,23 +75,35 @@ $tokens: ("text-color": darkcyan);
 > Configure `$prefix` once. Setting it in multiple files causes a Sass error. With the `pkg:` importer, use
 > `@use "pkg:@magnesium/theme"`.
 
-## Mixins
+## API
+
+The split follows the model: mixins emit CSS, functions return values.
+
+### Define
+
+Tokens are plain Sass maps — there is no API to learn. Nest them freely, nested maps are flattened on emit. One
+function guards the shape:
+
+| Function                     | Description                                                                   |
+|------------------------------|-------------------------------------------------------------------------------|
+| `validation($refs, $tokens)` | Validates tokens against a reference schema; throws `@error` on unknown keys. |
+
+### Emit
 
 | Mixin                                                           | Description                                                                                                      |
 |-----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `emit($tokens, $namespace, $include, $exclude, $layer)`         | Emits CSS custom property declarations. Filter keys with `$include` / `$exclude`, wrap in `@layer` via `$layer`. |
-| `theme($refs, $tokens, $namespace, $include, $exclude, $layer)` | Validates tokens against a reference schema, then emits them in one call. Throws `@error` on unknown tokens.     |
-| `scheme($scheme, $selector, $layer)`                            | Scopes declarations to a color scheme via `@media (prefers-color-scheme)`, or an explicit `$selector`.           |
+| `theme($refs, $tokens, $namespace, $include, $exclude, $layer)` | `validation()` then `emit()` in one call. Throws `@error` on unknown tokens.                                     |
+| `scheme($scheme, $selector, $layer)`                            | Scopes `@content` to a color scheme via `@media (prefers-color-scheme)`, or an explicit `$selector`.             |
 
-## Functions
+### Consume
 
-| Function                                           | Description                                                                   |
-|----------------------------------------------------|-------------------------------------------------------------------------------|
-| `name($name...)`                                   | Builds a hyphenated, prefixed name string.                                    |
-| `ref($token)`                                      | Returns a `var()` reference for a token name, using the configured prefix.    |
-| `refs($tokens, $namespace)`                        | Transforms a tokens map into `var()` references with fallback values.         |
-| `validation($refs, $tokens)`                       | Validates tokens against a reference schema; throws `@error` on unknown keys. |
-| `variable($tokens, $token, $namespace, $fallback)` | Returns a `var()` reference for a single token.                               |
+| Function                                           | Description                                                                                              |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| `variable($tokens, $token, $namespace, $fallback)` | Returns a `var()` reference for a single token. Throws `@error` if the token is missing from the map.    |
+| `ref($token)`                                      | Returns a `var()` reference from a token name alone, without hardcoding the prefix.                      |
+| `refs($tokens, $namespace)`                        | Transforms a tokens map into `var()` references with fallbacks. Pass the result to `emit()` to alias it. |
+| `name($name...)`                                   | Builds the hyphenated, prefixed name. Shared by everything above, which keeps emit and consume in sync.  |
 
 See [magnesium.dev](https://magnesium.dev) for parameters and examples.
 
