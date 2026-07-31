@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/magnesiumlabs/magnesium/compare/v5.2.0...v5.2.1) (2026-07-31)
+
+### Bug Fixes
+
+* **compat:** warn on every deprecated v4 call ([2fe7242](https://github.com/magnesiumlabs/magnesium/commit/2fe7242f9e09e61e9497b013dffd69b8d91af94c))
+
 ## [5.2.0](https://github.com/magnesiumlabs/magnesium/compare/v5.1.0...v5.2.0) (2026-06-20)
 
 ### Features
