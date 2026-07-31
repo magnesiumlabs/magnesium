@@ -123,7 +123,10 @@ migrate — each deprecated call emits a `@warn`:
 | `create-theme-vars($tokens, "button")`            | `refs($tokens, "button")`                      |
 | `emit-variable($tokens, "token", true, "button")` | `variable($tokens, "token", "button", true)`   |
 | `emit-custom-props($tokens, "button")`            | `emit($tokens, "button")`                      |
-| `emit-theme-vars($refs)`                          | `emit($refs)`                                  |
+| `emit-theme-vars($refs)`                          | `emit($tokens, "button")`                      |
 | `emit-color-scheme("dark")`                       | `scheme("dark")`                               |
+
+> `emit-theme-vars()` re-emitted the values carried by a `create-theme-vars()` map, so it maps back to the raw tokens.
+> Passing a `refs()` map to `emit()` is a different operation — it declares aliases pointing at another layer.
 
 See the full [migration guide](https://magnesium.dev/guide/migration) for before/after examples.
