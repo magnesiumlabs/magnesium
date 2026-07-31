@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/magnesiumlabs/magnesium/compare/v5.2.1...v5.2.2) (2026-07-31)
+
+### Bug Fixes
+
+* loosen engines, expose package.json and slim the published files ([9b2c27b](https://github.com/magnesiumlabs/magnesium/commit/9b2c27b22f4e6f7700683ccd67331cb2fa5add1e))
+
 ## [5.2.1](https://github.com/magnesiumlabs/magnesium/compare/v5.2.0...v5.2.1) (2026-07-31)
 
 ### Bug Fixes
