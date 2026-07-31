@@ -73,6 +73,8 @@
 /// @deprecated Use `name()` instead. Will be removed in v6.
 ///
 @function create-name($name...) {
+    @warn "[magnesium/compat] create-name() is deprecated in v5. Use name() instead.";
+
     @return fn.name($name...);
 }
 
@@ -80,6 +82,8 @@
 /// @deprecated Use `refs()` instead. Will be removed in v6.
 ///
 @function create-theme-vars($tokens, $component) {
+    @warn "[magnesium/compat] create-theme-vars() is deprecated in v5. Use refs() instead.";
+
     @return fn.refs($tokens, $namespace: $component);
 }
 
@@ -87,6 +91,8 @@
 /// @deprecated Use `variable()` instead. Will be removed in v6.
 ///
 @function emit-variable($tokens, $token, $fallback: false, $component: null) {
+    @warn "[magnesium/compat] emit-variable() is deprecated in v5. Use variable() instead.";
+
     @return fn.variable($tokens, $token, $namespace: $component, $fallback: $fallback);
 }
 
@@ -94,6 +100,8 @@
 /// @deprecated Use `emit()` instead. Will be removed in v6.
 ///
 @mixin emit-custom-props($tokens, $component: null, $include: null, $exclude: null) {
+    @warn "[magnesium/compat] emit-custom-props() is deprecated in v5. Use emit() instead.";
+
     @include mx.emit($tokens, $namespace: $component, $include: $include, $exclude: $exclude);
 }
 
@@ -101,6 +109,8 @@
 /// @deprecated Use `scheme()` instead. Will be removed in v6.
 ///
 @mixin emit-color-scheme($scheme: "light") {
+    @warn "[magnesium/compat] emit-color-scheme() is deprecated in v5. Use scheme() instead.";
+
     @include mx.scheme($scheme) {
         @content;
     }
@@ -110,10 +120,20 @@
 /// @deprecated Use `emit()` with raw tokens instead. Will be removed in v6.
 ///
 @mixin emit-theme-vars($tokens) {
+    @warn "[magnesium/compat] emit-theme-vars() is deprecated in v5. Use emit() instead.";
+
+    @include -emit-theme-vars-recursive($tokens);
+}
+
+///
+/// Private recursive body of `emit-theme-vars()`, kept separate so the deprecation
+/// warning is emitted once per call instead of once per nesting level.
+///
+@mixin -emit-theme-vars-recursive($tokens) {
     @each $key, $value in $tokens {
         @if $value != null {
             @if type.is-map($value) {
-                @include emit-theme-vars($value);
+                @include -emit-theme-vars-recursive($value);
             } @else {
                 @include css.declaration(var.name($value), var.fallback($value));
             }
