@@ -38,6 +38,7 @@
         "eslint": "^10.10.0",
         "husky": "^9.1.7",
         "npm-run-all2": "^9.0.3",
+        "sass": "^1.104.1",
         "sass-true": "^10.1.0",
         "semantic-release": "^25.0.9",
         "stylelint": "^17.15.0",
@@ -48,8 +49,19 @@
         "@unsass/css": "^3.1.0",
         "@unsass/string": "^1.4.4",
         "@unsass/types": "^1.0.1",
-        "@unsass/var": "^1.0.3",
-        "sass": "^1.97.1"
+        "@unsass/var": "^1.0.3"
+    },
+    "peerDependencies": {
+        "sass": "^1.104.1",
+        "sass-embedded": "^1.104.1"
+    },
+    "peerDependenciesMeta": {
+        "sass": {
+            "optional": true
+        },
+        "sass-embedded": {
+            "optional": true
+        }
     },
     "keywords": [
         "magnesium",
