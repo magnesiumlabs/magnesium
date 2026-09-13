@@ -35,7 +35,7 @@ Magnesium ships no theme, no components and no reset &mdash; only the plumbing t
 
 | Dependency | Version     |
 |------------|-------------|
-| Node.js    | `>= 20`     |
+| Node.js    | `>= 22`     |
 | Sass       | `>= 1.97.1` |
 
 ## Installing
