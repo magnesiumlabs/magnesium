@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.0](https://github.com/magnesiumlabs/magnesium/compare/v5.2.2...v5.3.0) (2026-09-14)
+
+### Features
+
+* declare sass and sass-embedded as optional peer dependencies ([e8a2b98](https://github.com/magnesiumlabs/magnesium/commit/e8a2b983dd3c5c4a48f762935e3a4acdac1205cd))
+
+### Bug Fixes
+
+* require node 22 or later ([1027300](https://github.com/magnesiumlabs/magnesium/commit/102730007b0a33821831a08425d61c8347f00850))
+
+### Dependencies
+
+* **deps:** bump @unsass/css to 3.2.0 ([8323c47](https://github.com/magnesiumlabs/magnesium/commit/8323c47129ee85240fea6b10852935d435b81db6))
+
 ## [5.2.2](https://github.com/magnesiumlabs/magnesium/compare/v5.2.1...v5.2.2) (2026-07-31)
 
 ### Bug Fixes
